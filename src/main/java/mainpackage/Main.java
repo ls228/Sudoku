@@ -15,7 +15,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         URL fxmlFileUrl = getClass().getClassLoader().getResource("sample.fxml");
         Parent root = FXMLLoader.load(Objects.requireNonNull(fxmlFileUrl));
-        primaryStage.setTitle("Sudoku");
+        primaryStage.setTitle("Very cool Sudoku");
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
     }
