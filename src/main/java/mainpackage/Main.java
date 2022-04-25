@@ -7,9 +7,12 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.util.Arrays;
 import java.util.Objects;
 
 public class Main extends Application {
+
+    static Board board = Board.getInstance();
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -18,8 +21,27 @@ public class Main extends Application {
         primaryStage.setTitle("Very cool Sudoku");
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
-    }
 
+
+        // BSP Brett
+        board.setBrett(0,0, 1);
+        board.setBrett(1,1,2);
+        board.setBrett(2,2,3);
+        board.setBrett(3,3,4);
+        board.setBrett(4,4,5);
+        board.setBrett(5,5,6);
+        board.setBrett(6,6,7);
+        board.setBrett(7,7,8);
+        board.setBrett(8,8,9);
+
+        board.setBrett(1,5,2);
+
+
+        System.out.println(board.toString());
+
+        board.checkWinning();
+
+    }
     public static void main(String[] args) {
         launch(args);
     }
