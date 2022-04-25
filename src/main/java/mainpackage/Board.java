@@ -1,5 +1,7 @@
 package mainpackage;
 
+import java.util.Arrays;
+
 public class Board {
 
 
@@ -28,7 +30,7 @@ public class Board {
                 buf.append("|");
                 buf.append(brett[i][j]);
             }
-            System.out.println();
+            buf.append('\n');
         }
         return buf.toString();
     }
