@@ -107,6 +107,7 @@ public class Board {
             if(i == 2 || i == 5 || i == 8){
                 if(set.size() != 9){
                     System.out.println("Quadrant doesnt contain all numbers");
+                    rt = false;
                     System.out.println(set.size());
                 }
                 else if(set.size() == 9){
@@ -131,6 +132,7 @@ public class Board {
             if(i == 2 || i == 5 || i == 8){
                 if(set.size() != 9){
                     System.out.println("Quadrant doesnt contain all numbers");
+                    rt = false;
                     System.out.println(set.size());
                 }
                 else if(set.size() == 9){
@@ -155,6 +157,7 @@ public class Board {
             if(i == 2 || i == 5 || i == 8){
                 if(set.size() != 9){
                     System.out.println("Quadrant doesnt contain all numbers");
+                    rt = false;
                     System.out.println(set.size());
                 }
                 else if(set.size() == 9){
