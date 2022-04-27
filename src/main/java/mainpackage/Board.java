@@ -94,10 +94,9 @@ public class Board {
 
         }
 
-        //checks if any 3x3 square has duplicates
 
 
-
+        //checks if any 3x3 square has duplicates in the first column
 
         set.clear();
         for (int i = 0; i < size; i++) {
@@ -116,7 +115,54 @@ public class Board {
                 set.clear();
 
             }
-            //Prüft die ersten 3 Kästchen -> könnt das gerne erweitern -> bin aber jetzt grade zu faul weiter zu machen
+
+        }
+
+
+
+        //checks if any 3x3 square has duplicates in the second column
+
+        set.clear();
+        for (int i = 0; i < size; i++) {
+
+            for (int j = 3; j < 6; j++) {
+                set.add(brett[i][j]);
+            }
+            if(i == 2 || i == 5 || i == 8){
+                if(set.size() != 9){
+                    System.out.println("Quadrant doesnt contain all numbers");
+                    System.out.println(set.size());
+                }
+                else if(set.size() == 9){
+                    System.out.println("Quadrant contains all numbers");
+                }
+                set.clear();
+
+            }
+
+        }
+
+
+
+        //checks if any 3x3 square has duplicates in the third column
+
+        set.clear();
+        for (int i = 0; i < size; i++) {
+
+            for (int j = 6; j < 9; j++) {
+                set.add(brett[i][j]);
+            }
+            if(i == 2 || i == 5 || i == 8){
+                if(set.size() != 9){
+                    System.out.println("Quadrant doesnt contain all numbers");
+                    System.out.println(set.size());
+                }
+                else if(set.size() == 9){
+                    System.out.println("Quadrant contains all numbers");
+                }
+                set.clear();
+
+            }
 
         }
 
