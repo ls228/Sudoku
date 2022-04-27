@@ -95,20 +95,26 @@ public class Board {
         }
 
         //checks if any 3x3 square has duplicates
-        int quadrant_sum = 0;
+
+
+
+
+        set.clear();
         for (int i = 0; i < size; i++) {
+
             for (int j = 0; j < 3; j++) {
-                quadrant_sum += brett[i][j];
+                set.add(brett[i][j]);
             }
             if(i == 2 || i == 5 || i == 8){
-                if(quadrant_sum != 45){
-                    System.out.println("Quadrant sum is not 45");
-                    System.out.println(quadrant_sum);
+                if(set.size() != 9){
+                    System.out.println("Quadrant doesnt contain all numbers");
+                    System.out.println(set.size());
                 }
-                else if(quadrant_sum == 45){
-                    System.out.println("Quadrant sum is 45");
+                else if(set.size() == 9){
+                    System.out.println("Quadrant contains all numbers");
                 }
-                quadrant_sum = 0;
+                set.clear();
+
             }
             //Prüft die ersten 3 Kästchen -> könnt das gerne erweitern -> bin aber jetzt grade zu faul weiter zu machen
 
