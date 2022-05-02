@@ -16,14 +16,14 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        URL fxmlFileUrl = getClass().getClassLoader().getResource("sample.fxml");
+        URL fxmlFileUrl = getClass().getClassLoader().getResource("Scenebuilder.fxml");
         Parent root = FXMLLoader.load(Objects.requireNonNull(fxmlFileUrl));
         primaryStage.setTitle("Very cool Sudoku");
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
 
         Games games=new Games();
-        
+
         startRound();
     }
 
