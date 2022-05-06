@@ -1,62 +1,57 @@
 package mainpackage;
 
-import java.util.Arrays;
-import java.util.HashSet;
-
 public class Board {
 
+    private int[][] board_scheme = new int [SIZE][SIZE];
+    public static final int SIZE = 9; // size of square / arrays
 
-    private int[][] brett= new int [size][size];
-    public static final int size = 9; // size of square / arrays
-
-    public int[][] getBrett() {
-        return brett;
-    }
-
-    private Board() {
-    }
-
+    public static Board getInstance() { return board; }
+    private Board() {}
     private static Board board = new Board();
 
-    public static Board getInstance() {
-        return board;
-    }
+
 
 
     @Override
     public String toString(){
         StringBuffer buf = new StringBuffer();
-        for(int i = 0; i < size; i++){
-            for(int j = 0; j < size; j++){
+        for(int i = 0; i < SIZE; i++){
+            for(int j = 0; j < SIZE; j++){
                 buf.append("|");
-                buf.append(brett[i][j]);
+                buf.append(board_scheme[i][j]);
             }
-            buf.append('\n');
+            buf.append("|\n");
         }
         return buf.toString();
     }
 
-    /*
-     *
-     * @param row index
-     * @param column index
-     * @param value to be set at given position
-     */
-    public void setBrett(int row,int column, int value) {
-        this.brett[row][column] = value;
+
+    public void setValueInBrett(int row, int column, int value) {
+        this.board_scheme[row][column] = value;
     }
 
-    /*
-     *
-     * @param row index
-     * @param col index
-     * @return value at given position on the board
+
+    /**
+     * Set ganzes Brett auf einmal über 2dim Array mit allen Werten (zeilenweise)
      */
+    public void setGanzesBrett(int [][] values) {
+        for(int i = 0; i < SIZE; i++){
+            for(int j = 0; j < SIZE; j++){
+                this.setValueInBrett(i, j, values[i][j]);
+            }
+        }
+    }
+
+
     public int getNumberAtIdx(int row, int col){
-        return brett[row][col];
+        return board_scheme[row][col];
     }
 
 
+
+
+
+/*
     public boolean checkWinning() {
 
         boolean rt = true;
@@ -173,15 +168,11 @@ public class Board {
         System.out.println("Finished checking winning");
         return rt;
     }
+*/
 
 
-
-
-    /*
-     *
-     * @param arr Array
-     * @return true if any value occurs more than once
-     */
+/*
+    // return true if any value occurs more than once
     private boolean checkForDuplicates(int[] arr){
         for(int i = 0; i < arr.length; i++){
             int cur = arr[i];
@@ -194,4 +185,5 @@ public class Board {
         }
         return true;
     }
+*/
 }
