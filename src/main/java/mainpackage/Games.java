@@ -2,8 +2,8 @@ package mainpackage;
 
 public class Games {
 
-    static Board solution_board = Board.getInstance(); // ausgefülltes Brett (Lösung)
-    static Board puzzle_board = Board.getInstance(); // teilweise leeres Brett (Rätsel)
+    static Board solution_board = new Board(); // ausgefülltes Brett (Lösung)
+    static Board puzzle_board = new Board(); // teilweise leeres Brett (Rätsel)
 
     /***
      * Spielbrett wird mit einem zufälligen Schema befüllt

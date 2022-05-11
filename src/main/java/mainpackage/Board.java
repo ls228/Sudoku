@@ -6,10 +6,8 @@ public class Board {
     public static final int SIZE = 9; // size of square / arrays
 
     public static Board getInstance() { return board; }
-    private Board() {}
+    Board() {}
     private static Board board = new Board();
-
-
 
 
     @Override
@@ -46,9 +44,6 @@ public class Board {
     public int getNumberAtIdx(int row, int col){
         return board_scheme[row][col];
     }
-
-
-
 
 
 /*
