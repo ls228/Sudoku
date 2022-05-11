@@ -37,8 +37,6 @@ public class Main extends Application {
 
         System.out.println("Lösung: ");
         System.out.println(solutionBoard.toString());
-        /* TODO: irgendwie sind Lösung und Rätsel noch dasselbe Brett obwohl sie in
-            Games eigentlich unterschiedlich befüllt werden. */
 
         // board.checkWinning();
     }
