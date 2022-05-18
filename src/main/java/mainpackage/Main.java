@@ -66,7 +66,8 @@ public class Main extends Application {
         //startRound();
     }
 
-    private Board puzzleBoard = Games.getPuzzle_board();
+    private Board puzzleBoard = Games.getPuzzle_board(); // gets modified by user
+    private final Board fixedPuzzleBoard = Games.getPuzzle_board(); // Reset all -> puzzleBoard = fixedPuzzleBoard
     private Board solutionBoard = Games.getSolution_board();
 
     private boolean gameFinished = false;
@@ -76,7 +77,6 @@ public class Main extends Application {
      */
     public void startRound() {
 
-
         Scanner sc = new Scanner(System.in);
 
         // immer wieder nach input fragen, den eingegebenen input auf dem rätselbrett updaten, nach fehlern prüfen, ...
@@ -84,8 +84,8 @@ public class Main extends Application {
             System.out.println("Rätsel: ");
             System.out.println(puzzleBoard.toString());
 
-            System.out.println("Lösung: (auskommentiert)");
-            // System.out.println(solutionBoard.toString());
+            System.out.println("Lösung: ");
+            System.out.println(solutionBoard.toString());
 
 
             // (der Teil wird später über die GUI umgesetzt)
@@ -94,13 +94,16 @@ public class Main extends Application {
             int lineNr = sc.nextInt() - 1;
             System.out.println("Enter column number: ");
             int colNr = sc.nextInt() - 1;
-            System.out.println("Enter the number you want to set at (" + lineNr+1 + "|" + colNr+1 + "): ");
+            System.out.println("Enter the number you want to set at (" + (lineNr+1) + "|" + (colNr+1) + "): ");
             int numberToSet = sc.nextInt();
 
-            puzzleBoard.setValueInBrett(lineNr, colNr, numberToSet);
-        }
 
-        // board.checkWinning();
+            puzzleBoard.setValueInBrett(lineNr, colNr, numberToSet);
+
+
+            if(puzzleBoard.equalsBoard(solutionBoard)) gameFinished = true;
+        }
+        System.out.println("Congrats, you finished the puzzle!");
     }
 
     public static void main(String[] args) {

@@ -87,7 +87,7 @@ public class Games {
 
 
             default:
-                System.out.println("(Default case game:)"); // Kommt eigentlich nicht vor außer wenn Programmierfehler
+                System.out.println("(Default case game:)");
 
                 int[][] gameSolutionValuesX = {
                         {2,8,9,6,4,3,5,1,7},
