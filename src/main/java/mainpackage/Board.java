@@ -10,6 +10,8 @@ public class Board {
     private static Board board = new Board();
 
 
+
+
     @Override
     public String toString(){
         StringBuffer buf = new StringBuffer();
@@ -44,6 +46,9 @@ public class Board {
     public int getNumberAtIdx(int row, int col){
         return board_scheme[row][col];
     }
+
+
+
 
 
 /*

@@ -1,7 +1,9 @@
 package mainpackage;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -30,8 +32,8 @@ public class SwitchingScenes extends Application {
 
         //Button 1
         Button button1 = new Button("Go to scene 2");
-        button1.setScaleX(1);
-        button1.setScaleY(1);
+        //button1.setScaleX(1);
+        //button1.setScaleY(1);
         button1.setOnAction (e -> window.setScene(scene2));
 
 
@@ -53,7 +55,7 @@ public class SwitchingScenes extends Application {
         //Layout 2
         VBox layout2 = new VBox(20);
         layout2.getChildren().addAll(button2, button3);
-        scene2 = new Scene(layout2, 600, 300);
+        scene2 = new Scene(layout2, 600, 600);
 
         window.setScene(scene1);
         window.setTitle("Title");
