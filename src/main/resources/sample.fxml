@@ -4,7 +4,13 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.VBox?>
 
+<?import javafx.scene.layout.GridPane?>
 <VBox alignment="CENTER" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/18" fx:controller="mainpackage.Controller">
-    <Label prefHeight="50.0" prefWidth="191.0" text="Hello World" />
+    <Label fx:id="label1" prefHeight="50.0" prefWidth="191.0" text="Hello World" />
     <Button onAction="#sayHello" text="Say Hello" />
+    <GridPane>
+        <children>
+            
+        </children>
+    </GridPane>
 </VBox>
