@@ -8,7 +8,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -24,28 +23,30 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         URL fxmlFileUrl = getClass().getClassLoader().getResource("sample.fxml");
+        //System.out.println(fxmlFileUrl);
         // URL fxmlFileUrl = getClass().getClassLoader().getResource("Scenebuilder.fxml");
         Parent root = FXMLLoader.load(Objects.requireNonNull(fxmlFileUrl));
         primaryStage.setTitle("Very cool Sudoku");
         primaryStage.setScene(new Scene(root, 300, 275));
-        primaryStage.show();
+        GridPane gridPane = (GridPane) root;
 
+        //primaryStage.show();
         window = primaryStage;
 
         Label label1 = new Label("Welcome");
 
         //Button 1
-        Button button1 = new Button("Go to scene 2");
-        button1.setOnAction (e -> window.setScene(scene2));
+        Button button = new Button("Go to scene 2");
+        button.setOnAction (e -> window.setScene(scene2));
 
         //Layout 1 - children are laid out in vertical column
         StackPane layout1 = new StackPane();
-        layout1.getChildren().addAll(label1, button1);
+        gridPane.getChildren().addAll(label1, button);
         scene1 = new Scene(layout1, 600, 600);
 
         //Button 2
         Button button2 = new Button("go back to scene 1");
-        button2.setOnAction(e -> window.setScene(scene1));
+        button2.setOnAction(e -> window.setScene(gridPane.getScene()));
 
         //Layout 2
         //VBox layout2 = new VBox(20);
@@ -55,14 +56,14 @@ public class Main extends Application {
         scene2 = new Scene(layout2, 600, 600);
 
 
-        window.setScene(scene1);
+        //window.setScene(scene1);
         window.setTitle("Sudoku");
         window.show();
 
 
         Games games = new Games();
 
-        startRound();
+        //startRound();
     }
 
     private Board puzzleBoard = Games.getPuzzle_board();
