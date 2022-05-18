@@ -1,5 +1,7 @@
 package mainpackage;
 
+import java.util.Arrays;
+
 public class Board {
 
     private int[][] board_scheme = new int [SIZE][SIZE];
@@ -21,6 +23,18 @@ public class Board {
             buf.append("|\n");
         }
         return buf.toString();
+    }
+
+
+    public boolean equalsBoard(Board b){
+
+        for(int i = 0; i < SIZE; i++){
+            for(int j = 0; j < SIZE; j++){
+                if(this.getNumberAtIdx(i,j) == b.getNumberAtIdx(i,j));
+                else return false;
+            }
+        }
+        return true;
     }
 
 
