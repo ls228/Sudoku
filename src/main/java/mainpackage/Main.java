@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.Objects;
+import java.util.Scanner;
 
 public class Main extends Application {
 
@@ -67,15 +68,36 @@ public class Main extends Application {
     private Board puzzleBoard = Games.getPuzzle_board();
     private Board solutionBoard = Games.getSolution_board();
 
+    private boolean gameFinished = false;
+
     /***
      *  Hauptablauf des Spiels
      */
     public void startRound() {
-        System.out.println("Rätsel: ");
-        System.out.println(puzzleBoard.toString());
 
-        System.out.println("Lösung: ");
-        System.out.println(solutionBoard.toString());
+
+        Scanner sc = new Scanner(System.in);
+
+        // immer wieder nach input fragen, den eingegebenen input auf dem rätselbrett updaten, nach fehlern prüfen, ...
+        while(!gameFinished){
+            System.out.println("Rätsel: ");
+            System.out.println(puzzleBoard.toString());
+
+            System.out.println("Lösung: (auskommentiert)");
+            // System.out.println(solutionBoard.toString());
+
+
+            // (der Teil wird später über die GUI umgesetzt)
+            System.out.println("Where do you want to set another number?");
+            System.out.println("Enter line number: ");
+            int lineNr = sc.nextInt() - 1;
+            System.out.println("Enter column number: ");
+            int colNr = sc.nextInt() - 1;
+            System.out.println("Enter the number you want to set at (" + lineNr+1 + "|" + colNr+1 + "): ");
+            int numberToSet = sc.nextInt();
+
+            puzzleBoard.setValueInBrett(lineNr, colNr, numberToSet);
+        }
 
         // board.checkWinning();
     }
