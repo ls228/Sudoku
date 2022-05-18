@@ -96,14 +96,13 @@ public class Main extends Application {
             System.out.println("Enter the number you want to set at (" + (lineNr+1) + "|" + (colNr+1) + "): ");
             int numberToSet = sc.nextInt();
 
+
             puzzleBoard.setValueInBrett(lineNr, colNr, numberToSet);
 
 
             if(puzzleBoard.equalsBoard(solutionBoard)) gameFinished = true;
         }
         System.out.println("Congrats, you finished the puzzle!");
-
-        // board.checkWinning();
     }
 
     public static void main(String[] args) {
