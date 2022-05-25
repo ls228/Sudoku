@@ -5,9 +5,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.stage.Stage;
 
 public class Controller {
-
+    Stage window= new Stage();
 
     public Button button;
     @FXML
@@ -17,11 +18,17 @@ public class Controller {
     private Label label;
 
     @FXML
-    protected void buttonPressed(){
+    protected void buttonPressed() {
         String text = textArea.getText();
         label.setText(text);
         textArea.clear();
     }
+    @FXML
+    protected void playPressed() {
+
+    }
+
+
     /*
     @FXML
     private void sayHello(ActionEvent event) {
@@ -32,5 +39,4 @@ public class Controller {
         label.setText("Blabla");
     }
     */
-
 }
