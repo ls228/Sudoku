@@ -1,5 +1,11 @@
 package mainpackage;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Games {
 
     static Board solution_board = new Board(); // ausgefülltes Brett (Lösung)
@@ -124,4 +130,22 @@ public class Games {
     public static Board getPuzzle_board() {
         return puzzle_board;
     }
+
+
+    public static List<String> read() {
+
+        List<String> entries = new ArrayList<>();
+        try {
+            BufferedReader newReader = new BufferedReader(new FileReader("games.txt"));
+            String line;
+            while ((line = newReader.readLine()) != null) {
+                entries.add(line);
+            }
+            newReader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return entries;
+    }
+
 }

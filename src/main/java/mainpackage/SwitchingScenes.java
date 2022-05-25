@@ -13,6 +13,10 @@ import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+
+
+// diese Klasse ist nur zum Testen, wir können sie am Ende löschen
+
 public class SwitchingScenes extends Application {
 
     Stage window;
@@ -63,10 +67,10 @@ public class SwitchingScenes extends Application {
 
         display("Sudoku", "You won!");
 
-        window.setOnCloseRequest(e -> {
+        /*window.setOnCloseRequest(e -> {
             e.consume();
             closeProgram();
-        });
+        });*/
     }
 
 
