@@ -10,29 +10,32 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane alignment="center" hgap="30" prefHeight="600.0" prefWidth="600.0" vgap="20" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpackage.Controller">
+<GridPane alignment="center" hgap="30" prefHeight="400.0" prefWidth="600.0" vgap="20" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpackage.Controller">
     <padding><Insets bottom="10" left="15" right="25" top="25" /></padding>
     <gridLinesVisible>false</gridLinesVisible>
     <stylesheets> <String fx:value="styles.css" /> </stylesheets>
-    <Text fill="#2a2169" text="SUDOKU" textAlignment="RIGHT" wrappingWidth="128.29760706424713" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="1">
+    <Text fill="#2a2169" text="SUDOKU" textAlignment="CENTER" wrappingWidth="121.63091242313385" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="1">
       <font>
-         <Font name="Calibri Light" size="36.0" />
-      </font></Text>
-
-
-    <HBox alignment="center" spacing="10" GridPane.columnIndex="2" GridPane.rowIndex="6">
-        <Button fx:id="Play" onAction="#playPressed" prefHeight="75.0" prefWidth="121.0" text="Play">
-         <font>
-            <Font size="35.0" />
-         </font></Button>
-    </HBox>
-
-
-    <Text fx:id="actiontarget" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-   <Button mnemonicParsing="false" onAction="#settingsPressed" text="Settings" textAlignment="JUSTIFY" GridPane.columnIndex="2" GridPane.rowIndex="9">
+         <Font name="Calibri Light" size="18.0" />
+      </font>
       <GridPane.margin>
-         <Insets left="35.0" />
+         <Insets left="20.0" />
+      </GridPane.margin></Text>
+
+
+    <HBox alignment="center" spacing="10" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+
+
+    <Text fx:id="actiontarget" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+   <Button mnemonicParsing="false" onAction="#settingsPressed" prefHeight="25.0" prefWidth="60.0" text="Settings" textAlignment="JUSTIFY" GridPane.columnIndex="2" GridPane.rowIndex="11">
+      <GridPane.margin>
+         <Insets left="50.0" />
       </GridPane.margin>
+   </Button>
+     <Button fx:id="Play" onAction="#playPressed" prefHeight="103.0" prefWidth="159.0" text="Play" GridPane.columnIndex="2" GridPane.rowIndex="6">
+      <font>
+         <Font size="35.0" />
+      </font>
    </Button>
    
    <columnConstraints>
@@ -52,6 +55,8 @@
       <RowConstraints />
       <RowConstraints />
       <RowConstraints />
+      <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+      <RowConstraints maxHeight="25.333333333333314" minHeight="25.333333333333314" prefHeight="25.333333333333314" />
    </rowConstraints>
 
 </GridPane>

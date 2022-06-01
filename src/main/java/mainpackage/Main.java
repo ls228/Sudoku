@@ -26,45 +26,17 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         URL fxmlFileUrl = getClass().getClassLoader().getResource("startgame.fxml");
-        //System.out.println(fxmlFileUrl);
-        // URL fxmlFileUrl = getClass().getClassLoader().getResource("Scenebuilder.fxml");
         Parent root = FXMLLoader.load(Objects.requireNonNull(fxmlFileUrl));
-        primaryStage.setTitle("Very cool Sudoku");
+        primaryStage.setTitle("Sudoku");
         primaryStage.setScene(new Scene(root, 600, 600));
-        GridPane gridPane = (GridPane) root;
 
         //primaryStage.show();
         window = primaryStage;
 
         Label label1 = new Label("Welcome");
-        /*
-        //Button 1
-        Button button = new Button("Go to scene 2");
-        button.setOnAction(e -> window.setScene(scene2));
-
-        //Layout 1 - children are laid out in vertical column
-        StackPane layout1 = new StackPane();
-        gridPane.getChildren().addAll(label1, button);
-        scene1 = new Scene(layout1, 600, 600);
-
-        //Button 2
-        Button button2 = new Button("go back to scene 1");
-        button2.setOnAction(e -> window.setScene(gridPane.getScene()));
-
-        //Layout 2
-        //VBox layout2 = new VBox(20);
-        //StackPane layout2 = new StackPane();
-        GridPane layout2 = new GridPane();
-        layout2.getChildren().addAll(button2);
-        scene2 = new Scene(layout2, 600, 600);
-        */
-
-        //window.setScene(scene1);
-
 
         window.setTitle("Sudoku");
         window.show();
-
 
         Games games = new Games();
 

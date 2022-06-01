@@ -78,6 +78,8 @@ public class Controller {
 
     }
 
+}
+
 
 
 
@@ -93,4 +95,3 @@ public class Controller {
         label.setText("Blabla");
     }
     */
-}
