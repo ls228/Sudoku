@@ -95,7 +95,7 @@ public class gameController {
     }
     @FXML
     protected void auswahl8() {
-        System.out.println("8");
+        System.out.println("7");
     }
     @FXML
     protected void auswahl9() {

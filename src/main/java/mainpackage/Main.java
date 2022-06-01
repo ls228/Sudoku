@@ -28,7 +28,7 @@ public class Main extends Application {
         URL fxmlFileUrl = getClass().getClassLoader().getResource("startgame.fxml");
         Parent root = FXMLLoader.load(Objects.requireNonNull(fxmlFileUrl));
         primaryStage.setTitle("Sudoku");
-        primaryStage.setScene(new Scene(root, 600, 600));
+        primaryStage.setScene(new Scene(root, 600, 400));
 
         //primaryStage.show();
         window = primaryStage;
