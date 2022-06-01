@@ -9,27 +9,24 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane alignment="center" hgap="30" prefHeight="600.0" prefWidth="600.0" vgap="20" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpackage.Controller">
+<?import java.lang.String?>
+<GridPane alignment="center" hgap="30" prefHeight="600.0" prefWidth="600.0" vgap="20" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpackage.game1Controller">
     <padding><Insets bottom="10" left="15" right="25" top="25" /></padding>
     <gridLinesVisible>false</gridLinesVisible>
+    <stylesheets> <String fx:value="styles.css" /> </stylesheets>
     <Text text="Sudoku" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="0">
       <font>
          <Font name="Calibri Light" size="36.0" />
       </font></Text>
 
-
-    <HBox alignment="center" spacing="10" GridPane.columnIndex="2" GridPane.rowIndex="2">
-        <Button fx:id="Play" onAction="#playPressed" text="Play" />
-    </HBox>
-
     <HBox alignment="center" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="3">
-        <Button onAction="#buttonPressed" text="Level1" />
+        <Button onAction="#level1pressed" text="Level1" />
     </HBox>
     <HBox alignment="center" spacing="10" GridPane.columnIndex="2" GridPane.rowIndex="3">
-        <Button onAction="#buttonPressed" text="Level2" />
+        <Button onAction="#level2pressed" text="Level2" />
     </HBox>
     <HBox alignment="center" spacing="10" GridPane.columnIndex="3" GridPane.rowIndex="3">
-        <Button onAction="#buttonPressed" text="Level3" />
+        <Button onAction="#level3pressed" text="Level3" />
     </HBox>
 
     <Text fx:id="actiontarget" GridPane.columnIndex="1" GridPane.rowIndex="2" />

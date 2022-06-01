@@ -4,8 +4,10 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -17,10 +19,13 @@ public class Main extends Application {
     Stage window;
     static Scene scene1;
     static Scene scene2;
+    Stage fenster;
+    Button button1, button2;
+    Label label1,label2;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        URL fxmlFileUrl = getClass().getClassLoader().getResource("home.fxml");
+        URL fxmlFileUrl = getClass().getClassLoader().getResource("startgame.fxml");
         //System.out.println(fxmlFileUrl);
         // URL fxmlFileUrl = getClass().getClassLoader().getResource("Scenebuilder.fxml");
         Parent root = FXMLLoader.load(Objects.requireNonNull(fxmlFileUrl));
@@ -55,6 +60,8 @@ public class Main extends Application {
         */
 
         //window.setScene(scene1);
+
+
         window.setTitle("Sudoku");
         window.show();
 
@@ -64,6 +71,7 @@ public class Main extends Application {
         //startRound();
     }
 
+
     private Board puzzleBoard = Games.getPuzzle_board();
     private Board solutionBoard = Games.getSolution_board();
 
@@ -72,6 +80,7 @@ public class Main extends Application {
     /*
      *  Hauptablauf des Spiels
      */
+
     public void startRound() {
 
 

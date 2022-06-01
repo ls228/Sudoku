@@ -9,9 +9,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+<?import java.lang.String?>
 <GridPane alignment="center" hgap="30" prefHeight="600.0" prefWidth="600.0" vgap="20" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpackage.youWonController">
 <padding><Insets bottom="10" left="15" right="25" top="25" /></padding>
 <gridLinesVisible>false</gridLinesVisible>
+    <stylesheets> <String fx:value="styles.css" /> </stylesheets>
 <Text text="Sudoku" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="0">
     <font>
         <Font name="Calibri Light" size="36.0" />

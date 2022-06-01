@@ -31,10 +31,11 @@ public class Controller {
         label.setText(text);
         textArea.clear();
     }
+
     @FXML
     protected void playPressed(ActionEvent event) {
 
-        URL fxmlFileUrl = getClass().getClassLoader().getResource("game1.fxml");
+        URL fxmlFileUrl = getClass().getClassLoader().getResource("home.fxml");
         try {
             Parent root = FXMLLoader.load(fxmlFileUrl);
             Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -46,6 +47,40 @@ public class Controller {
         }
 
     }
+    @FXML
+    protected void goBackSettingsPressed(ActionEvent event) {
+
+        URL fxmlFileUrl = getClass().getClassLoader().getResource("startgame.fxml");
+        try {
+            Parent root = FXMLLoader.load(fxmlFileUrl);
+            Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+    @FXML
+    protected void settingsPressed(ActionEvent event) {
+
+        URL fxmlFileUrl = getClass().getClassLoader().getResource("settings.fxml");
+        try {
+            Parent root = FXMLLoader.load(fxmlFileUrl);
+            Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
+
+
 
 
     /*
