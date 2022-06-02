@@ -13,7 +13,8 @@ import java.net.URL;
 
 public class gameController {
 
-    int value;
+    public static int value=1;
+
     public void goBackPressed(ActionEvent event) {
         URL fxmlFileUrl = getClass().getClassLoader().getResource("home.fxml");
         try {
@@ -66,31 +67,36 @@ public class gameController {
         }
     }
     @FXML
-    private void auswahl1() {
-        System.out.println("1");
+    protected int auswahl1() {
+        this.value=1;
+        return value;
+        Main.
+    }
+
+    @FXML
+    protected int auswahl2() {
+        this.value=value+1;
+        return value;
     }
     @FXML
-    private void auswahl2() {
-        System.out.println("2");
+    protected void auswahl3() {
+        this.value=value+2;
+        return;
     }
     @FXML
-    private void auswahl3() {
-        System.out.println("3");
-    }
-    @FXML
-    private void auswahl4() {
+    protected void auswahl4() {
         System.out.println("4");
     }
     @FXML
-    private void auswahl5() {
+    protected void auswahl5() {
         System.out.println("5");
     }
     @FXML
-    private void auswahl6() {
+    protected void auswahl6() {
         System.out.println("6");
     }
     @FXML
-    private void auswahl7() {
+    protected void auswahl7() {
         System.out.println("7");
     }
     @FXML
@@ -100,6 +106,10 @@ public class gameController {
     @FXML
     protected void auswahl9() {
         System.out.println("9");
+    }
+
+    public static int getValue() {
+        return value;
     }
 
 }

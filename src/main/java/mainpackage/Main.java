@@ -22,6 +22,7 @@ public class Main extends Application {
     Stage fenster;
     Button button1, button2;
     Label label1,label2;
+    //static int value = new gameController().value;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -46,8 +47,11 @@ public class Main extends Application {
 
     private Board puzzleBoard = Games.getPuzzle_board();
     private Board solutionBoard = Games.getSolution_board();
+    private int value= gameController.getValue();
 
     private boolean gameFinished = false;
+
+
 
     /*
      *  Hauptablauf des Spiels
@@ -55,7 +59,7 @@ public class Main extends Application {
 
     public void startRound() {
 
-
+        int numberToSet;
         Scanner sc = new Scanner(System.in);
 
         // immer wieder nach input fragen, den eingegebenen input auf dem rätselbrett updaten, nach fehlern prüfen, ...
@@ -68,13 +72,14 @@ public class Main extends Application {
 
 
             // (der Teil wird später über die GUI umgesetzt)
-            System.out.println("Where do you want to set another number?");
+
             System.out.println("Enter line number: ");
             int lineNr = sc.nextInt() - 1;
             System.out.println("Enter column number: ");
             int colNr = sc.nextInt() - 1;
             System.out.println("Enter the number you want to set at (" + lineNr + 1 + "|" + colNr + 1 + "): ");
-            int numberToSet = sc.nextInt();
+            numberToSet = gameController.getValue();
+            System.out.println("added number "+ numberToSet);
 
             puzzleBoard.setValueInBrett(lineNr, colNr, numberToSet);
         }
