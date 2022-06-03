@@ -13,7 +13,28 @@ import java.net.URL;
 
 public class gameController {
 
-    public static int value=1;
+    public static int value=0;
+
+    public void startRound() {
+
+        int numberToSet;
+
+        while (!Main.gameFinished) {
+            System.out.println("Rätsel: ");
+            System.out.println(Main.puzzleBoard.toString());
+
+            System.out.println("Lösung: (auskommentiert)");
+
+            numberToSet = getValue();
+
+            System.out.println("added number "+ numberToSet);
+
+            break;
+        }
+
+        //board.checkWinning();
+    }
+
 
     public void goBackPressed(ActionEvent event) {
         URL fxmlFileUrl = getClass().getClassLoader().getResource("home.fxml");
@@ -39,6 +60,7 @@ public class gameController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        startRound();
     }
     @FXML
     protected void level2pressed(ActionEvent event){
@@ -67,49 +89,57 @@ public class gameController {
         }
     }
     @FXML
-    protected int auswahl1() {
+    protected void auswahl1() {
         this.value=1;
-        return value;
-        Main.
+        setValue(value);
     }
 
     @FXML
-    protected int auswahl2() {
-        this.value=value+1;
-        return value;
+    protected void auswahl2() {
+        this.value=value+2;
+        setValue(value);
     }
     @FXML
     protected void auswahl3() {
-        this.value=value+2;
-        return;
+        this.value=value+3;
+        setValue(value);
     }
     @FXML
     protected void auswahl4() {
-        System.out.println("4");
+        this.value=value+4;
+        setValue(value);
     }
     @FXML
     protected void auswahl5() {
-        System.out.println("5");
+        this.value=value+5;
+        setValue(value);
     }
     @FXML
     protected void auswahl6() {
-        System.out.println("6");
+        this.value=value+6;
+        setValue(value);
     }
     @FXML
     protected void auswahl7() {
-        System.out.println("7");
+        this.value=value+7;
+        setValue(value);
     }
     @FXML
     protected void auswahl8() {
-        System.out.println("7");
+        this.value=value+8;
+        setValue(value);
     }
     @FXML
     protected void auswahl9() {
-        System.out.println("9");
+        this.value=value+9;
+        setValue(value);
+    }
+
+    public void setValue(int value) {
+       this.value=value;
     }
 
     public static int getValue() {
         return value;
     }
-
 }
