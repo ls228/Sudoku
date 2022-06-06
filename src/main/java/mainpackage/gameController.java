@@ -57,6 +57,7 @@ public class gameController {
                     System.out.println(newvalue);
                 }
             }
+
             // sudokuGridPane.getChildren().add(Games.getPuzzle_board());
 
 
