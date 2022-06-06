@@ -2,82 +2,79 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<?import java.lang.String?>
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpackage.gameController">
-    <stylesheets> <String fx:value="styles.css" /> </stylesheets>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpackage.gameController">
    <right>
-       
-      <GridPane alignment="TOP_CENTER" prefHeight="400.0" prefWidth="205.0" BorderPane.alignment="CENTER" xmlns:fx="http://javafx.com/javafx/17" >
-
-          <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="117.33331298828125" minWidth="10.0" prefWidth="11.333333333333329" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="190.66664632161456" minWidth="10.0" prefWidth="189.33333333333331" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
+      <GridPane alignment="TOP_CENTER" prefHeight="400.0" prefWidth="205.0" BorderPane.alignment="CENTER">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="117.33331298828125" minWidth="10.0" prefWidth="11.333333333333329" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="190.66664632161456" minWidth="10.0" prefWidth="189.33333333333331" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
          <children>
             <GridPane prefHeight="133.0" prefWidth="253.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-              <columnConstraints>
-                <ColumnConstraints maxWidth="19.333312690258026" minWidth="1.3333140015602112" prefWidth="4.666688144207001" />
-                <ColumnConstraints maxWidth="79.99998346964517" minWidth="36.66666285196939" prefWidth="54.999959309895836" />
+               <columnConstraints>
+                  <ColumnConstraints maxWidth="19.333312690258026" minWidth="1.3333140015602112" prefWidth="4.666688144207001" />
+                  <ColumnConstraints maxWidth="79.99998346964517" minWidth="36.66666285196939" prefWidth="54.999959309895836" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="86.00000381469727" minWidth="10.0" prefWidth="52.66669464111328" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="86.66667938232423" minWidth="10.0" prefWidth="79.33330535888673" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
                <children>
-                  <Button id="Auswahl9" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="9" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                  <Button id="Auswahl9" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#auswahl9" prefHeight="50.0" prefWidth="50.0" text="9" GridPane.columnIndex="3" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button id="Auswahl8" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="8" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                  <Button id="Auswahl8" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#auswahl8" prefHeight="50.0" prefWidth="50.0" text="8" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button id="Auswahl3" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="3" GridPane.columnIndex="3">
+                  <Button id="Auswahl3" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#auswahl3" prefHeight="50.0" prefWidth="50.0" text="3" GridPane.columnIndex="3">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button id="Auswahl5" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="5" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <Button id="Auswahl5" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#auswahl5" prefHeight="50.0" prefWidth="50.0" text="5" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button id="Auswahl4" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="4" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <Button id="Auswahl4" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#auswahl4" prefHeight="50.0" prefWidth="50.0" text="4" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button id="Auswahl2" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="2" GridPane.columnIndex="2">
+                  <Button id="Auswahl2" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#auswahl2" prefHeight="50.0" prefWidth="50.0" text="2" GridPane.columnIndex="2">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button id="Auswahl6" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="6" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                  <Button id="Auswahl6" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#auswahl6" prefHeight="50.0" prefWidth="50.0" text="6" GridPane.columnIndex="3" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button id="Auswahl7" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="7" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <Button id="Auswahl7" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#auswahl7" prefHeight="50.0" prefWidth="50.0" text="7" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button id="Auswahl1" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="76.0" text="1" GridPane.columnIndex="1">
+                  <Button id="Auswahl1" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#auswahl1" prefHeight="53.0" prefWidth="76.0" text="1" GridPane.columnIndex="1">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>
@@ -85,20 +82,21 @@
                </children>
             </GridPane>
             <GridPane GridPane.columnIndex="1">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="126.33329772949219" minWidth="10.0" prefWidth="43.99997584025065" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.66667048136392" minWidth="10.0" prefWidth="147.33335749308267" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="126.33329772949219" minWidth="10.0" prefWidth="43.99997584025065" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.66667048136392" minWidth="10.0" prefWidth="147.33335749308267" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
                <children>
                   <Button id="goback" mnemonicParsing="false" onAction="#goBackPressed" prefHeight="25.0" prefWidth="115.0" text="Go back to menue" GridPane.columnIndex="1">
                      <GridPane.margin>
                         <Insets />
-                     </GridPane.margin></Button>
+                     </GridPane.margin>
+                  </Button>
                   <Button id="Back" cancelButton="true" mnemonicParsing="false" prefHeight="25.0" prefWidth="49.0" text="Back" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets left="65.0" />
@@ -110,126 +108,115 @@
       </GridPane>
    </right>
    <center>
-      <GridPane prefHeight="417.0" prefWidth="414.0" BorderPane.alignment="CENTER">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.0" minWidth="10.0" prefWidth="130.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.0" minWidth="10.0" prefWidth="130.0" />
+      <GridPane gridLinesVisible="true" prefHeight="417.0" prefWidth="414.0" BorderPane.alignment="CENTER">
+         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.0" minWidth="10.0" prefWidth="130.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.0" minWidth="10.0" prefWidth="130.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.0" minWidth="10.0" prefWidth="130.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.0" minWidth="10.0" prefWidth="130.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.0" minWidth="10.0" prefWidth="130.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.0" minWidth="10.0" prefWidth="130.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.0" minWidth="10.0" prefWidth="130.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.0" minWidth="10.0" prefWidth="130.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.0" minWidth="10.0" prefWidth="130.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
          <children>
-            <GridPane disable="true" gridLinesVisible="true">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-            </GridPane>
-            <GridPane gridLinesVisible="true" GridPane.columnIndex="1">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-            </GridPane>
-            <GridPane gridLinesVisible="true" prefHeight="109.0" prefWidth="130.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-               </rowConstraints>
-            </GridPane>
-            <GridPane gridLinesVisible="true" prefHeight="123.0" prefWidth="125.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-               </rowConstraints>
-            </GridPane>
-            <GridPane gridLinesVisible="true" GridPane.rowIndex="1">
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-               </rowConstraints>
-            </GridPane>
-            <GridPane gridLinesVisible="true" prefHeight="48.0" prefWidth="130.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-               </rowConstraints>
-            </GridPane>
-            <GridPane gridLinesVisible="true" GridPane.rowIndex="2">
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-               </rowConstraints>
-            </GridPane>
-            <GridPane gridLinesVisible="true" GridPane.columnIndex="2">
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-               </rowConstraints>
-            </GridPane>
-            <GridPane gridLinesVisible="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-               </rowConstraints>
-            </GridPane>
+            <Label fx:id="Label_0_1" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="1" />
+            <Label fx:id="Label_0_2" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="2" GridPane.halignment="CENTER">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </Label>
+            <Label fx:id="Label_1_1" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <Label fx:id="Label_0_3" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="3" />
+            <Label fx:id="Label_1_0" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.rowIndex="1" />
+            <Label fx:id="Label_0_0" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" />
+            <Label fx:id="Label_2_0" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.rowIndex="2" />
+            <Label fx:id="Label_2_1" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="Label_1_2" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Label fx:id="Label_0_4" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="4" />
+            <Label fx:id="Label_1_3" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Label fx:id="Label_2_2" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Label fx:id="Label_0_5" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="5" />
+            <Label fx:id="Label_0_6" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="6" />
+            <Label fx:id="Label_0_7" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="7" />
+            <Label fx:id="Label_0_8" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="8" />
+            <Label fx:id="Label_1_4" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <Label fx:id="Label_1_5" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+            <Label fx:id="Label_1_6" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+            <Label fx:id="Label_1_7" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+            <Label fx:id="Label_1_8" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="8" GridPane.rowIndex="1" />
+            <Label fx:id="Label_2_3" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <Label fx:id="Label_2_4" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <Label fx:id="Label_2_5" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+            <Label fx:id="Label_2_6" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="6" GridPane.rowIndex="2" />
+            <Label fx:id="Label_2_7" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="7" GridPane.rowIndex="2" />
+            <Label fx:id="Label_2_8" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="8" GridPane.rowIndex="2" />
+            <Label fx:id="Label_3_0" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.rowIndex="3" />
+            <Label fx:id="Label_3_1" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label fx:id="Label_3_2" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <Label fx:id="Label_3_3" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <Label fx:id="Label_3_4" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+            <Label fx:id="Label_3_5" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+            <Label fx:id="Label_3_6" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+            <Label fx:id="Label_3_7" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="7" GridPane.rowIndex="3" />
+            <Label fx:id="Label_3_8" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="8" GridPane.rowIndex="3" />
+            <Label fx:id="Label_4_0" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.rowIndex="4" />
+            <Label fx:id="Label_4_1" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label fx:id="Label_4_2" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <Label fx:id="Label_4_3" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <Label fx:id="Label_4_4" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+            <Label fx:id="Label_4_5" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+            <Label fx:id="Label_4_6" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="6" GridPane.rowIndex="4" />
+            <Label fx:id="Label_4_7" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="7" GridPane.rowIndex="4" />
+            <Label fx:id="Label_4_8" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="8" GridPane.rowIndex="4" />
+            <Label fx:id="Label_5_0" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.rowIndex="5" />
+            <Label fx:id="Label_5_1" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label fx:id="Label_5_2" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <Label fx:id="Label_5_3" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+            <Label fx:id="Label_5_4" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+            <Label fx:id="Label_5_5" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+            <Label fx:id="Label_5_6" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="6" GridPane.rowIndex="5" />
+            <Label fx:id="Label_5_7" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="7" GridPane.rowIndex="5" />
+            <Label fx:id="Label_5_8" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="8" GridPane.rowIndex="5" />
+            <Label fx:id="Label_6_0" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.rowIndex="6" />
+            <Label fx:id="Label_6_1" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label fx:id="Label_6_2" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+            <Label fx:id="Label_6_3" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+            <Label fx:id="Label_6_4" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+            <Label fx:id="Label_6_5" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="5" GridPane.rowIndex="6" />
+            <Label fx:id="Label_6_6" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="6" GridPane.rowIndex="6" />
+            <Label fx:id="Label_6_7" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="7" GridPane.rowIndex="6" />
+            <Label fx:id="Label_6_8" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="8" GridPane.rowIndex="6" />
+            <Label fx:id="Label_7_0" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.rowIndex="7" />
+            <Label fx:id="Label_7_1" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Label fx:id="Label_7_2" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+            <Label fx:id="Label_7_3" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+            <Label fx:id="Label_7_4" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+            <Label fx:id="Label_7_5" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="5" GridPane.rowIndex="7" />
+            <Label fx:id="Label_7_6" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="6" GridPane.rowIndex="7" />
+            <Label fx:id="Label_7_7" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="7" GridPane.rowIndex="7" />
+            <Label fx:id="Label_7_8" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="8" GridPane.rowIndex="7" />
+            <Label fx:id="Label_8_0" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.rowIndex="8" />
+            <Label fx:id="Label_8_1" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <Label fx:id="Label_8_2" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+            <Label fx:id="Label_8_3" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+            <Label fx:id="Label_8_4" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="4" GridPane.rowIndex="8" />
+            <Label fx:id="Label_8_5" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="5" GridPane.rowIndex="8" />
+            <Label fx:id="Label_8_6" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="6" GridPane.rowIndex="8" />
+            <Label fx:id="Label_8_7" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="7" GridPane.rowIndex="8" />
+            <Label fx:id="Label_8_8" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="8" GridPane.rowIndex="8" />
          </children>
       </GridPane>
    </center>
