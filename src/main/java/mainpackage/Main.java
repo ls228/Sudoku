@@ -26,6 +26,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+
+
+        // JavaFX stuff
         URL fxmlFileUrl = getClass().getClassLoader().getResource("startgame.fxml");
         Parent root = FXMLLoader.load(Objects.requireNonNull(fxmlFileUrl));
         primaryStage.setTitle("Sudoku");
@@ -40,10 +43,15 @@ public class Main extends Application {
         window.setTitle("Sudoku");
         window.show();
 
-        Games games = new Games();
 
-        //Scene myScene = primaryStage.getScene();
 
+
+        // Game start
+        Games games = new Games(); // -> Games Class (generate random number, set puzzle & solution board)
+
+
+
+        // ?
         GridPane sudokuGridPane = new GridPane();
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
@@ -76,16 +84,19 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
         */
-
     }
 
 
+    // get puzzle & solution Boards
     public static Board puzzleBoard = Games.getPuzzle_board();
     public static Board solutionBoard = Games.getSolution_board();
 
     public static boolean gameFinished = false;
 
+
+
+
     public static void main(String[] args) {
-        launch(args);
+        launch(args); // calls start-method
     }
 }
