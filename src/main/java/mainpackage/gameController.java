@@ -24,6 +24,7 @@ public class gameController {
     @FXML private Label MyFirstLabel;
     @FXML private GridPane MyFirstPanel;
     public static int value=0;
+    int count=0;
 
     public void startRound() {
 
@@ -69,9 +70,22 @@ public class gameController {
         //board.checkWinning();
     }
 
-    public void checkInput(int value){
-        String id = SelectedLabel.getId();
+    public boolean checkInput(int value){
 
+        String id = SelectedLabel.getId();
+        char rowchar=id.charAt(6);
+        char colchar=id.charAt(8);
+        int row= Integer.parseInt( String.valueOf(rowchar) );
+        int col= Integer.parseInt( String.valueOf(colchar) );
+        int valueSolved=Main.puzzleBoard.getNumberAtIdx(row,col);
+        if(value==valueSolved){
+            System.out.println("true");
+            return true;
+        }
+        System.out.println("false");
+        if(count<3){
+            count++;}
+        return false;
     }
 
     @FXML
@@ -135,6 +149,7 @@ public class gameController {
         //Games.read().add(value);
         if(this.SelectedLabel!=null)
             this.SelectedLabel.setText("1");
+        checkInput(value);
     }
 
     @FXML
@@ -143,6 +158,7 @@ public class gameController {
         setValue(value);
         if(this.SelectedLabel!=null)
             this.SelectedLabel.setText("2");
+        checkInput(value);
     }
     @FXML
     protected void auswahl3() {
@@ -150,6 +166,7 @@ public class gameController {
         setValue(value);
         if(this.SelectedLabel!=null)
             this.SelectedLabel.setText("3");
+        checkInput(value);
     }
     @FXML
     protected void auswahl4() {
