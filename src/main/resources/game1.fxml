@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<?import java.lang.String?>
-<?import javafx.scene.text.Text?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.layout.BorderPane?>
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpackage.gameController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpackage.gameController">
     <stylesheets> <String fx:value="styles.css" /> </stylesheets>
     <right>
 
-        <GridPane alignment="TOP_CENTER" prefHeight="400.0" prefWidth="205.0" BorderPane.alignment="CENTER" xmlns:fx="http://javafx.com/javafx/17" >
+        <GridPane alignment="TOP_CENTER" prefHeight="400.0" prefWidth="205.0" BorderPane.alignment="CENTER" xmlns:fx="http://javafx.com/javafx/17">
 
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="117.33331298828125" minWidth="10.0" prefWidth="11.333333333333329" />
@@ -39,47 +38,47 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <children>
-                        <Button id="Auswahl9" onAction="#auswahl9" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="9" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                        <Button id="Auswahl9" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#auswahl9" prefHeight="50.0" prefWidth="50.0" text="9" GridPane.columnIndex="3" GridPane.rowIndex="2">
                             <GridPane.margin>
                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                             </GridPane.margin>
                         </Button>
-                        <Button id="Auswahl8" onAction="#auswahl8" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="8" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                        <Button id="Auswahl8" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#auswahl8" prefHeight="50.0" prefWidth="50.0" text="8" GridPane.columnIndex="2" GridPane.rowIndex="2">
                             <GridPane.margin>
                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                             </GridPane.margin>
                         </Button>
-                        <Button id="Auswahl3" onAction="#auswahl3" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="3" GridPane.columnIndex="3">
+                        <Button id="Auswahl3" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#auswahl3" prefHeight="50.0" prefWidth="50.0" text="3" GridPane.columnIndex="3">
                             <GridPane.margin>
                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                             </GridPane.margin>
                         </Button>
-                        <Button id="Auswahl5" onAction="#auswahl5" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="5" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                        <Button id="Auswahl5" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#auswahl5" prefHeight="50.0" prefWidth="50.0" text="5" GridPane.columnIndex="2" GridPane.rowIndex="1">
                             <GridPane.margin>
                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                             </GridPane.margin>
                         </Button>
-                        <Button id="Auswahl4" onAction="#auswahl4" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="4" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <Button id="Auswahl4" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#auswahl4" prefHeight="50.0" prefWidth="50.0" text="4" GridPane.columnIndex="1" GridPane.rowIndex="1">
                             <GridPane.margin>
                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                             </GridPane.margin>
                         </Button>
-                        <Button id="Auswahl2" onAction="#auswahl2" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="2" GridPane.columnIndex="2">
+                        <Button id="Auswahl2" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#auswahl2" prefHeight="50.0" prefWidth="50.0" text="2" GridPane.columnIndex="2">
                             <GridPane.margin>
                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                             </GridPane.margin>
                         </Button>
-                        <Button id="Auswahl6" onAction="#auswahl6" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="6" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                        <Button id="Auswahl6" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#auswahl6" prefHeight="50.0" prefWidth="50.0" text="6" GridPane.columnIndex="3" GridPane.rowIndex="1">
                             <GridPane.margin>
                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                             </GridPane.margin>
                         </Button>
-                        <Button id="Auswahl7" onAction="#auswahl7" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="7" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <Button id="Auswahl7" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#auswahl7" prefHeight="50.0" prefWidth="50.0" text="7" GridPane.columnIndex="1" GridPane.rowIndex="2">
                             <GridPane.margin>
                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                             </GridPane.margin>
                         </Button>
-                        <Button id="Auswahl1" onAction="#auswahl1" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="76.0" text="1" GridPane.columnIndex="1">
+                        <Button id="Auswahl1" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#auswahl1" prefHeight="53.0" prefWidth="76.0" text="1" GridPane.columnIndex="1">
                             <GridPane.margin>
                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                             </GridPane.margin>
@@ -124,7 +123,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <GridPane disable="true" gridLinesVisible="true">
+                <GridPane fx:id="MyFirstPanel" disable="false" gridLinesVisible="true" onMouseClicked="#MyFirstPanelClicked">
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -135,6 +134,11 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
+               <children>
+                  <Label fx:id="MyFirstLabel" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" prefHeight="44.0" prefWidth="46.0" text="Label" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                  <Label fx:id="MyFirstLabel1" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" />
+                  <Label fx:id="MyFirstLabel2" alignment="CENTER" onMouseClicked="#MyFrstLabelClicked" onMouseMoved="#OnMouseMovedOnLabel" prefHeight="44.0" prefWidth="46.0" text="0" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+               </children>
                 </GridPane>
                 <GridPane gridLinesVisible="true" GridPane.columnIndex="1">
                     <columnConstraints>

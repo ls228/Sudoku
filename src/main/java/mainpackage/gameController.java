@@ -1,21 +1,31 @@
 package mainpackage;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 
 public class gameController {
-
+    @FXML private Label MyFirstLabel;
+    @FXML private GridPane MyFirstPanel;
     public static int value=0;
 
-    public void startRound() {
+    public void startRound(int value) {
 
         int numberToSet;
 
@@ -25,9 +35,7 @@ public class gameController {
 
             System.out.println("Lösung: (auskommentiert)");
 
-            numberToSet = getValue();
-
-            System.out.println("added number "+ numberToSet);
+            System.out.println("added number "+ value);
 
             break;
         }
@@ -60,7 +68,7 @@ public class gameController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        startRound();
+        startRound(value);
     }
     @FXML
     protected void level2pressed(ActionEvent event){
@@ -92,48 +100,116 @@ public class gameController {
     protected void auswahl1() {
         this.value=1;
         setValue(value);
+        //Games.read().add(value);
+        startRound(value);
+
+        if(this.SelectedLabel!=null)
+            this.SelectedLabel.setText("1");
     }
 
     @FXML
     protected void auswahl2() {
-        this.value=value+2;
+        this.value=2;
         setValue(value);
+        startRound(value);
+        if(this.SelectedLabel!=null)
+            this.SelectedLabel.setText("2");
     }
     @FXML
     protected void auswahl3() {
-        this.value=value+3;
+        this.value=3;
         setValue(value);
+        startRound(value);
+        if(this.SelectedLabel!=null)
+            this.SelectedLabel.setText("3");
     }
     @FXML
     protected void auswahl4() {
-        this.value=value+4;
+        this.value=4;
         setValue(value);
+        if(this.SelectedLabel!=null)
+            this.SelectedLabel.setText("4");
     }
     @FXML
     protected void auswahl5() {
-        this.value=value+5;
+        this.value=5;
         setValue(value);
+        if(this.SelectedLabel!=null)
+            this.SelectedLabel.setText("5");
     }
     @FXML
     protected void auswahl6() {
-        this.value=value+6;
+        this.value=6;
         setValue(value);
+        if(this.SelectedLabel!=null)
+            this.SelectedLabel.setText("6");
     }
     @FXML
     protected void auswahl7() {
-        this.value=value+7;
+        this.value=7;
         setValue(value);
+        if(this.SelectedLabel!=null)
+            this.SelectedLabel.setText("7");
     }
     @FXML
     protected void auswahl8() {
-        this.value=value+8;
+        this.value=8;
         setValue(value);
+        if(this.SelectedLabel!=null)
+            this.SelectedLabel.setText("8");
     }
     @FXML
     protected void auswahl9() {
-        this.value=value+9;
+        this.value=9;
         setValue(value);
+        if(this.SelectedLabel!=null)
+            this.SelectedLabel.setText("9");
+
+        Background bg = new Background(new BackgroundFill(Color.CADETBLUE, null, null));
+        this.MyFirstLabel.setBackground(bg);
     }
+
+
+    @FXML
+    private void MyFirstPanelClicked(MouseEvent event) {
+        // code in this method is executed when the mouse is pressed
+        // on a node with onMousePressed="#handleMousePress"
+    }
+
+
+    Label LastselctedLabel = null;
+    Label SelectedLabel = null;
+
+    @FXML
+    private void MyFrstLabelClicked(MouseEvent event) {
+        // code in this method is executed when the mouse is pressed
+        // on a node with onMousePressed="#handleMousePress"
+
+        Label label = (Label) event.getSource();
+        SelectedLabel = label;
+
+        if(LastselctedLabel!=null)
+            LastselctedLabel.setBackground(null);
+
+        LastselctedLabel = label;
+
+        Background bg = new Background(new BackgroundFill(Color.CADETBLUE, null, null));
+        label.setBackground(bg);
+    }
+
+    @FXML
+    private void OnMouseMovedOnLabel(MouseEvent event) {
+        Label label = (Label) event.getSource();
+
+        if(LastselctedLabel!=null)
+            LastselctedLabel.setBackground(null);
+
+        LastselctedLabel = label;
+
+        Background bg = new Background(new BackgroundFill(Color.WHEAT, null, null));
+        label.setBackground(bg);
+    }
+
 
     public void setValue(int value) {
        this.value=value;
