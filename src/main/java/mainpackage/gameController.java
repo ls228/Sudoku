@@ -77,14 +77,23 @@ public class gameController {
         char colchar=id.charAt(8);
         int row= Integer.parseInt( String.valueOf(rowchar) );
         int col= Integer.parseInt( String.valueOf(colchar) );
-        int valueSolved=Main.puzzleBoard.getNumberAtIdx(row,col);
+        int valueSolved=Main.solutionBoard.getNumberAtIdx(row,col);
         if(value==valueSolved){
+            Background bg = new Background(new BackgroundFill(Color.WHITE, null, null));
+            SelectedLabel.setBackground(bg);
             System.out.println("true");
             return true;
+
         }
         System.out.println("false");
+        Background bg = new Background(new BackgroundFill(Color.PINK, null, null));
+        SelectedLabel.setBackground(bg);
         if(count<3){
-            count++;}
+            count++;
+        } else{
+            startRound();
+        }
+        //fxml Datei mit verlieren
         return false;
     }
 
@@ -174,6 +183,7 @@ public class gameController {
         setValue(value);
         if(this.SelectedLabel!=null)
             this.SelectedLabel.setText("4");
+        checkInput(value);
     }
     @FXML
     protected void auswahl5() {
@@ -181,6 +191,7 @@ public class gameController {
         setValue(value);
         if(this.SelectedLabel!=null)
             this.SelectedLabel.setText("5");
+        checkInput(value);
     }
     @FXML
     protected void auswahl6() {
@@ -188,6 +199,7 @@ public class gameController {
         setValue(value);
         if(this.SelectedLabel!=null)
             this.SelectedLabel.setText("6");
+        checkInput(value);
     }
     @FXML
     protected void auswahl7() {
@@ -195,6 +207,7 @@ public class gameController {
         setValue(value);
         if(this.SelectedLabel!=null)
             this.SelectedLabel.setText("7");
+        checkInput(value);
     }
     @FXML
     protected void auswahl8() {
@@ -202,6 +215,7 @@ public class gameController {
         setValue(value);
         if(this.SelectedLabel!=null)
             this.SelectedLabel.setText("8");
+        checkInput(value);
     }
     @FXML
     protected void auswahl9() {
@@ -209,6 +223,7 @@ public class gameController {
         setValue(value);
         if(this.SelectedLabel!=null)
             this.SelectedLabel.setText("9");
+        checkInput(value);
     }
 
 
