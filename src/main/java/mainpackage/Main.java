@@ -43,7 +43,7 @@ public class Main extends Application {
         Games games = new Games();
 
         //Scene myScene = primaryStage.getScene();
-/*
+
         GridPane sudokuGridPane = new GridPane();
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
@@ -52,7 +52,7 @@ public class Main extends Application {
             }
         }
 
-        BorderPane sudokuBorderPane = new BorderPane();
+        /*BorderPane sudokuBorderPane = new BorderPane();
         sudokuBorderPane.getChildren().add(sudokuGridPane);
 
         Button button1 = new Button("Button 1");
