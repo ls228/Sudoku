@@ -29,7 +29,7 @@ public class gameController {
 
         while (!Main.gameFinished) {
 
-            Games game = new Games();
+            //Games game = new Games();
             //System.out.println(Main.puzzleBoard.toString());
 
             // System.out.println("Bei (1|1) ist: " + Main.puzzleBoard.getNumberAtIdx(1,1));
@@ -41,24 +41,20 @@ public class gameController {
             for (int row = 0; row < 9; row++) {
                 for (int col = 0; col < 9; col++) {
 
-                    idLabel = "Label_" + Integer.toString(row) + "_" + Integer.toString(col);
+                    idLabel = "Label_" + row + "_" +col;
                     System.out.println(idLabel);
 
                     //Label bekommt Wert vom puzzleboard
                     //Zahlen Wert an Index
                     int valuePuzzleBoardAtIndex = Main.puzzleBoard.getNumberAtIdx(row,col);
-                    Label newvalue=new Label();
-                    newvalue.setText(idLabel);
-                    newvalue.setText(Integer.toString(valuePuzzleBoardAtIndex));
-                    newvalue.setVisible(true);
-                    System.out.println(newvalue);
+
+                    Label currentlySelectedLabel = new Label();
+                    currentlySelectedLabel.setText(idLabel);
+                    currentlySelectedLabel.setText(Integer.toString(valuePuzzleBoardAtIndex));
                 }
             }
 
-
             // sudokuGridPane.getChildren().add(Games.getPuzzle_board());
-
-
 
             /*
             System.out.println("Rätsel: ");
@@ -70,11 +66,15 @@ public class gameController {
             */
             break;
         }
-
         //board.checkWinning();
     }
 
+    public void checkInput(int value){
+        String id = SelectedLabel.getId();
 
+    }
+
+    @FXML
     public void goBackPressed(ActionEvent event) {
         URL fxmlFileUrl = getClass().getClassLoader().getResource("home.fxml");
         try {
