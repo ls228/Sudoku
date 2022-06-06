@@ -37,21 +37,18 @@ public class gameController {
             System.out.println("Set new sudoku");
             //GridPane sudokuGridPane = new GridPane();
             //ID vom Label
-            String zuBenennendesLabel;
+            String idLabel;
             for (int row = 0; row < 9; row++) {
                 for (int col = 0; col < 9; col++) {
-                    zuBenennendesLabel = "Label_";
-                    zuBenennendesLabel += Integer.toString(row);
-                    zuBenennendesLabel += "_";
-                    zuBenennendesLabel += Integer.toString(col);
 
-                    System.out.println(zuBenennendesLabel);
+                    idLabel = "Label_" + Integer.toString(row) + "_" + Integer.toString(col);
+                    System.out.println(idLabel);
 
                     //Label bekommt Wert vom puzzleboard
                     //Zahlen Wert an Index
                     int valuePuzzleBoardAtIndex = Main.puzzleBoard.getNumberAtIdx(row,col);
                     Label newvalue=new Label();
-                    newvalue.setText(zuBenennendesLabel);
+                    newvalue.setText(idLabel);
                     newvalue.setText(Integer.toString(valuePuzzleBoardAtIndex));
                     newvalue.setVisible(true);
                     System.out.println(newvalue);
