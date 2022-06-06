@@ -26,6 +26,19 @@ public class gameController {
     public static int value=0;
     int count=0;
 
+    /*
+    public void sceneLoader(URL fxmlFileUrl,ActionEvent event){
+        try {
+            Parent root = FXMLLoader.load(fxmlFileUrl);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }*/
+
     public void startRound() {
 
         while (!Main.gameFinished) {
@@ -83,7 +96,6 @@ public class gameController {
             SelectedLabel.setBackground(bg);
             System.out.println("true");
             return true;
-
         }
         System.out.println("false");
         Background bg = new Background(new BackgroundFill(Color.PINK, null, null));
@@ -93,7 +105,6 @@ public class gameController {
         } else{
             startRound();
         }
-        //fxml Datei mit verlieren
         return false;
     }
 
@@ -114,6 +125,7 @@ public class gameController {
     protected void level1pressed(ActionEvent event){
 
         URL fxmlFileUrl = getClass().getClassLoader().getResource("game1.fxml");
+
         try {
             Parent root = FXMLLoader.load(fxmlFileUrl);
             Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -125,6 +137,7 @@ public class gameController {
         }
         startRound();
     }
+
     @FXML
     protected void level2pressed(ActionEvent event){
         URL fxmlFileUrl = getClass().getClassLoader().getResource("game2.fxml");
@@ -226,6 +239,12 @@ public class gameController {
         checkInput(value);
     }
 
+    @FXML
+    protected void backPressed(){
+        Background bg = new Background(new BackgroundFill(Color.WHITE, null, null));
+        SelectedLabel.setBackground(bg);
+        SelectedLabel.setText("0");
+    }
 
     @FXML
     private void MyFirstPanelClicked(MouseEvent event) {
