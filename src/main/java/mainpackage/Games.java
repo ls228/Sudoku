@@ -85,8 +85,6 @@ public class Games {
                 break;
 
 
-
-
                 /* (Hier insges. 50 cases einfügen für die Spiele, Name jeweils
                  gameSolutionValues1, gamePuzzleValues1, Zahl je nach case-Nummer anpassen!) */
 

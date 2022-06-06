@@ -25,18 +25,50 @@ public class gameController {
     @FXML private GridPane MyFirstPanel;
     public static int value=0;
 
-    public void startRound(int value) {
-
-        int numberToSet;
+    public void startRound() {
 
         while (!Main.gameFinished) {
+
+            Games game = new Games();
+            //System.out.println(Main.puzzleBoard.toString());
+
+            // System.out.println("Bei (1|1) ist: " + Main.puzzleBoard.getNumberAtIdx(1,1));
+
+            System.out.println("Set new sudoku");
+            //GridPane sudokuGridPane = new GridPane();
+            //ID vom Label
+            String zuBenennendesLabel;
+            for (int row = 0; row < 9; row++) {
+                for (int col = 0; col < 9; col++) {
+                    zuBenennendesLabel = "Label_";
+                    zuBenennendesLabel += Integer.toString(row);
+                    zuBenennendesLabel += "_";
+                    zuBenennendesLabel += Integer.toString(col);
+
+                    System.out.println(zuBenennendesLabel);
+
+                    //Label bekommt Wert vom puzzleboard
+                    //Zahlen Wert an Index
+                    int valuePuzzleBoardAtIndex = Main.puzzleBoard.getNumberAtIdx(row,col);
+                    Label newvalue=new Label();
+                    newvalue.setText(zuBenennendesLabel);
+                    newvalue.setText(Integer.toString(valuePuzzleBoardAtIndex));
+                    newvalue.setVisible(true);
+                    System.out.println(newvalue);
+                }
+            }
+            // sudokuGridPane.getChildren().add(Games.getPuzzle_board());
+
+
+
+            /*
             System.out.println("Rätsel: ");
             System.out.println(Main.puzzleBoard.toString());
 
             System.out.println("Lösung: (auskommentiert)");
 
             System.out.println("added number "+ value);
-
+            */
             break;
         }
 
@@ -58,6 +90,7 @@ public class gameController {
     }
     @FXML
     protected void level1pressed(ActionEvent event){
+
         URL fxmlFileUrl = getClass().getClassLoader().getResource("game1.fxml");
         try {
             Parent root = FXMLLoader.load(fxmlFileUrl);
@@ -68,7 +101,7 @@ public class gameController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        startRound(value);
+        startRound();
     }
     @FXML
     protected void level2pressed(ActionEvent event){
@@ -101,8 +134,6 @@ public class gameController {
         this.value=1;
         setValue(value);
         //Games.read().add(value);
-        startRound(value);
-
         if(this.SelectedLabel!=null)
             this.SelectedLabel.setText("1");
     }
@@ -111,7 +142,6 @@ public class gameController {
     protected void auswahl2() {
         this.value=2;
         setValue(value);
-        startRound(value);
         if(this.SelectedLabel!=null)
             this.SelectedLabel.setText("2");
     }
@@ -119,7 +149,6 @@ public class gameController {
     protected void auswahl3() {
         this.value=3;
         setValue(value);
-        startRound(value);
         if(this.SelectedLabel!=null)
             this.SelectedLabel.setText("3");
     }
@@ -164,9 +193,6 @@ public class gameController {
         setValue(value);
         if(this.SelectedLabel!=null)
             this.SelectedLabel.setText("9");
-
-        Background bg = new Background(new BackgroundFill(Color.CADETBLUE, null, null));
-        this.MyFirstLabel.setBackground(bg);
     }
 
 
@@ -199,7 +225,7 @@ public class gameController {
 
     @FXML
     private void OnMouseMovedOnLabel(MouseEvent event) {
-        Label label = (Label) event.getSource();
+       /* Label label = (Label) event.getSource();
 
         if(LastselctedLabel!=null)
             LastselctedLabel.setBackground(null);
@@ -207,7 +233,7 @@ public class gameController {
         LastselctedLabel = label;
 
         Background bg = new Background(new BackgroundFill(Color.WHEAT, null, null));
-        label.setBackground(bg);
+        label.setBackground(bg);*/
     }
 
 

@@ -12,8 +12,6 @@ public class Board {
     private static Board board = new Board();
 
 
-
-
     @Override
     public String toString(){
         StringBuffer buf = new StringBuffer();
