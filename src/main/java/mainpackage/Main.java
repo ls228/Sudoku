@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Line;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -43,22 +44,22 @@ public class Main extends Application {
         window.setTitle("Sudoku");
         window.show();
 
-
-
-
         // Game start
         Games games = new Games(); // -> Games Class (generate random number, set puzzle & solution board)
 
 
+       /*
+        Line line= new Line();
+        line.setStartX(200);
+        line.setStartY(200);
+        line.setEndX(500);
+        line.setEndY(200);
+        line.setStrokeWidth(6);
+        line.setStroke(Color.BLACK);
 
-        // ?
-        GridPane sudokuGridPane = new GridPane();
-        for (int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
-                Label label = new Label(String.valueOf(i));
-                sudokuGridPane.getChildren().add(label);
-            }
-        }
+        root.getChildren().add(line);*/
+
+
 
         /*BorderPane sudokuBorderPane = new BorderPane();
         sudokuBorderPane.getChildren().add(sudokuGridPane);
@@ -92,8 +93,6 @@ public class Main extends Application {
     public static Board solutionBoard = Games.getSolution_board();
 
     public static boolean gameFinished = false;
-
-
 
 
     public static void main(String[] args) {
