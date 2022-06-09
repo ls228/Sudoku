@@ -1,6 +1,7 @@
 package mainpackage;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,16 +27,23 @@ import java.io.IOException;
 import java.net.URL;
 
 public class gameController {
+
     @FXML private GridPane sudokuGridPane;
-    @FXML private GridPane buttonGrid;
-    boolean labelAreInitialized=false;
-    Label LastselctedLabel = null;
-    Label SelectedLabel = null;
     @FXML Label counter;
 
-    public static int value=0;
+    boolean labelAreInitialized=false;
     boolean wrongValue=false;
+
+    Label LastselctedLabel = null;
+    Label SelectedLabel = null;
+
+    public static int value=0;
     int count=0;
+
+    //startRound
+
+    //Position position = getRowCol(label.getId());
+    //int valuePuzzleBoardAtIndex = Main.puzzleBoard.getNumberAtIdx(position.row, position.col);
 
     /**
      * Method is setting labels when startGame button is clicked
@@ -52,7 +60,6 @@ public class gameController {
                 //position
                 label.setPrefHeight(44.0);
                 label.setPrefWidth(46.0);
-
                 //Mouse clicked wird hier implizit implementiert um das selektierte Label zu
                 //markieren.
                 label.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -107,9 +114,8 @@ public class gameController {
 
         //create Label for wrong input counter
 
-
         while (!Main.gameFinished) {
-            System.out.println("Set new sudoku");
+
             int size = sudokuGridPane.getChildren().size();
             Label label=null;
             if(sudokuGridPane!=null && size>0) {
@@ -127,6 +133,44 @@ public class gameController {
                     if(label!=null) {
                         Position position = getRowCol(node.getId());
                         int valuePuzzleBoardAtIndex = Main.puzzleBoard.getNumberAtIdx(position.row, position.col);
+                        //to create labels that can be changed by user input
+                        if(valuePuzzleBoardAtIndex==0) {
+                            label.setText(Integer.toString(valuePuzzleBoardAtIndex));
+                        }else{
+                            //given numbers can't be changed
+                            label.setText(Integer.toString(valuePuzzleBoardAtIndex));
+                            label.setDisable(true);
+                        }
+                    }
+                }
+            }
+            break;
+        }
+        //board.checkWinning();
+    }
+    public void startRound2(){
+
+        //create Label for wrong input counter
+
+        while (!Main.gameFinished) {
+
+            int size = sudokuGridPane.getChildren().size();
+            Label label=null;
+            if(sudokuGridPane!=null && size>0) {
+                //for each Schleife um jedes Label zu testen
+                for (Node node : sudokuGridPane.getChildren()) {
+                    try {
+                        //to make sure that node is a label
+                        //if it is label stays a node
+                        label = (Label) node;
+                    }
+                    catch(Exception e)
+                    {
+                        System.out.println("Exception. Node not a Label");
+                    }
+                    if(label!=null) {
+                        Position position = getRowCol(node.getId());
+                        int valuePuzzleBoardAtIndex = Main.puzzleBoard2.getNumberAtIdx(position.row, position.col);
                         //to create labels that can be changed by user input
                         if(valuePuzzleBoardAtIndex==0) {
                             label.setText(Integer.toString(valuePuzzleBoardAtIndex));
@@ -168,18 +212,17 @@ public class gameController {
         wrongValue=true;
         if(count<3){
             count++;
-
             counter.setText("Wrong input counter: "+count+"/3");
                              // <Label prefHeight="41.0" prefWidth="141.0" text="Wrong input counter: 0/3" GridPane.columnIndex="1" GridPane.rowIndex="1" />
         } else{
-            //display();
+            display();
         }
         return false;
     }
 
     //to show a new window
-    /*
-    public static void display() {
+
+    public void display() {
 
         Stage window = new Stage();
 
@@ -189,13 +232,16 @@ public class gameController {
         window.setMaxHeight(250);
 
         Label label1 = new Label();
-        label1.setText("You won");
+        label1.setText("You lost");
         Label label2 = new Label();
-        label2.setText("Congratulation");
-
+        label2.setText("");
+        Button backButton=new Button("Home");
+        //EventHandler<ActionEvent> actionEventEventHandler = goBackPressed(event);
+        //backButton.setOnAction(actionEventEventHandler);
 
         VBox layout = new VBox(10);
         layout.getChildren().addAll(label1);
+        layout.getChildren().add(backButton);
         layout.getChildren().addAll(label2);
         layout.setAlignment(Pos.CENTER);
 
@@ -204,8 +250,22 @@ public class gameController {
         window.show();
 
     }
-     */
 
+    @FXML
+    protected void goBackHome(ActionEvent event) {
+
+        URL fxmlFileUrl = getClass().getClassLoader().getResource("startgame.fxml");
+        try {
+            Parent root = FXMLLoader.load(fxmlFileUrl);
+            Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
     /**
      * Method to enable start playing
      * @param event
@@ -219,6 +279,16 @@ public class gameController {
         }
         startRound();
     }
+
+    @FXML
+    protected void OnStartGameClickedlevel2(MouseEvent event) {
+        if(!labelAreInitialized) {
+            this.setLabels();
+            labelAreInitialized = true;
+        }
+        startRound2();
+    }
+
     @FXML
     public void goBackPressed(ActionEvent event) {
         URL fxmlFileUrl = getClass().getClassLoader().getResource("home.fxml");
@@ -273,6 +343,11 @@ public class gameController {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Buttons for input 1 to 9
+     */
+
     @FXML
     protected void auswahl1() {
         this.value=1;
@@ -346,6 +421,7 @@ public class gameController {
         checkInput(value);
     }
 
+    //delete last input
     @FXML
     protected void backPressed(){
         Background bg = new Background(new BackgroundFill(Color.WHITE, null, null));

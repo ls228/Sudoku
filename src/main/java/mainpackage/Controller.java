@@ -18,19 +18,8 @@ public class Controller {
     Stage window= new Stage();
 
     public Button button;
-    @FXML
-    TextArea textArea;
 
-    @FXML
-    private Label label;
-    private Object Node;
-
-    @FXML
-    protected void buttonPressed() {
-        String text = textArea.getText();
-        label.setText(text);
-        textArea.clear();
-    }
+    @FXML private javafx.scene.control.Button exit;
 
     @FXML
     protected void playPressed(ActionEvent event) {
@@ -45,8 +34,15 @@ public class Controller {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
+
+    @FXML
+    protected void exitGame(ActionEvent event){
+        Stage stage = (Stage) exit.getScene().getWindow();
+        stage.close();
+        window.close();
+    }
+
     @FXML
     protected void goBackSettingsPressed(ActionEvent event) {
 

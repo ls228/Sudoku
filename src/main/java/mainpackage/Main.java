@@ -2,19 +2,14 @@ package mainpackage;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Line;
 import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.Objects;
-import java.util.Scanner;
 
 public class Main extends Application {
 
@@ -38,9 +33,6 @@ public class Main extends Application {
         primaryStage.setFullScreen(false);
 
         window = primaryStage;
-
-        Label label1 = new Label("Welcome");
-
         window.setTitle("Sudoku");
         window.show();
 
@@ -88,9 +80,13 @@ public class Main extends Application {
     }
 
 
-    // get puzzle & solution Boards
+    // get puzzle & solution Boards level1
     public static Board puzzleBoard = Games.getPuzzle_board();
     public static Board solutionBoard = Games.getSolution_board();
+
+    // get puzzle & solution Boards level2
+    public static Board puzzleBoard2 = Games2.getPuzzle_board2();
+    public static Board solutionBoard2 = Games2.getSolution_board2();
 
     public static boolean gameFinished = false;
 

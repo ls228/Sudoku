@@ -17,7 +17,7 @@ public class Games {
     public Games() {
 
         // Man könnte z.B. Schwierigkeitsgrade machen je nach Nummer (1-10 leicht, 11-20 mittel, 21-30 schwer)
-        int randomNumber = (int) (30 * Math.random());
+        int randomNumber = (int) (20 * Math.random());
         System.out.println("Random Number: " + randomNumber);
 
 

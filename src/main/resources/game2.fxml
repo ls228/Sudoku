@@ -85,7 +85,7 @@
                   </Button>
                </children>
             </GridPane>
-            <GridPane fx:id="buttonGrid" GridPane.columnIndex="1">
+            <GridPane GridPane.columnIndex="1">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="126.33329772949219" minWidth="10.0" prefWidth="43.99997584025065" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.66667048136392" minWidth="10.0" prefWidth="147.33335749308267" />
@@ -105,10 +105,10 @@
                         <Insets left="65.0" />
                      </GridPane.margin>
                   </Button>
-                  <Label fx:id="counter" prefHeight="41.0" prefWidth="141.0" text="Wrong input counter: 0/3" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label disable="true" fx:id="counter" prefHeight="41.0" prefWidth="141.0" text="Wrong input counter: 0/3" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                </children>
             </GridPane>
-            <Button mnemonicParsing="false" onMouseClicked="#OnStartGameClicked" text="StartGame" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Button mnemonicParsing="false" onMouseClicked="#OnStartGameClickedlevel2" text="StartGame" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
       </GridPane>
    </right>
