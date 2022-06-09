@@ -27,9 +27,11 @@ import java.net.URL;
 
 public class gameController {
     @FXML private GridPane sudokuGridPane;
+    @FXML private GridPane buttonGrid;
     boolean labelAreInitialized=false;
     Label LastselctedLabel = null;
     Label SelectedLabel = null;
+    @FXML Label counter;
 
     public static int value=0;
     boolean wrongValue=false;
@@ -103,11 +105,15 @@ public class gameController {
      */
     public void startRound(){
 
+        //create Label for wrong input counter
+
+
         while (!Main.gameFinished) {
             System.out.println("Set new sudoku");
             int size = sudokuGridPane.getChildren().size();
             Label label=null;
             if(sudokuGridPane!=null && size>0) {
+                //for each Schleife um jedes Label zu testen
                 for (Node node : sudokuGridPane.getChildren()) {
                     try {
                         //to make sure that node is a label
@@ -158,17 +164,15 @@ public class gameController {
             return true;
         }
         System.out.println("false");
-        Background bg = new Background(new BackgroundFill(Color.PINK, null, null));
-        SelectedLabel.setBackground(bg);
+        wrongInput();
         wrongValue=true;
         if(count<3){
-
-
             count++;
 
+            counter.setText("Wrong input counter: "+count+"/3");
+                             // <Label prefHeight="41.0" prefWidth="141.0" text="Wrong input counter: 0/3" GridPane.columnIndex="1" GridPane.rowIndex="1" />
         } else{
             //display();
-            startRound();
         }
         return false;
     }
@@ -273,12 +277,10 @@ public class gameController {
     protected void auswahl1() {
         this.value=1;
         setValue(value);
-        //Games.read().add(value);
         if(this.SelectedLabel!=null)
             this.SelectedLabel.setText("1");
         checkInput(value);
     }
-
     @FXML
     protected void auswahl2() {
         this.value=2;
@@ -349,12 +351,6 @@ public class gameController {
         Background bg = new Background(new BackgroundFill(Color.WHITE, null, null));
         SelectedLabel.setBackground(bg);
         SelectedLabel.setText("0");
-    }
-
-    @FXML
-    private void MyFirstPanelClicked(MouseEvent event) {
-        // code in this method is executed when the mouse is pressed
-        // on a node with onMousePressed="#handleMousePress"
     }
 
     //für falschen Input rotes Feld
