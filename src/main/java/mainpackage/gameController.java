@@ -41,7 +41,7 @@ public class gameController {
 
     public static int value=0;
     int count=0;
-    int level;
+    int level=1;
 
     /**
      * Method to load new sudoku in labels
