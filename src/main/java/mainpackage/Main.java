@@ -31,6 +31,7 @@ public class Main extends Application {
         Scene myScene = new Scene(root, 600, 400);
         primaryStage.setScene(myScene);
         primaryStage.setFullScreen(false);
+        primaryStage.setResizable(false);
 
         window = primaryStage;
         window.setTitle("Sudoku");
@@ -85,8 +86,8 @@ public class Main extends Application {
     public static Board solutionBoard = Games.getSolution_board();
 
     // get puzzle & solution Boards level2
-    public static Board puzzleBoard2 = Games2.getPuzzle_board2();
-    public static Board solutionBoard2 = Games2.getSolution_board2();
+   // public static Board puzzleBoard2 = Games2.getPuzzle_board2();
+    //public static Board solutionBoard2 = Games2.getSolution_board2();
 
     public static boolean gameFinished = false;
 
