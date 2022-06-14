@@ -108,7 +108,7 @@
                   <Label disable="true" fx:id="counter" prefHeight="41.0" prefWidth="141.0" text="Wrong input counter: 0/3" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                </children>
             </GridPane>
-            <Button mnemonicParsing="false" onMouseClicked="#OnStartGameClickedlevel2" text="StartGame" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Button mnemonicParsing="false" onMouseClicked="#OnStartGameClicked" text="StartGame" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
       </GridPane>
    </right>

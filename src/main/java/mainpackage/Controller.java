@@ -38,9 +38,9 @@ public class Controller {
 
     @FXML
     protected void exitGame(ActionEvent event){
-        Stage stage = (Stage) exit.getScene().getWindow();
-        stage.close();
-        window.close();
+            Stage stage = (Stage) exit.getScene().getWindow();
+            stage.close();
+            window.close();
     }
 
     @FXML

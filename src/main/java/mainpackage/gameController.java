@@ -39,10 +39,49 @@ public class gameController {
 
     public static int value=0;
     int count=0;
-    public int level=1;
+    int level;
 
-    //startRound
 
+    /**
+     * Method to load new sudoku in labels
+     */
+    public void startRound(){
+
+        while (!Main.gameFinished) {
+
+            int size = sudokuGridPane.getChildren().size();
+            Label label=null;
+            if(sudokuGridPane!=null && size>0) {
+                //for each Schleife um jedes Label zu testen
+                for (Node node : sudokuGridPane.getChildren()) {
+                    try {
+                        //to make sure that node is a label
+                        //if it is label stays a node
+                        label = (Label) node;
+                    }
+                    catch(Exception e)
+                    {
+                        System.out.println("Exception. Node not a Label");
+                    }
+
+                    if(label!=null) {
+                        Position position = getRowCol(node.getId());
+                        int valuePuzzleBoardAtIndex = Main.puzzleBoard.getNumberAtIdx(position.row, position.col);
+                        //to create labels that can be changed by user input
+                        if(valuePuzzleBoardAtIndex==0) {
+                            label.setText(Integer.toString(valuePuzzleBoardAtIndex));
+                        }else{
+                            //given numbers can't be changed
+                            label.setText(Integer.toString(valuePuzzleBoardAtIndex));
+                            label.setDisable(true);
+                        }
+                    }
+                }
+            }
+            break;
+        }
+        //board.checkWinning();
+    }
     //Position position = getRowCol(label.getId());
     //int valuePuzzleBoardAtIndex = Main.puzzleBoard.getNumberAtIdx(position.row, position.col);
 
@@ -83,7 +122,6 @@ public class gameController {
                     sudokuGridPane.add(label, i, j);
                 }
             }
-
         }
     }
 
@@ -107,87 +145,6 @@ public class gameController {
 
         return position;
     }
-
-    /**
-     * Method to load new sudoku in labels
-     */
-    public void startRound(){
-
-        while (!Main.gameFinished) {
-
-            int size = sudokuGridPane.getChildren().size();
-            Label label=null;
-            if(sudokuGridPane!=null && size>0) {
-                //for each Schleife um jedes Label zu testen
-                for (Node node : sudokuGridPane.getChildren()) {
-                    try {
-                        //to make sure that node is a label
-                        //if it is label stays a node
-                        label = (Label) node;
-                    }
-                    catch(Exception e)
-                        {
-                            System.out.println("Exception. Node not a Label");
-                        }
-
-                    if(label!=null) {
-                        Position position = getRowCol(node.getId());
-                        int valuePuzzleBoardAtIndex = Main.puzzleBoard.getNumberAtIdx(position.row, position.col);
-                        //to create labels that can be changed by user input
-                        if(valuePuzzleBoardAtIndex==0) {
-                            label.setText(Integer.toString(valuePuzzleBoardAtIndex));
-                        }else{
-                            //given numbers can't be changed
-                            label.setText(Integer.toString(valuePuzzleBoardAtIndex));
-                            label.setDisable(true);
-                        }
-                    }
-                }
-            }
-            break;
-        }
-        //board.checkWinning();
-    }
-    /*
-    public void startRound2(){
-
-        //create Label for wrong input counter
-
-        while (!Main.gameFinished) {
-
-            int size = sudokuGridPane.getChildren().size();
-            Label label=null;
-            if(sudokuGridPane!=null && size>0) {
-                //for each Schleife um jedes Label zu testen
-                for (Node node : sudokuGridPane.getChildren()) {
-                    try {
-                        //to make sure that node is a label
-                        //if it is label stays a node
-                        label = (Label) node;
-                    }
-                    catch(Exception e)
-                    {
-                        System.out.println("Exception. Node not a Label");
-                    }
-                    if(label!=null) {
-                        Position position = getRowCol(node.getId());
-                        int valuePuzzleBoardAtIndex = Main.puzzleBoard2.getNumberAtIdx(position.row, position.col);
-                        //to create labels that can be changed by user input
-                        if(valuePuzzleBoardAtIndex==0) {
-                            label.setText(Integer.toString(valuePuzzleBoardAtIndex));
-                        }else{
-                            //given numbers can't be changed
-                            label.setText(Integer.toString(valuePuzzleBoardAtIndex));
-                            label.setDisable(true);
-                        }
-                    }
-                }
-            }
-            break;
-        }
-        //board.checkWinning();
-    }
-    */
 
     /**
      * This method compares the input with the solutionBoard
@@ -215,7 +172,6 @@ public class gameController {
         if(count<3){
             count++;
             counter.setText("Wrong input counter: "+count+"/3");
-                             // <Label prefHeight="41.0" prefWidth="141.0" text="Wrong input counter: 0/3" GridPane.columnIndex="1" GridPane.rowIndex="1" />
         } else{
             display();
         }
@@ -250,7 +206,6 @@ public class gameController {
         Scene scene =new Scene(layout);
         window.setScene(scene);
         window.show();
-
     }
 
     @FXML
@@ -278,20 +233,6 @@ public class gameController {
         if(!labelAreInitialized) {
             this.setLabels();
             labelAreInitialized = true;
-            //level=1;
-            //getLevel(level);
-            //level = 1;
-        }
-        startRound();
-    }
-
-    @FXML
-    protected void OnStartGameClickedlevel2(MouseEvent event) {
-        if(!labelAreInitialized) {
-            this.setLabels();
-            labelAreInitialized = true;
-            //level=2;
-            //getLevel(level);
         }
         startRound();
     }
@@ -311,6 +252,9 @@ public class gameController {
     }
     @FXML
     protected void level1pressed(ActionEvent event){
+        level=1;
+        System.out.println(this.level);
+        setLevel(this.level);
 
         URL fxmlFileUrl = getClass().getClassLoader().getResource("game1.fxml");
 
@@ -323,11 +267,13 @@ public class gameController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        level=1;
-        setLevel(level);
     }
+
     @FXML
     protected void level2pressed(ActionEvent event){
+        this.level=2;
+        setLevel(this.level);
+
         URL fxmlFileUrl = getClass().getClassLoader().getResource("game2.fxml");
         try {
             Parent root = FXMLLoader.load(fxmlFileUrl);
@@ -338,8 +284,7 @@ public class gameController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        level=2;
-        setLevel(level);
+
     }
     @FXML
     protected void level3pressed(ActionEvent event) {
@@ -452,11 +397,11 @@ public class gameController {
        this.value=value;
     }
 
-    public int setLevel(int level) {
-        return level;
+    public void setLevel(int level) {
+        this.level = level;
     }
 
-    public int getLevel() {
-        return level;
+    public int getLevel(){
+        return this.level;
     }
 }
