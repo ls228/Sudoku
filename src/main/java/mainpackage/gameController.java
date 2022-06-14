@@ -39,6 +39,7 @@ public class gameController {
 
     public static int value=0;
     int count=0;
+    public int level=1;
 
     //startRound
 
@@ -112,8 +113,6 @@ public class gameController {
      */
     public void startRound(){
 
-        //create Label for wrong input counter
-
         while (!Main.gameFinished) {
 
             int size = sudokuGridPane.getChildren().size();
@@ -130,6 +129,7 @@ public class gameController {
                         {
                             System.out.println("Exception. Node not a Label");
                         }
+
                     if(label!=null) {
                         Position position = getRowCol(node.getId());
                         int valuePuzzleBoardAtIndex = Main.puzzleBoard.getNumberAtIdx(position.row, position.col);
@@ -148,6 +148,7 @@ public class gameController {
         }
         //board.checkWinning();
     }
+    /*
     public void startRound2(){
 
         //create Label for wrong input counter
@@ -186,12 +187,13 @@ public class gameController {
         }
         //board.checkWinning();
     }
+    */
 
     /**
      * This method compares the input with the solutionBoard
      * If input is valse, the label turns red and counts one mistake
      * @param value
-     * @return
+     * @return boolean
      */
 
     public boolean checkInput(int value){
@@ -276,6 +278,9 @@ public class gameController {
         if(!labelAreInitialized) {
             this.setLabels();
             labelAreInitialized = true;
+            //level=1;
+            //getLevel(level);
+            //level = 1;
         }
         startRound();
     }
@@ -285,8 +290,10 @@ public class gameController {
         if(!labelAreInitialized) {
             this.setLabels();
             labelAreInitialized = true;
+            //level=2;
+            //getLevel(level);
         }
-        startRound2();
+        startRound();
     }
 
     @FXML
@@ -316,6 +323,8 @@ public class gameController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        level=1;
+        setLevel(level);
     }
     @FXML
     protected void level2pressed(ActionEvent event){
@@ -329,6 +338,8 @@ public class gameController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        level=2;
+        setLevel(level);
     }
     @FXML
     protected void level3pressed(ActionEvent event) {
@@ -439,5 +450,13 @@ public class gameController {
 
     public void setValue(int value) {
        this.value=value;
+    }
+
+    public int setLevel(int level) {
+        return level;
+    }
+
+    public int getLevel() {
+        return level;
     }
 }
