@@ -38,7 +38,7 @@ public class Main extends Application {
         window.show();
 
         // Game start
-        Games games = new Games(); // -> Games Class (generate random number, set puzzle & solution board)
+        //Games games = new Games(); // -> Games Class (generate random number, set puzzle & solution board)
 
 
        /*

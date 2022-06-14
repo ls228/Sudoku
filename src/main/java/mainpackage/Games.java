@@ -20,6 +20,7 @@ public class Games {
 
         int randomNumber = (int) (10 * Math.random());
         System.out.println("Random Number: " + randomNumber);
+        System.out.println("level hat nr."+levelInitialized.getLevel());
 
         //if Funktion mit Level nr soll die Sudokos nach Schwierigkeitsgrad auswählen
         if(levelInitialized.getLevel()==1) {

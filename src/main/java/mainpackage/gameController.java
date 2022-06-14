@@ -28,6 +28,8 @@ import java.net.URL;
 
 public class gameController {
 
+
+
     @FXML private GridPane sudokuGridPane;
     @FXML Label counter;
 
@@ -41,11 +43,11 @@ public class gameController {
     int count=0;
     int level;
 
-
     /**
      * Method to load new sudoku in labels
      */
     public void startRound(){
+        Games games = new Games();
 
         while (!Main.gameFinished) {
 
@@ -117,7 +119,6 @@ public class gameController {
                         label.setBackground(bg);
                     }
                 });
-                //GridPane.columnIndex="8" GridPane.rowIndex="8"
                 if(sudokuGridPane!=null) {
                     sudokuGridPane.add(label, i, j);
                 }
@@ -163,10 +164,8 @@ public class gameController {
         if(value==valueSolved){
             Background bg = new Background(new BackgroundFill(Color.WHITE, null, null));
             SelectedLabel.setBackground(bg);
-            System.out.println("true");
             return true;
         }
-        System.out.println("false");
         wrongInput();
         wrongValue=true;
         if(count<3){
@@ -252,9 +251,8 @@ public class gameController {
     }
     @FXML
     protected void level1pressed(ActionEvent event){
-        level=1;
-        System.out.println(this.level);
-        setLevel(this.level);
+        this.level=1;
+        setLevel(level);
 
         URL fxmlFileUrl = getClass().getClassLoader().getResource("game1.fxml");
 
@@ -402,6 +400,6 @@ public class gameController {
     }
 
     public int getLevel(){
-        return this.level;
+        return level;
     }
 }
