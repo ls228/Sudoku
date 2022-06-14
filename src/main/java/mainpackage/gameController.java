@@ -22,6 +22,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import java.io.IOException;
 import java.net.URL;
@@ -169,7 +170,7 @@ public class gameController {
                     {
                         System.out.println("Exception. Node not a Label");
                     }
-                    if(label!=null) {
+                    /*if(label!=null) {
                         Position position = getRowCol(node.getId());
                         int valuePuzzleBoardAtIndex = Main.puzzleBoard2.getNumberAtIdx(position.row, position.col);
                         //to create labels that can be changed by user input
@@ -180,7 +181,7 @@ public class gameController {
                             label.setText(Integer.toString(valuePuzzleBoardAtIndex));
                             label.setDisable(true);
                         }
-                    }
+                    }*/
                 }
             }
             break;
@@ -226,31 +227,74 @@ public class gameController {
 
     public void display() {
 
-        Stage window = new Stage();
+                Stage window = new Stage();
+        
+                window.initModality(Modality.APPLICATION_MODAL);
+        
+                window.setMinWidth(300);
+                window.setMaxHeight(250);
+        
+                Label label1 = new Label();
+                label1.setText("You lost");
+                Label label2 = new Label();
+                label2.setText("");
+                Button backButton=new Button("Home");
+                //EventHandler<ActionEvent> actionEventEventHandler = goBackPressed(event);
+                //backButton.setOnAction(actionEventEventHandler);
+                Button startNewGameButton = new Button("start new Game");
 
-        window.initModality(Modality.APPLICATION_MODAL);
+                startNewGameButton.setOnAction(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent event) {
+                        System.out.println("new Game");
 
-        window.setMinWidth(300);
-        window.setMaxHeight(250);
+                        URL fxmlFileUrl = getClass().getClassLoader().getResource("game1.fxml");
+                        try {
+                            Parent root = FXMLLoader.load(fxmlFileUrl);
+                            Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+                            Scene scene = new Scene(root);
+                            stage.setWidth(600);
+                            stage.setHeight(400);
+                            stage.setScene(scene);
+                            stage.show();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }});
 
-        Label label1 = new Label();
-        label1.setText("You lost");
-        Label label2 = new Label();
-        label2.setText("");
-        Button backButton=new Button("Home");
-        //EventHandler<ActionEvent> actionEventEventHandler = goBackPressed(event);
-        //backButton.setOnAction(actionEventEventHandler);
+                backButton.setOnAction(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent event) {
+                        System.out.println("backButton");
 
-        VBox layout = new VBox(10);
-        layout.getChildren().addAll(label1);
-        layout.getChildren().add(backButton);
-        layout.getChildren().addAll(label2);
-        layout.setAlignment(Pos.CENTER);
+                        window.close();
 
-        Scene scene =new Scene(layout);
-        window.setScene(scene);
-        window.show();
+                        URL fxmlFileUrl = getClass().getClassLoader().getResource("home.fxml");
+                        try {
+                            Parent root = FXMLLoader.load(fxmlFileUrl);
+                            Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+                            Scene scene = new Scene(root);
+                            window.setWidth(600);
+                            window.setHeight(400);
+                            stage.setScene(scene);
+                            stage.show();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }});
 
+                URL url = getClass().getResource("game1.fxml");
+                 Main.gameFinished=true;
+
+                VBox layout = new VBox(10);
+                layout.getChildren().addAll(label1);
+                layout.getChildren().addAll(backButton, startNewGameButton);
+                layout.getChildren().addAll(label2);
+                layout.setAlignment(Pos.CENTER);
+
+                Scene scene = new Scene(layout);
+                window.setScene(scene);
+                window.show();
     }
 
     @FXML
@@ -341,6 +385,7 @@ public class gameController {
         level=2;
         setLevel(level);
     }
+
     @FXML
     protected void level3pressed(ActionEvent event) {
         URL fxmlFileUrl = getClass().getClassLoader().getResource("game3.fxml");
