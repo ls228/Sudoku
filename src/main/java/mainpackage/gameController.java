@@ -34,6 +34,7 @@ public class gameController {
     boolean labelAreInitialized=false;
     boolean wrongValue=false;
     boolean youLost=false;
+    int currentlevel=1;
 
     Label LastselctedLabel = null;
     Label SelectedLabel = null;
@@ -45,7 +46,7 @@ public class gameController {
 
     public static int value=0;
     int count=0;
-    int level=1;
+    //int level=1;
 
 
     /**
@@ -73,15 +74,15 @@ public class gameController {
 
                     if(label!=null) {
                         Position position = getRowCol(node.getId());
-                        int valuePuzzleBoardAtIndex = Main.puzzleBoard.getNumberAtIdx(position.row, position.col);
+                        int valuePuzzleBoardAtIndex = Main.puzzleBoard.getNumberAtIdx(position.col,position.row);
                         //to create labels that can be changed by user input
                         if(valuePuzzleBoardAtIndex==0) {
                             label.setText(null);
                         }else{
                             //given numbers can't be changed
                             label.setText(Integer.toString(valuePuzzleBoardAtIndex));
+                            label.setBackground(lightblue);
                             label.setDisable(true);
-                            //label.setBackground(lightblue);
                         }
                     }
                 }
@@ -303,8 +304,8 @@ public class gameController {
     }
     @FXML
     protected void level1pressed(ActionEvent event){
-
-        setLevel(1);
+        int level=1;
+        setLevel(level);
 
         URL fxmlFileUrl = getClass().getClassLoader().getResource("game1.fxml");
 
@@ -321,8 +322,8 @@ public class gameController {
 
     @FXML
     protected void level2pressed(ActionEvent event){
-        this.level=2;
-        setLevel(this.level);
+        int level=2;
+        setLevel(level);
 
         URL fxmlFileUrl = getClass().getClassLoader().getResource("game2.fxml");
         try {
@@ -338,9 +339,9 @@ public class gameController {
     }
     @FXML
     protected void level3pressed(ActionEvent event) {
-        this.level=3;
-
+        int level=3;
         setLevel(level);
+
         URL fxmlFileUrl = getClass().getClassLoader().getResource("game3.fxml");
         try {
             Parent root = FXMLLoader.load(fxmlFileUrl);
@@ -447,11 +448,12 @@ public class gameController {
        this.value=value;
     }
 
-    public void setLevel(int level) {
-        this.level = level;
+    public int setLevel(int level) {
+        this.currentlevel = level;
+        return currentlevel;
     }
 
-    public int getLevel(){
-        return level;
+    public int getCurrentlevel() {
+        return currentlevel;
     }
 }
