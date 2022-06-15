@@ -25,8 +25,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ResourceBundle;
 
-public class gameController {
+public class gameController implements Initializable {
 
     @FXML private GridPane sudokuGridPane;
     @FXML Label counter;
@@ -47,6 +48,15 @@ public class gameController {
     int count=0;
     //int level=1;
 
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        if(!labelAreInitialized) {
+            this.setLabels();
+            labelAreInitialized = true;
+        }
+        startRound();
+    }
 
     /**
      * Method to load new Sudoku values in labels
@@ -124,6 +134,8 @@ public class gameController {
             }
         }
     }
+
+
 
     /**
      * new class to enable input of labelId and output of col & row in method getRowCol
@@ -239,21 +251,7 @@ public class gameController {
         window.show();
     }
 
-    @FXML
-    protected void goBackHome(ActionEvent event) {
 
-        URL fxmlFileUrl = getClass().getClassLoader().getResource("startgame.fxml");
-        try {
-            Parent root = FXMLLoader.load(fxmlFileUrl);
-            Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
 
     /**
      * Method to enable start playing
@@ -275,53 +273,6 @@ public class gameController {
         try {
             Parent root = FXMLLoader.load(fxmlFileUrl);
             Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-    @FXML
-    protected void level1pressed(ActionEvent event){
-        Games games = new Games(1);
-
-        URL fxmlFileUrl = getClass().getClassLoader().getResource("game1.fxml");
-
-        try {
-            Parent root = FXMLLoader.load(fxmlFileUrl);
-            Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    protected void level2pressed(ActionEvent event){
-        Games games = new Games(2);
-
-        URL fxmlFileUrl = getClass().getClassLoader().getResource("game2.fxml");
-        try {
-            Parent root = FXMLLoader.load(fxmlFileUrl);
-            Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
-    @FXML
-    protected void level3pressed(ActionEvent event) {
-        Games games = new Games(3);
-        URL fxmlFileUrl = getClass().getClassLoader().getResource("game3.fxml");
-        try {
-            Parent root = FXMLLoader.load(fxmlFileUrl);
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();

@@ -14,11 +14,6 @@ import java.util.Objects;
 public class Main extends Application {
 
     Stage window;
-    static Scene scene1;
-    static Scene scene2;
-    Stage fenster;
-    Button button1, button2;
-    Label label1,label2;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
