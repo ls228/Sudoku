@@ -102,6 +102,7 @@ public class gameController {
                 //position
                 label.setPrefHeight(44.0);
                 label.setPrefWidth(46.0);
+                label.setStyle("-fx-font: 24 arial;");
                 //Mouse clicked wird hier implizit implementiert um das selektierte Label zu
                 //markieren.
                 label.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -168,7 +169,9 @@ public class gameController {
         if(count<2){
             count++;
             counter.setText("Wrong input counter: "+count+"/3");
-        } else{
+            counter.setStyle("-fx-font: 12 arial;");
+        } else {
+            counter.setText("Wrong input counter: 3/3");
             display();
         }
         return false;
