@@ -34,7 +34,7 @@ public class gameController {
     boolean labelAreInitialized=false;
     boolean wrongValue=false;
     boolean youLost=false;
-    int currentlevel=1;
+    //int currentlevel=1;
 
     Label LastselctedLabel = null;
     Label SelectedLabel = null;
@@ -53,7 +53,6 @@ public class gameController {
      * Method to load new Sudoku values in labels
      */
     public void startRound(){
-        Games games = new Games();
 
         while (!Main.gameFinished) {
 
@@ -91,8 +90,6 @@ public class gameController {
         }
         //board.checkWinning();
     }
-    //Position position = getRowCol(label.getId());
-    //int valuePuzzleBoardAtIndex = Main.puzzleBoard.getNumberAtIdx(position.row, position.col);
 
     /**
      * Method is setting labels when startGame button is clicked
@@ -293,8 +290,7 @@ public class gameController {
     }
     @FXML
     protected void level1pressed(ActionEvent event){
-        int level=1;
-        setLevel(level);
+        Games games = new Games(1);
 
         URL fxmlFileUrl = getClass().getClassLoader().getResource("game1.fxml");
 
@@ -311,8 +307,7 @@ public class gameController {
 
     @FXML
     protected void level2pressed(ActionEvent event){
-        int level=2;
-        setLevel(level);
+        Games games = new Games(2);
 
         URL fxmlFileUrl = getClass().getClassLoader().getResource("game2.fxml");
         try {
@@ -328,9 +323,7 @@ public class gameController {
     }
     @FXML
     protected void level3pressed(ActionEvent event) {
-        int level=3;
-        setLevel(level);
-
+        Games games = new Games(3);
         URL fxmlFileUrl = getClass().getClassLoader().getResource("game3.fxml");
         try {
             Parent root = FXMLLoader.load(fxmlFileUrl);
@@ -437,12 +430,4 @@ public class gameController {
        this.value=value;
     }
 
-    public int setLevel(int level) {
-        this.currentlevel = level;
-        return currentlevel;
-    }
-
-    public int getCurrentlevel() {
-        return currentlevel;
-    }
 }

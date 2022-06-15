@@ -14,16 +14,16 @@ public class Games {
     /***
      * Spielbrett wird mit einem zufälligen Schema befüllt
      */
-    public Games() {
+    public Games(int currentlevel) {
 
         gameController levelInitialized=new gameController();
 
         int randomNumber = (int) (10 * Math.random());
         System.out.println("Random Number: " + randomNumber);
-        System.out.println("level hat nr."+levelInitialized.getCurrentlevel());
+        System.out.println("level hat nr."+currentlevel);
 
         //if Funktion mit Level nr soll die Sudokos nach Schwierigkeitsgrad auswählen
-        if(levelInitialized.getCurrentlevel()==1) {
+        if(currentlevel==1) {
             switch (randomNumber) {
                 //leicht:
                 case 1:
@@ -356,7 +356,7 @@ public class Games {
                     puzzle_board.setGanzesBrett(gamePuzzleValuesX);
                     break;
             }
-        }else if(levelInitialized.getCurrentlevel() == 2) {
+        }else if(currentlevel == 2) {
             switch (randomNumber) {
 
                     //leicht:
