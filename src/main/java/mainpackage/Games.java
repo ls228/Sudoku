@@ -20,10 +20,10 @@ public class Games {
 
         int randomNumber = (int) (10 * Math.random());
         System.out.println("Random Number: " + randomNumber);
-        System.out.println("level hat nr."+levelInitialized.getLevel());
+        System.out.println("level hat nr."+levelInitialized.getCurrentlevel());
 
         //if Funktion mit Level nr soll die Sudokos nach Schwierigkeitsgrad auswählen
-        if(levelInitialized.getLevel()==1) {
+        if(levelInitialized.getCurrentlevel()==1) {
             switch (randomNumber) {
                 //leicht:
                 case 1:
@@ -356,7 +356,7 @@ public class Games {
                     puzzle_board.setGanzesBrett(gamePuzzleValuesX);
                     break;
             }
-        }else if(levelInitialized.level == 2) {
+        }else if(levelInitialized.getCurrentlevel() == 2) {
             switch (randomNumber) {
 
                     //leicht:
