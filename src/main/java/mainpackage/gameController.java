@@ -234,18 +234,7 @@ public class gameController {
                 System.out.println("new Game");
                 Main.gameFinished=true;
 
-                URL fxmlFileUrl = getClass().getClassLoader().getResource("game1.fxml");
-                try {
-                    Parent root = FXMLLoader.load(fxmlFileUrl);
-                    Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-                    Scene scene = new Scene(root);
-                    stage.setWidth(600);
-                    stage.setHeight(400);
-                    stage.setScene(scene);
-                    stage.show();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                window.close();
             }});
 
 
