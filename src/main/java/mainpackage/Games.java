@@ -1066,7 +1066,7 @@ public class Games {
                 }
                 */
             }
-        }
+
 
     public static Board getSolution_board() {
         return solution_board;
