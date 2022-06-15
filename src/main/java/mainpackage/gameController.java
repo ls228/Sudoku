@@ -29,15 +29,19 @@ import java.util.ResourceBundle;
 
 public class gameController implements Initializable {
 
+    Main loadNewScene = new Main();
     @FXML private GridPane sudokuGridPane;
     @FXML Label counter;
 
+    Board board=new Board();
     boolean labelAreInitialized=false;
     boolean wrongValue=false;
     boolean youLost=false;
+    boolean gameFinished=false;
 
     Label LastselctedLabel = null;
     Label SelectedLabel = null;
+    Label doneLabel;
 
     Background blue = new Background(new BackgroundFill(Color.CADETBLUE, null, null));
     Background lightblue = new Background(new BackgroundFill(Color.BEIGE, null, null));
@@ -46,6 +50,25 @@ public class gameController implements Initializable {
 
     public static int value=0;
     int count=0;
+    
+    //Methode um zu erkennen das Sudoku fertig ist
+    public void done(){
+
+        for (int row = 0; row < 9; row++) {
+            for (int col = 0; col < 9; col++) {
+                /*checkedLabel = "Label_" + row + "_" + col;
+                if(checkedLabel.!=null){
+                    count++;
+                }else{
+                    System.out.println("not done yet");
+                }*/
+            }
+        }
+
+    }
+    
+    
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -66,14 +89,14 @@ public class gameController implements Initializable {
             if(sudokuGridPane!=null && size>0) {
                 //for each Schleife um jedes Label zu testen
                 for (Node node : sudokuGridPane.getChildren()) {
-                   try {
+                    try {
                         //to make sure that node is a label
                         //if it is label stays a node
                         label = (Label) node;
                     }
                     catch(Exception e)
                     {
-                        System.out.println("Exception. Node not a Label");
+                        System.out.println("Node is not a label");
                     }
 
                     if(label!=null) {
@@ -83,7 +106,6 @@ public class gameController implements Initializable {
                         if(valuePuzzleBoardAtIndex==0) {
                             label.setText(null);
                             label.setStyle("-fx-text-fill: grey;-fx-font: 24 arial;");
-                            //label.setStyle("-fx-font: 24 arial;");
                         }else{
                             //given numbers can't be changed
                             label.setText(Integer.toString(valuePuzzleBoardAtIndex));
@@ -102,12 +124,12 @@ public class gameController implements Initializable {
      */
 
     private void setLabels(){
-        for (int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
+        for (int row = 0; row < 9; row++) {
+            for (int col = 0; col < 9; col++) {
                 //every label is getting a value of 0
                 Label label = new Label();
                 label.setVisible(true);
-                label.setId("Label_" + i + "_" + j);
+                label.setId("Label_" + row + "_" + col);
                 label.setAlignment(Pos.CENTER);
                 //position
                 label.setPrefHeight(44.0);
@@ -129,19 +151,28 @@ public class gameController implements Initializable {
                     }
                 });
                 if(sudokuGridPane!=null) {
-                    sudokuGridPane.add(label, i, j);
+                    sudokuGridPane.add(label, row, col);
                 }
             }
         }
     }
-
-
-
+    private void getRowCol(){
+        String id = SelectedLabel.getId();
+        char rowchar=id.charAt(6);
+        char colchar=id.charAt(8);
+        int row= Integer.parseInt( String.valueOf(rowchar) );
+        int col= Integer.parseInt( String.valueOf(colchar) );
+    }
     /**
      * new class to enable input of labelId and output of col & row in method getRowCol
      */
     public class Position
     {
+        public Position() {
+            this.row = row;
+            this.col = col;
+        }
+
         public int row=0;
         public int col=0;
     }
@@ -227,16 +258,8 @@ public class gameController implements Initializable {
                 Node source = (Node) event.getSource();
                 Stage window = (Stage) source.getScene().getWindow();
                 window.close();
-                URL fxmlFileUrl = getClass().getClassLoader().getResource("home.fxml");
-                try {
-                    Parent root = FXMLLoader.load(fxmlFileUrl);
-                    Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-                    Scene scene = new Scene(root);
-                    stage.setScene(scene);
-                    stage.show();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                String url = "home.fxml";
+                loadNewScene.loadNewScene(event, url);
             }});
 
 
@@ -250,8 +273,6 @@ public class gameController implements Initializable {
         window.setScene(scene);
         window.show();
     }
-
-
 
     /**
      * Method to enable start playing
@@ -269,16 +290,8 @@ public class gameController implements Initializable {
 
     @FXML
     public void goBackPressed(ActionEvent event) {
-        URL fxmlFileUrl = getClass().getClassLoader().getResource("home.fxml");
-        try {
-            Parent root = FXMLLoader.load(fxmlFileUrl);
-            Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        String url = "home.fxml";
+        loadNewScene.loadNewScene(event, url);
     }
 
     /**
@@ -287,75 +300,58 @@ public class gameController implements Initializable {
 
     @FXML
     protected void auswahl1() {
-        this.value=1;
-        setValue(value);
         if(this.SelectedLabel!=null)
             this.SelectedLabel.setText("1");
-        checkInput(value);
+        checkInput(1);
     }
     @FXML
     protected void auswahl2() {
-        this.value=2;
-        setValue(value);
         if(this.SelectedLabel!=null)
             this.SelectedLabel.setText("2");
-        checkInput(value);
+        checkInput(2);
     }
     @FXML
     protected void auswahl3() {
-        this.value=3;
-        setValue(value);
         if(this.SelectedLabel!=null)
             this.SelectedLabel.setText("3");
-        checkInput(value);
+        checkInput(3);
     }
     @FXML
     protected void auswahl4() {
-        this.value=4;
-        setValue(value);
         if(this.SelectedLabel!=null)
             this.SelectedLabel.setText("4");
-        checkInput(value);
+        checkInput(4);
     }
     @FXML
     protected void auswahl5() {
-        this.value=5;
-        setValue(value);
         if(this.SelectedLabel!=null)
             this.SelectedLabel.setText("5");
-        checkInput(value);
+        checkInput(5);
     }
     @FXML
     protected void auswahl6() {
-        this.value=6;
-        setValue(value);
         if(this.SelectedLabel!=null)
             this.SelectedLabel.setText("6");
-        checkInput(value);
+        checkInput(6);
     }
     @FXML
     protected void auswahl7() {
-        this.value=7;
-        setValue(value);
         if(this.SelectedLabel!=null)
             this.SelectedLabel.setText("7");
-        checkInput(value);
+        checkInput(7);
     }
     @FXML
     protected void auswahl8() {
-        this.value=8;
-        setValue(value);
         if(this.SelectedLabel!=null)
             this.SelectedLabel.setText("8");
-        checkInput(value);
+        checkInput(8);
     }
     @FXML
     protected void auswahl9() {
-        this.value=9;
-        setValue(value);
         if(this.SelectedLabel!=null)
             this.SelectedLabel.setText("9");
-        checkInput(value);
+        checkInput(9);
+
     }
 
     //delete last input

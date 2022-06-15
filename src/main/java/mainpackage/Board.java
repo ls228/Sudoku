@@ -7,6 +7,8 @@ public class Board {
     private int[][] board_scheme = new int [SIZE][SIZE];
     public static final int SIZE = 9; // size of square / arrays
 
+    public Board() {}
+
     public static Board getInstance() { return board; }
 
     private static Board board = new Board();
@@ -25,7 +27,7 @@ public class Board {
         return buf.toString();
     }
 
-
+    //Vergleicht 2 Boards
     public boolean equalsBoard(Board b){
 
         for(int i = 0; i < SIZE; i++){
