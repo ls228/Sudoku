@@ -33,13 +33,10 @@ public class Main extends Application {
     }
 
 
-    // get puzzle & solution Boards level1
+    // get puzzle & solution Boards
     public static Board puzzleBoard = Games.getPuzzle_board();
     public static Board solutionBoard = Games.getSolution_board();
 
-    // get puzzle & solution Boards level2
-    // public static Board puzzleBoard2 = Games2.getPuzzle_board2();
-    //public static Board solutionBoard2 = Games2.getSolution_board2();
 
     public static void main(String[] args) {
         launch(args); // calls start-method

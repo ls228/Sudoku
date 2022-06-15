@@ -8,7 +8,7 @@ public class Board {
     public static final int SIZE = 9; // size of square / arrays
 
     public static Board getInstance() { return board; }
-    Board() {}
+
     private static Board board = new Board();
 
 
@@ -44,7 +44,7 @@ public class Board {
 
 
     /**
-     * Set ganzes Brett auf einmal über 2dim Array mit allen Werten (zeilenweise)
+     * Set ganzes Brett auf einmal über 2 dimensionales Array mit allen Werten (zeilenweise)
      */
     public void setGanzesBrett(int [][] values) {
         for(int i = 0; i < SIZE; i++){
@@ -58,7 +58,6 @@ public class Board {
     public int getNumberAtIdx(int row, int col){
         return board_scheme[row][col];
     }
-
 
 
 /*

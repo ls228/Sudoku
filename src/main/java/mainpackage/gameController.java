@@ -46,8 +46,6 @@ public class gameController implements Initializable {
 
     public static int value=0;
     int count=0;
-    //int level=1;
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -84,6 +82,8 @@ public class gameController implements Initializable {
                         //to create labels that can be changed by user input
                         if(valuePuzzleBoardAtIndex==0) {
                             label.setText(null);
+                            label.setStyle("-fx-text-fill: grey;-fx-font: 24 arial;");
+                            //label.setStyle("-fx-font: 24 arial;");
                         }else{
                             //given numbers can't be changed
                             label.setText(Integer.toString(valuePuzzleBoardAtIndex));
