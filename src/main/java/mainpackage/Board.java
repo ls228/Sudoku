@@ -61,8 +61,6 @@ public class Board {
 
 
 
-
-
 /*
     public boolean checkWinning() {
 
@@ -98,10 +96,7 @@ public class Board {
                 System.out.println("Set has size of 9 found in a column");
             }
             set.clear();
-
         }
-
-
 
         //checks if any 3x3 square has duplicates in the first column
 

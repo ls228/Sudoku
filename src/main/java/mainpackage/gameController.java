@@ -28,23 +28,28 @@ import java.net.URL;
 
 public class gameController {
 
-
-
     @FXML private GridPane sudokuGridPane;
     @FXML Label counter;
 
     boolean labelAreInitialized=false;
     boolean wrongValue=false;
+    boolean youLost=false;
 
     Label LastselctedLabel = null;
     Label SelectedLabel = null;
+
+    Background blue = new Background(new BackgroundFill(Color.CADETBLUE, null, null));
+    Background lightblue = new Background(new BackgroundFill(Color.BEIGE, null, null));
+    Background white = new Background(new BackgroundFill(Color.WHITE, null, null));
+    Background pink = new Background(new BackgroundFill(Color.PINK, null, null));
 
     public static int value=0;
     int count=0;
     int level=1;
 
+
     /**
-     * Method to load new sudoku in labels
+     * Method to load new Sudoku values in labels
      */
     public void startRound(){
         Games games = new Games();
@@ -71,11 +76,12 @@ public class gameController {
                         int valuePuzzleBoardAtIndex = Main.puzzleBoard.getNumberAtIdx(position.row, position.col);
                         //to create labels that can be changed by user input
                         if(valuePuzzleBoardAtIndex==0) {
-                            label.setText(Integer.toString(valuePuzzleBoardAtIndex));
+                            label.setText(null);
                         }else{
                             //given numbers can't be changed
                             label.setText(Integer.toString(valuePuzzleBoardAtIndex));
                             label.setDisable(true);
+                            //label.setBackground(lightblue);
                         }
                     }
                 }
@@ -95,7 +101,7 @@ public class gameController {
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
                 //every label is getting a value of 0
-                Label label = new Label("0");
+                Label label = new Label();
                 label.setVisible(true);
                 label.setId("Label_" + i + "_" + j);
                 label.setAlignment(Pos.CENTER);
@@ -114,9 +120,7 @@ public class gameController {
                             LastselctedLabel.setBackground(null);
 
                         LastselctedLabel = label;
-
-                        Background bg = new Background(new BackgroundFill(Color.CADETBLUE, null, null));
-                        label.setBackground(bg);
+                        label.setBackground(blue);
                     }
                 });
                 if(sudokuGridPane!=null) {
@@ -162,15 +166,14 @@ public class gameController {
         int col= Integer.parseInt( String.valueOf(colchar) );
         int valueSolved=Main.solutionBoard.getNumberAtIdx(row,col);
         if(value==valueSolved){
-            Background bg = new Background(new BackgroundFill(Color.WHITE, null, null));
-            SelectedLabel.setBackground(bg);
+            SelectedLabel.setBackground(white);
             return true;
         }
         wrongInput();
         wrongValue=true;
-        if(count<3){
+        if(count<7){
             count++;
-            counter.setText("Wrong input counter: "+count+"/3");
+            counter.setText("Wrong input counter: "+count+"/8");
         } else{
             display();
         }
@@ -180,13 +183,19 @@ public class gameController {
     //to show a new window
 
     public void display() {
+        /*
+        Main window=new Main();
+        youLost=true;
 
+        if(youLost==true){
+            window.window.close();
+        }*/
         Stage window = new Stage();
 
         window.initModality(Modality.APPLICATION_MODAL);
 
-        window.setMinWidth(300);
-        window.setMaxHeight(250);
+        window.setMinWidth(600);
+        window.setMinHeight(400);
 
         Label label1 = new Label();
         label1.setText("You lost");
@@ -195,10 +204,53 @@ public class gameController {
         Button backButton=new Button("Home");
         //EventHandler<ActionEvent> actionEventEventHandler = goBackPressed(event);
         //backButton.setOnAction(actionEventEventHandler);
+        backButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                System.out.println("backButton");
+                Main.gameFinished=true;
+
+                URL fxmlFileUrl = getClass().getClassLoader().getResource("home.fxml");
+                try {
+                    Parent root = FXMLLoader.load(fxmlFileUrl);
+                    Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+                    Scene scene = new Scene(root);
+                    window.setWidth(600);
+                    window.setHeight(400);
+                    stage.setScene(scene);
+                    stage.show();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }});
+
+
+        Button startNewGameButton = new Button("start new Game");
+
+        startNewGameButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                System.out.println("new Game");
+                Main.gameFinished=true;
+
+                URL fxmlFileUrl = getClass().getClassLoader().getResource("game1.fxml");
+                try {
+                    Parent root = FXMLLoader.load(fxmlFileUrl);
+                    Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+                    Scene scene = new Scene(root);
+                    stage.setWidth(600);
+                    stage.setHeight(400);
+                    stage.setScene(scene);
+                    stage.show();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }});
+
 
         VBox layout = new VBox(10);
         layout.getChildren().addAll(label1);
-        layout.getChildren().add(backButton);
+        layout.getChildren().addAll(backButton, startNewGameButton);
         layout.getChildren().addAll(label2);
         layout.setAlignment(Pos.CENTER);
 
@@ -251,8 +303,8 @@ public class gameController {
     }
     @FXML
     protected void level1pressed(ActionEvent event){
-        this.level=1;
-        setLevel(level);
+
+        setLevel(1);
 
         URL fxmlFileUrl = getClass().getClassLoader().getResource("game1.fxml");
 
@@ -286,6 +338,9 @@ public class gameController {
     }
     @FXML
     protected void level3pressed(ActionEvent event) {
+        this.level=3;
+
+        setLevel(level);
         URL fxmlFileUrl = getClass().getClassLoader().getResource("game3.fxml");
         try {
             Parent root = FXMLLoader.load(fxmlFileUrl);
@@ -378,18 +433,15 @@ public class gameController {
     //delete last input
     @FXML
     protected void backPressed(){
-        Background bg = new Background(new BackgroundFill(Color.WHITE, null, null));
-        SelectedLabel.setBackground(bg);
-        SelectedLabel.setText("0");
+        SelectedLabel.setBackground(white);
+        SelectedLabel.setText(null);
     }
 
     //für falschen Input rotes Feld
     @FXML
     private void wrongInput() {
-        Background bg = new Background(new BackgroundFill(Color.PINK, null, null));
-        SelectedLabel.setBackground(bg);
+        SelectedLabel.setBackground(pink);
     }
-
 
     public void setValue(int value) {
        this.value=value;

@@ -42,7 +42,7 @@ public class Games {
                     solution_board.setGanzesBrett(gameSolutionValues1);
 
                     int[][] gamePuzzleValues1 = {
-                            {8, 3, 1, 0, 0, 0, 7, 4, 2},
+                            {8, 3, 1, 0 , 0, 0, 7, 4, 2},
                             {7, 0, 4, 0, 0, 0, 6, 0, 3},
                             {0, 0, 6, 3, 0, 4, 8, 0, 0},
                             {2, 0, 0, 9, 0, 3, 0, 0, 8},

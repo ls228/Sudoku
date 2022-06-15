@@ -23,7 +23,6 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-
         // JavaFX stuff
         URL fxmlFileUrl = getClass().getClassLoader().getResource("startgame.fxml");
         Parent root = FXMLLoader.load(Objects.requireNonNull(fxmlFileUrl));
