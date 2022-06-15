@@ -73,15 +73,15 @@ public class gameController {
 
                     if(label!=null) {
                         Position position = getRowCol(node.getId());
-                        int valuePuzzleBoardAtIndex = Main.puzzleBoard.getNumberAtIdx(position.row, position.col);
+                        int valuePuzzleBoardAtIndex = Main.puzzleBoard.getNumberAtIdx(position.col,position.row);
                         //to create labels that can be changed by user input
                         if(valuePuzzleBoardAtIndex==0) {
                             label.setText(null);
                         }else{
                             //given numbers can't be changed
                             label.setText(Integer.toString(valuePuzzleBoardAtIndex));
+                            label.setBackground(lightblue);
                             label.setDisable(true);
-                            //label.setBackground(lightblue);
                         }
                     }
                 }
