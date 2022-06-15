@@ -1015,52 +1015,8 @@ public class Games {
                     puzzle_board.setGanzesBrett(gamePuzzleValuesX);
                     break;
             }
-
-
-            /*switch (randomNumber) {
-
-                    //leicht:
-                    case 1:
-                        //schwer:
-
-
-                /* (Hier insges. 30 cases einfügen für die Spiele, Name jeweils
-                 gameSolutionValues1, gamePuzzleValues1, Zahl je nach case-Nummer anpassen!)
-
-
-                    default:
-                        System.out.println("(Default case game:)");
-
-                        int[][] gameSolutionValuesX = {
-                                {2, 8, 9, 6, 4, 3, 5, 1, 7},
-                                {5, 7, 4, 9, 2, 1, 8, 6, 3},
-                                {1, 3, 6, 7, 8, 5, 2, 9, 4},
-                                {8, 6, 1, 5, 3, 9, 4, 7, 2},
-                                {4, 5, 2, 8, 1, 7, 6, 3, 9},
-                                {3, 9, 7, 2, 6, 4, 1, 8, 5},
-                                {6, 4, 8, 3, 9, 2, 7, 5, 1},
-                                {9, 2, 5, 1, 7, 8, 3, 4, 6},
-                                {7, 1, 3, 4, 5, 6, 9, 2, 8},
-                        };
-                        solution_board.setGanzesBrett(gameSolutionValuesX);
-
-                        int[][] gamePuzzleValuesX = {
-                                {2, 8, 0, 0, 0, 0, 0, 1, 7},
-                                {0, 0, 0, 9, 0, 1, 0, 0, 0},
-                                {0, 0, 6, 0, 8, 0, 0, 0, 4},
-                                {0, 6, 0, 5, 0, 0, 0, 7, 0},
-                                {0, 0, 0, 0, 1, 0, 0, 0, 9},
-                                {0, 0, 7, 0, 0, 0, 0, 8, 0},
-                                {0, 0, 0, 3, 0, 0, 0, 5, 0},
-                                {0, 0, 5, 0, 0, 0, 3, 0, 0},
-                                {0, 1, 0, 4, 0, 0, 9, 0, 8},
-                        };
-                        puzzle_board.setGanzesBrett(gamePuzzleValuesX);
-                        break;
-
-                }
-                */
-            }
+        }
+    }
 
 
     public static Board getSolution_board() {
