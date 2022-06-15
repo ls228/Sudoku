@@ -34,7 +34,6 @@ public class gameController {
     boolean labelAreInitialized=false;
     boolean wrongValue=false;
     boolean youLost=false;
-    //int currentlevel=1;
 
     Label LastselctedLabel = null;
     Label SelectedLabel = null;
@@ -61,7 +60,7 @@ public class gameController {
             if(sudokuGridPane!=null && size>0) {
                 //for each Schleife um jedes Label zu testen
                 for (Node node : sudokuGridPane.getChildren()) {
-                    try {
+                   try {
                         //to make sure that node is a label
                         //if it is label stays a node
                         label = (Label) node;
@@ -181,13 +180,8 @@ public class gameController {
     //to show a new window
 
     public void display() {
-        /*
-        Main window=new Main();
         youLost=true;
 
-        if(youLost==true){
-            window.window.close();
-        }*/
         Stage window = new Stage();
 
         window.initModality(Modality.APPLICATION_MODAL);
@@ -206,7 +200,7 @@ public class gameController {
             @Override
             public void handle(ActionEvent event) {
                 System.out.println("backButton");
-                Main.gameFinished=true;
+                //Main.gameFinished=true;
 
                 URL fxmlFileUrl = getClass().getClassLoader().getResource("home.fxml");
                 try {
@@ -229,9 +223,20 @@ public class gameController {
             @Override
             public void handle(ActionEvent event) {
                 System.out.println("new Game");
-                Main.gameFinished=true;
-
+                //Main.gameFinished=true;
+                Node source = (Node) event.getSource();
+                Stage window = (Stage) source.getScene().getWindow();
                 window.close();
+                URL fxmlFileUrl = getClass().getClassLoader().getResource("home.fxml");
+                try {
+                    Parent root = FXMLLoader.load(fxmlFileUrl);
+                    Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+                    Scene scene = new Scene(root);
+                    stage.setScene(scene);
+                    stage.show();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }});
 
 
@@ -261,6 +266,7 @@ public class gameController {
         }
 
     }
+
     /**
      * Method to enable start playing
      * @param event
