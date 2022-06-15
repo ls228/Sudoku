@@ -10,8 +10,8 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane alignment="center" hgap="30" prefHeight="407.0" prefWidth="600.0" vgap="20" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpackage.Controller">
-    <padding><Insets bottom="10" left="15" right="25" top="25" /></padding>
+<GridPane alignment="center" hgap="30" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" vgap="20" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpackage.Controller">
+    <padding><Insets bottom="10.0" left="15.0" right="25.0" top="25.0" /></padding>
     <gridLinesVisible>false</gridLinesVisible>
     <stylesheets> <String fx:value="styles.css" /> </stylesheets>
     <Text fill="#2a2169" text="SUDOKU" textAlignment="CENTER" wrappingWidth="121.63091242313385" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="2">
@@ -39,7 +39,7 @@
          <Font size="35.0" />
       </font>
    </Button>
-   <Button mnemonicParsing="false" onAction="#exitGame" prefHeight="25.0" prefWidth="71.0" text="Exit game" GridPane.columnIndex="3" GridPane.rowIndex="12">
+   <Button mnemonicParsing="false" onAction="#exitGame" prefHeight="25.0" prefWidth="71.0" text="Exit game" GridPane.columnIndex="3" GridPane.rowIndex="11">
       <GridPane.margin>
          <Insets left="44.0" />
       </GridPane.margin>
@@ -65,7 +65,7 @@
       <RowConstraints />
       <RowConstraints />
       <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
-      <RowConstraints maxHeight="25.333333333333314" minHeight="25.333333333333314" prefHeight="25.333333333333314" />
+      <RowConstraints maxHeight="25.5" minHeight="25.333333333333314" prefHeight="25.5" />
    </rowConstraints>
 
 </GridPane>
