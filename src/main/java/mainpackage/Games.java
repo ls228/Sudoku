@@ -16,8 +16,6 @@ public class Games {
      */
     public Games(int currentlevel) {
 
-        gameController levelInitialized=new gameController();
-
         int randomNumber = (int) (10 * Math.random());
         System.out.println("Random Number: " + randomNumber);
         System.out.println("level hat nr."+currentlevel);

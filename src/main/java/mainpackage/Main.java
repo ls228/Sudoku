@@ -35,48 +35,6 @@ public class Main extends Application {
         window = primaryStage;
         window.setTitle("Sudoku");
         window.show();
-
-        // Game start
-        //Games games = new Games(); // -> Games Class (generate random number, set puzzle & solution board)
-
-
-       /*
-        Line line= new Line();
-        line.setStartX(200);
-        line.setStartY(200);
-        line.setEndX(500);
-        line.setEndY(200);
-        line.setStrokeWidth(6);
-        line.setStroke(Color.BLACK);
-
-        root.getChildren().add(line);*/
-
-
-
-        /*BorderPane sudokuBorderPane = new BorderPane();
-        sudokuBorderPane.getChildren().add(sudokuGridPane);
-
-        Button button1 = new Button("Button 1");
-        Button button2 = new Button("Button 2");
-        Button button3 = new Button("Button 3");
-        Button button4 = new Button("Button 4");
-        Button button5 = new Button("Button 5");
-        Button button6 = new Button("Button 6");
-
-        GridPane gridPane = new GridPane();
-
-        gridPane.add(button1, 0, 0, 1, 1);
-        gridPane.add(button2, 1, 0, 1, 1);
-        gridPane.add(button3, 2, 0, 1, 1);
-        gridPane.add(button4, 0, 1, 1, 1);
-        gridPane.add(button5, 1, 1, 1, 1);
-        gridPane.add(button6, 2, 1, 1, 1);
-
-        sudokuBorderPane.getChildren().add(gridPane);
-        Scene scene = new Scene(sudokuBorderPane, 240, 100);
-        primaryStage.setScene(scene);
-        primaryStage.show();
-        */
     }
 
 
@@ -85,11 +43,8 @@ public class Main extends Application {
     public static Board solutionBoard = Games.getSolution_board();
 
     // get puzzle & solution Boards level2
-   // public static Board puzzleBoard2 = Games2.getPuzzle_board2();
+    // public static Board puzzleBoard2 = Games2.getPuzzle_board2();
     //public static Board solutionBoard2 = Games2.getSolution_board2();
-
-    public static boolean gameFinished = false;
-
 
     public static void main(String[] args) {
         launch(args); // calls start-method

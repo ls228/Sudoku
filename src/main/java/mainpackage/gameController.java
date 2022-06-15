@@ -53,8 +53,6 @@ public class gameController {
      */
     public void startRound(){
 
-        while (!Main.gameFinished) {
-
             int size = sudokuGridPane.getChildren().size();
             Label label=null;
             if(sudokuGridPane!=null && size>0) {
@@ -84,8 +82,7 @@ public class gameController {
                         }
                     }
                 }
-            }
-            break;
+
         }
         //board.checkWinning();
     }
@@ -161,7 +158,7 @@ public class gameController {
         char colchar=id.charAt(8);
         int row= Integer.parseInt( String.valueOf(rowchar) );
         int col= Integer.parseInt( String.valueOf(colchar) );
-        int valueSolved=Main.solutionBoard.getNumberAtIdx(row,col);
+        int valueSolved=Main.solutionBoard.getNumberAtIdx(col,row);
         if(value==valueSolved){
             SelectedLabel.setBackground(white);
             return true;
@@ -186,34 +183,23 @@ public class gameController {
 
         window.initModality(Modality.APPLICATION_MODAL);
 
-        window.setMinWidth(600);
-        window.setMinHeight(400);
+        window.setMinWidth(200);
+        window.setMinHeight(200);
 
         Label label1 = new Label();
         label1.setText("You lost");
         Label label2 = new Label();
         label2.setText("");
-        Button backButton=new Button("Home");
+        Button backButton=new Button("Close");
         //EventHandler<ActionEvent> actionEventEventHandler = goBackPressed(event);
         //backButton.setOnAction(actionEventEventHandler);
         backButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                System.out.println("backButton");
-                //Main.gameFinished=true;
-
-                URL fxmlFileUrl = getClass().getClassLoader().getResource("home.fxml");
-                try {
-                    Parent root = FXMLLoader.load(fxmlFileUrl);
-                    Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-                    Scene scene = new Scene(root);
-                    window.setWidth(600);
-                    window.setHeight(400);
-                    stage.setScene(scene);
-                    stage.show();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                System.out.println("Close");
+                Node source = (Node) event.getSource();
+                Stage stage = (Stage) source.getScene().getWindow();
+                stage.close();
             }});
 
 
@@ -223,7 +209,6 @@ public class gameController {
             @Override
             public void handle(ActionEvent event) {
                 System.out.println("new Game");
-                //Main.gameFinished=true;
                 Node source = (Node) event.getSource();
                 Stage window = (Stage) source.getScene().getWindow();
                 window.close();
