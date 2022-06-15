@@ -101,7 +101,7 @@
                                 <Insets left="65.0" />
                             </GridPane.margin>
                         </Button>
-                        <Label fx:id="counter" disable="true" prefHeight="41.0" prefWidth="141.0" text="Wrong input counter: 0/8" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label fx:id="counter" disable="true" prefHeight="41.0" prefWidth="141.0" text="Wrong input counter: 0/3" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                     </children>
                 </GridPane>
             <Button mnemonicParsing="false" onMouseClicked="#OnStartGameClicked" text="StartGame" GridPane.columnIndex="1" GridPane.rowIndex="2" />

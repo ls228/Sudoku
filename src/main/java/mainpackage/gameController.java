@@ -171,9 +171,9 @@ public class gameController {
         }
         wrongInput();
         wrongValue=true;
-        if(count<7){
+        if(count<2){
             count++;
-            counter.setText("Wrong input counter: "+count+"/8");
+            counter.setText("Wrong input counter: "+count+"/3");
         } else{
             display();
         }
