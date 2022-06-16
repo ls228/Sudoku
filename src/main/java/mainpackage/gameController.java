@@ -21,7 +21,6 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -35,7 +34,9 @@ public class gameController implements Initializable {
 
     boolean labelAreInitialized = false;
     boolean wrongValue = false;
-    boolean youLost = false;
+
+    boolean restartGame = true;
+    //boolean youLost = false;
 
     Label LastselctedLabel = null;
     Label SelectedLabel = null;
@@ -183,14 +184,33 @@ public class gameController implements Initializable {
         } else {
             counter.setText("Wrong input counter: 3/3");
             display();
+            count = 0;
+            counter.setText("Wrong input counter: " + count + "/3");
+            startRound();
         }
         return false;
+    }
+
+    public void switchToHome() {
+        if (!restartGame) {
+            URL fxmlFileUrl = getClass().getClassLoader().getResource("home.fxml");
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(fxmlFileUrl);
+                Parent root = fxmlLoader.load();
+                Stage stage = new Stage();
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     //to show a new window
 
     public void display() {
-        youLost = true;
+        //youLost = true;
 
         Stage window = new Stage();
 
@@ -203,43 +223,37 @@ public class gameController implements Initializable {
         label1.setText("You lost");
         Label label2 = new Label();
         label2.setText("");
-        Button backButton = new Button("Close");
-        backButton.setOnAction(new EventHandler<ActionEvent>() {
+        Button restartButton = new Button("restart Game");
+        restartButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                System.out.println("Close");
                 Node source = (Node) event.getSource();
                 Stage stage = (Stage) source.getScene().getWindow();
                 stage.close();
+                restartGame = true;
+                if (!labelAreInitialized) {
+                    setLabels();
+                    labelAreInitialized = true;
+                }
             }
         });
 
-
-        Button startNewGameButton = new Button("start new Game");
+        Button startNewGameButton = new Button("Home");
 
         startNewGameButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                System.out.println("new Game");
                 Node source = (Node) event.getSource();
-                Stage window = (Stage) source.getScene().getWindow();
-                window.close();
-                URL fxmlFileUrl = getClass().getClassLoader().getResource("home.fxml");
-                try {
-                    Parent root = FXMLLoader.load(fxmlFileUrl);
-                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    Scene scene = new Scene(root);
-                    stage.setScene(scene);
-                    stage.show();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                Stage stage = (Stage) source.getScene().getWindow();
+                stage.close();
+                restartGame = false;
+                switchToHome();
             }
         });
 
         VBox layout = new VBox(10);
         layout.getChildren().addAll(label1);
-        layout.getChildren().addAll(backButton, startNewGameButton);
+        layout.getChildren().addAll(restartButton, startNewGameButton);
         layout.getChildren().addAll(label2);
         layout.setAlignment(Pos.CENTER);
 
@@ -247,6 +261,7 @@ public class gameController implements Initializable {
         window.setScene(scene);
         window.show();
     }
+
 
     /**
      * Method to enable start playing
