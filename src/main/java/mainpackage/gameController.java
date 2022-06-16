@@ -197,10 +197,9 @@ public class gameController implements Initializable {
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(fxmlFileUrl);
                 Parent root = fxmlLoader.load();
-                Stage stage = new Stage();
                 Scene scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
+                Main.getMainWindow().setScene(scene);
+                Main.getMainWindow().show();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -243,9 +242,8 @@ public class gameController implements Initializable {
         startNewGameButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                Node source = (Node) event.getSource();
-                Stage stage = (Stage) source.getScene().getWindow();
-                stage.close();
+
+                window.close();
                 restartGame = false;
                 switchToHome();
             }

@@ -13,7 +13,11 @@ import java.util.Objects;
 
 public class Main extends Application {
 
-    Stage window;
+    public static Stage getMainWindow() {
+        return mainWindow;
+    }
+
+    static Stage mainWindow;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -27,9 +31,9 @@ public class Main extends Application {
         primaryStage.setFullScreen(false);
         primaryStage.setResizable(false);
 
-        window = primaryStage;
-        window.setTitle("Sudoku");
-        window.show();
+        mainWindow = primaryStage;
+        mainWindow.setTitle("Sudoku");
+        mainWindow.show();
     }
 
 
