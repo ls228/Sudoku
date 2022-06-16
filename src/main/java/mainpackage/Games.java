@@ -6,8 +6,9 @@ public class Games {
     static Board solution_board = new Board(); // ausgefülltes Brett (Lösung)
     static Board puzzle_board = new Board(); // teilweise leeres Brett (Rätsel)
 
-    /***
-     * Spielbrett wird mit einem zufälligen Schema befüllt
+    /**
+     * Board will be filled with random Sudoku depending on activated level
+     * @param currentlevel
      */
     public Games(int currentlevel) {
 
@@ -15,10 +16,10 @@ public class Games {
         System.out.println("Random Number: " + randomNumber);
         System.out.println("level hat nr."+currentlevel);
 
-        //if Funktion mit Level nr soll die Sudokos nach Schwierigkeitsgrad auswählen
+        //if function with current level chooses different difficulty
         if(currentlevel==1) {
             switch (randomNumber) {
-                //leicht:
+                //easy:
                 case 1:
 
                     int[][] gameSolutionValues1 = {
@@ -352,7 +353,7 @@ public class Games {
         }else if(currentlevel == 2) {
             switch (randomNumber) {
 
-                    //mittel:
+                    //medium:
                     case 1:
                         int[][] gameSolutionValues11 = {
                                 {1, 9, 4, 3, 2, 7, 8, 6, 5},
@@ -686,7 +687,7 @@ public class Games {
         else if (currentlevel == 3) {
             switch (randomNumber) {
 
-                //schwer:
+                //difficult:
                 case 1:
                     int[][] gameSolutionValues21 = {
                             {5, 4, 9, 1, 6, 8, 2, 3, 7},

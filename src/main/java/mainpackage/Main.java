@@ -34,6 +34,12 @@ public class Main extends Application {
         window.setTitle("Sudoku");
         window.show();
     }
+
+    /**
+     * This method is generating a new scene on top of the stage by loading the given fxml file
+     * @param event
+     * @param url
+     */
     public void loadNewScene(ActionEvent event, String url) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         URL fxmlFileUrl = getClass().getClassLoader().getResource(url);
