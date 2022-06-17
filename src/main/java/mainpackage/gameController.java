@@ -21,6 +21,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -49,6 +50,7 @@ public class gameController implements Initializable {
 
     /**
      * Method initialize to start a new round
+     *
      * @param url
      * @param resourceBundle
      */
@@ -238,11 +240,9 @@ public class gameController implements Initializable {
         });
 
         Button startNewGameButton = new Button("Home");
-
         startNewGameButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-
                 window.close();
                 restartGame = false;
                 switchToHome();
@@ -261,16 +261,16 @@ public class gameController implements Initializable {
     }
 
 
-   @FXML
+    @FXML
     public void resetGame(MouseEvent event) {
-       if (!labelAreInitialized) {
-           this.setLabels();
-           labelAreInitialized = true;
-       }
-       count=0;
-       counter.setText("Wrong input counter: " + count + "/3");
-       startRound();
-   }
+        if (!labelAreInitialized) {
+            this.setLabels();
+            labelAreInitialized = true;
+        }
+        count = 0;
+        counter.setText("Wrong input counter: " + count + "/3");
+        startRound();
+    }
 
     @FXML
     public void goBackPressed(ActionEvent event) {
@@ -361,5 +361,4 @@ public class gameController implements Initializable {
     public void setValue(int value) {
         this.value = value;
     }
-
 }
