@@ -26,7 +26,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class gameController implements Initializable {
-
+    Main loadNewScene = new Main();
     @FXML
     private GridPane sudokuGridPane;
     @FXML
@@ -34,9 +34,7 @@ public class gameController implements Initializable {
 
     boolean labelAreInitialized = false;
     boolean wrongValue = false;
-
     boolean restartGame = true;
-    //boolean youLost = false;
 
     Label LastselctedLabel = null;
     Label SelectedLabel = null;
@@ -49,6 +47,11 @@ public class gameController implements Initializable {
     public static int value = 0;
     int count = 0;
 
+    /**
+     * Method initialize to start a new round
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         if (!labelAreInitialized) {
@@ -61,6 +64,7 @@ public class gameController implements Initializable {
     /**
      * Method to load new Sudoku values in labels
      */
+
     public void startRound() {
 
         int size = sudokuGridPane.getChildren().size();
@@ -83,7 +87,6 @@ public class gameController implements Initializable {
                     if (valuePuzzleBoardAtIndex == 0) {
                         label.setText(null);
                         label.setStyle("-fx-text-fill: grey;-fx-font: 24 arial;");
-                        //label.setStyle("-fx-font: 24 arial;");
                     } else {
                         //given numbers can't be changed
                         label.setText(Integer.toString(valuePuzzleBoardAtIndex));
@@ -113,8 +116,7 @@ public class gameController implements Initializable {
                 label.setPrefHeight(44.0);
                 label.setPrefWidth(46.0);
                 label.setStyle("-fx-font: 24 arial;");
-                //Mouse clicked wird hier implizit implementiert um das selektierte Label zu
-                //markieren.
+                //Mouse clicked is implicitly implemented to mark the selected label mark
                 label.setOnMouseClicked(new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent event) {
@@ -207,9 +209,7 @@ public class gameController implements Initializable {
     }
 
     //to show a new window
-
     public void display() {
-        //youLost = true;
 
         Stage window = new Stage();
 
@@ -261,12 +261,6 @@ public class gameController implements Initializable {
     }
 
 
-    /**
-     * Method to enable start playing
-     *
-     * @param event
-     */
-
    @FXML
     public void resetGame(MouseEvent event) {
        if (!labelAreInitialized) {
@@ -280,16 +274,8 @@ public class gameController implements Initializable {
 
     @FXML
     public void goBackPressed(ActionEvent event) {
-        URL fxmlFileUrl = getClass().getClassLoader().getResource("home.fxml");
-        try {
-            Parent root = FXMLLoader.load(fxmlFileUrl);
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        String url = "home.fxml";
+        loadNewScene.loadNewScene(event, url);
     }
 
     /**
@@ -298,83 +284,65 @@ public class gameController implements Initializable {
 
     @FXML
     protected void auswahl1() {
-        this.value = 1;
-        setValue(value);
         if (this.SelectedLabel != null)
             this.SelectedLabel.setText("1");
-        checkInput(value);
+        checkInput(1);
     }
 
     @FXML
     protected void auswahl2() {
-        this.value = 2;
-        setValue(value);
         if (this.SelectedLabel != null)
             this.SelectedLabel.setText("2");
-        checkInput(value);
+        checkInput(2);
     }
 
     @FXML
     protected void auswahl3() {
-        this.value = 3;
-        setValue(value);
         if (this.SelectedLabel != null)
             this.SelectedLabel.setText("3");
-        checkInput(value);
+        checkInput(3);
     }
 
     @FXML
     protected void auswahl4() {
-        this.value = 4;
-        setValue(value);
         if (this.SelectedLabel != null)
             this.SelectedLabel.setText("4");
-        checkInput(value);
+        checkInput(4);
     }
 
     @FXML
     protected void auswahl5() {
-        this.value = 5;
-        setValue(value);
         if (this.SelectedLabel != null)
             this.SelectedLabel.setText("5");
-        checkInput(value);
+        checkInput(5);
     }
 
     @FXML
     protected void auswahl6() {
-        this.value = 6;
-        setValue(value);
         if (this.SelectedLabel != null)
             this.SelectedLabel.setText("6");
-        checkInput(value);
+        checkInput(6);
     }
 
     @FXML
     protected void auswahl7() {
-        this.value = 7;
-        setValue(value);
         if (this.SelectedLabel != null)
             this.SelectedLabel.setText("7");
-        checkInput(value);
+        checkInput(7);
     }
 
     @FXML
     protected void auswahl8() {
-        this.value = 8;
-        setValue(value);
         if (this.SelectedLabel != null)
             this.SelectedLabel.setText("8");
-        checkInput(value);
+        checkInput(8);
     }
 
     @FXML
     protected void auswahl9() {
-        this.value = 9;
-        setValue(value);
         if (this.SelectedLabel != null)
             this.SelectedLabel.setText("9");
-        checkInput(value);
+        checkInput(9);
     }
 
     //delete last input
@@ -384,7 +352,7 @@ public class gameController implements Initializable {
         SelectedLabel.setText(null);
     }
 
-    //für falschen Input rotes Feld
+    //wrong input, red Background
     @FXML
     private void wrongInput() {
         SelectedLabel.setBackground(pink);

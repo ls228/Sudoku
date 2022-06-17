@@ -13,71 +13,33 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class homeController{
+public class homeController extends Main {
 
     @FXML
-    protected void level1pressed(ActionEvent event){
+    protected void level1pressed(ActionEvent event) {
         Games games = new Games(1);
-
-        URL fxmlFileUrl = getClass().getClassLoader().getResource("game1.fxml");
-
-        try {
-            Parent root = FXMLLoader.load(fxmlFileUrl);
-            Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        String url = "game1.fxml";
+        loadNewScene(event, url);
     }
 
     @FXML
-    protected void level2pressed(ActionEvent event){
+    protected void level2pressed(ActionEvent event) {
         Games games = new Games(2);
-
-        URL fxmlFileUrl = getClass().getClassLoader().getResource("game2.fxml");
-        try {
-            Parent root = FXMLLoader.load(fxmlFileUrl);
-            Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+        String url = "game2.fxml";
+        loadNewScene(event, url);
     }
+
     @FXML
     protected void level3pressed(ActionEvent event) {
         Games games = new Games(3);
-        URL fxmlFileUrl = getClass().getClassLoader().getResource("game3.fxml");
-        try {
-            Parent root = FXMLLoader.load(fxmlFileUrl);
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        String url = "game3.fxml";
+        loadNewScene(event, url);
     }
-
 
     @FXML
     protected void goBackHome(ActionEvent event) {
-
-        URL fxmlFileUrl = getClass().getClassLoader().getResource("startgame.fxml");
-        try {
-            Parent root = FXMLLoader.load(fxmlFileUrl);
-            Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+        String url = "startgame.fxml";
+        loadNewScene(event, url);
     }
 
 }
