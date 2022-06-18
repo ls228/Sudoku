@@ -175,10 +175,7 @@ public class Board {
         System.out.println("Finished checking winning");
         return rt;
     }
-*/
 
-
-/*
     // return true if any value occurs more than once
     private boolean checkForDuplicates(int[] arr){
         for(int i = 0; i < arr.length; i++){

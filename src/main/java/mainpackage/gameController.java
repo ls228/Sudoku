@@ -39,6 +39,7 @@ public class gameController implements Initializable {
 
     Label LastselctedLabel = null;
     Label SelectedLabel = null;
+    Button pressedButton = null;
 
     Background blue = new Background(new BackgroundFill(Color.CADETBLUE, null, null));
     Background lightblue = new Background(new BackgroundFill(Color.BEIGE, null, null));
@@ -48,8 +49,6 @@ public class gameController implements Initializable {
     int count = 0;
 
     Board finalBoard = new Board();
-
-
 
 
 
@@ -140,6 +139,7 @@ public class gameController implements Initializable {
                 if (sudokuGridPane != null) {
                     sudokuGridPane.add(label, i, j);
                 }
+
             }
         }
     }
@@ -284,14 +284,25 @@ public class gameController implements Initializable {
      */
 
     @FXML
-    protected void auswahl1() {
+    protected void inputButton(ActionEvent event) {
+
+        Button activeButton = (Button) event.getSource();
+        pressedButton = activeButton;
+
+        //get pressed value
+        String id= pressedButton.getId();
+        char choiceChar = id.charAt(7);
+        int choiceInt = Integer.parseInt(String.valueOf(choiceChar));
+        String choiceString = String.valueOf(choiceChar);
+
         Position position = getRowCol(SelectedLabel.getId());
-        finalBoard.setValueInBrett(position.row,position.col,1);
+        finalBoard.setValueInBrett(position.row,position.col,choiceInt);
         if (this.SelectedLabel != null)
-            this.SelectedLabel.setText("1");
-        checkInput(1);
+            this.SelectedLabel.setText(choiceString);
+        checkInput(choiceInt);
     }
 
+    /*
     @FXML
     protected void auswahl2() {
         Position position = getRowCol(SelectedLabel.getId());
@@ -348,7 +359,7 @@ public class gameController implements Initializable {
         if (this.SelectedLabel != null)
             this.SelectedLabel.setText("9");
         checkInput(9);
-    }
+    } */
 
     //delete last input
     @FXML

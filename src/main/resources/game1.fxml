@@ -38,47 +38,47 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <children>
-                        <Button id="Auswahl9" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#auswahl9" prefHeight="50.0" prefWidth="50.0" text="9" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                        <Button id="Auswahl9" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#inputButton" prefHeight="50.0" prefWidth="50.0" text="9" GridPane.columnIndex="3" GridPane.rowIndex="2">
                             <GridPane.margin>
                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                             </GridPane.margin>
                         </Button>
-                        <Button id="Auswahl8" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#auswahl8" prefHeight="50.0" prefWidth="50.0" text="8" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                        <Button id="Auswahl8" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#inputButton" prefHeight="50.0" prefWidth="50.0" text="8" GridPane.columnIndex="2" GridPane.rowIndex="2">
                             <GridPane.margin>
                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                             </GridPane.margin>
                         </Button>
-                        <Button id="Auswahl3" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#auswahl3" prefHeight="50.0" prefWidth="50.0" text="3" GridPane.columnIndex="3">
+                        <Button id="Auswahl3" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#inputButton" prefHeight="50.0" prefWidth="50.0" text="3" GridPane.columnIndex="3">
                             <GridPane.margin>
                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                             </GridPane.margin>
                         </Button>
-                        <Button id="Auswahl5" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#auswahl5" prefHeight="50.0" prefWidth="50.0" text="5" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                        <Button id="Auswahl5" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#inputButton" prefHeight="50.0" prefWidth="50.0" text="5" GridPane.columnIndex="2" GridPane.rowIndex="1">
                             <GridPane.margin>
                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                             </GridPane.margin>
                         </Button>
-                        <Button id="Auswahl4" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#auswahl4" prefHeight="50.0" prefWidth="50.0" text="4" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <Button id="Auswahl4" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#inputButton" prefHeight="50.0" prefWidth="50.0" text="4" GridPane.columnIndex="1" GridPane.rowIndex="1">
                             <GridPane.margin>
                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                             </GridPane.margin>
                         </Button>
-                        <Button id="Auswahl2" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#auswahl2" prefHeight="50.0" prefWidth="50.0" text="2" GridPane.columnIndex="2">
+                        <Button id="Auswahl2" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#inputButton" prefHeight="50.0" prefWidth="50.0" text="2" GridPane.columnIndex="2">
                             <GridPane.margin>
                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                             </GridPane.margin>
                         </Button>
-                        <Button id="Auswahl6" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#auswahl6" prefHeight="50.0" prefWidth="50.0" text="6" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                        <Button id="Auswahl6" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#inputButton" prefHeight="50.0" prefWidth="50.0" text="6" GridPane.columnIndex="3" GridPane.rowIndex="1">
                             <GridPane.margin>
                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                             </GridPane.margin>
                         </Button>
-                        <Button id="Auswahl7" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#auswahl7" prefHeight="50.0" prefWidth="50.0" text="7" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <Button id="Auswahl7" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#inputButton" prefHeight="50.0" prefWidth="50.0" text="7" GridPane.columnIndex="1" GridPane.rowIndex="2">
                             <GridPane.margin>
                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                             </GridPane.margin>
                         </Button>
-                        <Button id="Auswahl1" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#auswahl1" prefHeight="53.0" prefWidth="76.0" text="1" GridPane.columnIndex="1">
+                        <Button id="Auswahl1" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#inputButton" prefHeight="53.0" prefWidth="76.0" text="1" GridPane.columnIndex="1">
                             <GridPane.margin>
                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                             </GridPane.margin>
