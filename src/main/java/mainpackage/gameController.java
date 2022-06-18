@@ -45,8 +45,13 @@ public class gameController implements Initializable {
     Background white = new Background(new BackgroundFill(Color.WHITE, null, null));
     Background pink = new Background(new BackgroundFill(Color.PINK, null, null));
 
-    public static int value = 0;
     int count = 0;
+
+    Board finalBoard = new Board();
+
+
+
+
 
     /**
      * Method initialize to start a new round
@@ -67,7 +72,7 @@ public class gameController implements Initializable {
      * Method to load new Sudoku values in labels
      */
 
-    public void startRound() {
+    private void startRound() {
 
         int size = sudokuGridPane.getChildren().size();
         Label label = null;
@@ -168,13 +173,9 @@ public class gameController implements Initializable {
      * @return boolean
      */
 
-    public boolean checkInput(int value) {
-        String id = SelectedLabel.getId();
-        char rowchar = id.charAt(6);
-        char colchar = id.charAt(8);
-        int row = Integer.parseInt(String.valueOf(rowchar));
-        int col = Integer.parseInt(String.valueOf(colchar));
-        int valueSolved = Main.solutionBoard.getNumberAtIdx(col, row);
+    private boolean checkInput(int value) {
+        Position position = getRowCol(SelectedLabel.getId());
+        int valueSolved = Main.solutionBoard.getNumberAtIdx(position.col,position.row);
         if (value == valueSolved) {
             SelectedLabel.setBackground(white);
             return true;
@@ -195,7 +196,7 @@ public class gameController implements Initializable {
         return false;
     }
 
-    public void switchToHome() {
+    private void switchToHome() {
         if (!restartGame) {
             URL fxmlFileUrl = getClass().getClassLoader().getResource("home.fxml");
             try {
@@ -211,7 +212,7 @@ public class gameController implements Initializable {
     }
 
     //to show a new window
-    public void display() {
+    private void display() {
 
         Stage window = new Stage();
 
@@ -262,7 +263,7 @@ public class gameController implements Initializable {
 
 
     @FXML
-    public void resetGame(MouseEvent event) {
+    protected void resetGame(MouseEvent event) {
         if (!labelAreInitialized) {
             this.setLabels();
             labelAreInitialized = true;
@@ -273,7 +274,7 @@ public class gameController implements Initializable {
     }
 
     @FXML
-    public void goBackPressed(ActionEvent event) {
+    protected void goBackPressed(ActionEvent event) {
         String url = "home.fxml";
         loadNewScene.loadNewScene(event, url);
     }
@@ -284,6 +285,8 @@ public class gameController implements Initializable {
 
     @FXML
     protected void auswahl1() {
+        Position position = getRowCol(SelectedLabel.getId());
+        finalBoard.setValueInBrett(position.row,position.col,1);
         if (this.SelectedLabel != null)
             this.SelectedLabel.setText("1");
         checkInput(1);
@@ -291,6 +294,8 @@ public class gameController implements Initializable {
 
     @FXML
     protected void auswahl2() {
+        Position position = getRowCol(SelectedLabel.getId());
+        finalBoard.setValueInBrett(position.row,position.col,2);
         if (this.SelectedLabel != null)
             this.SelectedLabel.setText("2");
         checkInput(2);
@@ -358,7 +363,4 @@ public class gameController implements Initializable {
         SelectedLabel.setBackground(pink);
     }
 
-    public void setValue(int value) {
-        this.value = value;
-    }
 }

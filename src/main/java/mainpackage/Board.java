@@ -39,7 +39,6 @@ public class Board {
         return true;
     }
 
-
     public void setValueInBrett(int row, int column, int value) {
         this.board_scheme[row][column] = value;
     }
