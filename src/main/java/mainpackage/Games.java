@@ -5,7 +5,7 @@ public class Games {
 
     static Board solution_board = new Board(); // ausgefülltes Brett (Lösung)
     static Board puzzle_board = new Board(); // teilweise leeres Brett (Rätsel)
-
+    static int [][] puzzleBoard = new int[9][9];
     /**
      * Board will be filled with random Sudoku depending on activated level
      * @param currentlevel
@@ -18,7 +18,7 @@ public class Games {
 
         //if function with current level chooses different difficulty
         if(currentlevel==1) {
-            switch (randomNumber) {
+            switch (1) {
                 //easy:
                 case 1:
 
@@ -35,6 +35,7 @@ public class Games {
                     };
                     solution_board.setGanzesBrett(gameSolutionValues1);
 
+
                     int[][] gamePuzzleValues1 = {
                             {8, 3, 1, 0 , 0, 0, 7, 4, 2},
                             {7, 0, 4, 0, 0, 0, 6, 0, 3},
@@ -47,6 +48,7 @@ public class Games {
                             {3, 1, 5, 0, 0, 0, 9, 8, 6},
                     };
                     puzzle_board.setGanzesBrett(gamePuzzleValues1);
+                    puzzleBoard = gamePuzzleValues1;
 
                     break;
 
@@ -77,7 +79,7 @@ public class Games {
                             {0, 0, 0, 4, 5, 7, 0, 0, 0},
                     };
                     puzzle_board.setGanzesBrett(gamePuzzleValues2);
-
+                    puzzleBoard = gamePuzzleValues2;
                     break;
 
 

@@ -33,6 +33,8 @@ public class gameController implements Initializable {
     @FXML
     Label counter;
 
+    Board finalBoard = new Board();
+
     boolean labelAreInitialized = false;
     boolean wrongValue = false;
     boolean restartGame = true;
@@ -47,8 +49,6 @@ public class gameController implements Initializable {
     Background pink = new Background(new BackgroundFill(Color.PINK, null, null));
 
     int count = 0;
-
-    Board finalBoard = new Board();
 
 
 
@@ -103,6 +103,7 @@ public class gameController implements Initializable {
             }
 
         }
+        finalBoard.setGanzesBrett(Games.puzzleBoard);
         //board.checkWinning();
     }
 
@@ -280,7 +281,7 @@ public class gameController implements Initializable {
     }
 
     /**
-     * Buttons for input 1 to 9
+     * Button for input 1 to 9
      */
 
     @FXML
@@ -295,13 +296,19 @@ public class gameController implements Initializable {
         int choiceInt = Integer.parseInt(String.valueOf(choiceChar));
         String choiceString = String.valueOf(choiceChar);
 
-        Position position = getRowCol(SelectedLabel.getId());
-        finalBoard.setValueInBrett(position.row,position.col,choiceInt);
         if (this.SelectedLabel != null)
             this.SelectedLabel.setText(choiceString);
         checkInput(choiceInt);
-    }
 
+        //to check the user input after the game is finished
+        Position position = getRowCol(SelectedLabel.getId());
+        finalBoard.setValueInBrett(position.row,position.col,choiceInt);
+        getBoard(finalBoard);
+    }
+    public Board getBoard(Board board){
+        System.out.println(board);
+        return board;
+    }
     /*
     @FXML
     protected void auswahl2() {

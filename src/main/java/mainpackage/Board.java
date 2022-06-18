@@ -9,6 +9,7 @@ public class Board {
 
     public Board() {}
 
+
     public static Board getInstance() { return board; }
 
     private static Board board = new Board();
@@ -43,6 +44,9 @@ public class Board {
         this.board_scheme[row][column] = value;
     }
 
+    public void createSolutionBoard(){
+                setGanzesBrett(Games.puzzleBoard);
+            }
 
     /**
      * Set ganzes Brett auf einmal über 2 dimensionales Array mit allen Werten (zeilenweise)
