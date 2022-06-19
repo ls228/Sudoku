@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.net.URL;
 
 public class youWonController {
+    /*
     public void homeButtonPressed(ActionEvent event) {
         URL fxmlFileUrl = getClass().getClassLoader().getResource("home.fxml");
         try {
@@ -27,5 +28,5 @@ public class youWonController {
 
     public void newGameButtonPressed(ActionEvent event) {
 
-    }
+    }*/
 }

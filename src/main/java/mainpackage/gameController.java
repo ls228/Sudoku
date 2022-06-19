@@ -102,8 +102,8 @@ public class gameController extends Controller implements Initializable {
             }
 
         }
-        finishedBoard.setGanzesBrett(Games.solutionBoard);
-        //finishedBoard.setGanzesBrett(Games.puzzleBoard);
+        //finishedBoard.setGanzesBrett(Games.solutionBoard);
+        finishedBoard.setGanzesBrett(Games.puzzleBoard);
         System.out.println(finishedBoard);
     }
 
