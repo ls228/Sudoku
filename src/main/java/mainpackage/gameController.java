@@ -190,7 +190,6 @@ public class gameController implements Initializable {
             display("YOU LOST");
             count = 0;
             counter.setText("Wrong input counter: " + count + "/3");
-            startRound();
         }
         return false;
     }
@@ -254,6 +253,8 @@ public class gameController implements Initializable {
         layout.getChildren().addAll(restartButton, startNewGameButton);
         layout.getChildren().addAll(label2);
         layout.setAlignment(Pos.CENTER);
+
+        startRound();
 
         Scene scene = new Scene(layout);
         window.setScene(scene);
@@ -374,8 +375,11 @@ public class gameController implements Initializable {
     //delete last input
     @FXML
     protected void backPressed() {
+        Position position = getRowCol(SelectedLabel.getId());
         SelectedLabel.setBackground(white);
         SelectedLabel.setText(null);
+        finishedBoard.setValueInBrett(position.col,position.row,0);
+        System.out.println(finishedBoard);
     }
 
     //wrong input, red Background

@@ -5,7 +5,7 @@ public class Games {
 
     static Board solution_board = new Board(); // ausgefülltes Brett (Lösung)
     static Board puzzle_board = new Board(); // teilweise leeres Brett (Rätsel)
-    static int [][] puzzleBoard = new int[9][9];
+    static int [][] puzzleBoard = new int[Board.SIZE][Board.SIZE];
 
     /**
      * Board will be filled with random Sudoku depending on activated level
@@ -17,9 +17,9 @@ public class Games {
         System.out.println("Random Number: " + randomNumber);
         System.out.println("level hat nr."+currentlevel);
 
-        //if function with current level chooses different difficulty
+        //if-function with current level chooses different difficulty
         if(currentlevel==1) {
-            switch (1) {
+            switch (randomNumber) {
                 //easy:
                 case 1:
 
@@ -110,7 +110,7 @@ public class Games {
                             {7, 9, 0, 0, 0, 0, 0, 3, 4},
                     };
                     puzzle_board.setGanzesBrett(gamePuzzleValues3);
-
+                    puzzleBoard = gamePuzzleValues3;
                     break;
 
 
@@ -140,7 +140,7 @@ public class Games {
                             {0, 3, 2, 0, 0, 0, 9, 7, 0},
                     };
                     puzzle_board.setGanzesBrett(gamePuzzleValues4);
-
+                    puzzleBoard = gamePuzzleValues4;
                     break;
 
 
@@ -170,7 +170,7 @@ public class Games {
                             {7, 0, 0, 0, 0, 0, 0, 0, 9},
                     };
                     puzzle_board.setGanzesBrett(gamePuzzleValues5);
-
+                    puzzleBoard = gamePuzzleValues5;
                     break;
 
 
@@ -200,7 +200,7 @@ public class Games {
                             {9, 0, 8, 0, 0, 0, 2, 0, 7},
                     };
                     puzzle_board.setGanzesBrett(gamePuzzleValues6);
-
+                    puzzleBoard = gamePuzzleValues6;
                     break;
 
 
@@ -230,7 +230,7 @@ public class Games {
                             {0, 3, 0, 6, 0, 8, 0, 9, 0},
                     };
                     puzzle_board.setGanzesBrett(gamePuzzleValues7);
-
+                    puzzleBoard = gamePuzzleValues7;
                     break;
 
 
@@ -260,7 +260,7 @@ public class Games {
                             {0, 0, 0, 2, 0, 7, 0, 0, 0},
                     };
                     puzzle_board.setGanzesBrett(gamePuzzleValues8);
-
+                    puzzleBoard = gamePuzzleValues8;
                     break;
 
 
@@ -290,6 +290,7 @@ public class Games {
                             {0, 0, 0, 0, 0, 0, 0, 0, 0},
                     };
                     puzzle_board.setGanzesBrett(gamePuzzleValues9);
+                    puzzleBoard = gamePuzzleValues9;
 
                     break;
 
@@ -320,6 +321,7 @@ public class Games {
                             {3, 0, 0, 1, 0, 4, 0, 0, 2},
                     };
                     puzzle_board.setGanzesBrett(gamePuzzleValues10);
+                    puzzleBoard = gamePuzzleValues10;
 
                     break;
 

@@ -10,7 +10,6 @@ public class Board {
 
     public Board() {}
 
-
     public static Board getInstance() { return board; }
 
     private static Board board = new Board();
@@ -41,10 +40,9 @@ public class Board {
         return true;
     }
 
-    public void setValueInBrett(int row, int column, int value) {
-        this.board_scheme[row][column] = value;
+    public void setValueInBrett(int column, int row, int value) {
+        this.board_scheme[column][row] = value;
     }
-
 
     /**
      * Set ganzes Brett auf einmal über 2 dimensionales Array mit allen Werten (zeilenweise)
@@ -68,6 +66,7 @@ public class Board {
         boolean rt = true;
 
         //checks if any row has duplicates
+
         HashSet<Integer> set = new HashSet<Integer>();
         for (int i = 0; i < SIZE; i++) {
 
@@ -85,6 +84,7 @@ public class Board {
         }
 
         //checks if any column has duplicates
+
         for (int i = 0; i < SIZE; i++) {
 
             for (int j = 0; j < SIZE; j++) {
@@ -122,8 +122,6 @@ public class Board {
 
         }
 
-
-
         //checks if any 3x3 square has duplicates in the second column
 
         set.clear();
@@ -147,8 +145,6 @@ public class Board {
 
         }
 
-
-
         //checks if any 3x3 square has duplicates in the third column
 
         set.clear();
@@ -167,16 +163,13 @@ public class Board {
                     System.out.println("Quadrant contains all numbers");
                 }
                 set.clear();
-
             }
-
         }
-
 
         System.out.println("Finished checking winning");
         return rt;
     }
-
+/*
     // return true if any value occurs more than once
     private boolean checkForDuplicates(int[] arr){
         for(int i = 0; i < arr.length; i++){
@@ -189,5 +182,5 @@ public class Board {
             }
         }
         return true;
-    }
+    }*/
 }
