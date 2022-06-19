@@ -14,8 +14,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class homeController extends Main {
-    Button levelButton = new Button();
+public class homeController extends Controller {
+
+
     @FXML
     protected void levelpressed(ActionEvent event) {
         Button activeButton = (Button) event.getSource();

@@ -13,21 +13,23 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-/*
+
 public class Controller {
-    Stage window = new Stage();
 
-    public Button button;
+    Button levelButton = new Button();
 
-    @FXML
-    private javafx.scene.control.Button exit;
 
-    @FXML
-    protected void playPressed(ActionEvent event) {
-        URL fxmlFileUrl = getClass().getClassLoader().getResource("home.fxml");
+    /**
+     * This method is generating a new scene on top of the stage by loading the given fxml file
+     *
+     * @param event
+     * @param url
+     */
+    public void loadNewScene(ActionEvent event, String url) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        URL fxmlFileUrl = getClass().getClassLoader().getResource(url);
         try {
             Parent root = FXMLLoader.load(fxmlFileUrl);
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
@@ -36,42 +38,30 @@ public class Controller {
         }
     }
 
-    @FXML
-    protected void exitGame(ActionEvent event) {
-        Node source = (Node) event.getSource();
-        Stage stage = (Stage) source.getScene().getWindow();
-        stage.close();
+    // get puzzle & solution Boards
+    public static Board puzzleBoard = Games.getPuzzle_board();
+    public static Board solutionBoard = Games.getSolution_board();
+
+    /**
+     * new class to enable input of labelId and output of col & row in method getRowCol
+     */
+    /*
+    public class Position {
+        public int row = 0;
+        public int col = 0;
     }
 
-    @FXML
-    protected void goBackSettingsPressed(ActionEvent event) {
-        URL fxmlFileUrl = getClass().getClassLoader().getResource("startgame.fxml");
-        try {
-            Parent root = FXMLLoader.load(fxmlFileUrl);
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+    public Position getRowCol(String labelId) {
+        char rowchar = labelId.charAt(6);
+        char colchar = labelId.charAt(8);
 
-    @FXML
-    protected void settingsPressed(ActionEvent event) {
-        URL fxmlFileUrl = getClass().getClassLoader().getResource("settings.fxml");
-        try {
-            Parent root = FXMLLoader.load(fxmlFileUrl);
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        Position position = new Position();
 
-    }
+        position.row = Integer.parseInt(String.valueOf(rowchar));
+        position.col = Integer.parseInt(String.valueOf(colchar));
 
-}*/
+        return position;
+    } */
+}
 
 

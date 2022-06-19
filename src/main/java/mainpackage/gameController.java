@@ -24,8 +24,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class gameController implements Initializable {
-    Main loadNewScene = new Main();
+public class gameController extends Controller implements Initializable  {
+
     @FXML
     private GridPane sudokuGridPane;
     @FXML
@@ -85,7 +85,7 @@ public class gameController implements Initializable {
 
                 if (label != null) {
                     Position position = getRowCol(node.getId());
-                    int valuePuzzleBoardAtIndex = Main.puzzleBoard.getNumberAtIdx(position.col, position.row);
+                    int valuePuzzleBoardAtIndex = puzzleBoard.getNumberAtIdx(position.col, position.row);
                     //to create labels that can be changed by user input
                     if (valuePuzzleBoardAtIndex == 0) {
                         label.setText(null);
@@ -174,7 +174,7 @@ public class gameController implements Initializable {
 
     private boolean checkInput(int value) {
         Position position = getRowCol(SelectedLabel.getId());
-        int valueSolved = Main.solutionBoard.getNumberAtIdx(position.col,position.row);
+        int valueSolved = solutionBoard.getNumberAtIdx(position.col,position.row);
         if (value == valueSolved) {
             SelectedLabel.setBackground(white);
             return true;
@@ -325,7 +325,7 @@ public class gameController implements Initializable {
     @FXML
     protected void goBackPressed(ActionEvent event) {
         String url = "home.fxml";
-        loadNewScene.loadNewScene(event, url);
+        loadNewScene(event, url);
     }
 
     /**

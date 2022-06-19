@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 
-public class startgameController extends Main {
+public class startgameController extends Controller {
     Stage window= new Stage();
 
     public Button button;

@@ -38,12 +38,12 @@ public class Main extends Application {
         mainWindow.setTitle("Sudoku");
         mainWindow.show();
     }
-
+/*
     /**
      * This method is generating a new scene on top of the stage by loading the given fxml file
      * @param event
      * @param url
-     */
+
     public void loadNewScene(ActionEvent event, String url) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         URL fxmlFileUrl = getClass().getClassLoader().getResource(url);
@@ -59,7 +59,7 @@ public class Main extends Application {
 
     // get puzzle & solution Boards
     public static Board puzzleBoard = Games.getPuzzle_board();
-    public static Board solutionBoard = Games.getSolution_board();
+    public static Board solutionBoard = Games.getSolution_board();*/
 
 
     public static void main(String[] args) {
