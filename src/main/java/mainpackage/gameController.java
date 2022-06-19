@@ -220,27 +220,20 @@ public class gameController extends Controller implements Initializable {
 
         Label label1 = new Label();
         label1.setText(status);
-        Label label2 = new Label();
-        label2.setText("");
         Button restartButton = new Button("restart Game");
-        restartButton.setStyle("-fx-background-color: #194e70;");
-        restartButton.setStyle("-fx-text-fill: white;");
+        restartButton.setStyle("-fx-text-fill: white; -fx-background-color: #194e70;");
 
         restartButton.setOnMouseEntered(new EventHandler<MouseEvent>() {
-
             @Override
             public void handle(MouseEvent t) {
-                restartButton.setStyle("-fx-background-color:#abdbe7");
-                restartButton.setStyle("-fx-text-fill: white;");
+                restartButton.setStyle("-fx-text-fill: white; -fx-background-color: #abdbe7;");
             }
         });
 
         restartButton.setOnMouseExited(new EventHandler<MouseEvent>() {
-
             @Override
             public void handle(MouseEvent t) {
-                restartButton.setStyle("-fx-background-color:#194e70;");
-                restartButton.setStyle("-fx-text-fill: white;");
+                restartButton.setStyle("-fx-text-fill: white; -fx-background-color: #194e70;");
             }
         });
 
@@ -258,28 +251,24 @@ public class gameController extends Controller implements Initializable {
             }
         });
 
-        Button startNewGameButton = new Button("Home");
-        startNewGameButton.setStyle("-fx-background-color: #194e70;");
-        startNewGameButton.setStyle("-fx-text-fill: white;");
-        startNewGameButton.setOnMouseEntered(new EventHandler<MouseEvent>() {
+        Button homeButton = new Button("Home");
+        homeButton.setStyle("-fx-background-color: #194e70; -fx-text-fill: white; ");
 
+        homeButton.setOnMouseEntered(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent f) {
-                restartButton.setStyle("-fx-background-color:#abdbe7");
-                startNewGameButton.setStyle("-fx-text-fill: white;");
+                homeButton.setStyle("-fx-text-fill: white; -fx-background-color:#abdbe7");
             }
         });
 
-        startNewGameButton.setOnMouseExited(new EventHandler<MouseEvent>() {
-
+        homeButton.setOnMouseExited(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent f) {
-                restartButton.setStyle("-fx-background-color:#194e70;");
-                startNewGameButton.setStyle("-fx-text-fill: white;");
+                homeButton.setStyle("-fx-text-fill: white; -fx-background-color:#194e70;");
             }
         });
 
-        startNewGameButton.setOnAction(new EventHandler<ActionEvent>() {
+        homeButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 window.close();
@@ -290,8 +279,7 @@ public class gameController extends Controller implements Initializable {
 
         VBox layout = new VBox(10);
         layout.getChildren().addAll(label1);
-        layout.getChildren().addAll(restartButton, startNewGameButton);
-        layout.getChildren().addAll(label2);
+        layout.getChildren().addAll(restartButton, homeButton);
         layout.setAlignment(Pos.CENTER);
 
         startRound();
