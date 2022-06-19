@@ -1,7 +1,6 @@
 package mainpackage;
 
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,7 +11,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
@@ -32,8 +30,8 @@ public class gameController implements Initializable {
     private GridPane sudokuGridPane;
     @FXML
     Label counter;
+    Board finishedBoard = new Board();
 
-    Board finalBoard = new Board();
 
     boolean labelAreInitialized = false;
     boolean wrongValue = false;
@@ -103,8 +101,8 @@ public class gameController implements Initializable {
             }
 
         }
-        finalBoard.setGanzesBrett(Games.puzzleBoard);
-        //board.checkWinning();
+        finishedBoard.setGanzesBrett(Games.puzzleBoard);
+        System.out.println(finishedBoard);
     }
 
     /**
@@ -189,7 +187,7 @@ public class gameController implements Initializable {
             counter.setStyle("-fx-font: 12 arial;");
         } else {
             counter.setText("Wrong input counter: 3/3");
-            display();
+            display("YOU LOST");
             count = 0;
             counter.setText("Wrong input counter: " + count + "/3");
             startRound();
@@ -213,7 +211,7 @@ public class gameController implements Initializable {
     }
 
     //to show a new window
-    private void display() {
+    private void display(String status) {
 
         Stage window = new Stage();
 
@@ -223,7 +221,7 @@ public class gameController implements Initializable {
         window.setMinHeight(200);
 
         Label label1 = new Label();
-        label1.setText("You lost");
+        label1.setText(status);
         Label label2 = new Label();
         label2.setText("");
         Button restartButton = new Button("restart Game");
@@ -262,9 +260,17 @@ public class gameController implements Initializable {
         window.show();
     }
 
+    @FXML
+    protected void checkGame(){
+        if(finishedBoard.checkWinning()){
+            display("YOU WON");
+        }else {
+            display("YOU LOST");
+        }
+    }
 
     @FXML
-    protected void resetGame(MouseEvent event) {
+    protected void resetGame() {
         if (!labelAreInitialized) {
             this.setLabels();
             labelAreInitialized = true;
@@ -302,13 +308,10 @@ public class gameController implements Initializable {
 
         //to check the user input after the game is finished
         Position position = getRowCol(SelectedLabel.getId());
-        finalBoard.setValueInBrett(position.row,position.col,choiceInt);
-        getBoard(finalBoard);
+        finishedBoard.setValueInBrett(position.col,position.row,choiceInt);
+        System.out.println(finishedBoard);
     }
-    public Board getBoard(Board board){
-        System.out.println(board);
-        return board;
-    }
+
     /*
     @FXML
     protected void auswahl2() {

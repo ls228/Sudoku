@@ -1,6 +1,7 @@
 package mainpackage;
 
 import java.util.Arrays;
+import java.util.HashSet;
 
 public class Board {
 
@@ -44,9 +45,6 @@ public class Board {
         this.board_scheme[row][column] = value;
     }
 
-    public void createSolutionBoard(){
-                setGanzesBrett(Games.puzzleBoard);
-            }
 
     /**
      * Set ganzes Brett auf einmal über 2 dimensionales Array mit allen Werten (zeilenweise)
@@ -65,22 +63,21 @@ public class Board {
     }
 
 
-/*
     public boolean checkWinning() {
 
         boolean rt = true;
 
         //checks if any row has duplicates
         HashSet<Integer> set = new HashSet<Integer>();
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < SIZE; i++) {
 
-            for (int j = 0; j < size; j++) {
-                set.add(brett[i][j]);
+            for (int j = 0; j < SIZE; j++) {
+                set.add(board_scheme[i][j]);
             }
-            if (set.size() != size) {
+            if (set.size() != SIZE) {
                 System.out.println("Duplicates found in a row");
                 rt = false;
-            } else if (set.size() == size) {
+            } else if (set.size() == SIZE) {
                 System.out.println("Set has size of 9 found in a row");
             }
             set.clear();
@@ -88,15 +85,15 @@ public class Board {
         }
 
         //checks if any column has duplicates
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < SIZE; i++) {
 
-            for (int j = 0; j < size; j++) {
-                set.add(brett[j][i]);
+            for (int j = 0; j < SIZE; j++) {
+                set.add(board_scheme[j][i]);
             }
-            if (set.size() != size) {
+            if (set.size() != SIZE) {
                 System.out.println("Duplicates found in a column");
                 rt = false;
-            } else if (set.size() == size) {
+            } else if (set.size() == SIZE) {
                 System.out.println("Set has size of 9 found in a column");
             }
             set.clear();
@@ -105,10 +102,10 @@ public class Board {
         //checks if any 3x3 square has duplicates in the first column
 
         set.clear();
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < SIZE; i++) {
 
             for (int j = 0; j < 3; j++) {
-                set.add(brett[i][j]);
+                set.add(board_scheme[i][j]);
             }
             if(i == 2 || i == 5 || i == 8){
                 if(set.size() != 9){
@@ -130,10 +127,10 @@ public class Board {
         //checks if any 3x3 square has duplicates in the second column
 
         set.clear();
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < SIZE; i++) {
 
             for (int j = 3; j < 6; j++) {
-                set.add(brett[i][j]);
+                set.add(board_scheme[i][j]);
             }
             if(i == 2 || i == 5 || i == 8){
                 if(set.size() != 9){
@@ -155,10 +152,10 @@ public class Board {
         //checks if any 3x3 square has duplicates in the third column
 
         set.clear();
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < SIZE; i++) {
 
             for (int j = 6; j < 9; j++) {
-                set.add(brett[i][j]);
+                set.add(board_scheme[i][j]);
             }
             if(i == 2 || i == 5 || i == 8){
                 if(set.size() != 9){
@@ -193,5 +190,4 @@ public class Board {
         }
         return true;
     }
-*/
 }

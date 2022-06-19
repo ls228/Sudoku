@@ -6,6 +6,7 @@ public class Games {
     static Board solution_board = new Board(); // ausgefülltes Brett (Lösung)
     static Board puzzle_board = new Board(); // teilweise leeres Brett (Rätsel)
     static int [][] puzzleBoard = new int[9][9];
+
     /**
      * Board will be filled with random Sudoku depending on activated level
      * @param currentlevel
@@ -37,7 +38,7 @@ public class Games {
 
 
                     int[][] gamePuzzleValues1 = {
-                            {8, 3, 1, 0 , 0, 0, 7, 4, 2},
+                            {8, 3, 1, 0, 0, 0, 7, 4, 2},
                             {7, 0, 4, 0, 0, 0, 6, 0, 3},
                             {0, 0, 6, 3, 0, 4, 8, 0, 0},
                             {2, 0, 0, 9, 0, 3, 0, 0, 8},

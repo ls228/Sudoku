@@ -93,7 +93,9 @@
                     <rowConstraints>
                         <RowConstraints maxHeight="75.33334223429361" minHeight="10.0" prefHeight="56.666666666666664" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="75.66665649414062" minHeight="10.0" prefHeight="60.66666666666668" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="39.33332824707031" minHeight="10.0" prefHeight="13.333343505859375" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="75.66665649414062" minHeight="10.0" prefHeight="60.66666666666668" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="39.33332824707031" minHeight="10.0" prefHeight="13.333343505859375" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="39.33332824707031" minHeight="10.0" prefHeight="13.333343505859375" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <children>
                         <Button id="goback" mnemonicParsing="false" onAction="#goBackPressed" prefHeight="25.0" prefWidth="99.0" text="Back to menue" GridPane.columnIndex="1">
@@ -102,6 +104,11 @@
                             </GridPane.margin>
                   </Button>
                   <Button mnemonicParsing="false" onMouseClicked="#resetGame" prefHeight="25.0" prefWidth="99.0" text="Reset game" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Button id="CheckGame" mnemonicParsing="false" onAction="#checkGame"  prefHeight="25.0" prefWidth="99.0" text="CheckGame" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets bottom="2.0" />
+                     </GridPane.margin>
+                  </Button>
                     </children>
                 </GridPane>
             <GridPane GridPane.columnIndex="1" GridPane.rowIndex="2">

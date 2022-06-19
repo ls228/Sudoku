@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -14,14 +15,17 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class homeController extends Main {
-
+    Button levelButton = new Button();
     @FXML
-    protected void level1pressed(ActionEvent event) {
-        Games games = new Games(1);
-        String url = "game1.fxml";
+    protected void levelpressed(ActionEvent event) {
+        Button activeButton = (Button) event.getSource();
+        levelButton = activeButton;
+        Games games = new Games(Integer.parseInt(levelButton.getId()));
+        String url = "game"+levelButton.getId()+".fxml";
         loadNewScene(event, url);
     }
 
+    /*
     @FXML
     protected void level2pressed(ActionEvent event) {
         Games games = new Games(2);
@@ -35,6 +39,8 @@ public class homeController extends Main {
         String url = "game3.fxml";
         loadNewScene(event, url);
     }
+
+     */
 
     @FXML
     protected void goBackHome(ActionEvent event) {
