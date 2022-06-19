@@ -18,7 +18,6 @@ public class Controller {
 
     Button levelButton = new Button();
 
-
     /**
      * This method is generating a new scene on top of the stage by loading the given fxml file
      *
@@ -42,26 +41,9 @@ public class Controller {
     public static Board puzzleBoard = Games.getPuzzle_board();
     public static Board solutionBoard = Games.getSolution_board();
 
-    /**
-     * new class to enable input of labelId and output of col & row in method getRowCol
-     */
-    /*
-    public class Position {
-        public int row = 0;
-        public int col = 0;
-    }
 
-    public Position getRowCol(String labelId) {
-        char rowchar = labelId.charAt(6);
-        char colchar = labelId.charAt(8);
 
-        Position position = new Position();
 
-        position.row = Integer.parseInt(String.valueOf(rowchar));
-        position.col = Integer.parseInt(String.valueOf(colchar));
-
-        return position;
-    } */
 }
 
 

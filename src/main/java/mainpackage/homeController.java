@@ -22,26 +22,9 @@ public class homeController extends Controller {
         Button activeButton = (Button) event.getSource();
         levelButton = activeButton;
         Games games = new Games(Integer.parseInt(levelButton.getId()));
-        String url = "game"+levelButton.getId()+".fxml";
+        String url = "game" + levelButton.getId() + ".fxml";
         loadNewScene(event, url);
     }
-
-    /*
-    @FXML
-    protected void level2pressed(ActionEvent event) {
-        Games games = new Games(2);
-        String url = "game2.fxml";
-        loadNewScene(event, url);
-    }
-
-    @FXML
-    protected void level3pressed(ActionEvent event) {
-        Games games = new Games(3);
-        String url = "game3.fxml";
-        loadNewScene(event, url);
-    }
-
-     */
 
     @FXML
     protected void goBackHome(ActionEvent event) {

@@ -24,7 +24,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class gameController extends Controller implements Initializable  {
+public class gameController extends Controller implements Initializable {
 
     @FXML
     private GridPane sudokuGridPane;
@@ -109,7 +109,7 @@ public class gameController extends Controller implements Initializable  {
      * Method is setting labels when startGame button is clicked
      */
 
-    private void setLabels() {
+    public void setLabels() {
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
                 //every label is getting a value of 0
@@ -143,11 +143,10 @@ public class gameController extends Controller implements Initializable  {
         }
     }
 
-
     /**
      * new class to enable input of labelId and output of col & row in method getRowCol
      */
-    public class Position {
+    private class Position {
         public int row = 0;
         public int col = 0;
     }
@@ -174,7 +173,7 @@ public class gameController extends Controller implements Initializable  {
 
     private boolean checkInput(int value) {
         Position position = getRowCol(SelectedLabel.getId());
-        int valueSolved = solutionBoard.getNumberAtIdx(position.col,position.row);
+        int valueSolved = solutionBoard.getNumberAtIdx(position.col, position.row);
         if (value == valueSolved) {
             SelectedLabel.setBackground(white);
             return true;
@@ -303,10 +302,10 @@ public class gameController extends Controller implements Initializable  {
     }
 
     @FXML
-    protected void checkGame(){
-        if(finishedBoard.checkWinning()){
+    protected void checkGame() {
+        if (finishedBoard.checkWinning()) {
             display("YOU WON");
-        }else {
+        } else {
             display("YOU LOST");
         }
     }
@@ -339,7 +338,7 @@ public class gameController extends Controller implements Initializable  {
         pressedButton = activeButton;
 
         //get pressed value
-        String id= pressedButton.getId();
+        String id = pressedButton.getId();
         char choiceChar = id.charAt(7);
         int choiceInt = Integer.parseInt(String.valueOf(choiceChar));
         String choiceString = String.valueOf(choiceChar);
@@ -350,13 +349,13 @@ public class gameController extends Controller implements Initializable  {
 
         //to check the user input after the game is finished
         Position position = getRowCol(SelectedLabel.getId());
-        finishedBoard.setValueInBrett(position.col,position.row,choiceInt);
+        finishedBoard.setValueInBrett(position.col, position.row, choiceInt);
         System.out.println(finishedBoard);
 
-        if(!(finishedBoard.checkIfFinished())){
-            if(finishedBoard.checkWinning()){
+        if (!(finishedBoard.checkIfFinished())) {
+            if (finishedBoard.checkWinning()) {
                 display("YOU WON");
-            }else{
+            } else {
                 display("YOU LOST");
             }
         }
@@ -427,7 +426,7 @@ public class gameController extends Controller implements Initializable  {
         Position position = getRowCol(SelectedLabel.getId());
         SelectedLabel.setBackground(white);
         SelectedLabel.setText(null);
-        finishedBoard.setValueInBrett(position.col,position.row,0);
+        finishedBoard.setValueInBrett(position.col, position.row, 0);
         System.out.println(finishedBoard);
     }
 
