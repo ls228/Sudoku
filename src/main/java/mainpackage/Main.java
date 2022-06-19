@@ -20,6 +20,7 @@ public class Main extends Application {
         return mainWindow;
     }
 
+
     static Stage mainWindow;
 
     @Override

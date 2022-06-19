@@ -1,12 +1,18 @@
 package mainpackage;
 
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Games {
 
     static Board solution_board = new Board(); // solved board (solution)
     static Board puzzle_board = new Board(); // game that has to be solved (quest)
     static int [][] puzzleBoard = new int[Board.SIZE][Board.SIZE];
-    //static int [][] solutionBoard = new int[Board.SIZE][Board.SIZE];
+    static int [][] solutionBoard = new int[Board.SIZE][Board.SIZE];
 
     /**
      * Board will be filled with random Sudoku depending on activated level
@@ -20,7 +26,7 @@ public class Games {
 
         //if-function with current level chooses different difficulty
         if(currentlevel==1) {
-            switch (randomNumber) {
+            switch (1) {
                 //easy:
                 case 1:
 
@@ -36,7 +42,7 @@ public class Games {
                             {3, 1, 5, 4, 2, 7, 9, 8, 6},
                     };
                     solution_board.setGanzesBrett(gameSolutionValues1);
-                    //solutionBoard = gameSolutionValues1;
+                    solutionBoard = gameSolutionValues1;
 
                     int[][] gamePuzzleValues1 = {
                             {8, 3, 1, 0, 0, 0, 7, 4, 2},
@@ -386,7 +392,7 @@ public class Games {
                                 {0, 8, 0, 0, 0, 0, 0, 4, 0},
                         };
                         puzzle_board.setGanzesBrett(gamePuzzleValues11);
-
+                        puzzleBoard = gamePuzzleValues11;
                         break;
 
 
@@ -416,6 +422,7 @@ public class Games {
                                 {0, 8, 0, 0, 7, 0, 0, 2, 0},
                         };
                         puzzle_board.setGanzesBrett(gamePuzzleValues12);
+                        puzzleBoard = gamePuzzleValues12;
 
                         break;
 
@@ -446,6 +453,7 @@ public class Games {
                                 {0, 0, 6, 4, 0, 2, 3, 0, 0},
                         };
                         puzzle_board.setGanzesBrett(gamePuzzleValues13);
+                        puzzleBoard = gamePuzzleValues13;
 
                         break;
 
@@ -476,6 +484,7 @@ public class Games {
                                 {0, 0, 0, 6, 0, 5, 0, 0, 0},
                         };
                         puzzle_board.setGanzesBrett(gamePuzzleValues14);
+                        puzzleBoard = gamePuzzleValues14;
 
                         break;
 
@@ -506,6 +515,7 @@ public class Games {
                                 {8, 0, 4, 0, 0, 0, 2, 0, 7},
                         };
                         puzzle_board.setGanzesBrett(gamePuzzleValues15);
+                        puzzleBoard = gamePuzzleValues15;
 
                         break;
 
@@ -536,6 +546,7 @@ public class Games {
                                 {0, 4, 0, 0, 0, 0, 0, 8, 0},
                         };
                         puzzle_board.setGanzesBrett(gamePuzzleValues16);
+                        puzzleBoard = gamePuzzleValues16;
 
                         break;
 
@@ -566,6 +577,7 @@ public class Games {
                                 {8, 0, 9, 3, 0, 2, 6, 0, 5},
                         };
                         puzzle_board.setGanzesBrett(gamePuzzleValues17);
+                        puzzleBoard = gamePuzzleValues17;
 
                         break;
 
@@ -584,6 +596,7 @@ public class Games {
                         };
                         solution_board.setGanzesBrett(gameSolutionValues18);
 
+
                         int[][] gamePuzzleValues18 = {
                                 {0, 0, 3, 6, 0, 7, 5, 0, 0},
                                 {0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -596,6 +609,7 @@ public class Games {
                                 {0, 0, 1, 4, 0, 8, 3, 0, 0},
                         };
                         puzzle_board.setGanzesBrett(gamePuzzleValues18);
+                        puzzleBoard = gamePuzzleValues18;
 
                         break;
 
@@ -626,6 +640,7 @@ public class Games {
                                 {0, 1, 0, 0, 0, 0, 0, 4, 0},
                         };
                         puzzle_board.setGanzesBrett(gamePuzzleValues19);
+                        puzzleBoard = gamePuzzleValues19;
 
                         break;
 
@@ -656,6 +671,7 @@ public class Games {
                                 {0, 4, 0, 5, 8, 6, 0, 9, 0},
                         };
                         puzzle_board.setGanzesBrett(gamePuzzleValues20);
+                        puzzleBoard = gamePuzzleValues20;
 
                         break;
                     default:
@@ -686,6 +702,7 @@ public class Games {
                                 {0, 1, 0, 4, 0, 0, 9, 0, 8},
                         };
                         puzzle_board.setGanzesBrett(gamePuzzleValuesX);
+
                         break;
                 }
             }
@@ -720,6 +737,7 @@ public class Games {
                             {9, 6, 0, 0, 1, 0, 0, 2, 8},
                     };
                     puzzle_board.setGanzesBrett(gamePuzzleValues21);
+                    puzzleBoard = gamePuzzleValues21;
 
                     break;
 
@@ -750,6 +768,7 @@ public class Games {
                             {0, 5, 0, 0, 2, 0, 0, 7, 0},
                     };
                     puzzle_board.setGanzesBrett(gamePuzzleValues22);
+                    puzzleBoard = gamePuzzleValues22;
 
                     break;
 
@@ -780,6 +799,7 @@ public class Games {
                             {0, 7, 0, 8, 0, 6, 0, 4, 0},
                     };
                     puzzle_board.setGanzesBrett(gamePuzzleValues23);
+                    puzzleBoard = gamePuzzleValues23;
 
                     break;
 
@@ -810,6 +830,7 @@ public class Games {
                             {7, 5, 0, 0, 4, 0, 0, 8, 6},
                     };
                     puzzle_board.setGanzesBrett(gamePuzzleValues24);
+                    puzzleBoard = gamePuzzleValues24;
 
                     break;
 
@@ -840,6 +861,7 @@ public class Games {
                             {0, 0, 0, 0, 4, 0, 0, 0, 0},
                     };
                     puzzle_board.setGanzesBrett(gamePuzzleValues25);
+                    puzzleBoard = gamePuzzleValues25;
 
                     break;
 
@@ -870,6 +892,7 @@ public class Games {
                             {2, 1, 0, 0, 0, 0, 0, 8, 4},
                     };
                     puzzle_board.setGanzesBrett(gamePuzzleValues26);
+                    puzzleBoard = gamePuzzleValues26;
 
                     break;
 
@@ -900,6 +923,7 @@ public class Games {
                             {0, 0, 4, 2, 0, 6, 8, 0, 0},
                     };
                     puzzle_board.setGanzesBrett(gamePuzzleValues27);
+                    puzzleBoard = gamePuzzleValues27;
 
                     break;
 
@@ -930,6 +954,7 @@ public class Games {
                             {9, 0, 0, 0, 8, 0, 0, 0, 1},
                     };
                     puzzle_board.setGanzesBrett(gamePuzzleValues28);
+                    puzzleBoard = gamePuzzleValues28;
 
                     break;
 
@@ -960,6 +985,7 @@ public class Games {
                             {6, 0, 0, 8, 7, 2, 0, 0, 5},
                     };
                     puzzle_board.setGanzesBrett(gamePuzzleValues29);
+                    puzzleBoard = gamePuzzleValues29;
 
                     break;
 
@@ -990,6 +1016,7 @@ public class Games {
                             {0, 0, 0, 1, 0, 8, 0, 0, 0},
                     };
                     puzzle_board.setGanzesBrett(gamePuzzleValues30);
+                    puzzleBoard = gamePuzzleValues30;
 
                     break;
                 default:
@@ -1033,7 +1060,6 @@ public class Games {
     public static Board getPuzzle_board() {
         return puzzle_board;
     }
-
 
     /*
     public static List<String> read() {

@@ -31,7 +31,8 @@ public class gameController extends Controller implements Initializable {
     @FXML
     Label counter;
     Board finishedBoard = new Board();
-
+    //ReaderWriter readWrite = new ReaderWriter();
+    homeController home = new homeController();
 
     boolean labelAreInitialized = false;
     boolean wrongValue = false;
@@ -39,6 +40,7 @@ public class gameController extends Controller implements Initializable {
 
     Label LastselctedLabel = null;
     Label SelectedLabel = null;
+
     Button pressedButton = null;
 
     Background blue = new Background(new BackgroundFill(Color.CADETBLUE, null, null));
@@ -47,7 +49,7 @@ public class gameController extends Controller implements Initializable {
     Background pink = new Background(new BackgroundFill(Color.PINK, null, null));
 
     int count = 0;
-
+    public static int countRightGames = 1;
 
     /**
      * Method initialize to start a new round
@@ -100,8 +102,8 @@ public class gameController extends Controller implements Initializable {
             }
 
         }
-        //finishedBoard.setGanzesBrett(Games.solutionBoard);
-        finishedBoard.setGanzesBrett(Games.puzzleBoard);
+        finishedBoard.setGanzesBrett(Games.solutionBoard);
+        //finishedBoard.setGanzesBrett(Games.puzzleBoard);
         System.out.println(finishedBoard);
     }
 
@@ -183,7 +185,7 @@ public class gameController extends Controller implements Initializable {
         if (count < 2) {
             count++;
             counter.setText("Wrong input counter: " + count + "/3");
-            counter.setStyle("-fx-font: 12 arial;");
+            //counter.setStyle("-fx-font: 12 arial;");
         } else {
             counter.setText("Wrong input counter: 3/3");
             display("YOU LOST");
@@ -290,15 +292,6 @@ public class gameController extends Controller implements Initializable {
     }
 
     @FXML
-    protected void checkGame() {
-        if (finishedBoard.checkWinning()) {
-            display("YOU WON");
-        } else {
-            display("YOU LOST");
-        }
-    }
-
-    @FXML
     protected void resetGame() {
         if (!labelAreInitialized) {
             this.setLabels();
@@ -343,6 +336,14 @@ public class gameController extends Controller implements Initializable {
         if (!(finishedBoard.checkIfFinished())) {
             if (finishedBoard.checkWinning()) {
                 display("YOU WON");
+
+                //Label das anzeigt wie viele Spiele schon gewonnen wurden
+
+                countRightGames++;
+                ReaderWriter.write(countRightGames);
+                System.out.println(ReaderWriter.read().size()+" reader");
+
+
             } else {
                 display("YOU LOST");
             }

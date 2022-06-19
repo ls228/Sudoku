@@ -16,7 +16,6 @@ import java.net.URL;
 
 public class startgameController extends Controller {
     Stage window= new Stage();
-
     public Button button;
 
     @FXML private javafx.scene.control.Button exit;
