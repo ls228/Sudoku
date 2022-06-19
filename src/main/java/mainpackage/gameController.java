@@ -49,7 +49,6 @@ public class gameController implements Initializable {
     int count = 0;
 
 
-
     /**
      * Method initialize to start a new round
      *
@@ -101,6 +100,7 @@ public class gameController implements Initializable {
             }
 
         }
+        //finishedBoard.setGanzesBrett(Games.solutionBoard);
         finishedBoard.setGanzesBrett(Games.puzzleBoard);
         System.out.println(finishedBoard);
     }
@@ -224,6 +224,27 @@ public class gameController implements Initializable {
         Label label2 = new Label();
         label2.setText("");
         Button restartButton = new Button("restart Game");
+        restartButton.setStyle("-fx-background-color: #194e70;");
+        restartButton.setStyle("-fx-text-fill: white;");
+
+        restartButton.setOnMouseEntered(new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent t) {
+                restartButton.setStyle("-fx-background-color:#abdbe7");
+                restartButton.setStyle("-fx-text-fill: white;");
+            }
+        });
+
+        restartButton.setOnMouseExited(new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent t) {
+                restartButton.setStyle("-fx-background-color:#194e70;");
+                restartButton.setStyle("-fx-text-fill: white;");
+            }
+        });
+
         restartButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -239,6 +260,26 @@ public class gameController implements Initializable {
         });
 
         Button startNewGameButton = new Button("Home");
+        startNewGameButton.setStyle("-fx-background-color: #194e70;");
+        startNewGameButton.setStyle("-fx-text-fill: white;");
+        startNewGameButton.setOnMouseEntered(new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent f) {
+                restartButton.setStyle("-fx-background-color:#abdbe7");
+                startNewGameButton.setStyle("-fx-text-fill: white;");
+            }
+        });
+
+        startNewGameButton.setOnMouseExited(new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent f) {
+                restartButton.setStyle("-fx-background-color:#194e70;");
+                startNewGameButton.setStyle("-fx-text-fill: white;");
+            }
+        });
+
         startNewGameButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -311,6 +352,14 @@ public class gameController implements Initializable {
         Position position = getRowCol(SelectedLabel.getId());
         finishedBoard.setValueInBrett(position.col,position.row,choiceInt);
         System.out.println(finishedBoard);
+
+        if(!(finishedBoard.checkIfFinished())){
+            if(finishedBoard.checkWinning()){
+                display("YOU WON");
+            }else{
+                display("YOU LOST");
+            }
+        }
     }
 
     /*

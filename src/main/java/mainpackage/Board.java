@@ -28,6 +28,21 @@ public class Board {
         return buf.toString();
     }
 
+    public boolean checkIfFinished(){
+        boolean notDone=true;
+        for (int i = 0; i < SIZE; i++) {
+            for (int j = 0; j < SIZE; j++) {
+                if(getNumberAtIdx(i,j)!=0){
+                    notDone=false;
+                }else {
+                    notDone=true;
+                    return notDone;
+                }
+            }
+        }
+        return notDone;
+    }
+    /*
     //Vergleicht 2 Boards
     public boolean equalsBoard(Board b){
 
@@ -39,6 +54,8 @@ public class Board {
         }
         return true;
     }
+
+     */
 
     public void setValueInBrett(int column, int row, int value) {
         this.board_scheme[column][row] = value;

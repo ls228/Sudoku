@@ -3,9 +3,10 @@ package mainpackage;
 
 public class Games {
 
-    static Board solution_board = new Board(); // ausgefülltes Brett (Lösung)
-    static Board puzzle_board = new Board(); // teilweise leeres Brett (Rätsel)
+    static Board solution_board = new Board(); // solved board (solution)
+    static Board puzzle_board = new Board(); // game that has to be solved (quest)
     static int [][] puzzleBoard = new int[Board.SIZE][Board.SIZE];
+    //static int [][] solutionBoard = new int[Board.SIZE][Board.SIZE];
 
     /**
      * Board will be filled with random Sudoku depending on activated level
@@ -35,7 +36,7 @@ public class Games {
                             {3, 1, 5, 4, 2, 7, 9, 8, 6},
                     };
                     solution_board.setGanzesBrett(gameSolutionValues1);
-
+                    //solutionBoard = gameSolutionValues1;
 
                     int[][] gamePuzzleValues1 = {
                             {8, 3, 1, 0, 0, 0, 7, 4, 2},
