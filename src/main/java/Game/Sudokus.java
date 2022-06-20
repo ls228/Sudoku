@@ -1,24 +1,18 @@
-package mainpackage;
+package Game;
 
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+public class Sudokus {
 
-public class Games {
-
-    static Board solution_board = new Board(); // solved board (solution)
-    static Board puzzle_board = new Board(); // game that has to be solved (quest)
-    static int [][] puzzleBoard = new int[Board.SIZE][Board.SIZE];
+    public static Board solution_board = new Board(); // solved board (solution)
+    public static Board puzzle_board = new Board(); // game that has to be solved (quest)
+    public static int [][] puzzleBoard = new int[Board.SIZE][Board.SIZE];
     //static int [][] solutionBoard = new int[Board.SIZE][Board.SIZE];
 
     /**
      * Board will be filled with random Sudoku depending on activated level
      * @param currentlevel
      */
-    public Games(int currentlevel) {
+    public Sudokus(int currentlevel) {
 
         int randomNumber = (int) (10 * Math.random());
         System.out.println("Random Number: " + randomNumber);

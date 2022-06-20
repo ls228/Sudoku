@@ -1,17 +1,13 @@
-package mainpackage;
+package Controller;
 
+import Game.ReaderWriter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.stage.Stage;
+import Game.Sudokus;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -19,7 +15,7 @@ public class homeController extends Controller implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        solvedGames.setText(gameController.countRightGames+" games solved");
+        solvedGames.setText(ReaderWriter.read().size() +" games solved");
     }
 
     @FXML
@@ -29,7 +25,7 @@ public class homeController extends Controller implements Initializable{
     protected void levelpressed(ActionEvent event) {
         Button activeButton = (Button) event.getSource();
         levelButton = activeButton;
-        Games games = new Games(Integer.parseInt(levelButton.getId()));
+        Sudokus games = new Sudokus(Integer.parseInt(levelButton.getId()));
         //eigentlich nur noch eine fxml datei benötigt
         String url = "game1.fxml";
         loadNewScene(event, url);

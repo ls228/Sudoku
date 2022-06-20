@@ -1,4 +1,4 @@
-package mainpackage;
+package Controller;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -19,6 +19,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import Game.*;
 
 import java.io.IOException;
 import java.net.URL;
@@ -49,7 +50,6 @@ public class gameController extends Controller implements Initializable {
     Background pink = new Background(new BackgroundFill(Color.PINK, null, null));
 
     int count = 0;
-    public static int countRightGames = 0;
 
     long start;
     // some time passes
@@ -110,7 +110,7 @@ public class gameController extends Controller implements Initializable {
 
         }
         //finishedBoard.setGanzesBrett(Games.solutionBoard);
-        finishedBoard.setGanzesBrett(Games.puzzleBoard);
+        finishedBoard.setGanzesBrett(Sudokus.puzzleBoard);
         System.out.println(finishedBoard);
     }
 
@@ -348,11 +348,7 @@ public class gameController extends Controller implements Initializable {
                 display("YOU WON");
 
                 //Label das anzeigt wie viele Spiele schon gewonnen wurden
-
-                countRightGames++;
-                ReaderWriter.write(countRightGames);
-                System.out.println(ReaderWriter.read().size()+" reader");
-
+                ReaderWriter.write(1);
 
             } else {
                 display("YOU LOST");

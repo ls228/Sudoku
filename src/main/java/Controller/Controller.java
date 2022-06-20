@@ -1,15 +1,14 @@
-package mainpackage;
+package Controller;
 
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
+import Game.Board;
+import Game.Sudokus;
 
 import java.io.IOException;
 import java.net.URL;
@@ -38,8 +37,8 @@ public class Controller {
     }
 
     // get puzzle & solution Boards
-    public static Board puzzleBoard = Games.getPuzzle_board();
-    public static Board solutionBoard = Games.getSolution_board();
+    static Board puzzleBoard = Sudokus.getPuzzle_board();
+    static Board solutionBoard = Sudokus.getSolution_board();
 
 
 

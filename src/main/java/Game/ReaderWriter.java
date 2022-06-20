@@ -1,4 +1,4 @@
-package mainpackage;
+package Game;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -9,13 +9,13 @@ public class ReaderWriter {
     /**
      * Diese Methode erstellt neue Einträge in der Textdatei
      */
-    public static void write(int count) {
+    public static void write(int gameSolved) {
 
         try {
 
             FileWriter myWriter = new FileWriter("C:\\Users\\DELL\\Documents\\Semester 2\\SE2\\src\\main\\resources\\counter.txt", true);
             // Die Einträge werden in einer Datei gespeichert.
-            myWriter.write(String.valueOf(count));
+            myWriter.write(gameSolved+"\n");
             myWriter.close();
 
         } catch (IOException e) {
@@ -35,7 +35,7 @@ public class ReaderWriter {
             BufferedReader newReader = new BufferedReader(new FileReader("C:\\Users\\DELL\\Documents\\Semester 2\\SE2\\src\\main\\resources\\counter.txt"));
             String line;
             while ((line = newReader.readLine()) != null) {
-                entries.add(line+",");
+                entries.add(line);
             }
             newReader.close();
         } catch (IOException e) {
