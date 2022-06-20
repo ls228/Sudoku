@@ -49,7 +49,12 @@ public class gameController extends Controller implements Initializable {
     Background pink = new Background(new BackgroundFill(Color.PINK, null, null));
 
     int count = 0;
-    public static int countRightGames = 1;
+    public static int countRightGames = 0;
+
+    long start;
+    // some time passes
+    long end;
+    long elapsedTime = end - start;
 
     /**
      * Method initialize to start a new round
@@ -71,6 +76,8 @@ public class gameController extends Controller implements Initializable {
      */
 
     private void startRound() {
+
+        start = System.currentTimeMillis();
 
         int size = sudokuGridPane.getChildren().size();
         Label label = null;
@@ -212,6 +219,9 @@ public class gameController extends Controller implements Initializable {
 
     //to show a new window
     private void display(String status) {
+
+        end = System.currentTimeMillis();
+        System.out.println("Time:" + elapsedTime);
 
         Stage window = new Stage();
 

@@ -1,5 +1,9 @@
 package mainpackage;
 
+import javafx.animation.Animation;
+import javafx.animation.AnimationTimer;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
@@ -12,7 +16,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
+import javafx.util.Duration;
 
 
 // diese Klasse ist nur zum Testen, wir können sie am Ende löschen
@@ -23,14 +27,56 @@ public class SwitchingScenes extends Application {
     static Scene scene1;
     static Scene scene2;
 
+    private AnimationTimer timer;
+    private Label lblTime = new Label("0 .s");
+    private int seconds;
+
+
+
+
+
+
     public static void main(String[] args) {
         launch(args);
-    }
+        }
+
 
     @Override
     public void start(Stage PrimaryStage) throws Exception {
 
         window = PrimaryStage;
+
+        timer = new AnimationTimer() {
+            private long lastTime = 0;
+            @Override
+            public void handle(long now) {
+                if (lastTime != 0) {
+                    if (now > lastTime + 1_000_000_000) {
+                        seconds++;
+                        lblTime.setText(Integer.toString(seconds) + ".s");
+                    }
+                } else {
+                    lastTime = now;
+                }
+            }
+            @Override
+            public void stop() {
+                super.stop();
+                lastTime = 0;
+                seconds = 0;
+            }
+        };
+
+        Button btnStart = new Button("Start");
+        btnStart.setOnAction(e -> {
+            lblTime.setText("0.s");
+            timer.start();
+        });
+
+        Button btnStop = new Button("Stop");
+        btnStop.setOnAction(e -> {
+            timer.stop();
+        });
 
         Label label1 = new Label("Welcome");
 
@@ -38,7 +84,7 @@ public class SwitchingScenes extends Application {
         Button button1 = new Button("Go to scene 2");
         //button1.setScaleX(1);
         //button1.setScaleY(1);
-        button1.setOnAction (e -> window.setScene(scene2));
+        button1.setOnAction(e -> window.setScene(scene2));
 
 
         //Layout 1 - children are laid out in vertical column
@@ -58,20 +104,25 @@ public class SwitchingScenes extends Application {
 
         //Layout 2
         VBox layout2 = new VBox(20);
-        layout2.getChildren().addAll(button2, button3);
+        layout2.getChildren().addAll(button2, button3, lblTime, btnStart, btnStop);
         scene2 = new Scene(layout2, 600, 600);
 
         window.setScene(scene1);
         window.setTitle("Title");
         window.show();
 
-        display("Sudoku", "You won!");
+      display("Sudoku", "You won!");
 
         /*window.setOnCloseRequest(e -> {
             e.consume();
             closeProgram();
         });*/
     }
+
+
+
+
+
 
 
         public static void display(String title, String message) {
@@ -81,8 +132,8 @@ public class SwitchingScenes extends Application {
             window.setTitle(title);
             window.setMinWidth(250);
 
-           Label label = new Label();
-           label.setText(message);
+            Label label = new Label();
+            label.setText(message);
 
 
             VBox layout = new VBox(10);
@@ -90,12 +141,12 @@ public class SwitchingScenes extends Application {
             layout.setAlignment(Pos.CENTER);
 
 
-            Scene scene =new Scene(layout);
+            Scene scene = new Scene(layout);
             window.setScene(scene);
             window.show();
         }
 
-    static boolean answer;
+        static boolean answer;
 
         public static boolean confirmBox(String title, String message) {
             Stage window = new Stage();
@@ -125,16 +176,17 @@ public class SwitchingScenes extends Application {
             VBox layout = new VBox(10);
             layout.getChildren().addAll(label, yesButton, noButton);
             layout.setAlignment(Pos.CENTER);
-            Scene scene =new Scene(layout);
+            Scene scene = new Scene(layout);
             window.setScene(scene);
             window.showAndWait();
 
             return answer;
         }
 
-        private void closeProgram(){
+
+    private void closeProgram() {
             Boolean answer = confirmBox("Exit", "Sure you want to exit?");
-            if(answer)
+            if (answer)
                 window.close();
         }
     }
