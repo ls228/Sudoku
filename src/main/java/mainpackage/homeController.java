@@ -30,7 +30,8 @@ public class homeController extends Controller implements Initializable{
         Button activeButton = (Button) event.getSource();
         levelButton = activeButton;
         Games games = new Games(Integer.parseInt(levelButton.getId()));
-        String url = "game" + levelButton.getId() + ".fxml";
+        //eigentlich nur noch eine fxml datei benötigt
+        String url = "game1.fxml";
         loadNewScene(event, url);
     }
 

@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BoardTest {
-    Games finishedBoard =new Games(1);
+    Games finishedBoardTest =new Games(1);
     @Test
     void getNumberAtIdx() {
 
