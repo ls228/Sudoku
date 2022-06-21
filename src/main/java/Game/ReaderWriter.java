@@ -13,7 +13,7 @@ public class ReaderWriter {
 
         try {
 
-            FileWriter myWriter = new FileWriter("C:\\Users\\DELL\\Documents\\Semester 2\\SE2\\src\\main\\resources\\counter.txt", true);
+            FileWriter myWriter = new FileWriter("src/main/resources/counter.txt", true);
             // Die Einträge werden in einer Datei gespeichert.
             myWriter.write(gameSolved+"\n");
             myWriter.close();
@@ -32,7 +32,7 @@ public class ReaderWriter {
 
         List<String> entries = new ArrayList<>();
         try {
-            BufferedReader newReader = new BufferedReader(new FileReader("C:\\Users\\DELL\\Documents\\Semester 2\\SE2\\src\\main\\resources\\counter.txt"));
+            BufferedReader newReader = new BufferedReader(new FileReader("src/main/resources/counter.txt"));
             String line;
             while ((line = newReader.readLine()) != null) {
                 entries.add(line);
@@ -55,4 +55,3 @@ public class ReaderWriter {
         }
     }
 }
-
