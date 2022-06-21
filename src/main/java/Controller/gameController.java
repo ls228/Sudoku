@@ -32,7 +32,7 @@ public class gameController extends Controller implements Initializable {
     @FXML
     Label counter;
     Board finishedBoard = new Board();
-    //ReaderWriter readWrite = new ReaderWriter();
+    ReaderWriter readWrite = new ReaderWriter();
     homeController home = new homeController();
 
     boolean labelAreInitialized = false;
@@ -109,7 +109,7 @@ public class gameController extends Controller implements Initializable {
             }
 
         }
-        //finishedBoard.setGanzesBrett(Games.solutionBoard);
+        //finishedBoard.setGanzesBrett(Sudokus.solutionBoard);
         finishedBoard.setGanzesBrett(Sudokus.puzzleBoard);
         System.out.println(finishedBoard);
     }
@@ -348,7 +348,7 @@ public class gameController extends Controller implements Initializable {
                 display("YOU WON");
 
                 //Label das anzeigt wie viele Spiele schon gewonnen wurden
-                ReaderWriter.write(1);
+                readWrite.write(1);
 
             } else {
                 display("YOU LOST");

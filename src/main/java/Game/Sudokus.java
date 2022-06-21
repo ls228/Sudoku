@@ -6,7 +6,7 @@ public class Sudokus {
     public static Board solution_board = new Board(); // solved board (solution)
     public static Board puzzle_board = new Board(); // game that has to be solved (quest)
     public static int [][] puzzleBoard = new int[Board.SIZE][Board.SIZE];
-    //static int [][] solutionBoard = new int[Board.SIZE][Board.SIZE];
+    public int [][] solutionBoard = new int[Board.SIZE][Board.SIZE];
 
     /**
      * Board will be filled with random Sudoku depending on activated level
@@ -36,7 +36,7 @@ public class Sudokus {
                             {3, 1, 5, 4, 2, 7, 9, 8, 6},
                     };
                     solution_board.setGanzesBrett(gameSolutionValues1);
-                    //solutionBoard = gameSolutionValues1;
+                    solutionBoard = gameSolutionValues1;
 
                     int[][] gamePuzzleValues1 = {
                             {8, 3, 1, 0, 0, 0, 7, 4, 2},
@@ -68,6 +68,7 @@ public class Sudokus {
                             {2, 9, 8, 4, 5, 7, 6, 3, 1},
                     };
                     solution_board.setGanzesBrett(gameSolutionValues2);
+                    solutionBoard = gameSolutionValues2;
 
                     int[][] gamePuzzleValues2 = {
                             {0, 0, 0, 5, 3, 2, 0, 0, 0},
@@ -98,6 +99,7 @@ public class Sudokus {
                             {7, 9, 2, 8, 5, 1, 6, 3, 4},
                     };
                     solution_board.setGanzesBrett(gameSolutionValues3);
+                    solutionBoard = gameSolutionValues3;
 
                     int[][] gamePuzzleValues3 = {
                             {3, 7, 0, 0, 0, 0, 0, 8, 2},
@@ -128,6 +130,7 @@ public class Sudokus {
                             {6, 3, 2, 1, 8, 5, 9, 7, 4},
                     };
                     solution_board.setGanzesBrett(gameSolutionValues4);
+                    solutionBoard = gameSolutionValues4;
 
                     int[][] gamePuzzleValues4 = {
                             {0, 6, 4, 0, 0, 0, 1, 8, 0},
@@ -158,6 +161,7 @@ public class Sudokus {
                             {7, 1, 4, 2, 8, 3, 6, 5, 9},
                     };
                     solution_board.setGanzesBrett(gameSolutionValues5);
+                    solutionBoard = gameSolutionValues5;
 
                     int[][] gamePuzzleValues5 = {
                             {9, 0, 0, 0, 0, 0, 0, 0, 5},
@@ -188,6 +192,7 @@ public class Sudokus {
                             {9, 1, 8, 4, 6, 5, 2, 3, 7},
                     };
                     solution_board.setGanzesBrett(gameSolutionValues6);
+                    solutionBoard = gameSolutionValues6;
 
                     int[][] gamePuzzleValues6 = {
                             {4, 0, 2, 0, 0, 0, 7, 0, 6},
@@ -218,6 +223,7 @@ public class Sudokus {
                             {1, 3, 4, 6, 5, 8, 2, 9, 7},
                     };
                     solution_board.setGanzesBrett(gameSolutionValues7);
+                    solutionBoard = gameSolutionValues7;
 
                     int[][] gamePuzzleValues7 = {
                             {0, 7, 0, 1, 0, 6, 0, 2, 0},
@@ -248,6 +254,7 @@ public class Sudokus {
                             {5, 9, 1, 2, 6, 7, 8, 3, 4},
                     };
                     solution_board.setGanzesBrett(gameSolutionValues8);
+                    solutionBoard = gameSolutionValues8;
 
                     int[][] gamePuzzleValues8 = {
                             {0, 0, 0, 3, 0, 2, 0, 0, 0},
@@ -278,6 +285,7 @@ public class Sudokus {
                             {8, 4, 5, 6, 1, 7, 2, 3, 9},
                     };
                     solution_board.setGanzesBrett(gameSolutionValues9);
+                    solutionBoard = gameSolutionValues9;
 
                     int[][] gamePuzzleValues9 = {
                             {0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -309,6 +317,7 @@ public class Sudokus {
                             {3, 7, 8, 1, 9, 4, 5, 6, 2},
                     };
                     solution_board.setGanzesBrett(gameSolutionValues10);
+                    solutionBoard = gameSolutionValues10;
 
                     int[][] gamePuzzleValues10 = {
                             {8, 0, 0, 7, 0, 6, 0, 0, 1},

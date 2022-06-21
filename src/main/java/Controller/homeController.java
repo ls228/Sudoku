@@ -13,9 +13,11 @@ import java.util.ResourceBundle;
 
 public class homeController extends Controller implements Initializable{
 
+    ReaderWriter readWrite = new ReaderWriter();
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        solvedGames.setText(ReaderWriter.read().size() +" games solved");
+        solvedGames.setText(readWrite.read().size() +" games solved");
     }
 
     @FXML

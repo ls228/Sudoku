@@ -4,7 +4,7 @@ import java.util.HashSet;
 
 public class Board {
 
-    private int[][] board_scheme = new int [SIZE][SIZE];
+    public int[][] board_scheme = new int [SIZE][SIZE];
     public static final int SIZE = 9; // size of square / arrays
 
     public static Board getInstance() { return board; }

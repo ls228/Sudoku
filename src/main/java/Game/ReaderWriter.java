@@ -9,7 +9,7 @@ public class ReaderWriter {
     /**
      * Diese Methode erstellt neue Einträge in der Textdatei
      */
-    public static void write(int gameSolved) {
+    public void write(int gameSolved) {
 
         try {
 
@@ -28,7 +28,7 @@ public class ReaderWriter {
      * Diese Methode ermöglicht das lesen der Einträge innerhalb der Textdatei
      * @return Textdatei Einträge
      */
-    public static List<String> read() {
+    public List<String> read() {
 
         List<String> entries = new ArrayList<>();
         try {
@@ -45,7 +45,7 @@ public class ReaderWriter {
         return entries;
     }
 
-    public static void removeEntries() {
+    public void removeEntries() {
         try {
             FileWriter fw = new FileWriter("counter.txt");
             fw.write("");
