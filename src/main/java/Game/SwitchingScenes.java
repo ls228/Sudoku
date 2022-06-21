@@ -11,6 +11,9 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 
 // diese Klasse ist nur zum Testen, wir können sie am Ende löschen
 
@@ -39,7 +42,17 @@ public class SwitchingScenes extends Application {
 
         window = PrimaryStage;
 
-        timer = new AnimationTimer() {
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                //what you want to do
+            }
+        }, 0, 1000);//wait 0 ms before doing the action and do it evry 1000ms (1second)
+
+        timer.cancel();//
+
+        /*timer = new AnimationTimer() {
             private long lastTime = 0;
             @Override
             public void handle(long now) {
@@ -60,6 +73,8 @@ public class SwitchingScenes extends Application {
             }
         };
 
+
+
         Button btnStart = new Button("Start");
         btnStart.setOnAction(e -> {
             lblTime.setText("0.s");
@@ -69,7 +84,7 @@ public class SwitchingScenes extends Application {
         Button btnStop = new Button("Stop");
         btnStop.setOnAction(e -> {
             timer.stop();
-        });
+        });*/
 
         Label label1 = new Label("Welcome");
 
@@ -97,7 +112,7 @@ public class SwitchingScenes extends Application {
 
         //Layout 2
         VBox layout2 = new VBox(20);
-        layout2.getChildren().addAll(button2, button3, lblTime, btnStart, btnStop);
+        layout2.getChildren().addAll(button2, button3, lblTime);
         scene2 = new Scene(layout2, 600, 600);
 
         window.setScene(scene1);
