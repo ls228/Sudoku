@@ -31,11 +31,11 @@
                 <Font size="35.0" />
             </font>
         </Button>
-        <Button layoutX="264.0" layoutY="281.0" mnemonicParsing="false" onAction="#exitGame" prefHeight="25.0" prefWidth="71.0" text="Exit game" GridPane.columnIndex="3" GridPane.rowIndex="11">
+        <Button layoutX="220.0" layoutY="282.0" mnemonicParsing="false" onAction="#exitGame" prefHeight="25.0" prefWidth="71.0" text="Exit game" GridPane.columnIndex="3" GridPane.rowIndex="11">
             <GridPane.margin>
                 <Insets left="44.0" />
             </GridPane.margin>
         </Button>
-          <Button layoutX="265.0" layoutY="325.0" mnemonicParsing="false" onAction="#settingsPressed" prefHeight="25.0" prefWidth="71.0" text="Settings" textAlignment="JUSTIFY" />
+          <Button layoutX="308.0" layoutY="282.0" mnemonicParsing="false" onAction="#settingsPressed" prefHeight="25.0" prefWidth="71.0" text="Settings" textAlignment="JUSTIFY" />
     
 </AnchorPane>

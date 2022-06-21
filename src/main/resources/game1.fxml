@@ -118,6 +118,7 @@
               </rowConstraints>
                <children>
                         <Label fx:id="counter" disable="true" prefHeight="41.0" prefWidth="141.0" text="Wrong input counter: 0/3" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                   <Label fx:id="timer" disable="true" prefHeight="41.0" prefWidth="141.0" text="Timer: s" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <GridPane GridPane.columnIndex="1">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="84.33331298828125" minWidth="10.0" prefWidth="50.000020345052086" />

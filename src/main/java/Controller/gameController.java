@@ -1,5 +1,6 @@
 package Controller;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -24,6 +25,8 @@ import Game.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class gameController extends Controller implements Initializable {
 
@@ -31,6 +34,9 @@ public class gameController extends Controller implements Initializable {
     private GridPane sudokuGridPane;
     @FXML
     Label counter;
+    @FXML
+    Label timer;
+
     Board finishedBoard = new Board();
     ReaderWriter readWrite = new ReaderWriter();
     homeController home = new homeController();
@@ -38,6 +44,7 @@ public class gameController extends Controller implements Initializable {
     boolean labelAreInitialized = false;
     boolean wrongValue = false;
     boolean restartGame = true;
+    public boolean gameFinished = false;
 
     Label LastselctedLabel = null;
     Label SelectedLabel = null;
@@ -51,10 +58,16 @@ public class gameController extends Controller implements Initializable {
 
     int count = 0;
 
-    long start;
-    // some time passes
-    long end;
-    long elapsedTime = end - start;
+    //Timer
+    int secondsPassed = 0;
+    int time;
+
+    Timer secondTimer = new Timer();
+
+
+
+
+
 
     /**
      * Method initialize to start a new round
@@ -69,6 +82,7 @@ public class gameController extends Controller implements Initializable {
             labelAreInitialized = true;
         }
         startRound();
+        //secondTimer.scheduleAtFixedRate(task, 1000, 1000);
     }
 
     /**
@@ -77,7 +91,19 @@ public class gameController extends Controller implements Initializable {
 
     private void startRound() {
 
-        start = System.currentTimeMillis();
+        secondTimer = new Timer();
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+                secondsPassed++;
+                //timer.setText("Time passed:  " + secondsPassed + " s");
+                System.out.println(secondsPassed);
+            }
+        };
+        secondTimer.scheduleAtFixedRate(task, 1000, 1000);
+        /*if(gameFinished == true){
+            secondTimer.cancel();
+        }*/
 
         int size = sudokuGridPane.getChildren().size();
         Label label = null;
@@ -198,9 +224,14 @@ public class gameController extends Controller implements Initializable {
             display("YOU LOST");
             count = 0;
             counter.setText("Wrong input counter: " + count + "/3");
+           // gameFinished = true;
+            secondTimer.cancel();
+            time = secondsPassed;
+            timer.setText("Time passed:  " + time + " s");
         }
         return false;
     }
+
 
     private void switchToHome() {
         if (!restartGame) {
@@ -220,8 +251,6 @@ public class gameController extends Controller implements Initializable {
     //to show a new window
     private void display(String status) {
 
-        end = System.currentTimeMillis();
-        System.out.println("Time:" + elapsedTime);
 
         Stage window = new Stage();
 
