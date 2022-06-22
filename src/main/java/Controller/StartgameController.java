@@ -37,9 +37,3 @@ public class StartgameController extends Controller {
         loadNewScene(event, settings);
     }
 }
-
-
-
-
-
-

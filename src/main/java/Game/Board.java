@@ -1,6 +1,5 @@
 package Game;
 
-import Controller.GameController;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -10,11 +9,14 @@ import java.util.HashSet;
  * Class handling the backend-structure of the sudoku-grid as a 2D-Array
  */
 public class Board {
-    private static final Logger log = LogManager.getLogger(GameController.class);
+
+    private static final Logger log = LogManager.getLogger(Board.class);
+
     public int[][] board_scheme = new int [SIZE][SIZE];
     public static final int SIZE = 9; // size of square / arrays
 
-    public static Board getInstance() { return board; }
+
+    public static Board getInstance() { return board; } // TODO: Brauchen wir das? wird nie verwendet
 
     private static Board board = new Board();
 

@@ -1,16 +1,14 @@
 package Game;
 
-import Controller.GameController;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class ReaderWriter {
-    private static final Logger log = LogManager.getLogger(GameController.class);
+    private static final Logger log = LogManager.getLogger(ReaderWriter.class);
     /**
      * Creates new entry in counter.text
      */

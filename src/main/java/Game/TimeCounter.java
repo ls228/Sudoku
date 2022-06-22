@@ -1,15 +1,13 @@
 package Game;
 
-import Controller.GameController;
-
 public class TimeCounter extends Thread {
     private int count;
-    private boolean isrunning;
+    private boolean isRunning;
 
     @Override
     public void run() {
         count = 0;
-        while (isrunning) {
+        while (isRunning) {
             try {
                 Thread.sleep(1000);
                 update();
@@ -24,8 +22,8 @@ public class TimeCounter extends Thread {
         return count;
     }
 
-    public void setIsrunning(boolean isrunning) {
-        this.isrunning = isrunning;
+    public void setIsRunning(boolean isrunning) {
+        this.isRunning = isrunning;
     }
 
     public void update() {
