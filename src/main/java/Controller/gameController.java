@@ -37,6 +37,7 @@ public class gameController extends Controller implements Initializable {
     @FXML
     Label timer;
 
+
     Board finishedBoard = new Board();
     ReaderWriter readWrite = new ReaderWriter();
     homeController home = new homeController();
@@ -186,7 +187,7 @@ public class gameController extends Controller implements Initializable {
         public int col = 0;
     }
 
-    private Position getRowCol(String labelId) {
+    public Position getRowCol(String labelId) {
         char rowchar = labelId.charAt(6);
         char colchar = labelId.charAt(8);
 
@@ -377,7 +378,7 @@ public class gameController extends Controller implements Initializable {
                 display("YOU WON");
 
                 //Label das anzeigt wie viele Spiele schon gewonnen wurden
-                readWrite.write(1);
+                readWrite.write(1,counterUrl);
 
             } else {
                 display("YOU LOST");

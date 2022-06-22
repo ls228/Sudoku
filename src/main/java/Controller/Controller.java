@@ -16,6 +16,7 @@ import java.net.URL;
 public class Controller {
 
     Button levelButton = new Button();
+    String counterUrl="src/main/resources/counter.txt";
 
     /**
      * This method is generating a new scene on top of the stage by loading the given fxml file

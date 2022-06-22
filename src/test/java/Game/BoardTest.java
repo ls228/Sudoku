@@ -13,29 +13,28 @@ public class BoardTest {
     public void getNumberAtIdx() {
         try {
             assertEquals(0, testBoard.getNumberAtIdx(1, 1), "is equal");
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new RuntimeException();
         }
     }
 
     @Test
     void checkWinning() {
-        try{
+        try {
             testBoard.setGanzesBrett(getSudoku.solutionBoard);
             testBoard.checkWinning();
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new RuntimeException();
         }
         Assumptions.assumeTrue(testBoard.checkWinning());
     }
 
-
     @Test
     void checkIfFinished() {
-        try{
+        try {
             testBoard.setGanzesBrett(Sudokus.puzzleBoard);
             testBoard.checkIfFinished();
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new RuntimeException();
         }
         Assumptions.assumeTrue(testBoard.checkIfFinished());
@@ -43,17 +42,18 @@ public class BoardTest {
 
     @Test
     void setValueInBrett() {
-        try{
-        testBoard.setGanzesBrett(Sudokus.puzzleBoard);
-        testBoard.setValueInBrett(1, 1,1);
-        }catch (Exception e){
+        try {
+            testBoard.setGanzesBrett(Sudokus.puzzleBoard);
+            testBoard.setValueInBrett(1, 1, 1);
+        } catch (Exception e) {
             throw new RuntimeException();
         }
-        assertEquals(1,testBoard.getNumberAtIdx(1, 1));
+        assertEquals(1, testBoard.getNumberAtIdx(1, 1));
     }
-/*
+
     @Test
-    void setGanzesBrett() {
-        assertEquals(Sudokus.puzzleBoard,testBoard.setGanzesBrett(Sudokus.puzzleBoard));
-    }*/
+    void getInstance() {
+
+    }
+
 }

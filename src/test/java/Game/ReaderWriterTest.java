@@ -1,41 +1,16 @@
 package Game;
 
-import org.junit.jupiter.api.Assumptions;
-import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-import java.util.List;
+//import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ReaderWriterTest {
-    ReaderWriter readWrite = new ReaderWriter();
+public class ReaderWriterTest {
 
-    /*@Test
-    void removeEntries() {
+    ReaderWriter writeTest = new ReaderWriter();
 
-        try{
-            readWrite.removeEntries();
-        }catch (Exception e){
-            throw new RuntimeException();
-        }
-        assertEquals(1, readWrite.read(), "No entries");
+    @Test (expected = NullPointerException.class)
+    public void write() {
+        writeTest.write(5, null);
     }
-
-    @Test
-    void write() {
-        List<String> entries = new ArrayList<>();
-        try{
-            readWrite.write(1);
-        }catch (Exception e){
-            throw new RuntimeException();
-        }
-        assertEquals(entries.add("1"), readWrite.read(), "Existing entries");
-    }*/
-
-    @Test
-    void read() {
-    }
-
-
 }
