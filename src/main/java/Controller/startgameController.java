@@ -7,6 +7,9 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
+/**
+ * Class handling the start-screen and user-interaction with the buttons on it.
+ */
 public class startgameController extends Controller {
     Stage window= new Stage();
     public Button button;

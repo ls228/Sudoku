@@ -6,21 +6,23 @@ import java.util.List;
 
 
 public class ReaderWriter {
+
     /**
-     * Diese Methode erstellt neue Einträge in der Textdatei
+     * Creates new entry in counter.text
      */
-    public void write(int gameSolved) {
+
+    public void write(int gameSolved, String url) {
 
         try {
-
-            FileWriter myWriter = new FileWriter("src/main/resources/counter.txt", true);
+            FileWriter myWriter = new FileWriter(url, true);
+            System.out.println("hier");
             // Die Einträge werden in einer Datei gespeichert.
             myWriter.write(gameSolved+"\n");
             myWriter.close();
 
-        } catch (IOException e) {
+        } catch (IOException ioe) {
             System.out.println("Error. Data not found.");
-            e.printStackTrace();
+            ioe.printStackTrace();
         }
     }
 
@@ -28,11 +30,11 @@ public class ReaderWriter {
      * Diese Methode ermöglicht das lesen der Einträge innerhalb der Textdatei
      * @return Textdatei Einträge
      */
-    public List<String> read() {
+    public List<String> read(String url) {
 
         List<String> entries = new ArrayList<>();
         try {
-            BufferedReader newReader = new BufferedReader(new FileReader("src/main/resources/counter.txt"));
+            BufferedReader newReader = new BufferedReader(new FileReader(url));
             String line;
             while ((line = newReader.readLine()) != null) {
                 entries.add(line);
@@ -45,6 +47,7 @@ public class ReaderWriter {
         return entries;
     }
 
+    /*
     public void removeEntries() {
         try {
             FileWriter fw = new FileWriter("counter.txt");
@@ -53,5 +56,5 @@ public class ReaderWriter {
         } catch ( IOException ioex ) {
             System.out.println("Fehler");
         }
-    }
+    }*/
 }

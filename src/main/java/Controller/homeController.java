@@ -17,7 +17,7 @@ public class homeController extends Controller implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        solvedGames.setText(readWrite.read().size() +" games solved");
+        solvedGames.setText(readWrite.read(counterUrl).size() +" games solved");
     }
 
     @FXML
@@ -38,6 +38,4 @@ public class homeController extends Controller implements Initializable{
         String url = "startgame.fxml";
         loadNewScene(event, url);
     }
-
-
 }

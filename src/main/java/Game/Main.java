@@ -17,6 +17,11 @@ public class Main extends Application{
 
     static Stage mainWindow;
 
+    /**
+     * Sets up starting screen of the game
+     * @param primaryStage
+     * @throws Exception
+     */
     @Override
     public void start(Stage primaryStage) throws Exception {
 
