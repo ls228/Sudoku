@@ -2,6 +2,9 @@ package Game;
 
 import java.util.HashSet;
 
+/**
+ * Class handling the backend-structure of the sudoku-grid as a 2D-Array
+ */
 public class Board {
 
     public int[][] board_scheme = new int [SIZE][SIZE];
@@ -54,12 +57,18 @@ public class Board {
 
      */
 
+    /**
+     * Set value at corresponding coordinates/position in Board
+     * @param column index of column
+     * @param row index of row
+     * @param value value to be set at that location in the sudoku grid
+     */
     public void setValueInBrett(int column, int row, int value) {
         this.board_scheme[column][row] = value;
     }
 
     /**
-     * Set ganzes Brett auf einmal über 2 dimensionales Array mit allen Werten (zeilenweise)
+     * Set entire Board at once using a 2D-Array filled with all values (each array is a row in the sudoku)
      */
     public void setGanzesBrett(int [][] values) {
         for(int i = 0; i < SIZE; i++){
@@ -69,12 +78,20 @@ public class Board {
         }
     }
 
-
+    /**
+     * @param row index of row
+     * @param col index of column
+     * @return value at given index
+     */
     public int getNumberAtIdx(int row, int col){
         return board_scheme[row][col];
     }
 
 
+    /**
+     * Checks whether all inserted numbers still agree with the basic sudoku-rules.
+     * @return true if no duplicate numbers are found in a row/column/3x3-square, else return false.
+     */
     public boolean checkWinning() {
 
         boolean rt = true;
@@ -131,9 +148,7 @@ public class Board {
                     System.out.println("Quadrant contains all numbers");
                 }
                 set.clear();
-
             }
-
         }
 
         //checks if any 3x3 square has duplicates in the second column
@@ -154,9 +169,7 @@ public class Board {
                     System.out.println("Quadrant contains all numbers");
                 }
                 set.clear();
-
             }
-
         }
 
         //checks if any 3x3 square has duplicates in the third column

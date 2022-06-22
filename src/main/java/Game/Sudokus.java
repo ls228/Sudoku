@@ -9,7 +9,11 @@ public class Sudokus {
     public int [][] solutionBoard = new int[Board.SIZE][Board.SIZE];
 
     /**
-     * Board will be filled with random Sudoku depending on activated level
+     * This class holds the sudoku puzzles, from which one will be randomly chosen once the game is starting.
+     * The Board will be filled with the numbers from that random Sudoku.s
+     * Depending on chosen level, the generated sudoku will be chosen from the corresponding of the three groups
+     * (Level 1 - easy to solve, Level 2 - medium, Level 3 - difficult to solve).
+     *
      * @param currentlevel
      */
     public Sudokus(int currentlevel) {

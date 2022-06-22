@@ -37,7 +37,6 @@ public class gameController extends Controller implements Initializable {
     @FXML
     Label timer;
 
-
     Board finishedBoard = new Board();
     ReaderWriter readWrite = new ReaderWriter();
     homeController home = new homeController();
@@ -71,7 +70,8 @@ public class gameController extends Controller implements Initializable {
 
 
     /**
-     * Method initialize to start a new round
+     * Method to start a new round - initializes labels/numbers in sudoku-grid.
+     * Calls startRound() once all labels are set.
      *
      * @param url
      * @param resourceBundle
@@ -87,9 +87,8 @@ public class gameController extends Controller implements Initializable {
     }
 
     /**
-     * Method to load new Sudoku values in labels
+     * Handles game timer setup and initialisation of the GUI-grid which is modifiable by the user.
      */
-
     private void startRound() {
 
         secondTimer = new Timer();
@@ -134,17 +133,16 @@ public class gameController extends Controller implements Initializable {
                     }
                 }
             }
-
         }
         //finishedBoard.setGanzesBrett(Sudokus.solutionBoard);
         finishedBoard.setGanzesBrett(Sudokus.puzzleBoard);
         System.out.println(finishedBoard);
     }
 
-    /**
-     * Method is setting labels when startGame button is clicked
-     */
 
+    /**
+     * Setup of the labels in the GUI, called when startGame button is clicked
+     */
     public void setLabels() {
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
@@ -180,14 +178,18 @@ public class gameController extends Controller implements Initializable {
     }
 
     /**
-     * new class to enable input of labelId and output of col & row in method getRowCol
+     * Helper class to enable input of labelId and output of col & row in method getRowCol
      */
     private class Position {
         public int row = 0;
         public int col = 0;
     }
 
-    public Position getRowCol(String labelId) {
+    /**
+     * @param labelId of the fxml-label
+     * @return Position in the game-grid of a given label based on its label-ID
+     */
+    private Position getRowCol(String labelId) {
         char rowchar = labelId.charAt(6);
         char colchar = labelId.charAt(8);
 
@@ -200,13 +202,12 @@ public class gameController extends Controller implements Initializable {
     }
 
     /**
-     * This method compares the input with the solutionBoard
-     * If input is valse, the label turns red and counts one mistake
+     * This method compares the input value with the corresponding value on the solutionBoard.
+     * If these values don't match, the currently selected label turns red and mistake-counter is increased by 1.
      *
      * @param value
      * @return boolean
      */
-
     private boolean checkInput(int value) {
         Position position = getRowCol(SelectedLabel.getId());
         int valueSolved = solutionBoard.getNumberAtIdx(position.col, position.row);
@@ -250,8 +251,11 @@ public class gameController extends Controller implements Initializable {
     }
 
     //to show a new window
+    /**
+     *
+     * @param status
+     */
     private void display(String status) {
-
 
         Stage window = new Stage();
 
@@ -331,6 +335,11 @@ public class gameController extends Controller implements Initializable {
         window.show();
     }
 
+
+    /**
+     * Resets the game so all user-input is deleted and the original puzzle-game is shown.
+     * Error counter is reset to 0.
+     */
     @FXML
     protected void resetGame() {
         if (!labelAreInitialized) {
@@ -349,9 +358,8 @@ public class gameController extends Controller implements Initializable {
     }
 
     /**
-     * Button for input 1 to 9
+     * Handles buttons 1-9 for user-input and setting the currently selected label-text to the desired number
      */
-
     @FXML
     protected void inputButton(ActionEvent event) {
 
@@ -378,7 +386,7 @@ public class gameController extends Controller implements Initializable {
                 display("YOU WON");
 
                 //Label das anzeigt wie viele Spiele schon gewonnen wurden
-                readWrite.write(1,counterUrl);
+                readWrite.write(1);
 
             } else {
                 display("YOU LOST");
@@ -445,7 +453,9 @@ public class gameController extends Controller implements Initializable {
         checkInput(9);
     } */
 
-    //delete last input
+    /***
+     * Deletes the last user input and resets the corresponding label
+     */
     @FXML
     protected void backPressed() {
         Position position = getRowCol(SelectedLabel.getId());
@@ -455,7 +465,9 @@ public class gameController extends Controller implements Initializable {
         System.out.println(finishedBoard);
     }
 
-    //wrong input, red Background
+    /**
+     * Sets the background of the corresponding label to red if the user-input was false
+     */
     @FXML
     private void wrongInput() {
         SelectedLabel.setBackground(pink);
