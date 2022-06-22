@@ -21,6 +21,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import Game.*;
+import javafx.stage.WindowEvent;
 
 import java.io.IOException;
 import java.net.URL;
@@ -44,7 +45,8 @@ public class gameController extends Controller implements Initializable {
     boolean labelAreInitialized = false;
     boolean wrongValue = false;
     boolean restartGame = true;
-    public boolean gameFinished = false;
+
+    private timerCount timerCount;
 
     Label LastselctedLabel = null;
     Label SelectedLabel = null;
@@ -62,12 +64,6 @@ public class gameController extends Controller implements Initializable {
     int secondsPassed = 0;
     int time;
 
-    Timer secondTimer = new Timer();
-
-
-
-
-
 
     /**
      * Method initialize to start a new round
@@ -82,7 +78,11 @@ public class gameController extends Controller implements Initializable {
             labelAreInitialized = true;
         }
         startRound();
-        //secondTimer.scheduleAtFixedRate(task, 1000, 1000);
+        timerCount = new timerCount();
+        timerCount.setIsrunning(true);
+        timerCount.start();
+        timer.setText("Time passed:  " + Integer.toString(timerCount.getCount()) + " s");
+
     }
 
     /**
@@ -90,21 +90,6 @@ public class gameController extends Controller implements Initializable {
      */
 
     private void startRound() {
-
-        secondTimer = new Timer();
-        TimerTask task = new TimerTask() {
-            @Override
-            public void run() {
-                secondsPassed++;
-                //timer.setText("Time passed:  " + secondsPassed + " s");
-                System.out.println(secondsPassed);
-            }
-        };
-        secondTimer.scheduleAtFixedRate(task, 1000, 1000);
-        /*if(gameFinished == true){
-            secondTimer.cancel();
-        }*/
-
         int size = sudokuGridPane.getChildren().size();
         Label label = null;
         if (sudokuGridPane != null && size > 0) {
@@ -135,7 +120,6 @@ public class gameController extends Controller implements Initializable {
             }
 
         }
-        //finishedBoard.setGanzesBrett(Sudokus.solutionBoard);
         finishedBoard.setGanzesBrett(Sudokus.puzzleBoard);
         System.out.println(finishedBoard);
     }
@@ -211,7 +195,9 @@ public class gameController extends Controller implements Initializable {
         int valueSolved = solutionBoard.getNumberAtIdx(position.col, position.row);
         if (value == valueSolved) {
             SelectedLabel.setBackground(white);
+            timer.setText("Time passed:  " + Integer.toString(timerCount.getCount()) + " s");
             return true;
+
         }
         wrongInput();
         wrongValue = true;
@@ -225,10 +211,12 @@ public class gameController extends Controller implements Initializable {
             count = 0;
             counter.setText("Wrong input counter: " + count + "/3");
            // gameFinished = true;
-            secondTimer.cancel();
+            //secondTimer.cancel();
             time = secondsPassed;
             timer.setText("Time passed:  " + time + " s");
         }
+        timer.setText("Time passed:  " + Integer.toString(timerCount.getCount()) + " s");
+
         return false;
     }
 
@@ -250,7 +238,7 @@ public class gameController extends Controller implements Initializable {
 
     //to show a new window
     private void display(String status) {
-
+        timerCount.setIsrunning(false);
 
         Stage window = new Stage();
 
@@ -289,6 +277,9 @@ public class gameController extends Controller implements Initializable {
                     setLabels();
                     labelAreInitialized = true;
                 }
+                timerCount = new timerCount();
+                timerCount.setIsrunning(true);
+                timerCount.start();
             }
         });
 
@@ -339,6 +330,9 @@ public class gameController extends Controller implements Initializable {
         count = 0;
         counter.setText("Wrong input counter: " + count + "/3");
         startRound();
+        timerCount = new timerCount();
+        timerCount.setIsrunning(true);
+        timerCount.start();
     }
 
     @FXML
@@ -460,4 +454,12 @@ public class gameController extends Controller implements Initializable {
         SelectedLabel.setBackground(pink);
     }
 
+    /*public void closeWindow(){
+        Main.getMainWindow.new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                // close sockets, etc
+            }
+        });
+    }*/
 }

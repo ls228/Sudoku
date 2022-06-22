@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.Objects;
 
-public class Main extends Application {
+public class Main extends Application{
 
     public static Stage getMainWindow() {
         return mainWindow;

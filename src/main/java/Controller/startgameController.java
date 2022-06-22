@@ -1,5 +1,6 @@
 package Controller;
 
+import Game.timerCount;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
