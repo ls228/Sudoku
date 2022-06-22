@@ -1,9 +1,7 @@
 package Controller;
 
 import javafx.animation.AnimationTimer;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -14,7 +12,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.GridPane;
@@ -23,52 +20,48 @@ import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import Game.*;
-import javafx.stage.WindowEvent;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.Timer;
-import java.util.TimerTask;
+
 import org.apache.log4j.*;
 
-public class gameController extends Controller implements Initializable {
+public class GameController extends Controller implements Initializable {
 
-    private static final Logger log = LogManager.getLogger(gameController.class);
+    private static final Logger log = LogManager.getLogger(GameController.class);
+    @FXML
+    public GridPane sudokuGridPane;
+    @FXML
+    private Label counter;
+    @FXML
+    private Label timer;
 
-    @FXML
-    private GridPane sudokuGridPane;
-    @FXML
-    Label counter;
-    @FXML
-    Label timer;
-
-    Board finishedBoard = new Board();
+    public final Board finishedBoard = new Board();
     ReaderWriter readWrite = new ReaderWriter();
-    homeController home = new homeController();
 
-    boolean labelAreInitialized = false;
-    boolean wrongValue = false;
-    boolean restartGame = true;
+    private boolean labelAreInitialized = false;
+    public boolean wrongValue = false;
+    private boolean restartGame = true;
+    private TimeCounter TimeCounter;
 
-    private timerCount timerCount;
+    @FXML
+    private Label LastselctedLabel = null;
+    @FXML
+    private Label SelectedLabel = null;
+    @FXML
+    private Button pressedButton = null;
 
-    Label LastselctedLabel = null;
-    Label SelectedLabel = null;
+    private final Background blue = new Background(new BackgroundFill(Color.CADETBLUE, null, null));
+    private final Background lightblue = new Background(new BackgroundFill(Color.BEIGE, null, null));
+    private final Background white = new Background(new BackgroundFill(Color.WHITE, null, null));
+    private final Background pink = new Background(new BackgroundFill(Color.PINK, null, null));
 
-    Button pressedButton = null;
-
-    Background blue = new Background(new BackgroundFill(Color.CADETBLUE, null, null));
-    Background lightblue = new Background(new BackgroundFill(Color.BEIGE, null, null));
-    Background white = new Background(new BackgroundFill(Color.WHITE, null, null));
-    Background pink = new Background(new BackgroundFill(Color.PINK, null, null));
-
-    int count = 0;
+    private int count = 0;
 
     //Timer
-    int secondsPassed = 0;
-    int time;
-
+    private int secondsPassed = 0;
+    private int time;
 
     /**
      * Method initialize to start a new round
@@ -83,9 +76,9 @@ public class gameController extends Controller implements Initializable {
             labelAreInitialized = true;
         }
         startRound();
-        timerCount = new timerCount();
-        timerCount.setIsrunning(true);
-        timerCount.start();
+        TimeCounter = new TimeCounter();
+        TimeCounter.setIsrunning(true);
+        TimeCounter.start();
 
         animationTimer.start();
 
@@ -233,7 +226,7 @@ public class gameController extends Controller implements Initializable {
 
     //to show a new window
     private void display(String status) {
-        timerCount.setIsrunning(false);
+        TimeCounter.setIsrunning(false);
 
         Stage window = new Stage();
 
@@ -260,9 +253,9 @@ public class gameController extends Controller implements Initializable {
                 setLabels();
                 labelAreInitialized = true;
             }
-            timerCount = new timerCount();
-            timerCount.setIsrunning(true);
-            timerCount.start();
+            TimeCounter = new TimeCounter();
+            TimeCounter.setIsrunning(true);
+            TimeCounter.start();
         });
 
         Button homeButton = new Button("Home");
@@ -276,7 +269,7 @@ public class gameController extends Controller implements Initializable {
             window.close();
             restartGame = false;
             switchToHome();
-            timerCount.setIsrunning(false);
+            TimeCounter.setIsrunning(false);
         });
 
         VBox layout = new VBox(10);
@@ -300,9 +293,9 @@ public class gameController extends Controller implements Initializable {
         count = 0;
         counter.setText("Wrong input counter: " + count + "/3");
         startRound();
-        timerCount = new timerCount();
-        timerCount.setIsrunning(true);
-        timerCount.start();
+        TimeCounter = new TimeCounter();
+        TimeCounter.setIsrunning(true);
+        TimeCounter.start();
     }
 
     @FXML
@@ -367,7 +360,7 @@ public class gameController extends Controller implements Initializable {
     AnimationTimer animationTimer = new AnimationTimer() {
         @Override
         public void handle(long now) {
-            timer.setText("Time passed:  " + timerCount.getCount() + " s");
+            timer.setText("Time passed:  " + TimeCounter.getCount() + " s");
         }
     };
 

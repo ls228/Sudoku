@@ -1,12 +1,16 @@
 package Game;
 
+import Controller.GameController;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class ReaderWriter {
-
+    private static final Logger log = LogManager.getLogger(GameController.class);
     /**
      * Creates new entry in counter.text
      */
@@ -15,14 +19,12 @@ public class ReaderWriter {
 
         try {
             FileWriter myWriter = new FileWriter(url, true);
-            System.out.println("hier");
             // Die Einträge werden in einer Datei gespeichert.
             myWriter.write(gameSolved+"\n");
             myWriter.close();
 
         } catch (IOException ioe) {
-            System.out.println("Error. Data not found.");
-            ioe.printStackTrace();
+            log.error("Error. Data not found.");
         }
     }
 
@@ -42,6 +44,7 @@ public class ReaderWriter {
             newReader.close();
         } catch (IOException e) {
             e.printStackTrace();
+            log.error("Error. Data not found.");
         }
         System.out.println(entries.size());
         return entries;
