@@ -1,6 +1,5 @@
 package Controller;
 
-import Game.timerCount;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -10,7 +9,7 @@ import javafx.stage.Stage;
 /**
  * Class handling the start-screen and user-interaction with the buttons on it.
  */
-public class startgameController extends Controller {
+public class StartgameController extends Controller {
     Stage window= new Stage();
     public Button button;
 
