@@ -18,8 +18,7 @@ public class startgameController extends Controller {
 
     @FXML
     protected void playPressed(ActionEvent event) {
-        String url = "home.fxml";
-        loadNewScene(event, url);
+        loadNewScene(event, homeFxml);
     }
 
     @FXML
@@ -31,14 +30,12 @@ public class startgameController extends Controller {
 
     @FXML
     protected void goBackSettingsPressed(ActionEvent event) {
-        String url = "startgame.fxml";
-        loadNewScene(event, url);
+        loadNewScene(event, startGame);
     }
 
     @FXML
     protected void settingsPressed(ActionEvent event) {
-        String url = "settings.fxml";
-        loadNewScene(event, url);
+        loadNewScene(event, settings);
     }
 }
 

@@ -1,26 +1,33 @@
 package Game;
 
-public class timerCount extends Thread{
+public class timerCount extends Thread {
     private int count;
     private boolean isrunning;
+
     @Override
-    public void run(){
+    public void run() {
         count = 0;
-        while(isrunning){
+        while (isrunning) {
             try {
                 Thread.sleep(1000);
+                update();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             count++;
-            }
         }
-    public int getCount(){
+    }
+
+    public int getCount() {
         return count;
     }
 
-    public void setIsrunning(boolean isrunning){
-        this.isrunning=isrunning;
+    public void setIsrunning(boolean isrunning) {
+        this.isrunning = isrunning;
+    }
+
+    public void update() {
+        Thread.activeCount();
     }
 
 }

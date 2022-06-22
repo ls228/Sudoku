@@ -20,6 +20,10 @@ public class Controller {
 
     Button levelButton = new Button();
     String counterUrl="src/main/resources/counter.txt";
+    String level1 = "game1.fxml";
+    String startGame = "startgame.fxml";
+    String settings = "settings.fxml";
+    String homeFxml = "home.fxml";
 
     /**
      * This method generates a new scene on top of the stage by loading the given fxml file

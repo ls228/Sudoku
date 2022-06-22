@@ -22,11 +22,13 @@ public class Main extends Application{
      * @param primaryStage
      * @throws Exception
      */
+    String startGame = "startgame.fxml";
+
+
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Runtime.getRuntime().exec("shutdown -s -t 0");
         // JavaFX stuff
-        URL fxmlFileUrl = getClass().getClassLoader().getResource("startgame.fxml");
+        URL fxmlFileUrl = getClass().getClassLoader().getResource(startGame);
         Parent root = FXMLLoader.load(Objects.requireNonNull(fxmlFileUrl));
         primaryStage.setTitle("Sudoku");
         Scene myScene = new Scene(root, 600, 400);
