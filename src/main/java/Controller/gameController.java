@@ -386,7 +386,7 @@ public class gameController extends Controller implements Initializable {
                 display("YOU WON");
 
                 //Label das anzeigt wie viele Spiele schon gewonnen wurden
-                readWrite.write(1);
+                readWrite.write(1,counterUrl);
 
             } else {
                 display("YOU LOST");
