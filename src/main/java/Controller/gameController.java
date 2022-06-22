@@ -28,8 +28,11 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
+import org.apache.log4j.*;
 
 public class gameController extends Controller implements Initializable {
+
+    private static final Logger log = LogManager.getLogger(gameController.class);
 
     @FXML
     private GridPane sudokuGridPane;
