@@ -13,12 +13,15 @@ import Game.Sudokus;
 import java.io.IOException;
 import java.net.URL;
 
+/***
+ * Controller Class, parent class for the other controller-classes responsible for handling the GUI setup.
+ */
 public class Controller {
 
     Button levelButton = new Button();
 
     /**
-     * This method is generating a new scene on top of the stage by loading the given fxml file
+     * This method generates a new scene on top of the stage by loading the given fxml file
      *
      * @param event
      * @param url
@@ -39,10 +42,6 @@ public class Controller {
     // get puzzle & solution Boards
     static Board puzzleBoard = Sudokus.getPuzzle_board();
     static Board solutionBoard = Sudokus.getSolution_board();
-
-
-
-
 }
 
 

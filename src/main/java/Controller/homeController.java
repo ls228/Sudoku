@@ -38,6 +38,4 @@ public class homeController extends Controller implements Initializable{
         String url = "startgame.fxml";
         loadNewScene(event, url);
     }
-
-
 }

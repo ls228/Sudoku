@@ -7,7 +7,7 @@ import java.util.List;
 
 public class ReaderWriter {
     /**
-     * Diese Methode erstellt neue Einträge in der Textdatei
+     * Creates new entry in counter.text
      */
     public void write(int gameSolved) {
 
