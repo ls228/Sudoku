@@ -21,6 +21,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import Game.*;
+import javafx.stage.WindowEvent;
 
 import java.io.IOException;
 import java.net.URL;
@@ -80,8 +81,9 @@ public class gameController extends Controller implements Initializable {
         timerCount = new timerCount();
         timerCount.setIsrunning(true);
         timerCount.start();
-        timer.setText("Time passed:  " + Integer.toString(timerCount.getCount()) + " s");
 
+        timer.setText("Time passed:  " + Integer.toString(timerCount.getCount()) + " s");
+        //timerCount.update();
     }
 
     /**
@@ -205,7 +207,6 @@ public class gameController extends Controller implements Initializable {
             counter.setText("Wrong input counter: " + count + "/3");
             //counter.setStyle("-fx-font: 12 arial;");
         } else {
-
             counter.setText("Wrong input counter: 3/3");
             display("YOU LOST");
             count = 0;
@@ -223,7 +224,7 @@ public class gameController extends Controller implements Initializable {
 
     private void switchToHome() {
         if (!restartGame) {
-            URL fxmlFileUrl = getClass().getClassLoader().getResource("home.fxml");
+            URL fxmlFileUrl = getClass().getClassLoader().getResource(homeFxml);
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(fxmlFileUrl);
                 Parent root = fxmlLoader.load();
@@ -233,7 +234,6 @@ public class gameController extends Controller implements Initializable {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            timerCount.stop();
         }
     }
 
@@ -307,6 +307,7 @@ public class gameController extends Controller implements Initializable {
                 window.close();
                 restartGame = false;
                 switchToHome();
+                timerCount.setIsrunning(false);
             }
         });
 
@@ -338,8 +339,7 @@ public class gameController extends Controller implements Initializable {
 
     @FXML
     protected void goBackPressed(ActionEvent event) {
-        String url = "home.fxml";
-        loadNewScene(event, url);
+        loadNewScene(event, homeFxml);
     }
 
     /**
@@ -372,14 +372,13 @@ public class gameController extends Controller implements Initializable {
                 display("YOU WON");
 
                 //Label das anzeigt wie viele Spiele schon gewonnen wurden
-                readWrite.write(1, counterUrl);
+                readWrite.write(1,counterUrl);
 
             } else {
                 display("YOU LOST");
             }
         }
     }
-
 
     //delete last input
     @FXML
@@ -397,7 +396,12 @@ public class gameController extends Controller implements Initializable {
         SelectedLabel.setBackground(pink);
     }
 
-
-
-
+    /*public void closeWindow(){
+        Main.getMainWindow.new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                // close sockets, etc
+            }
+        });
+    }*/
 }

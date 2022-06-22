@@ -15,6 +15,7 @@ public class homeController extends Controller implements Initializable{
 
     ReaderWriter readWrite = new ReaderWriter();
 
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         solvedGames.setText(readWrite.read(counterUrl).size() +" games solved");
@@ -29,13 +30,12 @@ public class homeController extends Controller implements Initializable{
         levelButton = activeButton;
         Sudokus games = new Sudokus(Integer.parseInt(levelButton.getId()));
         //eigentlich nur noch eine fxml datei benötigt
-        String url = "game1.fxml";
-        loadNewScene(event, url);
+
+        loadNewScene(event, level1);
     }
 
     @FXML
     protected void goBackHome(ActionEvent event) {
-        String url = "startgame.fxml";
-        loadNewScene(event, url);
+        loadNewScene(event, startGame);
     }
 }
