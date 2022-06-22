@@ -11,7 +11,7 @@ import Game.Sudokus;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class homeController extends Controller implements Initializable{
+public class HomeController extends Controller implements Initializable{
 
     ReaderWriter readWrite = new ReaderWriter();
 

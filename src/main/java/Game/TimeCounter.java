@@ -1,6 +1,6 @@
 package Game;
 
-public class timerCount extends Thread {
+public class TimeCounter extends Thread {
     private int count;
     private boolean isrunning;
 
