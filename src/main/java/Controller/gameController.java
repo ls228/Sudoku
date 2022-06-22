@@ -1,5 +1,6 @@
 package Controller;
 
+import javafx.animation.AnimationTimer;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -7,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -85,7 +87,8 @@ public class gameController extends Controller implements Initializable {
         timerCount.setIsrunning(true);
         timerCount.start();
 
-        timer.setText("Time passed:  " + Integer.toString(timerCount.getCount()) + " s");
+        animationTimer.start();
+
         //timerCount.update();
     }
 
@@ -96,21 +99,18 @@ public class gameController extends Controller implements Initializable {
     private void startRound() {
         int size = sudokuGridPane.getChildren().size();
         Label label = null;
-        if (sudokuGridPane != null && size > 0) {
+        if ( sudokuGridPane != null && size > 1) {
             //for each Schleife um jedes Label zu testen
             for (Node node : sudokuGridPane.getChildren()) {
-                try {
-                    //to make sure that node is a label
-                    //if it is label stays a node
+
+                if(!(node.getClass() == Group.class)){
                     label = (Label) node;
-                } catch (Exception e) {
-                    System.out.println("Exception. Node not a Label");
                 }
 
                 if (label != null) {
                     Position position = getRowCol(node.getId());
                     int valuePuzzleBoardAtIndex = puzzleBoard.getNumberAtIdx(position.col, position.row);
-                    //to create labels that can be changed by user input
+                    //to creae labels that can be changed by user input
                     if (valuePuzzleBoardAtIndex == 0) {
                         label.setText(null);
                         label.setStyle("-fx-text-fill: grey;-fx-font: 24 arial;");
@@ -122,7 +122,6 @@ public class gameController extends Controller implements Initializable {
                     }
                 }
             }
-
         }
         finishedBoard.setGanzesBrett(Sudokus.puzzleBoard);
         System.out.println(finishedBoard);
@@ -145,26 +144,23 @@ public class gameController extends Controller implements Initializable {
                 label.setPrefWidth(46.0);
                 label.setStyle("-fx-font: 24 arial;");
                 //Mouse clicked is implicitly implemented to mark the selected label mark
-                label.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        Label label = (Label) event.getSource();
-                        SelectedLabel = label;
+                label.setOnMouseClicked(event -> {
+                    Label label1 = (Label) event.getSource();
+                    SelectedLabel = label1;
 
-                        if (LastselctedLabel != null)
-                            LastselctedLabel.setBackground(null);
+                    if (LastselctedLabel != null)
+                        LastselctedLabel.setBackground(null);
 
-                        LastselctedLabel = label;
-                        label.setBackground(blue);
-                    }
+                    LastselctedLabel = label1;
+                    label1.setBackground(blue);
                 });
                 if (sudokuGridPane != null) {
                     sudokuGridPane.add(label, i, j);
                 }
-
             }
         }
     }
+
 
     /**
      * new class to enable input of labelId and output of col & row in method getRowCol
@@ -199,7 +195,6 @@ public class gameController extends Controller implements Initializable {
         int valueSolved = solutionBoard.getNumberAtIdx(position.col, position.row);
         if (value == valueSolved) {
             SelectedLabel.setBackground(white);
-            timer.setText("Time passed:  " + Integer.toString(timerCount.getCount()) + " s");
             return true;
 
         }
@@ -208,18 +203,14 @@ public class gameController extends Controller implements Initializable {
         if (count < 2) {
             count++;
             counter.setText("Wrong input counter: " + count + "/3");
-            //counter.setStyle("-fx-font: 12 arial;");
         } else {
             counter.setText("Wrong input counter: 3/3");
             display("YOU LOST");
             count = 0;
             counter.setText("Wrong input counter: " + count + "/3");
-           // gameFinished = true;
-            //secondTimer.cancel();
             time = secondsPassed;
             timer.setText("Time passed:  " + time + " s");
         }
-        timer.setText("Time passed:  " + Integer.toString(timerCount.getCount()) + " s");
 
         return false;
     }
@@ -256,62 +247,36 @@ public class gameController extends Controller implements Initializable {
         Button restartButton = new Button("restart Game");
         restartButton.setStyle("-fx-text-fill: white; -fx-background-color: #194e70;");
 
-        restartButton.setOnMouseEntered(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent t) {
-                restartButton.setStyle("-fx-text-fill: white; -fx-background-color: #abdbe7;");
-            }
-        });
+        restartButton.setOnMouseEntered(t -> restartButton.setStyle("-fx-text-fill: white; -fx-background-color: #abdbe7;"));
 
-        restartButton.setOnMouseExited(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent t) {
-                restartButton.setStyle("-fx-text-fill: white; -fx-background-color: #194e70;");
-            }
-        });
+        restartButton.setOnMouseExited(t -> restartButton.setStyle("-fx-text-fill: white; -fx-background-color: #194e70;"));
 
-        restartButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                Node source = (Node) event.getSource();
-                Stage stage = (Stage) source.getScene().getWindow();
-                stage.close();
-                restartGame = true;
-                if (!labelAreInitialized) {
-                    setLabels();
-                    labelAreInitialized = true;
-                }
-                timerCount = new timerCount();
-                timerCount.setIsrunning(true);
-                timerCount.start();
+        restartButton.setOnAction(event -> {
+            Node source = (Node) event.getSource();
+            Stage stage = (Stage) source.getScene().getWindow();
+            stage.close();
+            restartGame = true;
+            if (!labelAreInitialized) {
+                setLabels();
+                labelAreInitialized = true;
             }
+            timerCount = new timerCount();
+            timerCount.setIsrunning(true);
+            timerCount.start();
         });
 
         Button homeButton = new Button("Home");
         homeButton.setStyle("-fx-background-color: #194e70; -fx-text-fill: white; ");
 
-        homeButton.setOnMouseEntered(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent f) {
-                homeButton.setStyle("-fx-text-fill: white; -fx-background-color:#abdbe7");
-            }
-        });
+        homeButton.setOnMouseEntered(f -> homeButton.setStyle("-fx-text-fill: white; -fx-background-color:#abdbe7"));
 
-        homeButton.setOnMouseExited(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent f) {
-                homeButton.setStyle("-fx-text-fill: white; -fx-background-color:#194e70;");
-            }
-        });
+        homeButton.setOnMouseExited(f -> homeButton.setStyle("-fx-text-fill: white; -fx-background-color:#194e70;"));
 
-        homeButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                window.close();
-                restartGame = false;
-                switchToHome();
-                timerCount.setIsrunning(false);
-            }
+        homeButton.setOnAction(event -> {
+            window.close();
+            restartGame = false;
+            switchToHome();
+            timerCount.setIsrunning(false);
         });
 
         VBox layout = new VBox(10);
@@ -399,12 +364,11 @@ public class gameController extends Controller implements Initializable {
         SelectedLabel.setBackground(pink);
     }
 
-    /*public void closeWindow(){
-        Main.getMainWindow.new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                // close sockets, etc
-            }
-        });
-    }*/
+    AnimationTimer animationTimer = new AnimationTimer() {
+        @Override
+        public void handle(long now) {
+            timer.setText("Time passed:  " + timerCount.getCount() + " s");
+        }
+    };
+
 }

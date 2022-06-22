@@ -1,10 +1,13 @@
 package Game;
 
 import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import java.net.URL;
 import java.util.Objects;
@@ -36,9 +39,16 @@ public class Main extends Application{
         primaryStage.setFullScreen(false);
         primaryStage.setResizable(false);
 
+
+
         mainWindow = primaryStage;
         mainWindow.setTitle("Sudoku");
         mainWindow.show();
+
+        mainWindow.setOnCloseRequest(windowEvent -> {
+            Platform.exit();
+            System.exit(0);
+        });
     }
 
 

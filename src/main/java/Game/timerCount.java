@@ -1,5 +1,7 @@
 package Game;
 
+import Controller.gameController;
+
 public class timerCount extends Thread {
     private int count;
     private boolean isrunning;
@@ -27,6 +29,7 @@ public class timerCount extends Thread {
     }
 
     public void update() {
+
         Thread.activeCount();
     }
 
