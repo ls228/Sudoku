@@ -21,7 +21,6 @@ import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import Game.*;
-import javafx.stage.WindowEvent;
 
 import java.io.IOException;
 import java.net.URL;
@@ -206,6 +205,7 @@ public class gameController extends Controller implements Initializable {
             counter.setText("Wrong input counter: " + count + "/3");
             //counter.setStyle("-fx-font: 12 arial;");
         } else {
+
             counter.setText("Wrong input counter: 3/3");
             display("YOU LOST");
             count = 0;
@@ -233,6 +233,7 @@ public class gameController extends Controller implements Initializable {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            timerCount.stop();
         }
     }
 
@@ -371,7 +372,7 @@ public class gameController extends Controller implements Initializable {
                 display("YOU WON");
 
                 //Label das anzeigt wie viele Spiele schon gewonnen wurden
-                readWrite.write(1);
+                readWrite.write(1, counterUrl);
 
             } else {
                 display("YOU LOST");
@@ -379,64 +380,6 @@ public class gameController extends Controller implements Initializable {
         }
     }
 
-    /*
-    @FXML
-    protected void auswahl2() {
-        Position position = getRowCol(SelectedLabel.getId());
-        finalBoard.setValueInBrett(position.row,position.col,2);
-        if (this.SelectedLabel != null)
-            this.SelectedLabel.setText("2");
-        checkInput(2);
-    }
-
-    @FXML
-    protected void auswahl3() {
-        if (this.SelectedLabel != null)
-            this.SelectedLabel.setText("3");
-        checkInput(3);
-    }
-
-    @FXML
-    protected void auswahl4() {
-        if (this.SelectedLabel != null)
-            this.SelectedLabel.setText("4");
-        checkInput(4);
-    }
-
-    @FXML
-    protected void auswahl5() {
-        if (this.SelectedLabel != null)
-            this.SelectedLabel.setText("5");
-        checkInput(5);
-    }
-
-    @FXML
-    protected void auswahl6() {
-        if (this.SelectedLabel != null)
-            this.SelectedLabel.setText("6");
-        checkInput(6);
-    }
-
-    @FXML
-    protected void auswahl7() {
-        if (this.SelectedLabel != null)
-            this.SelectedLabel.setText("7");
-        checkInput(7);
-    }
-
-    @FXML
-    protected void auswahl8() {
-        if (this.SelectedLabel != null)
-            this.SelectedLabel.setText("8");
-        checkInput(8);
-    }
-
-    @FXML
-    protected void auswahl9() {
-        if (this.SelectedLabel != null)
-            this.SelectedLabel.setText("9");
-        checkInput(9);
-    } */
 
     //delete last input
     @FXML
@@ -454,12 +397,7 @@ public class gameController extends Controller implements Initializable {
         SelectedLabel.setBackground(pink);
     }
 
-    /*public void closeWindow(){
-        Main.getMainWindow.new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                // close sockets, etc
-            }
-        });
-    }*/
+
+
+
 }

