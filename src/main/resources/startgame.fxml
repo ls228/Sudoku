@@ -3,69 +3,39 @@
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane alignment="center" hgap="30" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" vgap="20" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpackage.Controller">
-    <padding><Insets bottom="10.0" left="15.0" right="25.0" top="25.0" /></padding>
-    <gridLinesVisible>false</gridLinesVisible>
-    <stylesheets> <String fx:value="styles.css" /> </stylesheets>
-    <Text fill="#2a2169" text="SUDOKU" textAlignment="CENTER" wrappingWidth="121.63091242313385" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="2">
-      <font>
-         <Font name="Calibri Light" size="18.0" />
-      </font>
-      <GridPane.margin>
-         <Insets left="20.0" />
-      </GridPane.margin></Text>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.startgameController">
+
+        <padding><Insets bottom="10.0" left="15.0" right="25.0" top="25.0" /></padding>
+        <stylesheets> <String fx:value="styles.css" /> </stylesheets>
+        <Text fill="#2a2169" layoutX="239.0" layoutY="94.0" text="SUDOKU" textAlignment="CENTER" wrappingWidth="121.63091242313385" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="2">
+            <font>
+                <Font name="Calibri Light" size="18.0" />
+            </font>
+            <GridPane.margin>
+                <Insets left="20.0" />
+            </GridPane.margin></Text>
 
 
-    <HBox alignment="center" spacing="10" GridPane.columnIndex="3" GridPane.rowIndex="9">
-      <children>
-         <Button mnemonicParsing="false" onAction="#settingsPressed" prefHeight="25.0" prefWidth="71.0" text="Settings" textAlignment="JUSTIFY">
-            <HBox.margin>
-               <Insets />
-            </HBox.margin>
-         </Button>
-      </children></HBox>
+        <HBox alignment="center" spacing="10" GridPane.columnIndex="3" GridPane.rowIndex="9" />
 
 
-    <Text fx:id="actiontarget" GridPane.columnIndex="2" GridPane.rowIndex="9" />
-     <Button fx:id="Play" onAction="#playPressed" prefHeight="103.0" prefWidth="159.0" text="Play" GridPane.columnIndex="3" GridPane.rowIndex="7">
-      <font>
-         <Font size="35.0" />
-      </font>
-   </Button>
-   <Button mnemonicParsing="false" onAction="#exitGame" prefHeight="25.0" prefWidth="71.0" text="Exit game" GridPane.columnIndex="3" GridPane.rowIndex="11">
-      <GridPane.margin>
-         <Insets left="44.0" />
-      </GridPane.margin>
-   </Button>
-   
-   <columnConstraints>
-      <ColumnConstraints />
-      <ColumnConstraints />
-      <ColumnConstraints />
-      <ColumnConstraints />
-      <ColumnConstraints />
-   </columnConstraints>
-   <rowConstraints>
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
-      <RowConstraints maxHeight="25.5" minHeight="25.333333333333314" prefHeight="25.5" />
-   </rowConstraints>
-
-</GridPane>
+        <Text fx:id="actiontarget" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+        <Button fx:id="Play" layoutX="220.0" layoutY="159.0" onAction="#playPressed" prefHeight="82.0" prefWidth="159.0" text="Play" GridPane.columnIndex="3" GridPane.rowIndex="6">
+            <font>
+                <Font size="35.0" />
+            </font>
+        </Button>
+        <Button layoutX="220.0" layoutY="282.0" mnemonicParsing="false" onAction="#exitGame" prefHeight="25.0" prefWidth="71.0" text="Exit game" GridPane.columnIndex="3" GridPane.rowIndex="11">
+            <GridPane.margin>
+                <Insets left="44.0" />
+            </GridPane.margin>
+        </Button>
+          <Button layoutX="308.0" layoutY="282.0" mnemonicParsing="false" onAction="#settingsPressed" prefHeight="25.0" prefWidth="71.0" text="Settings" textAlignment="JUSTIFY" />
+    
+</AnchorPane>
