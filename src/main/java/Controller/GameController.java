@@ -110,7 +110,7 @@ public class GameController extends Controller implements Initializable {
             }
         }
         finishedBoard.setGanzesBrett(Sudokus.puzzleBoard);
-        System.out.println(finishedBoard);
+        log.info(finishedBoard);
     }
 
     /**
@@ -211,6 +211,8 @@ public class GameController extends Controller implements Initializable {
                 Main.getMainWindow().show();
             } catch (IOException e) {
                 e.printStackTrace();
+                log.error("Stage can't be loaded");
+                //0101 1100 1101 0001 1000 0101 1010 1101
             }
         }
     }
@@ -318,7 +320,7 @@ public class GameController extends Controller implements Initializable {
         //to check the user input after the game is finished
         Position position = getRowCol(selectedLabel.getId());
         finishedBoard.setValueInBrett(position.col, position.row, choiceInt);
-        System.out.println(finishedBoard);
+        log.info(finishedBoard);
 
         if (!(finishedBoard.checkIfFinished())) {
             if (finishedBoard.checkWinning()) {
@@ -329,6 +331,7 @@ public class GameController extends Controller implements Initializable {
 
             } else {
                 display("YOU LOST");
+                log.info("Game lost");
             }
         }
     }
@@ -340,13 +343,14 @@ public class GameController extends Controller implements Initializable {
         selectedLabel.setBackground(white);
         selectedLabel.setText(null);
         finishedBoard.setValueInBrett(position.col, position.row, 0);
-        System.out.println(finishedBoard);
+        log.info(finishedBoard);
     }
 
     //wrong input, red Background
     @FXML
     private void wrongInput() {
         selectedLabel.setBackground(pink);
+        log.info("Wrong input");
     }
 
     AnimationTimer animationTimer = new AnimationTimer() {

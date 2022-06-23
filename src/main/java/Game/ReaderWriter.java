@@ -8,9 +8,11 @@ import java.util.List;
 
 
 public class ReaderWriter {
+
     private static final Logger log = LogManager.getLogger(ReaderWriter.class);
+
     /**
-     * Creates new entry in counter.text
+     * Creates new entry in counter.txt
      */
 
     public void write(int gameSolved, String url) {
@@ -44,7 +46,7 @@ public class ReaderWriter {
             e.printStackTrace();
             log.error("Error. Data not found.");
         }
-        System.out.println(entries.size());
+        log.info("Count solved levels is " +entries.size());
         return entries;
     }
 

@@ -82,6 +82,7 @@ public class Board {
                 this.setValueInBrett(i, j, values[i][j]);
             }
         }
+        log.info("New board is set");
     }
 
     /**
@@ -190,7 +191,7 @@ public class Board {
                 if(set.size() != 9){
                     log.info("Quadrant doesnt contain all numbers");
                     rt = false;
-                    System.out.println(set.size());
+                    log.info(set.size()+" size");
                 }
                 else if(set.size() == 9){
                     log.info("Quadrant contains all numbers");
