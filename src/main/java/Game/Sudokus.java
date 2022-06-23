@@ -1068,22 +1068,5 @@ public class Sudokus {
         return puzzle_board;
     }
 
-    /*
-    public static List<String> read() {
-
-        List<String> entries = new ArrayList<>();
-        try {
-            BufferedReader newReader = new BufferedReader(new FileReader("games.txt"));
-            String line;
-            while ((line = newReader.readLine()) != null) {
-                entries.add(line);
-            }
-            newReader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return entries;
-    }
-     */
 
 }

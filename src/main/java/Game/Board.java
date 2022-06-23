@@ -1,5 +1,8 @@
 package Game;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 import java.util.HashSet;
 
 /**
@@ -7,10 +10,13 @@ import java.util.HashSet;
  */
 public class Board {
 
+    private static final Logger log = LogManager.getLogger(Board.class);
+
     public int[][] board_scheme = new int [SIZE][SIZE];
     public static final int SIZE = 9; // size of square / arrays
 
-    public static Board getInstance() { return board; }
+
+    public static Board getInstance() { return board; } // TODO: Brauchen wir das? wird nie verwendet
 
     private static Board board = new Board();
 
@@ -105,10 +111,10 @@ public class Board {
                 set.add(board_scheme[i][j]);
             }
             if (set.size() != SIZE) {
-                System.out.println("Duplicates found in a row");
+                log.info("Duplicates found in a row");
                 rt = false;
             } else if (set.size() == SIZE) {
-                System.out.println("Set has size of 9 found in a row");
+                log.info("Set has size of 9 found in a row");
             }
             set.clear();
 
@@ -122,10 +128,10 @@ public class Board {
                 set.add(board_scheme[j][i]);
             }
             if (set.size() != SIZE) {
-                System.out.println("Duplicates found in a column");
+                log.info("Duplicates found in a column");
                 rt = false;
             } else if (set.size() == SIZE) {
-                System.out.println("Set has size of 9 found in a column");
+                log.info("Set has size of 9 found in a column");
             }
             set.clear();
         }
@@ -140,12 +146,12 @@ public class Board {
             }
             if(i == 2 || i == 5 || i == 8){
                 if(set.size() != 9){
-                    System.out.println("Quadrant doesnt contain all numbers");
+                    log.info("Quadrant doesnt contain all numbers");
                     rt = false;
                     System.out.println(set.size());
                 }
                 else if(set.size() == 9){
-                    System.out.println("Quadrant contains all numbers");
+                    log.info("Quadrant contains all numbers");
                 }
                 set.clear();
             }
@@ -161,12 +167,12 @@ public class Board {
             }
             if(i == 2 || i == 5 || i == 8){
                 if(set.size() != 9){
-                    System.out.println("Quadrant doesnt contain all numbers");
+                    log.info("Quadrant doesnt contain all numbers");
                     rt = false;
-                    System.out.println(set.size());
+                    log.info(set.size()+" size");
                 }
                 else if(set.size() == 9){
-                    System.out.println("Quadrant contains all numbers");
+                    log.info("Quadrant contains all numbers");
                 }
                 set.clear();
             }
@@ -182,18 +188,18 @@ public class Board {
             }
             if(i == 2 || i == 5 || i == 8){
                 if(set.size() != 9){
-                    System.out.println("Quadrant doesnt contain all numbers");
+                    log.info("Quadrant doesnt contain all numbers");
                     rt = false;
                     System.out.println(set.size());
                 }
                 else if(set.size() == 9){
-                    System.out.println("Quadrant contains all numbers");
+                    log.info("Quadrant contains all numbers");
                 }
                 set.clear();
             }
         }
 
-        System.out.println("Finished checking winning");
+        log.info("Finished checking winning");
         return rt;
     }
 /*
