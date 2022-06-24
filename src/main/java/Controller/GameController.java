@@ -94,7 +94,7 @@ public class GameController extends Controller implements Initializable {
                 if (label != null) {
                     Position position = getRowCol(node.getId());
                     int valuePuzzleBoardAtIndex = puzzleBoard.getNumberAtIdx(position.col, position.row);
-                    //to creae labels that can be changed by user input
+                    //to create labels that can be changed by user input
                     if (valuePuzzleBoardAtIndex == 0) {
                         label.setText(null);
                         label.setStyle("-fx-text-fill: grey;-fx-font: 24 arial;");
@@ -108,14 +108,14 @@ public class GameController extends Controller implements Initializable {
             }
         }
         finishedBoard.setGanzesBrett(Sudokus.puzzleBoard);
-        log.info(finishedBoard);
+        log.info("\nBoard successfully set to: \n" + finishedBoard);
     }
 
     /**
      * Method is setting labels when startGame button is clicked
      */
-
     public void setLabels() {
+        log.info("Setting labels on GUI ...");
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
                 //every label is getting a value of 0
@@ -143,6 +143,7 @@ public class GameController extends Controller implements Initializable {
                 }
             }
         }
+        log.info("Labels have been set successfully.");
     }
 
 
@@ -319,7 +320,7 @@ public class GameController extends Controller implements Initializable {
         //to check the user input after the game is finished
         Position position = getRowCol(selectedLabel.getId());
         finishedBoard.setValueInBrett(position.col, position.row, choiceInt);
-        log.info(finishedBoard);
+        log.info("\nBoard after last user input: \n" + finishedBoard);
 
         if (!(finishedBoard.checkIfFinished())) {
             if (finishedBoard.checkWinning()) {

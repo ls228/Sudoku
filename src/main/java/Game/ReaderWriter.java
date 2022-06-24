@@ -44,9 +44,9 @@ public class ReaderWriter {
             }
             newReader.close();
         } catch (IOException e) {
-            log.error(e.getStackTrace() + "File " + url + "could not found.");
+            log.error(e.getStackTrace() + "File " + url + " not found.");
         }
-        log.info("Count solved levels is " +entries.size());
+        log.info("'Solved levels'-Counter is " +entries.size());
         return entries;
     }
 
