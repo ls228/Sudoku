@@ -1,7 +1,12 @@
 package Game;
 
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 public class Sudokus {
+
+    private static final Logger log = LogManager.getLogger(Sudokus.class);
 
     public static Board solution_board = new Board(); // solved board (solution)
     public static Board puzzle_board = new Board(); // game that has to be solved (quest)
@@ -19,8 +24,8 @@ public class Sudokus {
     public Sudokus(int currentlevel) {
 
         int randomNumber = (int) (10 * Math.random());
-        System.out.println("Random Number: " + randomNumber);
-        System.out.println("level hat nr."+currentlevel);
+        log.info("Random Number: " + randomNumber);
+        log.info("level hat nr." + currentlevel);
 
         //if-function with current level chooses different difficulty
         if(currentlevel==1) {

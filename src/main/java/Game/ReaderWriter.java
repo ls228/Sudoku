@@ -8,9 +8,11 @@ import java.util.List;
 
 
 public class ReaderWriter {
+
     private static final Logger log = LogManager.getLogger(ReaderWriter.class);
+
     /**
-     * Creates new entry in counter.text
+     * Creates new entry in counter.txt
      */
 
     public void write(int gameSolved, String url) {
@@ -21,8 +23,8 @@ public class ReaderWriter {
             myWriter.write(gameSolved+"\n");
             myWriter.close();
 
-        } catch (IOException ioe) {
-            log.error("Error. Data not found.");
+        } catch (IOException e) {
+            log.error(e.getStackTrace() + "Error. Data not found.");
         }
     }
 
@@ -38,24 +40,23 @@ public class ReaderWriter {
             String line;
             while ((line = newReader.readLine()) != null) {
                 entries.add(line);
+                log.info("Added new count of solved games");
             }
             newReader.close();
         } catch (IOException e) {
-            e.printStackTrace();
-            log.error("Error. Data not found.");
+            log.error(e.getStackTrace() + "File " + url + "could not found.");
         }
-        System.out.println(entries.size());
+        log.info("Count solved levels is " +entries.size());
         return entries;
     }
 
-    /*
-    public void removeEntries() {
+    public void removeEntries(String url) {
         try {
-            FileWriter fw = new FileWriter("counter.txt");
+            FileWriter fw = new FileWriter(url);
             fw.write("");
             fw.close();
-        } catch ( IOException ioex ) {
-            System.out.println("Fehler");
+        } catch ( IOException e ) {
+            log.error(e.getStackTrace()+" File could not be found");
         }
-    }*/
+    }
 }
