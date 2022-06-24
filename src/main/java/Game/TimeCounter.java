@@ -10,7 +10,6 @@ public class TimeCounter extends Thread {
         while (isRunning) {
             try {
                 Thread.sleep(1000);
-                update();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -24,11 +23,6 @@ public class TimeCounter extends Thread {
 
     public void setIsRunning(boolean isrunning) {
         this.isRunning = isrunning;
-    }
-
-    public void update() {
-
-        Thread.activeCount();
     }
 
 }

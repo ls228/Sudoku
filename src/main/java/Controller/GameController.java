@@ -38,8 +38,6 @@ public class GameController extends Controller implements Initializable {
     private Label timer;
 
     public final Board finishedBoard = new Board();
-    ReaderWriter readWrite = new ReaderWriter();
-
     private boolean labelAreInitialized = false;
     public boolean wrongValue = false;
     private boolean restartGame = true;
@@ -176,10 +174,10 @@ public class GameController extends Controller implements Initializable {
      * @return boolean
      */
 
-    private boolean checkInput(int value) {
-        Position position = getRowCol(selectedLabel.getId());
-        int valueSolved = solutionBoard.getNumberAtIdx(position.col, position.row);
 
+    public boolean checkInput(int value) {
+        Position position = getRowCol(selectedLabel.getId());
+         int valueSolved = solutionBoard.getNumberAtIdx(position.col, position.row);
         if (value == valueSolved) {
             selectedLabel.setBackground(white);
             return true;
@@ -190,6 +188,7 @@ public class GameController extends Controller implements Initializable {
         if (count < 2) {
             count++;
             counter.setText("Wrong input counter: " + count + "/3");
+            readWrite.removeEntries(counterUrl);
         } else {
             counter.setText("Wrong input counter: 3/3");
             display("YOU LOST");

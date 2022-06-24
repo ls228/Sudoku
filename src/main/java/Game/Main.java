@@ -31,6 +31,7 @@ public class Main extends Application{
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+
         //log4j
         org.apache.log4j.BasicConfigurator.configure();
         Logger.getRootLogger().setLevel(Level.DEBUG);
@@ -53,8 +54,9 @@ public class Main extends Application{
         mainWindow.setOnCloseRequest(windowEvent -> {
             Platform.exit();
             System.exit(0);
+            log.info("Scene closed successfully");
         });
-        log.info("Scene closed successfully");
+
     }
 
     public static void main(String[] args) {

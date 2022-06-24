@@ -1,5 +1,6 @@
 package Controller;
 
+import Game.ReaderWriter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -18,7 +19,7 @@ import java.net.URL;
  */
 public class Controller {
 
-
+    ReaderWriter readWrite = new ReaderWriter();
     Button levelButton = new Button();
     String counterUrl="src/main/resources/counter.txt";
     String level = "level.fxml";

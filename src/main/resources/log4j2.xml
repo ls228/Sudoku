@@ -10,7 +10,7 @@
     </Appenders>
     <Loggers>
         <!-- You my want to define class or package level per-logger rules -->
-        <Logger name="com.main" level="debug">
+        <Logger name="com.Main" level="debug">
             <AppenderRef ref="Console"/>
         </Logger>
         <Root level="info">
