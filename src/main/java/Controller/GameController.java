@@ -289,6 +289,7 @@ public class GameController extends Controller implements Initializable {
         count = 0;
         counter.setText("Wrong input counter: " + count + "/3");
         startRound();
+        TimeCounter.setIsRunning(false);
         TimeCounter = new TimeCounter();
         TimeCounter.setIsRunning(true);
         TimeCounter.start();
@@ -297,6 +298,7 @@ public class GameController extends Controller implements Initializable {
     @FXML
     protected void goBackPressed(ActionEvent event) {
         loadNewScene(event, homeFxml);
+        TimeCounter.setIsRunning(false);
     }
 
     /**
@@ -341,11 +343,17 @@ public class GameController extends Controller implements Initializable {
     //delete last input
     @FXML
     protected void backPressed() {
-        Position position = getRowCol(selectedLabel.getId());
-        selectedLabel.setBackground(white);
-        selectedLabel.setText(null);
-        finishedBoard.setValueInBrett(position.col, position.row, 0);
-        log.info(finishedBoard);
+        if(this.selectedLabel != null) {
+            Position position = getRowCol(selectedLabel.getId());
+            selectedLabel.setBackground(white);
+            selectedLabel.setText(null);
+            finishedBoard.setValueInBrett(position.col, position.row, 0);
+            log.info(finishedBoard);
+            log.info("Number has been deleted");
+        }
+        else {
+            log.info("no selected Label");
+        }
     }
 
     //wrong input, red Background
