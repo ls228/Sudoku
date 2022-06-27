@@ -10,6 +10,8 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import Game.Board;
 import Game.Sudokus;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.io.IOException;
 import java.net.URL;
@@ -19,6 +21,7 @@ import java.net.URL;
  */
 public class Controller {
 
+    private static final Logger log = LogManager.getLogger(Controller.class);
     ReaderWriter readWrite = new ReaderWriter();
     Button levelButton = new Button();
     String counterUrl="src/main/resources/counter.txt";
@@ -41,8 +44,10 @@ public class Controller {
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
+            log.info("Scene loaded successfully");
         } catch (IOException e) {
             e.printStackTrace();
+            log.error("Stage can't be loaded.");
         }
     }
 

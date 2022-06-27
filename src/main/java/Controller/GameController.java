@@ -44,7 +44,7 @@ public class GameController extends Controller implements Initializable {
     private TimeCounter TimeCounter;
 
     @FXML
-    private Label lastSelctedLabel = null;
+    private Label lastSelectedLabel = null;
     @FXML
     private Label selectedLabel = null;
     @FXML
@@ -132,10 +132,10 @@ public class GameController extends Controller implements Initializable {
                     Label label1 = (Label) event.getSource();
                     selectedLabel = label1;
 
-                    if (lastSelctedLabel != null)
-                        lastSelctedLabel.setBackground(null);
+                    if (lastSelectedLabel != null)
+                        lastSelectedLabel.setBackground(null);
 
-                    lastSelctedLabel = label1;
+                    lastSelectedLabel = label1;
                     label1.setBackground(blue);
                 });
                 if (sudokuGridPane != null) {
@@ -195,6 +195,7 @@ public class GameController extends Controller implements Initializable {
             display("YOU LOST");
             count = 0;
             counter.setText("Wrong input counter: " + count + "/3");
+            log.info("Game lost");
         }
         return false;
     }
@@ -250,6 +251,7 @@ public class GameController extends Controller implements Initializable {
             TimeCounter = new TimeCounter();
             TimeCounter.setIsRunning(true);
             TimeCounter.start();
+            log.info("restart Game");
         });
 
         Button homeButton = new Button("Home");
@@ -325,7 +327,7 @@ public class GameController extends Controller implements Initializable {
         if (!(finishedBoard.checkIfFinished())) {
             if (finishedBoard.checkWinning()) {
                 display("YOU WON");
-
+                log.info("Game won");
                 //Label das anzeigt wie viele Spiele schon gewonnen wurden
                 readWrite.write(1,counterUrl);
 

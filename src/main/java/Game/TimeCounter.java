@@ -1,6 +1,12 @@
 package Game;
 
+import Controller.Controller;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 public class TimeCounter extends Thread {
+
+    private static final Logger log = LogManager.getLogger(TimeCounter.class);
     private int count;
     private boolean isRunning;
 
@@ -14,6 +20,7 @@ public class TimeCounter extends Thread {
                 e.printStackTrace();
             }
             count++;
+            log.info("Time: " + count);
         }
     }
 
