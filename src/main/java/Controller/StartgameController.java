@@ -28,12 +28,5 @@ public class StartgameController extends Controller {
     }
 
     @FXML
-    protected void goBackSettingsPressed(ActionEvent event) {
-        loadNewScene(event, startGame);
-    }
-
-    @FXML
-    protected void settingsPressed(ActionEvent event) {
-        loadNewScene(event, settings);
-    }
+    protected void resetGame(){readWrite.removeEntries(counterUrl); }
 }

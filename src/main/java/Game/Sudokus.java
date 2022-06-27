@@ -1,7 +1,12 @@
 package Game;
 
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 public class Sudokus {
+
+    private static final Logger log = LogManager.getLogger(Sudokus.class);
 
     public static Board solution_board = new Board(); // solved board (solution)
     public static Board puzzle_board = new Board(); // game that has to be solved (quest)
@@ -19,8 +24,8 @@ public class Sudokus {
     public Sudokus(int currentlevel) {
 
         int randomNumber = (int) (10 * Math.random());
-        System.out.println("Random Number: " + randomNumber);
-        System.out.println("level hat nr."+currentlevel);
+        log.info("Random Number: " + randomNumber);
+        log.info("Level is set to Level " + currentlevel);
 
         //if-function with current level chooses different difficulty
         if(currentlevel==1) {
@@ -249,7 +254,7 @@ public class Sudokus {
                     int[][] gameSolutionValues8 = {
                             {4, 8, 6, 3, 5, 2, 9, 7, 1},
                             {2, 3, 9, 1, 7, 4, 5, 6, 8},
-                            {7, 1, 5, 8, 3, 6, 2, 4, 3},
+                            {7, 1, 5, 8, 9, 6, 2, 4, 3},
                             {1, 5, 7, 4, 2, 9, 3, 8, 6},
                             {9, 6, 4, 7, 8, 3, 1, 2, 5},
                             {8, 2, 3, 6, 1, 5, 4, 9, 7},
@@ -340,7 +345,7 @@ public class Sudokus {
                     break;
 
                 default:
-                    System.out.println("(Default case game:)");
+                    log.info("Default case game was selected (not intended to ever happen).");
 
                     int[][] gameSolutionValuesX = {
                             {2, 8, 9, 6, 4, 3, 5, 1, 7},
@@ -682,7 +687,7 @@ public class Sudokus {
 
                         break;
                     default:
-                        System.out.println("(Default case game:)");
+                        log.info("Default case game was selected (not intended to ever happen)");
 
                         int[][] gameSolutionValuesX = {
                                 {2, 8, 9, 6, 4, 3, 5, 1, 7},
@@ -1027,7 +1032,7 @@ public class Sudokus {
 
                     break;
                 default:
-                    System.out.println("(Default case game:)");
+                    log.info("Default case game was selected (not intended to ever happen)");
 
                     int[][] gameSolutionValuesX = {
                             {2, 8, 9, 6, 4, 3, 5, 1, 7},

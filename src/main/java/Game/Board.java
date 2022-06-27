@@ -16,7 +16,7 @@ public class Board {
     public static final int SIZE = 9; // size of square / arrays
 
 
-    public static Board getInstance() { return board; } // TODO: Brauchen wir das? wird nie verwendet
+    public static Board getInstance() { return board; }
 
     private static Board board = new Board();
 
@@ -82,6 +82,7 @@ public class Board {
                 this.setValueInBrett(i, j, values[i][j]);
             }
         }
+        log.info("New board has been set");
     }
 
     /**
@@ -117,7 +118,6 @@ public class Board {
                 log.info("Set has size of 9 found in a row");
             }
             set.clear();
-
         }
 
         //checks if any column has duplicates
@@ -167,7 +167,7 @@ public class Board {
             }
             if(i == 2 || i == 5 || i == 8){
                 if(set.size() != 9){
-                    log.info("Quadrant doesnt contain all numbers");
+                    log.info("Quadrant does not contain all numbers");
                     rt = false;
                     log.info(set.size()+" size");
                 }
@@ -190,7 +190,7 @@ public class Board {
                 if(set.size() != 9){
                     log.info("Quadrant doesnt contain all numbers");
                     rt = false;
-                    System.out.println(set.size());
+                    log.info(set.size()+" size");
                 }
                 else if(set.size() == 9){
                     log.info("Quadrant contains all numbers");

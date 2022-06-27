@@ -29,7 +29,7 @@ public class HomeController extends Controller implements Initializable{
         levelButton = activeButton;
         Sudokus games = new Sudokus(Integer.parseInt(levelButton.getId()));
         //eigentlich nur noch eine fxml datei benötigt
-        loadNewScene(event, level1);
+        loadNewScene(event, level);
     }
 
     @FXML
