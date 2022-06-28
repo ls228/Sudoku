@@ -178,7 +178,7 @@ public class GameController extends Controller implements Initializable {
 
     public boolean checkInput(int value) {
         Position position = getRowCol(selectedLabel.getId());
-         int valueSolved = solutionBoard.getNumberAtIdx(position.col, position.row);
+        int valueSolved = solutionBoard.getNumberAtIdx(position.col, position.row);
         if (value == valueSolved) {
             selectedLabel.setBackground(white);
             return true;
@@ -211,8 +211,7 @@ public class GameController extends Controller implements Initializable {
                 Main.getMainWindow().setScene(scene);
                 Main.getMainWindow().show();
             } catch (IOException e) {
-                e.printStackTrace();
-                log.error("Stage can't be loaded");
+                log.error(e.getStackTrace()+"Stage can't be loaded");
                 //0101 1100 1101 0001 1000 0101 1010 1101
             }
         }
@@ -311,20 +310,25 @@ public class GameController extends Controller implements Initializable {
         Button activeButton = (Button) event.getSource();
         pressedButton = activeButton;
 
-        //get pressed value
-        String id = pressedButton.getId();
-        char choiceChar = id.charAt(7);
-        int choiceInt = Integer.parseInt(String.valueOf(choiceChar));
-        String choiceString = String.valueOf(choiceChar);
+        try {
+            //get pressed value
+            String id = pressedButton.getId();
+            char choiceChar = id.charAt(7);
+            int choiceInt = Integer.parseInt(String.valueOf(choiceChar));
+            String choiceString = String.valueOf(choiceChar);
 
-        if (this.selectedLabel != null)
-            this.selectedLabel.setText(choiceString);
-        checkInput(choiceInt);
+            if (this.selectedLabel != null)
+                this.selectedLabel.setText(choiceString);
+            checkInput(choiceInt);
 
-        //to check the user input after the game is finished
-        Position position = getRowCol(selectedLabel.getId());
-        finishedBoard.setValueInBrett(position.col, position.row, choiceInt);
-        log.info("\nBoard after last user input: \n" + finishedBoard);
+            //to check the user input after the game is finished
+            Position position = getRowCol(selectedLabel.getId());
+            finishedBoard.setValueInBrett(position.col, position.row, choiceInt);
+            log.info("\nBoard after last user input: \n" + finishedBoard);
+
+        }catch (NullPointerException e){
+            log.error("No selected Label");
+        }
 
         if (!(finishedBoard.checkIfFinished())) {
             if (finishedBoard.checkWinning()) {

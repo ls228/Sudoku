@@ -19,7 +19,7 @@ public class ReaderWriter {
 
         try {
             FileWriter myWriter = new FileWriter(url, true);
-            // Die Einträge werden in einer Datei gespeichert.
+            // count is saved in text file
             myWriter.write(gameSolved+"\n");
             myWriter.close();
 
@@ -52,13 +52,18 @@ public class ReaderWriter {
         return entries;
     }
 
+    /**
+     * This method enables removing all entries of the counter file
+     * We use it for resetting the game score
+     * @param url counter.txt
+     */
     public void removeEntries(String url) {
         try {
             FileWriter fw = new FileWriter(url);
             fw.write("");
             fw.close();
             log.info("Reset game");
-        } catch ( IOException e ) {
+        } catch (IOException e) {
             log.error(e.getStackTrace()+" File could not be found");
         }
     }
