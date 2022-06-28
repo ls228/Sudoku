@@ -6,11 +6,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.apache.log4j.Level;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 import java.net.URL;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class Main extends Application{
@@ -33,8 +33,8 @@ public class Main extends Application{
     public void start(Stage primaryStage) throws Exception {
 
         //log4j
-        org.apache.log4j.BasicConfigurator.configure();
-        Logger.getRootLogger().setLevel(Level.DEBUG);
+        //org.apache.log4j.BasicConfigurator.configure();
+        //Logger.getRootLogger().setLevel(Level.DEBUG);
 
         // JavaFX stuff
         URL fxmlFileUrl = getClass().getClassLoader().getResource(startGame);
@@ -49,7 +49,7 @@ public class Main extends Application{
         mainWindow = primaryStage;
         mainWindow.setTitle("Sudoku");
         mainWindow.show();
-        log.info("Scene loaded successfully");
+        log.info(LocalDateTime.now()+": Scene loaded successfully");
 
         mainWindow.setOnCloseRequest(windowEvent -> {
             Platform.exit();

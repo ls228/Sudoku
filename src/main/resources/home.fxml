@@ -32,7 +32,7 @@
                <Font size="24.0" />
             </font>
          </Text>
-         <Label fx:id="solvedGames" disable="true" text="0 games solved" layoutX="59.0" layoutY="63.0" />
+         <Label fx:id="lblSolvedGames" disable="true" text="0 games solved" layoutX="59.0" layoutY="63.0" />
       </children></AnchorPane>
     <Text fill="#2a2169" text="Choose level" textAlignment="CENTER" wrappingWidth="121.63091242313385" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="4">
       <GridPane.margin>

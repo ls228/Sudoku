@@ -8,11 +8,11 @@ import org.junit.jupiter.api.Test;
 class GameControllerTest {
     GameController gamesTest = new GameController();
     Board testBoard = new Board();
-    Sudokus sudokuTest = new Sudokus(1);
+    Sudokus sudokuTest = new Sudokus(1,5);
 
     @Test
     void checkInput() {
-        testBoard.setGanzesBrett(sudokuTest.solutionBoard);
+        testBoard.setCompletedBoard(sudokuTest.solutionBoard);
         Assumptions.assumeFalse(gamesTest.checkInput(1,gamesTest.getRowCol("Label_0_0")));
     }
 }

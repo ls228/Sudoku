@@ -23,12 +23,12 @@ public class Controller {
 
     private static final Logger log = LogManager.getLogger(Controller.class);
     ReaderWriter readWrite = new ReaderWriter();
-    Button levelButton = new Button();
+    Button btnLevel = new Button();
     String counterUrl="src/main/resources/counter.txt";
     String level = "level.fxml";
     String startGame = "startgame.fxml";
-    String settings = "settings.fxml";
     String homeFxml = "home.fxml";
+    int randomNumber = (int) (10 * Math.random());
 
     /**
      * This method generates a new scene on top of the stage by loading the given fxml file
@@ -47,7 +47,7 @@ public class Controller {
             log.info("Scene loaded successfully");
         } catch (IOException e) {
             e.printStackTrace();
-            log.error("Stage can't be loaded.");
+            log.error(e.getStackTrace()+"Stage can't be loaded.");
         }
     }
 

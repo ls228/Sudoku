@@ -17,17 +17,17 @@ public class HomeController extends Controller implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        solvedGames.setText(readWrite.read(counterUrl).size() +" games solved");
+        lblSolvedGames.setText(readWrite.read(counterUrl).size() +" games solved");
     }
 
     @FXML
-    private Label solvedGames = null;
+    private Label lblSolvedGames = null;
 
     @FXML
     protected void levelPressed(ActionEvent event) {
         Button activeButton = (Button) event.getSource();
-        levelButton = activeButton;
-        Sudokus games = new Sudokus(Integer.parseInt(levelButton.getId()));
+        btnLevel = activeButton;
+        Sudokus games = new Sudokus(Integer.parseInt(btnLevel.getId()),randomNumber);
         //eigentlich nur noch eine fxml datei benötigt
         loadNewScene(event, level);
     }
