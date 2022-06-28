@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.apache.log4j.Level;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -33,8 +34,8 @@ public class Main extends Application{
     public void start(Stage primaryStage) throws Exception {
 
         //log4j
-        //org.apache.log4j.BasicConfigurator.configure();
-        //Logger.getRootLogger().setLevel(Level.DEBUG);
+        org.apache.log4j.BasicConfigurator.configure();
+        Logger.getRootLogger().setLevel(Level.DEBUG);
 
         // JavaFX stuff
         URL fxmlFileUrl = getClass().getClassLoader().getResource(startGame);

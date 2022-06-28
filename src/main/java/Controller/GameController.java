@@ -309,7 +309,6 @@ public class GameController extends Controller implements Initializable {
         btnNumberPressed = activeButton;
 
         try {
-            Position position = getRowCol(selectedLabel.getId());
             //get pressed value
             Position position = getRowCol(lblSelected.getId());
             String id = btnNumberPressed.getId();

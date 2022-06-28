@@ -24,7 +24,7 @@ public class BoardTest{
     @Test
     void checkWinning() {
         try {
-            testBoard.setGanzesBrett(getSudoku.puzzleBoard);
+            testBoard.setCompletedBoard(getSudoku.puzzleBoard);
             testBoard.checkWinning();
             System.out.println(testBoard.checkWinning());
         } catch (Exception e) {
@@ -36,7 +36,7 @@ public class BoardTest{
     @Test
     void checkIfFinished() {
         try {
-            testBoard.setGanzesBrett(Sudokus.puzzleBoard);
+            testBoard.setCompletedBoard(Sudokus.puzzleBoard);
             testBoard.checkIfFinished();
         } catch (Exception e) {
             throw new RuntimeException();
@@ -47,7 +47,7 @@ public class BoardTest{
     @Test
     void setValueInBrett() {
         try {
-            testBoard.setGanzesBrett(Sudokus.puzzleBoard);
+            testBoard.setCompletedBoard(Sudokus.puzzleBoard);
             testBoard.setValueInBrett(1, 1, 1);
         } catch (Exception e) {
             throw new RuntimeException();
