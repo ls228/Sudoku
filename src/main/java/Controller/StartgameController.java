@@ -11,7 +11,7 @@ import javafx.stage.Stage;
  */
 public class StartgameController extends Controller {
     Stage window= new Stage();
-    public Button button;
+    //public Button button;
 
     @FXML private javafx.scene.control.Button exit;
 

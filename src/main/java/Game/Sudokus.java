@@ -43,7 +43,7 @@ public class Sudokus {
                             {4, 8, 2, 1, 6, 9, 5, 3, 7},
                             {3, 1, 5, 4, 2, 7, 9, 8, 6},
                     };
-                    solution_board.setGanzesBrett(gameSolutionValues1);
+                    solution_board.setCompletedBoard(gameSolutionValues1);
                     solutionBoard = gameSolutionValues1;
 
                     int[][] gamePuzzleValues1 = {
@@ -57,7 +57,7 @@ public class Sudokus {
                             {4, 0, 2, 0, 0, 0, 5, 0, 7},
                             {3, 1, 5, 0, 0, 0, 9, 8, 6},
                     };
-                    puzzle_board.setGanzesBrett(gamePuzzleValues1);
+                    puzzle_board.setCompletedBoard(gamePuzzleValues1);
                     puzzleBoard = gamePuzzleValues1;
 
                     break;
@@ -75,7 +75,7 @@ public class Sudokus {
                             {1, 5, 6, 9, 8, 3, 2, 7, 4},
                             {2, 9, 8, 4, 5, 7, 6, 3, 1},
                     };
-                    solution_board.setGanzesBrett(gameSolutionValues2);
+                    solution_board.setCompletedBoard(gameSolutionValues2);
                     solutionBoard = gameSolutionValues2;
 
                     int[][] gamePuzzleValues2 = {
@@ -89,7 +89,7 @@ public class Sudokus {
                             {1, 0, 6, 0, 0, 0, 2, 0, 4},
                             {0, 0, 0, 4, 5, 7, 0, 0, 0},
                     };
-                    puzzle_board.setGanzesBrett(gamePuzzleValues2);
+                    puzzle_board.setCompletedBoard(gamePuzzleValues2);
                     puzzleBoard = gamePuzzleValues2;
                     break;
 
@@ -106,7 +106,7 @@ public class Sudokus {
                             {5, 6, 3, 2, 9, 4, 8, 1, 7},
                             {7, 9, 2, 8, 5, 1, 6, 3, 4},
                     };
-                    solution_board.setGanzesBrett(gameSolutionValues3);
+                    solution_board.setCompletedBoard(gameSolutionValues3);
                     solutionBoard = gameSolutionValues3;
 
                     int[][] gamePuzzleValues3 = {
@@ -120,7 +120,7 @@ public class Sudokus {
                             {5, 0, 3, 0, 0, 0, 8, 0, 7},
                             {7, 9, 0, 0, 0, 0, 0, 3, 4},
                     };
-                    puzzle_board.setGanzesBrett(gamePuzzleValues3);
+                    puzzle_board.setCompletedBoard(gamePuzzleValues3);
                     puzzleBoard = gamePuzzleValues3;
                     break;
 
@@ -137,7 +137,7 @@ public class Sudokus {
                             {4, 9, 1, 6, 7, 3, 8, 5, 2},
                             {6, 3, 2, 1, 8, 5, 9, 7, 4},
                     };
-                    solution_board.setGanzesBrett(gameSolutionValues4);
+                    solution_board.setCompletedBoard(gameSolutionValues4);
                     solutionBoard = gameSolutionValues4;
 
                     int[][] gamePuzzleValues4 = {
@@ -151,7 +151,7 @@ public class Sudokus {
                             {0, 0, 0, 6, 0, 3, 0, 0, 0},
                             {0, 3, 2, 0, 0, 0, 9, 7, 0},
                     };
-                    puzzle_board.setGanzesBrett(gamePuzzleValues4);
+                    puzzle_board.setCompletedBoard(gamePuzzleValues4);
                     puzzleBoard = gamePuzzleValues4;
                     break;
 
@@ -168,7 +168,7 @@ public class Sudokus {
                             {9, 2, 3, 5, 1, 6, 8, 4, 7},
                             {7, 1, 4, 2, 8, 3, 6, 5, 9},
                     };
-                    solution_board.setGanzesBrett(gameSolutionValues5);
+                    solution_board.setCompletedBoard(gameSolutionValues5);
                     solutionBoard = gameSolutionValues5;
 
                     int[][] gamePuzzleValues5 = {
@@ -182,7 +182,7 @@ public class Sudokus {
                             {0, 0, 3, 5, 1, 6, 8, 0, 0},
                             {7, 0, 0, 0, 0, 0, 0, 0, 9},
                     };
-                    puzzle_board.setGanzesBrett(gamePuzzleValues5);
+                    puzzle_board.setCompletedBoard(gamePuzzleValues5);
                     puzzleBoard = gamePuzzleValues5;
                     break;
 
@@ -199,7 +199,7 @@ public class Sudokus {
                             {3, 6, 4, 7, 1, 2, 9, 8, 5},
                             {9, 1, 8, 4, 6, 5, 2, 3, 7},
                     };
-                    solution_board.setGanzesBrett(gameSolutionValues6);
+                    solution_board.setCompletedBoard(gameSolutionValues6);
                     solutionBoard = gameSolutionValues6;
 
                     int[][] gamePuzzleValues6 = {
@@ -213,7 +213,7 @@ public class Sudokus {
                             {3, 6, 0, 7, 0, 2, 0, 8, 5},
                             {9, 0, 8, 0, 0, 0, 2, 0, 7},
                     };
-                    puzzle_board.setGanzesBrett(gamePuzzleValues6);
+                    puzzle_board.setCompletedBoard(gamePuzzleValues6);
                     puzzleBoard = gamePuzzleValues6;
                     break;
 
@@ -230,7 +230,7 @@ public class Sudokus {
                             {7, 2, 8, 4, 9, 1, 5, 3, 6},
                             {1, 3, 4, 6, 5, 8, 2, 9, 7},
                     };
-                    solution_board.setGanzesBrett(gameSolutionValues7);
+                    solution_board.setCompletedBoard(gameSolutionValues7);
                     solutionBoard = gameSolutionValues7;
 
                     int[][] gamePuzzleValues7 = {
@@ -244,7 +244,7 @@ public class Sudokus {
                             {7, 0, 0, 4, 0, 1, 0, 0, 6},
                             {0, 3, 0, 6, 0, 8, 0, 9, 0},
                     };
-                    puzzle_board.setGanzesBrett(gamePuzzleValues7);
+                    puzzle_board.setCompletedBoard(gamePuzzleValues7);
                     puzzleBoard = gamePuzzleValues7;
                     break;
 
@@ -261,7 +261,7 @@ public class Sudokus {
                             {6, 4, 8, 9, 3, 1, 7, 5, 2},
                             {5, 9, 1, 2, 6, 7, 8, 3, 4},
                     };
-                    solution_board.setGanzesBrett(gameSolutionValues8);
+                    solution_board.setCompletedBoard(gameSolutionValues8);
                     solutionBoard = gameSolutionValues8;
 
                     int[][] gamePuzzleValues8 = {
@@ -275,7 +275,7 @@ public class Sudokus {
                             {6, 4, 8, 0, 0, 0, 7, 5, 2},
                             {0, 0, 0, 2, 0, 7, 0, 0, 0},
                     };
-                    puzzle_board.setGanzesBrett(gamePuzzleValues8);
+                    puzzle_board.setCompletedBoard(gamePuzzleValues8);
                     puzzleBoard = gamePuzzleValues8;
                     break;
 
@@ -292,7 +292,7 @@ public class Sudokus {
                             {1, 2, 7, 8, 9, 3, 6, 5, 4},
                             {8, 4, 5, 6, 1, 7, 2, 3, 9},
                     };
-                    solution_board.setGanzesBrett(gameSolutionValues9);
+                    solution_board.setCompletedBoard(gameSolutionValues9);
                     solutionBoard = gameSolutionValues9;
 
                     int[][] gamePuzzleValues9 = {
@@ -306,7 +306,7 @@ public class Sudokus {
                             {1, 2, 0, 0, 9, 0, 0, 5, 4},
                             {0, 0, 0, 0, 0, 0, 0, 0, 0},
                     };
-                    puzzle_board.setGanzesBrett(gamePuzzleValues9);
+                    puzzle_board.setCompletedBoard(gamePuzzleValues9);
                     puzzleBoard = gamePuzzleValues9;
 
                     break;
@@ -324,7 +324,7 @@ public class Sudokus {
                             {1, 6, 5, 8, 7, 2, 4, 9, 3},
                             {3, 7, 8, 1, 9, 4, 5, 6, 2},
                     };
-                    solution_board.setGanzesBrett(gameSolutionValues10);
+                    solution_board.setCompletedBoard(gameSolutionValues10);
                     solutionBoard = gameSolutionValues10;
 
                     int[][] gamePuzzleValues10 = {
@@ -338,7 +338,7 @@ public class Sudokus {
                             {0, 6, 5, 0, 7, 0, 4, 9, 0},
                             {3, 0, 0, 1, 0, 4, 0, 0, 2},
                     };
-                    puzzle_board.setGanzesBrett(gamePuzzleValues10);
+                    puzzle_board.setCompletedBoard(gamePuzzleValues10);
                     puzzleBoard = gamePuzzleValues10;
 
                     break;
@@ -357,7 +357,7 @@ public class Sudokus {
                             {9, 2, 5, 1, 7, 8, 3, 4, 6},
                             {7, 1, 3, 4, 5, 6, 9, 2, 8},
                     };
-                    solution_board.setGanzesBrett(gameSolutionValuesX);
+                    solution_board.setCompletedBoard(gameSolutionValuesX);
 
                     int[][] gamePuzzleValuesX = {
                             {2, 8, 0, 0, 0, 0, 0, 1, 7},
@@ -370,7 +370,7 @@ public class Sudokus {
                             {0, 0, 5, 0, 0, 0, 3, 0, 0},
                             {0, 1, 0, 4, 0, 0, 9, 0, 8},
                     };
-                    puzzle_board.setGanzesBrett(gamePuzzleValuesX);
+                    puzzle_board.setCompletedBoard(gamePuzzleValuesX);
                     break;
             }
         }else if(currentlevel == 2) {
@@ -389,7 +389,7 @@ public class Sudokus {
                                 {2, 4, 3, 7, 5, 9, 1, 8, 6},
                                 {5, 8, 7, 1, 6, 3, 9, 4, 2},
                         };
-                        solution_board.setGanzesBrett(gameSolutionValues11);
+                        solution_board.setCompletedBoard(gameSolutionValues11);
 
                         int[][] gamePuzzleValues11 = {
                                 {0, 9, 0, 0, 0, 0, 0, 6, 0},
@@ -402,7 +402,7 @@ public class Sudokus {
                                 {0, 0, 3, 7, 5, 9, 1, 0, 0},
                                 {0, 8, 0, 0, 0, 0, 0, 4, 0},
                         };
-                        puzzle_board.setGanzesBrett(gamePuzzleValues11);
+                        puzzle_board.setCompletedBoard(gamePuzzleValues11);
                         puzzleBoard = gamePuzzleValues11;
                         break;
 
@@ -419,7 +419,7 @@ public class Sudokus {
                                 {2, 3, 5, 9, 1, 4, 6, 8, 7},
                                 {6, 8, 4, 5, 7, 3, 9, 2, 1},
                         };
-                        solution_board.setGanzesBrett(gameSolutionValues12);
+                        solution_board.setCompletedBoard(gameSolutionValues12);
 
                         int[][] gamePuzzleValues12 = {
                                 {0, 4, 0, 0, 5, 0, 0, 6, 0},
@@ -432,7 +432,7 @@ public class Sudokus {
                                 {0, 3, 0, 9, 0, 4, 0, 8, 0},
                                 {0, 8, 0, 0, 7, 0, 0, 2, 0},
                         };
-                        puzzle_board.setGanzesBrett(gamePuzzleValues12);
+                        puzzle_board.setCompletedBoard(gamePuzzleValues12);
                         puzzleBoard = gamePuzzleValues12;
 
                         break;
@@ -450,7 +450,7 @@ public class Sudokus {
                                 {1, 2, 5, 3, 9, 6, 8, 4, 7},
                                 {9, 7, 6, 4, 8, 2, 3, 5, 1},
                         };
-                        solution_board.setGanzesBrett(gameSolutionValues13);
+                        solution_board.setCompletedBoard(gameSolutionValues13);
 
                         int[][] gamePuzzleValues13 = {
                                 {0, 0, 7, 1, 0, 3, 2, 0, 0},
@@ -463,7 +463,7 @@ public class Sudokus {
                                 {1, 0, 0, 0, 0, 0, 0, 0, 7},
                                 {0, 0, 6, 4, 0, 2, 3, 0, 0},
                         };
-                        puzzle_board.setGanzesBrett(gamePuzzleValues13);
+                        puzzle_board.setCompletedBoard(gamePuzzleValues13);
                         puzzleBoard = gamePuzzleValues13;
 
                         break;
@@ -481,7 +481,7 @@ public class Sudokus {
                                 {5, 4, 1, 3, 8, 9, 7, 2, 6},
                                 {7, 2, 3, 6, 4, 5, 1, 9, 8},
                         };
-                        solution_board.setGanzesBrett(gameSolutionValues14);
+                        solution_board.setCompletedBoard(gameSolutionValues14);
 
                         int[][] gamePuzzleValues14 = {
                                 {0, 0, 0, 8, 0, 1, 0, 0, 0},
@@ -494,7 +494,7 @@ public class Sudokus {
                                 {5, 4, 0, 0, 0, 0, 0, 2, 6},
                                 {0, 0, 0, 6, 0, 5, 0, 0, 0},
                         };
-                        puzzle_board.setGanzesBrett(gamePuzzleValues14);
+                        puzzle_board.setCompletedBoard(gamePuzzleValues14);
                         puzzleBoard = gamePuzzleValues14;
 
                         break;
@@ -512,7 +512,7 @@ public class Sudokus {
                                 {5, 9, 7, 8, 6, 2, 3, 1, 4},
                                 {8, 3, 4, 9, 1, 5, 2, 6, 7},
                         };
-                        solution_board.setGanzesBrett(gameSolutionValues15);
+                        solution_board.setCompletedBoard(gameSolutionValues15);
 
                         int[][] gamePuzzleValues15 = {
                                 {6, 0, 3, 0, 0, 0, 9, 0, 2},
@@ -525,7 +525,7 @@ public class Sudokus {
                                 {0, 9, 0, 0, 6, 0, 0, 1, 0},
                                 {8, 0, 4, 0, 0, 0, 2, 0, 7},
                         };
-                        puzzle_board.setGanzesBrett(gamePuzzleValues15);
+                        puzzle_board.setCompletedBoard(gamePuzzleValues15);
                         puzzleBoard = gamePuzzleValues15;
 
                         break;
@@ -543,7 +543,7 @@ public class Sudokus {
                                 {7, 8, 1, 2, 4, 9, 5, 6, 3},
                                 {6, 4, 2, 1, 5, 3, 7, 8, 9},
                         };
-                        solution_board.setGanzesBrett(gameSolutionValues16);
+                        solution_board.setCompletedBoard(gameSolutionValues16);
 
                         int[][] gamePuzzleValues16 = {
                                 {0, 5, 0, 0, 0, 0, 0, 2, 0},
@@ -556,7 +556,7 @@ public class Sudokus {
                                 {0, 8, 1, 2, 0, 9, 5, 6, 0},
                                 {0, 4, 0, 0, 0, 0, 0, 8, 0},
                         };
-                        puzzle_board.setGanzesBrett(gamePuzzleValues16);
+                        puzzle_board.setCompletedBoard(gamePuzzleValues16);
                         puzzleBoard = gamePuzzleValues16;
 
                         break;
@@ -574,7 +574,7 @@ public class Sudokus {
                                 {2, 4, 3, 6, 8, 5, 1, 9, 7},
                                 {8, 7, 9, 3, 1, 2, 6, 4, 5},
                         };
-                        solution_board.setGanzesBrett(gameSolutionValues17);
+                        solution_board.setCompletedBoard(gameSolutionValues17);
 
                         int[][] gamePuzzleValues17 = {
                                 {3, 0, 7, 2, 0, 8, 9, 0, 6},
@@ -587,7 +587,7 @@ public class Sudokus {
                                 {2, 0, 0, 0, 0, 0, 0, 0, 7},
                                 {8, 0, 9, 3, 0, 2, 6, 0, 5},
                         };
-                        puzzle_board.setGanzesBrett(gamePuzzleValues17);
+                        puzzle_board.setCompletedBoard(gamePuzzleValues17);
                         puzzleBoard = gamePuzzleValues17;
 
                         break;
@@ -605,7 +605,7 @@ public class Sudokus {
                                 {3, 8, 2, 9, 5, 6, 4, 1, 7},
                                 {6, 5, 1, 4, 7, 8, 3, 9, 2},
                         };
-                        solution_board.setGanzesBrett(gameSolutionValues18);
+                        solution_board.setCompletedBoard(gameSolutionValues18);
 
 
                         int[][] gamePuzzleValues18 = {
@@ -619,7 +619,7 @@ public class Sudokus {
                                 {0, 0, 0, 0, 0, 0, 0, 0, 0},
                                 {0, 0, 1, 4, 0, 8, 3, 0, 0},
                         };
-                        puzzle_board.setGanzesBrett(gamePuzzleValues18);
+                        puzzle_board.setCompletedBoard(gamePuzzleValues18);
                         puzzleBoard = gamePuzzleValues18;
 
                         break;
@@ -637,7 +637,7 @@ public class Sudokus {
                                 {2, 4, 7, 8, 3, 6, 1, 9, 5},
                                 {6, 1, 8, 2, 9, 5, 3, 4, 7},
                         };
-                        solution_board.setGanzesBrett(gameSolutionValues19);
+                        solution_board.setCompletedBoard(gameSolutionValues19);
 
                         int[][] gamePuzzleValues19 = {
                                 {0, 5, 0, 0, 0, 0, 0, 7, 0},
@@ -650,7 +650,7 @@ public class Sudokus {
                                 {0, 0, 0, 8, 3, 6, 0, 0, 0},
                                 {0, 1, 0, 0, 0, 0, 0, 4, 0},
                         };
-                        puzzle_board.setGanzesBrett(gamePuzzleValues19);
+                        puzzle_board.setCompletedBoard(gamePuzzleValues19);
                         puzzleBoard = gamePuzzleValues19;
 
                         break;
@@ -668,7 +668,7 @@ public class Sudokus {
                                 {7, 8, 5, 1, 9, 3, 6, 2, 4},
                                 {1, 4, 2, 5, 8, 6, 3, 9, 7},
                         };
-                        solution_board.setGanzesBrett(gameSolutionValues20);
+                        solution_board.setCompletedBoard(gameSolutionValues20);
 
                         int[][] gamePuzzleValues20 = {
                                 {0, 9, 0, 6, 7, 5, 0, 3, 0},
@@ -681,7 +681,7 @@ public class Sudokus {
                                 {0, 8, 5, 1, 9, 3, 6, 2, 0},
                                 {0, 4, 0, 5, 8, 6, 0, 9, 0},
                         };
-                        puzzle_board.setGanzesBrett(gamePuzzleValues20);
+                        puzzle_board.setCompletedBoard(gamePuzzleValues20);
                         puzzleBoard = gamePuzzleValues20;
 
                         break;
@@ -699,7 +699,7 @@ public class Sudokus {
                                 {9, 2, 5, 1, 7, 8, 3, 4, 6},
                                 {7, 1, 3, 4, 5, 6, 9, 2, 8},
                         };
-                        solution_board.setGanzesBrett(gameSolutionValuesX);
+                        solution_board.setCompletedBoard(gameSolutionValuesX);
 
                         int[][] gamePuzzleValuesX = {
                                 {2, 8, 0, 0, 0, 0, 0, 1, 7},
@@ -712,7 +712,7 @@ public class Sudokus {
                                 {0, 0, 5, 0, 0, 0, 3, 0, 0},
                                 {0, 1, 0, 4, 0, 0, 9, 0, 8},
                         };
-                        puzzle_board.setGanzesBrett(gamePuzzleValuesX);
+                        puzzle_board.setCompletedBoard(gamePuzzleValuesX);
 
                         break;
                 }
@@ -734,7 +734,7 @@ public class Sudokus {
                             {2, 3, 5, 6, 8, 7, 1, 4, 9},
                             {9, 6, 4, 5, 1, 3, 7, 2, 8},
                     };
-                    solution_board.setGanzesBrett(gameSolutionValues21);
+                    solution_board.setCompletedBoard(gameSolutionValues21);
 
                     int[][] gamePuzzleValues21 = {
                             {5, 4, 0, 0, 6, 0, 0, 3, 7},
@@ -747,7 +747,7 @@ public class Sudokus {
                             {0, 3, 0, 0, 0, 0, 0, 4, 0},
                             {9, 6, 0, 0, 1, 0, 0, 2, 8},
                     };
-                    puzzle_board.setGanzesBrett(gamePuzzleValues21);
+                    puzzle_board.setCompletedBoard(gamePuzzleValues21);
                     puzzleBoard = gamePuzzleValues21;
 
                     break;
@@ -765,7 +765,7 @@ public class Sudokus {
                             {4, 6, 7, 3, 5, 1, 9, 2, 8},
                             {1, 5, 9, 8, 2, 6, 4, 7, 3},
                     };
-                    solution_board.setGanzesBrett(gameSolutionValues22);
+                    solution_board.setCompletedBoard(gameSolutionValues22);
 
                     int[][] gamePuzzleValues22 = {
                             {0, 1, 0, 0, 8, 0, 0, 9, 0},
@@ -778,7 +778,7 @@ public class Sudokus {
                             {4, 0, 0, 0, 0, 0, 0, 0, 8},
                             {0, 5, 0, 0, 2, 0, 0, 7, 0},
                     };
-                    puzzle_board.setGanzesBrett(gamePuzzleValues22);
+                    puzzle_board.setCompletedBoard(gamePuzzleValues22);
                     puzzleBoard = gamePuzzleValues22;
 
                     break;
@@ -796,7 +796,7 @@ public class Sudokus {
                             {2, 6, 4, 5, 7, 1, 9, 3, 8},
                             {1, 7, 3, 8, 9, 6, 5, 4, 2},
                     };
-                    solution_board.setGanzesBrett(gameSolutionValues23);
+                    solution_board.setCompletedBoard(gameSolutionValues23);
 
                     int[][] gamePuzzleValues23 = {
                             {0, 3, 0, 4, 0, 9, 0, 5, 0},
@@ -809,7 +809,7 @@ public class Sudokus {
                             {2, 0, 0, 5, 0, 1, 0, 0, 8},
                             {0, 7, 0, 8, 0, 6, 0, 4, 0},
                     };
-                    puzzle_board.setGanzesBrett(gamePuzzleValues23);
+                    puzzle_board.setCompletedBoard(gamePuzzleValues23);
                     puzzleBoard = gamePuzzleValues23;
 
                     break;
@@ -827,7 +827,7 @@ public class Sudokus {
                             {6, 8, 2, 1, 5, 9, 3, 4, 7},
                             {7, 5, 1, 3, 4, 2, 9, 8, 6},
                     };
-                    solution_board.setGanzesBrett(gameSolutionValues24);
+                    solution_board.setCompletedBoard(gameSolutionValues24);
 
                     int[][] gamePuzzleValues24 = {
                             {2, 9, 0, 0, 3, 0, 0, 6, 5},
@@ -840,7 +840,7 @@ public class Sudokus {
                             {0, 0, 0, 1, 0, 9, 0, 0, 0},
                             {7, 5, 0, 0, 4, 0, 0, 8, 6},
                     };
-                    puzzle_board.setGanzesBrett(gamePuzzleValues24);
+                    puzzle_board.setCompletedBoard(gamePuzzleValues24);
                     puzzleBoard = gamePuzzleValues24;
 
                     break;
@@ -858,7 +858,7 @@ public class Sudokus {
                             {4, 5, 9, 6, 7, 3, 8, 1, 2},
                             {8, 6, 2, 9, 4, 1, 5, 7, 3},
                     };
-                    solution_board.setGanzesBrett(gameSolutionValues25);
+                    solution_board.setCompletedBoard(gameSolutionValues25);
 
                     int[][] gamePuzzleValues25 = {
                             {0, 0, 0, 0, 3, 0, 0, 0, 0},
@@ -871,7 +871,7 @@ public class Sudokus {
                             {0, 0, 9, 0, 7, 0, 8, 0, 0},
                             {0, 0, 0, 0, 4, 0, 0, 0, 0},
                     };
-                    puzzle_board.setGanzesBrett(gamePuzzleValues25);
+                    puzzle_board.setCompletedBoard(gamePuzzleValues25);
                     puzzleBoard = gamePuzzleValues25;
 
                     break;
@@ -889,7 +889,7 @@ public class Sudokus {
                             {8, 4, 7, 6, 1, 2, 9, 5, 3},
                             {2, 1, 6, 9, 3, 5, 7, 8, 4},
                     };
-                    solution_board.setGanzesBrett(gameSolutionValues26);
+                    solution_board.setCompletedBoard(gameSolutionValues26);
 
                     int[][] gamePuzzleValues26 = {
                             {5, 9, 0, 0, 0, 0, 0, 6, 7},
@@ -902,7 +902,7 @@ public class Sudokus {
                             {0, 0, 7, 0, 0, 0, 9, 0, 0},
                             {2, 1, 0, 0, 0, 0, 0, 8, 4},
                     };
-                    puzzle_board.setGanzesBrett(gamePuzzleValues26);
+                    puzzle_board.setCompletedBoard(gamePuzzleValues26);
                     puzzleBoard = gamePuzzleValues26;
 
                     break;
@@ -920,7 +920,7 @@ public class Sudokus {
                             {2, 6, 8, 3, 5, 9, 4, 7, 1},
                             {1, 5, 4, 2, 7, 6, 8, 9, 3},
                     };
-                    solution_board.setGanzesBrett(gameSolutionValues27);
+                    solution_board.setCompletedBoard(gameSolutionValues27);
 
                     int[][] gamePuzzleValues27 = {
                             {0, 0, 3, 4, 0, 7, 6, 0, 0},
@@ -933,7 +933,7 @@ public class Sudokus {
                             {2, 0, 0, 0, 0, 0, 0, 0, 1},
                             {0, 0, 4, 2, 0, 6, 8, 0, 0},
                     };
-                    puzzle_board.setGanzesBrett(gamePuzzleValues27);
+                    puzzle_board.setCompletedBoard(gamePuzzleValues27);
                     puzzleBoard = gamePuzzleValues27;
 
                     break;
@@ -951,7 +951,7 @@ public class Sudokus {
                             {4, 1, 5, 9, 7, 3, 2, 6, 8},
                             {9, 3, 6, 4, 8, 2, 5, 7, 1},
                     };
-                    solution_board.setGanzesBrett(gameSolutionValues28);
+                    solution_board.setCompletedBoard(gameSolutionValues28);
 
                     int[][] gamePuzzleValues28 = {
                             {3, 0, 0, 0, 2, 0, 0, 0, 4},
@@ -964,7 +964,7 @@ public class Sudokus {
                             {0, 0, 5, 0, 0, 0, 2, 0, 0},
                             {9, 0, 0, 0, 8, 0, 0, 0, 1},
                     };
-                    puzzle_board.setGanzesBrett(gamePuzzleValues28);
+                    puzzle_board.setCompletedBoard(gamePuzzleValues28);
                     puzzleBoard = gamePuzzleValues28;
 
                     break;
@@ -982,7 +982,7 @@ public class Sudokus {
                             {3, 5, 8, 9, 4, 6, 7, 1, 2},
                             {6, 1, 4, 8, 7, 2, 9, 3, 5},
                     };
-                    solution_board.setGanzesBrett(gameSolutionValues29);
+                    solution_board.setCompletedBoard(gameSolutionValues29);
 
                     int[][] gamePuzzleValues29 = {
                             {9, 0, 0, 5, 8, 1, 0, 0, 6},
@@ -995,7 +995,7 @@ public class Sudokus {
                             {0, 0, 0, 9, 0, 6, 0, 0, 0},
                             {6, 0, 0, 8, 7, 2, 0, 0, 5},
                     };
-                    puzzle_board.setGanzesBrett(gamePuzzleValues29);
+                    puzzle_board.setCompletedBoard(gamePuzzleValues29);
                     puzzleBoard = gamePuzzleValues29;
 
                     break;
@@ -1013,7 +1013,7 @@ public class Sudokus {
                             {8, 7, 5, 9, 6, 3, 4, 1, 2},
                             {2, 6, 3, 1, 4, 8, 5, 7, 9},
                     };
-                    solution_board.setGanzesBrett(gameSolutionValues30);
+                    solution_board.setCompletedBoard(gameSolutionValues30);
 
                     int[][] gamePuzzleValues30 = {
                             {0, 0, 0, 3, 0, 6, 0, 0, 0},
@@ -1026,7 +1026,7 @@ public class Sudokus {
                             {0, 7, 0, 0, 6, 0, 0, 1, 0},
                             {0, 0, 0, 1, 0, 8, 0, 0, 0},
                     };
-                    puzzle_board.setGanzesBrett(gamePuzzleValues30);
+                    puzzle_board.setCompletedBoard(gamePuzzleValues30);
                     puzzleBoard = gamePuzzleValues30;
 
                     break;
@@ -1044,7 +1044,7 @@ public class Sudokus {
                             {9, 2, 5, 1, 7, 8, 3, 4, 6},
                             {7, 1, 3, 4, 5, 6, 9, 2, 8},
                     };
-                    solution_board.setGanzesBrett(gameSolutionValuesX);
+                    solution_board.setCompletedBoard(gameSolutionValuesX);
 
                     int[][] gamePuzzleValuesX = {
                             {2, 8, 0, 0, 0, 0, 0, 1, 7},
@@ -1057,7 +1057,7 @@ public class Sudokus {
                             {0, 0, 5, 0, 0, 0, 3, 0, 0},
                             {0, 1, 0, 4, 0, 0, 9, 0, 8},
                     };
-                    puzzle_board.setGanzesBrett(gamePuzzleValuesX);
+                    puzzle_board.setCompletedBoard(gamePuzzleValuesX);
                     break;
             }
         }

@@ -16,7 +16,7 @@ public class Board {
     public static final int SIZE = 9; // size of square / arrays
 
 
-    public static Board getInstance() { return board; }
+    public Board getInstance() { return board; }
 
     private static Board board = new Board();
 
@@ -76,7 +76,7 @@ public class Board {
     /**
      * Set entire Board at once using a 2D-Array filled with all values (each array is a row in the sudoku)
      */
-    public void setGanzesBrett(int [][] values) {
+    public void setCompletedBoard(int [][] values) {
         for(int i = 0; i < SIZE; i++){
             for(int j = 0; j < SIZE; j++){
                 this.setValueInBrett(i, j, values[i][j]);
@@ -202,18 +202,4 @@ public class Board {
         log.info("Finished checking winning");
         return rt;
     }
-/*
-    // return true if any value occurs more than once
-    private boolean checkForDuplicates(int[] arr){
-        for(int i = 0; i < arr.length; i++){
-            int cur = arr[i];
-
-            for(int j = 0; j < arr.length; j++){
-                if(j != i){
-                    if(cur == arr[j]) return false;
-                }
-            }
-        }
-        return true;
-    }*/
 }

@@ -23,7 +23,7 @@ public class Controller {
 
     private static final Logger log = LogManager.getLogger(Controller.class);
     ReaderWriter readWrite = new ReaderWriter();
-    Button levelButton = new Button();
+    Button btnLevel = new Button();
     String counterUrl="src/main/resources/counter.txt";
     String level = "level.fxml";
     String startGame = "startgame.fxml";
@@ -47,7 +47,7 @@ public class Controller {
             log.info("Scene loaded successfully");
         } catch (IOException e) {
             e.printStackTrace();
-            log.error("Stage can't be loaded.");
+            log.error(e.getStackTrace()+"Stage can't be loaded.");
         }
     }
 

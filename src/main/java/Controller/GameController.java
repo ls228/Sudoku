@@ -33,9 +33,9 @@ public class GameController extends Controller implements Initializable {
     @FXML
     public GridPane sudokuGridPane;
     @FXML
-    private Label counter;
+    private Label lblCounter;
     @FXML
-    private Label timer;
+    private Label lblTimer;
 
     public final Board finishedBoard = new Board();
     private boolean labelAreInitialized = false;
@@ -44,11 +44,11 @@ public class GameController extends Controller implements Initializable {
     private TimeCounter TimeCounter;
 
     @FXML
-    private Label lastSelectedLabel = null;
+    private Label lblLastSelected = null;
     @FXML
-    private Label selectedLabel = null;
+    private Label lblSelected = null;
     @FXML
-    private Button pressedButton = null;
+    private Button btnNumberPressed = null;
 
     private final Background blue = new Background(new BackgroundFill(Color.CADETBLUE, null, null));
     private final Background lightblue = new Background(new BackgroundFill(Color.BEIGE, null, null));
@@ -107,7 +107,7 @@ public class GameController extends Controller implements Initializable {
                 }
             }
         }
-        finishedBoard.setGanzesBrett(Sudokus.puzzleBoard);
+        finishedBoard.setCompletedBoard(Sudokus.puzzleBoard);
         log.info("\nBoard successfully set to: \n" + finishedBoard);
     }
 
@@ -130,13 +130,12 @@ public class GameController extends Controller implements Initializable {
                 //Mouse clicked is implicitly implemented to mark the selected label mark
                 label.setOnMouseClicked(event -> {
                     Label label1 = (Label) event.getSource();
-                    selectedLabel = label1;
+                    lblSelected = label1;
 
-                    if (lastSelectedLabel != null)
-                        lastSelectedLabel.setBackground(null);
-
-                    lastSelectedLabel = label1;
-                    label1.setBackground(blue);
+                    if (lblLastSelected != null)
+                        lblLastSelected.setBackground(null);
+                        lblLastSelected = label1;
+                        label1.setBackground(blue);
                 });
                 if (sudokuGridPane != null) {
                     sudokuGridPane.add(label, i, j);
@@ -171,30 +170,30 @@ public class GameController extends Controller implements Initializable {
      * This method compares the input with the solutionBoard
      * If input is false, the label turns red and counts one mistake
      *
-     * @param value,position
+     * @param value
      * @return boolean
      */
 
 
     public boolean checkInput(int value, Position position) {
-
         int valueSolved = solutionBoard.getNumberAtIdx(position.col, position.row);
         if (value == valueSolved) {
-            selectedLabel.setBackground(white);
+            lblSelected.setBackground(white);
             return true;
         }
 
         wrongInput();
         wrongValue = true;
+
         if (count < 2) {
             count++;
-            counter.setText("Wrong input counter: " + count + "/3");
+            lblCounter.setText("Wrong input counter: " + count + "/3");
             readWrite.removeEntries(counterUrl);
         } else {
-            counter.setText("Wrong input counter: 3/3");
+            lblCounter.setText("Wrong input counter: 3/3");
             display("YOU LOST");
             count = 0;
-            counter.setText("Wrong input counter: " + count + "/3");
+            lblCounter.setText("Wrong input counter: " + count + "/3");
             log.info("Game lost");
         }
         return false;
@@ -212,7 +211,6 @@ public class GameController extends Controller implements Initializable {
                 Main.getMainWindow().show();
             } catch (IOException e) {
                 log.error(e.getStackTrace()+"Stage can't be loaded");
-                //0101 1100 1101 0001 1000 0101 1010 1101
             }
         }
     }
@@ -280,13 +278,13 @@ public class GameController extends Controller implements Initializable {
     }
 
     @FXML
-    protected void resetGame() {
+    protected void lblResetGame() {
         if (!labelAreInitialized) {
             this.setLabels();
             labelAreInitialized = true;
         }
         count = 0;
-        counter.setText("Wrong input counter: " + count + "/3");
+        lblCounter.setText("Wrong input counter: " + count + "/3");
         startRound();
         TimeCounter.setIsRunning(false);
         TimeCounter = new TimeCounter();
@@ -295,7 +293,7 @@ public class GameController extends Controller implements Initializable {
     }
 
     @FXML
-    protected void goBackPressed(ActionEvent event) {
+    protected void lblBackToMenu(ActionEvent event) {
         loadNewScene(event, homeFxml);
         TimeCounter.setIsRunning(false);
     }
@@ -308,26 +306,27 @@ public class GameController extends Controller implements Initializable {
     protected void inputButton(ActionEvent event) {
 
         Button activeButton = (Button) event.getSource();
-        pressedButton = activeButton;
+        btnNumberPressed = activeButton;
 
         try {
             Position position = getRowCol(selectedLabel.getId());
             //get pressed value
-            String id = pressedButton.getId();
+            Position position = getRowCol(lblSelected.getId());
+            String id = btnNumberPressed.getId();
             char choiceChar = id.charAt(7);
             int choiceInt = Integer.parseInt(String.valueOf(choiceChar));
             String choiceString = String.valueOf(choiceChar);
 
-            if (this.selectedLabel != null)
-                this.selectedLabel.setText(choiceString);
-            checkInput(choiceInt,position);
+            if (this.lblSelected != null)
+                this.lblSelected.setText(choiceString);
+            checkInput(choiceInt, position);
 
             //to check the user input after the game is finished
             finishedBoard.setValueInBrett(position.col, position.row, choiceInt);
             log.info("\nBoard after last user input: \n" + finishedBoard);
 
         }catch (NullPointerException e){
-            log.error("No selected Label");
+            log.error("No selected Label" + e.getStackTrace());
         }
 
         if (!(finishedBoard.checkIfFinished())) {
@@ -347,10 +346,10 @@ public class GameController extends Controller implements Initializable {
     //delete last input
     @FXML
     protected void backPressed() {
-        if(this.selectedLabel != null) {
-            Position position = getRowCol(selectedLabel.getId());
-            selectedLabel.setBackground(white);
-            selectedLabel.setText(null);
+        if(this.lblSelected != null) {
+            Position position = getRowCol(lblSelected.getId());
+            lblSelected.setBackground(white);
+            lblSelected.setText(null);
             finishedBoard.setValueInBrett(position.col, position.row, 0);
             log.info(finishedBoard);
             log.info("Number has been deleted");
@@ -363,14 +362,14 @@ public class GameController extends Controller implements Initializable {
     //wrong input, red Background
     @FXML
     private void wrongInput() {
-        selectedLabel.setBackground(pink);
+        lblSelected.setBackground(pink);
         log.info("Wrong input");
     }
 
     AnimationTimer animationTimer = new AnimationTimer() {
         @Override
         public void handle(long now) {
-            timer.setText("Time passed:  " + TimeCounter.getCount() + " s");
+            lblTimer.setText("Time passed:  " + TimeCounter.getCount() + " s");
         }
     };
 
