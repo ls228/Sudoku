@@ -27,8 +27,8 @@ public class Controller {
     String counterUrl="src/main/resources/counter.txt";
     String level = "level.fxml";
     String startGame = "startgame.fxml";
-    String settings = "settings.fxml";
     String homeFxml = "home.fxml";
+    int randomNumber = (int) (10 * Math.random());
 
     /**
      * This method generates a new scene on top of the stage by loading the given fxml file
@@ -52,8 +52,8 @@ public class Controller {
     }
 
     // get puzzle & solution Boards
-    static Board puzzleBoard = Sudokus.getPuzzle_board();
-    static Board solutionBoard = Sudokus.getSolution_board();
+    Board puzzleBoard = Sudokus.getPuzzle_board();
+    Board solutionBoard = Sudokus.getSolution_board();
 }
 
 

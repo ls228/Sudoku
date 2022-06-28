@@ -21,9 +21,8 @@ public class Sudokus {
      *
      * @param currentlevel
      */
-    public Sudokus(int currentlevel) {
+    public Sudokus(int currentlevel,int randomNumber) {
 
-        int randomNumber = (int) (10 * Math.random());
         log.info("Random Number: " + randomNumber);
         log.info("Level is set to Level " + currentlevel);
 

@@ -1,13 +1,35 @@
 package Game;
-
+import org.apache.logging.log4j.core.util.Assert;
+import org.junit.jupiter.api.Assumptions;
 import org.junit.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ReaderWriterTest {
 
-    ReaderWriter writeTest = new ReaderWriter();
+    ReaderWriter readWrite = new ReaderWriter();
     //negative testing
     @Test (expected = NullPointerException.class)
     public void write() {
-            writeTest.write(5, null);
+            readWrite.write(5, null);
+    }
+
+    @Test
+    public void read(){
+        readWrite.removeEntries("counter.txt");
+        readWrite.write(1, "counter.txt");
+
+        try {
+            assertEquals(1, readWrite.read("counter.txt").size(), "is equal");
+        } catch (Exception e) {
+            throw new RuntimeException();
+        }
+        readWrite.write(1, "counter.txt");
+        try {
+            assertEquals(2, readWrite.read("counter.txt").size(), "is equal");
+        } catch (Exception e) {
+            throw new RuntimeException();
+        }
+
     }
 }

@@ -27,7 +27,7 @@ public class HomeController extends Controller implements Initializable{
     protected void levelPressed(ActionEvent event) {
         Button activeButton = (Button) event.getSource();
         levelButton = activeButton;
-        Sudokus games = new Sudokus(Integer.parseInt(levelButton.getId()));
+        Sudokus games = new Sudokus(Integer.parseInt(levelButton.getId()),randomNumber);
         //eigentlich nur noch eine fxml datei benötigt
         loadNewScene(event, level);
     }

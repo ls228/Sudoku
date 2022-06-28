@@ -169,7 +169,7 @@ public class GameController extends Controller implements Initializable {
 
     /**
      * This method compares the input with the solutionBoard
-     * If input is valse, the label turns red and counts one mistake
+     * If input is false, the label turns red and counts one mistake
      *
      * @param value,position
      * @return boolean
@@ -306,11 +306,12 @@ public class GameController extends Controller implements Initializable {
 
     @FXML
     protected void inputButton(ActionEvent event) {
-        Position position = getRowCol(selectedLabel.getId());
+
         Button activeButton = (Button) event.getSource();
         pressedButton = activeButton;
 
         try {
+            Position position = getRowCol(selectedLabel.getId());
             //get pressed value
             String id = pressedButton.getId();
             char choiceChar = id.charAt(7);
