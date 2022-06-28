@@ -28,9 +28,11 @@ public class ReaderWriter {
         }
     }
 
+
     /**
-     * Diese Methode ermöglicht das lesen der Einträge innerhalb der Textdatei
-     * @return Textdatei Einträge
+     * This method enables reading all entries in the counter file
+     * @param url counter.txt
+     * @return array with all entries
      */
     public List<String> read(String url) {
 
@@ -55,6 +57,7 @@ public class ReaderWriter {
             FileWriter fw = new FileWriter(url);
             fw.write("");
             fw.close();
+            log.info("Reset game");
         } catch ( IOException e ) {
             log.error(e.getStackTrace()+" File could not be found");
         }
