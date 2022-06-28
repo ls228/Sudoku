@@ -5,8 +5,6 @@ import Game.Sudokus;
 import org.junit.jupiter.api.Assumptions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class GameControllerTest {
     GameController gamesTest = new GameController();
     Board testBoard = new Board();
@@ -15,6 +13,6 @@ class GameControllerTest {
     @Test
     void checkInput() {
         testBoard.setGanzesBrett(sudokuTest.solutionBoard);
-        Assumptions.assumeFalse(gamesTest.checkInput(2));
+        Assumptions.assumeFalse(gamesTest.checkInput(1,gamesTest.getRowCol("Label_0_0")));
     }
 }

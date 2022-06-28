@@ -150,12 +150,12 @@ public class GameController extends Controller implements Initializable {
     /**
      * new class to enable input of labelId and output of col & row in method getRowCol
      */
-    private class Position {
+    public class Position {
         public int row = 0;
         public int col = 0;
     }
 
-    private Position getRowCol(String labelId) {
+    public Position getRowCol(String labelId) {
         char rowChar = labelId.charAt(6);
         char colChar = labelId.charAt(8);
 
@@ -171,13 +171,13 @@ public class GameController extends Controller implements Initializable {
      * This method compares the input with the solutionBoard
      * If input is valse, the label turns red and counts one mistake
      *
-     * @param value
+     * @param value,position
      * @return boolean
      */
 
 
-    public boolean checkInput(int value) {
-        Position position = getRowCol(selectedLabel.getId());
+    public boolean checkInput(int value, Position position) {
+
         int valueSolved = solutionBoard.getNumberAtIdx(position.col, position.row);
         if (value == valueSolved) {
             selectedLabel.setBackground(white);
@@ -306,7 +306,7 @@ public class GameController extends Controller implements Initializable {
 
     @FXML
     protected void inputButton(ActionEvent event) {
-
+        Position position = getRowCol(selectedLabel.getId());
         Button activeButton = (Button) event.getSource();
         pressedButton = activeButton;
 
@@ -319,10 +319,9 @@ public class GameController extends Controller implements Initializable {
 
             if (this.selectedLabel != null)
                 this.selectedLabel.setText(choiceString);
-            checkInput(choiceInt);
+            checkInput(choiceInt,position);
 
             //to check the user input after the game is finished
-            Position position = getRowCol(selectedLabel.getId());
             finishedBoard.setValueInBrett(position.col, position.row, choiceInt);
             log.info("\nBoard after last user input: \n" + finishedBoard);
 
