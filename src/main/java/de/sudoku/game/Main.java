@@ -13,21 +13,25 @@ import java.net.URL;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class Main extends Application{
+public class Main extends Application {
 
     private static final Logger log = LogManager.getLogger(Main.class);
-    public static Stage getMainWindow() {
-        return mainWindow;
-    }
-
     static Stage mainWindow;
-
     /**
      * Sets up starting screen of the game
+     *
      * @param primaryStage
      * @throws Exception
      */
     String startGame = "startgame.fxml";
+
+    public static Stage getMainWindow() {
+        return mainWindow;
+    }
+
+    public static void main(String[] args) {
+        launch(args); // calls start-method
+    }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -49,7 +53,7 @@ public class Main extends Application{
         mainWindow = primaryStage;
         mainWindow.setTitle("Sudoku");
         mainWindow.show();
-        log.info(LocalDateTime.now()+": Scene loaded successfully");
+        log.info(LocalDateTime.now() + ": Scene loaded successfully");
 
         mainWindow.setOnCloseRequest(windowEvent -> {
             Platform.exit();
@@ -57,9 +61,5 @@ public class Main extends Application{
             log.info("Scene closed successfully");
         });
 
-    }
-
-    public static void main(String[] args) {
-        launch(args); // calls start-method
     }
 }

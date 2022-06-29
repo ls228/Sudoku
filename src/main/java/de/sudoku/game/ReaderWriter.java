@@ -2,7 +2,11 @@ package de.sudoku.game;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import java.io.*;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,15 +18,13 @@ public class ReaderWriter {
     /**
      * Creates new entry in counter.txt
      */
-
     public void write(int gameSolved, String url) {
 
         try {
             FileWriter myWriter = new FileWriter(url, true);
             // count is saved in text file
-            myWriter.write(gameSolved+"\n");
+            myWriter.write(gameSolved + "\n");
             myWriter.close();
-
         } catch (IOException e) {
             log.error(e.getStackTrace() + "Error. Data not found.");
         }
@@ -31,6 +33,7 @@ public class ReaderWriter {
 
     /**
      * This method enables reading all entries in the counter file
+     *
      * @param url counter.txt
      * @return array with all entries
      */
@@ -48,13 +51,14 @@ public class ReaderWriter {
         } catch (IOException e) {
             log.error(e.getStackTrace() + "File " + url + " not found.");
         }
-        log.info("'Solved levels'-Counter is " +entries.size());
+        log.info("'Solved levels'-Counter is " + entries.size());
         return entries;
     }
 
     /**
      * This method enables removing all entries of the counter file
      * We use it for resetting the game score
+     *
      * @param url counter.txt
      */
     public void removeEntries(String url) {
@@ -64,7 +68,7 @@ public class ReaderWriter {
             fw.close();
             log.info("Reset game");
         } catch (IOException e) {
-            log.error(e.getStackTrace()+" File could not be found");
+            log.error(e.getStackTrace() + " File could not be found");
         }
     }
 }

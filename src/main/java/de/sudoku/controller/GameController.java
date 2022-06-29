@@ -1,5 +1,9 @@
 package de.sudoku.controller;
 
+import de.sudoku.game.Board;
+import de.sudoku.game.Main;
+import de.sudoku.game.Sudokus;
+import de.sudoku.game.TimeCounter;
 import javafx.animation.AnimationTimer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,43 +23,43 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import de.sudoku.game.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 public class GameController extends Controller implements Initializable {
 
     private static final Logger log = LogManager.getLogger(GameController.class);
+    public final Board finishedBoard = new Board();
+    private final Background blue = new Background(new BackgroundFill(Color.CADETBLUE, null, null));
+    private final Background lightblue = new Background(new BackgroundFill(Color.BEIGE, null, null));
+    private final Background white = new Background(new BackgroundFill(Color.WHITE, null, null));
+    private final Background pink = new Background(new BackgroundFill(Color.PINK, null, null));
     @FXML
     public GridPane sudokuGridPane;
+    public boolean wrongValue = false;
     @FXML
     private Label lblCounter;
     @FXML
     private Label lblTimer;
-
-    public final Board finishedBoard = new Board();
     private boolean labelAreInitialized = false;
-    public boolean wrongValue = false;
     private boolean restartGame = true;
     private TimeCounter TimeCounter;
-
+    AnimationTimer animationTimer = new AnimationTimer() {
+        @Override
+        public void handle(long now) {
+            lblTimer.setText("Time passed:  " + TimeCounter.getCount() + " s");
+        }
+    };
     @FXML
     private Label lblLastSelected = null;
     @FXML
     private Label lblSelected = null;
     @FXML
     private Button btnNumberPressed = null;
-
-    private final Background blue = new Background(new BackgroundFill(Color.CADETBLUE, null, null));
-    private final Background lightblue = new Background(new BackgroundFill(Color.BEIGE, null, null));
-    private final Background white = new Background(new BackgroundFill(Color.WHITE, null, null));
-    private final Background pink = new Background(new BackgroundFill(Color.PINK, null, null));
-
     private int count = 0;
 
     /**
@@ -84,11 +88,11 @@ public class GameController extends Controller implements Initializable {
     private void startRound() {
         int size = sudokuGridPane.getChildren().size();
         Label label = null;
-        if ( sudokuGridPane != null && size > 1) {
+        if (sudokuGridPane != null && size > 1) {
             //for each Schleife um jedes Label zu testen
             for (Node node : sudokuGridPane.getChildren()) {
 
-                if(!(node.getClass() == Group.class)){
+                if (!(node.getClass() == Group.class)) {
                     label = (Label) node;
                 }
 
@@ -135,8 +139,8 @@ public class GameController extends Controller implements Initializable {
 
                     if (lblLastSelected != null)
                         lblLastSelected.setBackground(null);
-                        lblLastSelected = label1;
-                        label1.setBackground(blue);
+                    lblLastSelected = label1;
+                    label1.setBackground(blue);
                 });
                 if (sudokuGridPane != null) {
                     sudokuGridPane.add(label, i, j);
@@ -144,15 +148,6 @@ public class GameController extends Controller implements Initializable {
             }
         }
         log.info("Labels have been set successfully.");
-    }
-
-
-    /**
-     * new class to enable input of labelId and output of col & row in method getRowCol
-     */
-    public class Position {
-        public int row = 0;
-        public int col = 0;
     }
 
     public Position getRowCol(String labelId) {
@@ -211,7 +206,7 @@ public class GameController extends Controller implements Initializable {
                 Main.getMainWindow().setScene(scene);
                 Main.getMainWindow().show();
             } catch (IOException e) {
-                log.error(e.getStackTrace()+"Stage can't be loaded");
+                log.error(e.getStackTrace() + "Stage can't be loaded");
             }
         }
     }
@@ -322,10 +317,10 @@ public class GameController extends Controller implements Initializable {
             checkInput(choiceInt, position);
 
             //to check the user input after the game is finished
-            finishedBoard.setValueInBrett(position.col, position.row, choiceInt);
+            finishedBoard.setValueInBoard(position.col, position.row, choiceInt);
             log.info("\nBoard after last user input: \n" + finishedBoard);
 
-        }catch (NullPointerException e){
+        } catch (NullPointerException e) {
             log.error("No selected Label" + e.getStackTrace());
         }
 
@@ -334,7 +329,7 @@ public class GameController extends Controller implements Initializable {
                 display("YOU WON");
                 log.info("de.sudoku.Game won");
                 //Label das anzeigt wie viele Spiele schon gewonnen wurden
-                readWrite.write(1,counterUrl);
+                readWrite.write(1, counterUrl);
 
             } else {
                 display("YOU LOST");
@@ -346,15 +341,14 @@ public class GameController extends Controller implements Initializable {
     //delete last input
     @FXML
     protected void backPressed() {
-        if(this.lblSelected != null) {
+        if (this.lblSelected != null) {
             Position position = getRowCol(lblSelected.getId());
             lblSelected.setBackground(white);
             lblSelected.setText(null);
-            finishedBoard.setValueInBrett(position.col, position.row, 0);
+            finishedBoard.setValueInBoard(position.col, position.row, 0);
             log.info(finishedBoard);
             log.info("Number has been deleted");
-        }
-        else {
+        } else {
             log.info("no selected Label");
         }
     }
@@ -366,11 +360,12 @@ public class GameController extends Controller implements Initializable {
         log.info("Wrong input");
     }
 
-    AnimationTimer animationTimer = new AnimationTimer() {
-        @Override
-        public void handle(long now) {
-            lblTimer.setText("Time passed:  " + TimeCounter.getCount() + " s");
-        }
-    };
+    /**
+     * new class to enable input of labelId and output of col & row in method getRowCol
+     */
+    public class Position {
+        public int row = 0;
+        public int col = 0;
+    }
 
 }

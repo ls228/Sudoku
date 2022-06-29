@@ -1,4 +1,5 @@
 package de.sudoku.game;
+
 import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -6,14 +7,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class ReaderWriterTest {
 
     ReaderWriter readWrite = new ReaderWriter();
+
     //negative testing
-    @Test (expected = NullPointerException.class)
+    @Test(expected = NullPointerException.class)
     public void write() {
-            readWrite.write(5, null);
+        readWrite.write(5, null);
     }
 
     @Test
-    public void read(){
+    public void read() {
         readWrite.removeEntries("counter.txt");
         readWrite.write(1, "counter.txt");
 

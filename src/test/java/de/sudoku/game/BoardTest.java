@@ -1,12 +1,13 @@
 package de.sudoku.game;
+
 import org.junit.jupiter.api.Assumptions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class BoardTest{
+public class BoardTest {
     Board testBoard = new Board();
-    Sudokus getSudoku = new Sudokus(1,5);
+    Sudokus getSudoku = new Sudokus(1, 5);
 
 
     @Test
@@ -46,7 +47,7 @@ public class BoardTest{
     void setValueInBrett() {
         try {
             testBoard.setCompletedBoard(Sudokus.puzzleBoard);
-            testBoard.setValueInBrett(1, 1, 1);
+            testBoard.setValueInBoard(1, 1, 1);
         } catch (Exception e) {
             throw new RuntimeException();
         }

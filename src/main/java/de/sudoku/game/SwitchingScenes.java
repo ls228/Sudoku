@@ -16,23 +16,73 @@ import javafx.stage.Stage;
 
 public class SwitchingScenes extends Application {
 
-    Stage window;
     static Scene scene1;
     static Scene scene2;
-
+    static boolean answer;
+    Stage window;
     private AnimationTimer timer;
     private Label lblTime = new Label("0 .s");
     private int seconds;
 
-
-
-
-
-
     public static void main(String[] args) {
         launch(args);
-        }
+    }
 
+    public static void display(String title, String message) {
+        Stage window = new Stage();
+
+        window.initModality(Modality.APPLICATION_MODAL);
+        window.setTitle(title);
+        window.setMinWidth(250);
+
+        Label label = new Label();
+        label.setText(message);
+
+
+        VBox layout = new VBox(10);
+        layout.getChildren().addAll(label);
+        layout.setAlignment(Pos.CENTER);
+
+
+        Scene scene = new Scene(layout);
+        window.setScene(scene);
+        window.show();
+    }
+
+    public static boolean confirmBox(String title, String message) {
+        Stage window = new Stage();
+
+        window.initModality(Modality.APPLICATION_MODAL);
+        window.setTitle(title);
+        window.setMinWidth(250);
+        Label label = new Label();
+        label.setText(message);
+
+
+        Button yesButton = new Button("yes");
+        Button noButton = new Button("No");
+
+        yesButton.setOnAction(e -> {
+            answer = true;
+            window.setScene(scene1);
+            //window.close();
+        });
+
+        noButton.setOnAction(e -> {
+            answer = false;
+            window.setScene(scene2);
+            //window.close();
+        });
+
+        VBox layout = new VBox(10);
+        layout.getChildren().addAll(label, yesButton, noButton);
+        layout.setAlignment(Pos.CENTER);
+        Scene scene = new Scene(layout);
+        window.setScene(scene);
+        window.showAndWait();
+
+        return answer;
+    }
 
     @Override
     public void start(Stage PrimaryStage) throws Exception {
@@ -41,6 +91,7 @@ public class SwitchingScenes extends Application {
 
         timer = new AnimationTimer() {
             private long lastTime = 0;
+
             @Override
             public void handle(long now) {
                 if (lastTime != 0) {
@@ -52,6 +103,7 @@ public class SwitchingScenes extends Application {
                     lastTime = now;
                 }
             }
+
             @Override
             public void stop() {
                 super.stop();
@@ -59,7 +111,6 @@ public class SwitchingScenes extends Application {
                 seconds = 0;
             }
         };
-
 
 
         Button btnStart = new Button("Start");
@@ -106,7 +157,7 @@ public class SwitchingScenes extends Application {
         window.setTitle("Title");
         window.show();
 
-      display("Sudoku", "You won!");
+        display("Sudoku", "You won!");
 
         /*window.setOnCloseRequest(e -> {
             e.consume();
@@ -114,77 +165,12 @@ public class SwitchingScenes extends Application {
         });*/
     }
 
-
-
-
-
-
-
-        public static void display(String title, String message) {
-            Stage window = new Stage();
-
-            window.initModality(Modality.APPLICATION_MODAL);
-            window.setTitle(title);
-            window.setMinWidth(250);
-
-            Label label = new Label();
-            label.setText(message);
-
-
-            VBox layout = new VBox(10);
-            layout.getChildren().addAll(label);
-            layout.setAlignment(Pos.CENTER);
-
-
-            Scene scene = new Scene(layout);
-            window.setScene(scene);
-            window.show();
-        }
-
-        static boolean answer;
-
-        public static boolean confirmBox(String title, String message) {
-            Stage window = new Stage();
-
-            window.initModality(Modality.APPLICATION_MODAL);
-            window.setTitle(title);
-            window.setMinWidth(250);
-            Label label = new Label();
-            label.setText(message);
-
-
-            Button yesButton = new Button("yes");
-            Button noButton = new Button("No");
-
-            yesButton.setOnAction(e -> {
-                answer = true;
-                window.setScene(scene1);
-                //window.close();
-            });
-
-            noButton.setOnAction(e -> {
-                answer = false;
-                window.setScene(scene2);
-                //window.close();
-            });
-
-            VBox layout = new VBox(10);
-            layout.getChildren().addAll(label, yesButton, noButton);
-            layout.setAlignment(Pos.CENTER);
-            Scene scene = new Scene(layout);
-            window.setScene(scene);
-            window.showAndWait();
-
-            return answer;
-        }
-
-
     private void closeProgram() {
-            Boolean answer = confirmBox("Exit", "Sure you want to exit?");
-            if (answer)
-                window.close();
-        }
-
+        Boolean answer = confirmBox("Exit", "Sure you want to exit?");
+        if (answer)
+            window.close();
     }
+
+}
 
 

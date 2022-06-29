@@ -1,6 +1,5 @@
 package de.sudoku.controller;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 /*
 class GameControllerTest {
     //funktioniert nicht
