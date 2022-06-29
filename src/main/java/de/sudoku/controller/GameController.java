@@ -112,7 +112,7 @@ public class GameController extends Controller implements Initializable {
                 }
             }
         }
-        finishedBoard.setCompletedBoard(Sudokus.puzzleBoard);
+        finishedBoard.setCompletedBoard(puzzleBoard.getBoardArray());
         log.info("\nBoard successfully set to: \n" + finishedBoard);
     }
 
@@ -171,7 +171,8 @@ public class GameController extends Controller implements Initializable {
      */
 
 
-    public boolean checkInput(int value, Position position) {
+    private boolean checkInput(int value, Position position) {
+
         int valueSolved = solutionBoard.getNumberAtIdx(position.col, position.row);
         if (value == valueSolved) {
             lblSelected.setBackground(white);

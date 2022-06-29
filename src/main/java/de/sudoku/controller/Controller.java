@@ -32,8 +32,11 @@ public class Controller {
     Button btnLevel = new Button();
     int randomNumber = (int) (10 * Math.random());
     // get puzzle & solution Boards
-    Board puzzleBoard = Sudokus.getPuzzleBoard();
-    Board solutionBoard = Sudokus.getSolutionBoard();
+    Sudokus activeSudoku = new Sudokus();
+    Board puzzleBoard = activeSudoku.getPuzzleBoard();
+    Board solutionBoard = activeSudoku.getSolutionBoard();
+
+
 
 
     /**

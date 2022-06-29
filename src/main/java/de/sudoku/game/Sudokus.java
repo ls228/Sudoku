@@ -7,11 +7,10 @@ import org.apache.logging.log4j.Logger;
 public class Sudokus {
 
     private static final Logger log = LogManager.getLogger(Sudokus.class);
+    private static Board bSolutionBoard = new Board(); // solved board (solution)
+    private static Board bPuzzleBoard = new Board(); // game that has to be solved (quest)
 
-    public static Board bSolutionBoard = new Board(); // solved board (solution)
-    public static Board bPuzzleBoard = new Board(); // game that has to be solved (quest)
     public static int[][] puzzleBoard = new int[Board.SIZE][Board.SIZE];
-    public int[][] solutionBoard = new int[Board.SIZE][Board.SIZE];
 
     /**
      * This class holds the sudoku puzzles, from which one will be randomly chosen once the game is starting.
@@ -21,7 +20,7 @@ public class Sudokus {
      *
      * @param currentlevel
      */
-    public Sudokus(int currentlevel, int randomNumber) {
+    public void chosenSudoku(int currentlevel, int randomNumber) {
 
         log.info("Random Number: " + randomNumber);
         log.info("Level is set to Level " + currentlevel);
@@ -44,7 +43,7 @@ public class Sudokus {
                             {3, 1, 5, 4, 2, 7, 9, 8, 6},
                     };
                     bSolutionBoard.setCompletedBoard(gameSolutionValues1);
-                    solutionBoard = gameSolutionValues1;
+
 
                     int[][] gamePuzzleValues1 = {
                             {8, 3, 1, 0, 0, 0, 7, 4, 2},
@@ -58,7 +57,6 @@ public class Sudokus {
                             {3, 1, 5, 0, 0, 0, 9, 8, 6},
                     };
                     bPuzzleBoard.setCompletedBoard(gamePuzzleValues1);
-                    puzzleBoard = gamePuzzleValues1;
 
                     break;
 
@@ -76,7 +74,7 @@ public class Sudokus {
                             {2, 9, 8, 4, 5, 7, 6, 3, 1},
                     };
                     bSolutionBoard.setCompletedBoard(gameSolutionValues2);
-                    solutionBoard = gameSolutionValues2;
+
 
                     int[][] gamePuzzleValues2 = {
                             {0, 0, 0, 5, 3, 2, 0, 0, 0},
@@ -90,7 +88,6 @@ public class Sudokus {
                             {0, 0, 0, 4, 5, 7, 0, 0, 0},
                     };
                     bPuzzleBoard.setCompletedBoard(gamePuzzleValues2);
-                    puzzleBoard = gamePuzzleValues2;
                     break;
 
 
@@ -107,7 +104,6 @@ public class Sudokus {
                             {7, 9, 2, 8, 5, 1, 6, 3, 4},
                     };
                     bSolutionBoard.setCompletedBoard(gameSolutionValues3);
-                    solutionBoard = gameSolutionValues3;
 
                     int[][] gamePuzzleValues3 = {
                             {3, 7, 0, 0, 0, 0, 0, 8, 2},
@@ -138,7 +134,7 @@ public class Sudokus {
                             {6, 3, 2, 1, 8, 5, 9, 7, 4},
                     };
                     bSolutionBoard.setCompletedBoard(gameSolutionValues4);
-                    solutionBoard = gameSolutionValues4;
+
 
                     int[][] gamePuzzleValues4 = {
                             {0, 6, 4, 0, 0, 0, 1, 8, 0},
@@ -169,7 +165,6 @@ public class Sudokus {
                             {7, 1, 4, 2, 8, 3, 6, 5, 9},
                     };
                     bSolutionBoard.setCompletedBoard(gameSolutionValues5);
-                    solutionBoard = gameSolutionValues5;
 
                     int[][] gamePuzzleValues5 = {
                             {9, 0, 0, 0, 0, 0, 0, 0, 5},
@@ -200,7 +195,6 @@ public class Sudokus {
                             {9, 1, 8, 4, 6, 5, 2, 3, 7},
                     };
                     bSolutionBoard.setCompletedBoard(gameSolutionValues6);
-                    solutionBoard = gameSolutionValues6;
 
                     int[][] gamePuzzleValues6 = {
                             {4, 0, 2, 0, 0, 0, 7, 0, 6},
@@ -231,7 +225,6 @@ public class Sudokus {
                             {1, 3, 4, 6, 5, 8, 2, 9, 7},
                     };
                     bSolutionBoard.setCompletedBoard(gameSolutionValues7);
-                    solutionBoard = gameSolutionValues7;
 
                     int[][] gamePuzzleValues7 = {
                             {0, 7, 0, 1, 0, 6, 0, 2, 0},
@@ -262,7 +255,6 @@ public class Sudokus {
                             {5, 9, 1, 2, 6, 7, 8, 3, 4},
                     };
                     bSolutionBoard.setCompletedBoard(gameSolutionValues8);
-                    solutionBoard = gameSolutionValues8;
 
                     int[][] gamePuzzleValues8 = {
                             {0, 0, 0, 3, 0, 2, 0, 0, 0},
@@ -293,7 +285,6 @@ public class Sudokus {
                             {8, 4, 5, 6, 1, 7, 2, 3, 9},
                     };
                     bSolutionBoard.setCompletedBoard(gameSolutionValues9);
-                    solutionBoard = gameSolutionValues9;
 
                     int[][] gamePuzzleValues9 = {
                             {0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -325,7 +316,6 @@ public class Sudokus {
                             {3, 7, 8, 1, 9, 4, 5, 6, 2},
                     };
                     bSolutionBoard.setCompletedBoard(gameSolutionValues10);
-                    solutionBoard = gameSolutionValues10;
 
                     int[][] gamePuzzleValues10 = {
                             {8, 0, 0, 7, 0, 6, 0, 0, 1},
@@ -1062,11 +1052,11 @@ public class Sudokus {
     }
 
 
-    public static Board getSolutionBoard() {
+    public Board getSolutionBoard() {
         return bSolutionBoard;
     }
 
-    public static Board getPuzzleBoard() {
+    public Board getPuzzleBoard() {
         return bPuzzleBoard;
     }
 

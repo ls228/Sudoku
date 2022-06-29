@@ -12,15 +12,18 @@ public class TimeCounter extends Thread {
     @Override
     public void run() {
         count = 0;
+        log.debug("Timer not running");
         while (isRunning) {
+
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
+                log.error(e.getStackTrace()+"Thread is not running");
             }
             count++;
-            //log.info("Time: " + count);
         }
+        log.debug("Timer running");
     }
 
     public int getCount() {
