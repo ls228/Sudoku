@@ -18,7 +18,7 @@ public class StartgameController extends Controller {
 
     @FXML
     protected void playPressed(ActionEvent event) {
-        loadNewScene(event, homeFxml);
+        loadNewScene(event, HOME_FXML);
     }
 
     @FXML
@@ -30,6 +30,6 @@ public class StartgameController extends Controller {
 
     @FXML
     protected void resetGame() {
-        readWrite.removeEntries(counterUrl);
+        readWrite.removeEntries(COUNTER_URL);
     }
 }

@@ -22,16 +22,19 @@ import java.net.URL;
 public class Controller {
 
     private static final Logger log = LogManager.getLogger(Controller.class);
+
+    protected static String COUNTER_URL = "src/main/resources/counter.txt";
+    protected static String LEVEL_FXML = "level.fxml";
+    protected static String START_GAME_FXML = "startgame.fxml";
+    protected static String HOME_FXML = "home.fxml";
+
     ReaderWriter readWrite = new ReaderWriter();
     Button btnLevel = new Button();
-    String counterUrl = "src/main/resources/counter.txt";
-    String level = "level.fxml";
-    String startGame = "startgame.fxml";
-    String homeFxml = "home.fxml";
     int randomNumber = (int) (10 * Math.random());
     // get puzzle & solution Boards
     Board puzzleBoard = Sudokus.getPuzzleBoard();
     Board solutionBoard = Sudokus.getSolutionBoard();
+
 
     /**
      * This method generates a new scene on top of the stage by loading the given fxml file

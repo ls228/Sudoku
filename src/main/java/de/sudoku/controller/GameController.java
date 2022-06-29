@@ -184,7 +184,7 @@ public class GameController extends Controller implements Initializable {
         if (count < 2) {
             count++;
             lblCounter.setText("Wrong input counter: " + count + "/3");
-            readWrite.removeEntries(counterUrl);
+            readWrite.removeEntries(COUNTER_URL);
         } else {
             lblCounter.setText("Wrong input counter: 3/3");
             display("YOU LOST");
@@ -198,7 +198,7 @@ public class GameController extends Controller implements Initializable {
 
     private void switchToHome() {
         if (!restartGame) {
-            URL fxmlFileUrl = getClass().getClassLoader().getResource(homeFxml);
+            URL fxmlFileUrl = getClass().getClassLoader().getResource(HOME_FXML);
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(fxmlFileUrl);
                 Parent root = fxmlLoader.load();
@@ -225,7 +225,7 @@ public class GameController extends Controller implements Initializable {
 
         Label label1 = new Label();
         label1.setText(status);
-        Button restartButton = new Button("restart de.sudoku.Game");
+        Button restartButton = new Button("restart Game");
         restartButton.setStyle("-fx-text-fill: white; -fx-background-color: #194e70;");
 
         restartButton.setOnMouseEntered(t -> restartButton.setStyle("-fx-text-fill: white; -fx-background-color: #abdbe7;"));
@@ -244,7 +244,7 @@ public class GameController extends Controller implements Initializable {
             TimeCounter = new TimeCounter();
             TimeCounter.setIsRunning(true);
             TimeCounter.start();
-            log.info("restart de.sudoku.Game");
+            log.info("restart Game");
         });
 
         Button homeButton = new Button("Home");
@@ -290,7 +290,7 @@ public class GameController extends Controller implements Initializable {
 
     @FXML
     protected void lblBackToMenu(ActionEvent event) {
-        loadNewScene(event, homeFxml);
+        loadNewScene(event, HOME_FXML);
         TimeCounter.setIsRunning(false);
     }
 
@@ -329,7 +329,7 @@ public class GameController extends Controller implements Initializable {
                 display("YOU WON");
                 log.info("de.sudoku.Game won");
                 //Label das anzeigt wie viele Spiele schon gewonnen wurden
-                readWrite.write(1, counterUrl);
+                readWrite.write(1, COUNTER_URL);
 
             } else {
                 display("YOU LOST");

@@ -84,6 +84,10 @@ public class Board {
         log.info("New board has been set");
     }
 
+    public int[][] getBoardArray(){
+        return boardScheme;
+    }
+
     /**
      * @param row index of row
      * @param col index of column
