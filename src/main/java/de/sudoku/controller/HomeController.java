@@ -1,39 +1,38 @@
-package Controller;
+package de.sudoku.controller;
 
-import Game.ReaderWriter;
+import de.sudoku.game.ReaderWriter;
+import de.sudoku.game.Sudokus;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import Game.Sudokus;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class HomeController extends Controller implements Initializable{
+public class HomeController extends Controller implements Initializable {
 
     ReaderWriter readWrite = new ReaderWriter();
+    @FXML
+    private Label lblSolvedGames = null;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        solvedGames.setText(readWrite.read(counterUrl).size() +" games solved");
+        lblSolvedGames.setText(readWrite.read(COUNTER_URL).size() + " games solved");
     }
-
-    @FXML
-    private Label solvedGames = null;
 
     @FXML
     protected void levelPressed(ActionEvent event) {
         Button activeButton = (Button) event.getSource();
-        levelButton = activeButton;
-        Sudokus games = new Sudokus(Integer.parseInt(levelButton.getId()));
+        btnLevel = activeButton;
+        Sudokus games = new Sudokus(Integer.parseInt(btnLevel.getId()), randomNumber);
         //eigentlich nur noch eine fxml datei benötigt
-        loadNewScene(event, level);
+        loadNewScene(event, LEVEL_FXML);
     }
 
     @FXML
     protected void goBackHome(ActionEvent event) {
-        loadNewScene(event, startGame);
+        loadNewScene(event, START_GAME_FXML);
     }
 }

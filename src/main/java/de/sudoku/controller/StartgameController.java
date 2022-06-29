@@ -1,4 +1,4 @@
-package Controller;
+package de.sudoku.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,23 +10,26 @@ import javafx.stage.Stage;
  * Class handling the start-screen and user-interaction with the buttons on it.
  */
 public class StartgameController extends Controller {
-    Stage window= new Stage();
-    public Button button;
+    Stage window = new Stage();
+    //public Button button;
 
-    @FXML private javafx.scene.control.Button exit;
+    @FXML
+    private Button exit;
 
     @FXML
     protected void playPressed(ActionEvent event) {
-        loadNewScene(event, homeFxml);
+        loadNewScene(event, HOME_FXML);
     }
 
     @FXML
-    protected void exitGame(ActionEvent event){
+    protected void exitGame(ActionEvent event) {
         Node source = (Node) event.getSource();
         Stage stage = (Stage) source.getScene().getWindow();
         stage.close();
     }
 
     @FXML
-    protected void resetGame(){readWrite.removeEntries(counterUrl); }
+    protected void resetGame() {
+        readWrite.removeEntries(COUNTER_URL);
+    }
 }

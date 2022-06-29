@@ -1,4 +1,4 @@
-package Game;
+package de.sudoku.game;
 
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -6,35 +6,39 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.apache.log4j.Level;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.net.URL;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class Main extends Application{
+public class Main extends Application {
 
     private static final Logger log = LogManager.getLogger(Main.class);
-    public static Stage getMainWindow() {
-        return mainWindow;
-    }
-
     static Stage mainWindow;
-
     /**
      * Sets up starting screen of the game
+     *
      * @param primaryStage
      * @throws Exception
      */
     String startGame = "startgame.fxml";
 
+    public static Stage getMainWindow() {
+        return mainWindow;
+    }
+
+    public static void main(String[] args) {
+        launch(args); // calls start-method
+    }
+
     @Override
     public void start(Stage primaryStage) throws Exception {
 
         //log4j
-        org.apache.log4j.BasicConfigurator.configure();
-        Logger.getRootLogger().setLevel(Level.DEBUG);
+        //org.apache.log4j.BasicConfigurator.configure();
+        //Logger.getRootLogger().setLevel(Level.DEBUG);
 
         // JavaFX stuff
         URL fxmlFileUrl = getClass().getClassLoader().getResource(startGame);
@@ -49,7 +53,7 @@ public class Main extends Application{
         mainWindow = primaryStage;
         mainWindow.setTitle("Sudoku");
         mainWindow.show();
-        log.info("Scene loaded successfully");
+        log.info(LocalDateTime.now() + ": Scene loaded successfully");
 
         mainWindow.setOnCloseRequest(windowEvent -> {
             Platform.exit();
@@ -57,9 +61,5 @@ public class Main extends Application{
             log.info("Scene closed successfully");
         });
 
-    }
-
-    public static void main(String[] args) {
-        launch(args); // calls start-method
     }
 }
