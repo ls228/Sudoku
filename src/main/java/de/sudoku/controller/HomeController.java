@@ -26,7 +26,7 @@ public class HomeController extends Controller implements Initializable {
     protected void levelPressed(ActionEvent event) {
         Button activeButton = (Button) event.getSource();
         btnLevel = activeButton;
-        activeSudoku.chosenSudoku(Integer.parseInt(btnLevel.getId()), randomNumber);
+        activeSudoku.allSudokus(Integer.parseInt(btnLevel.getId()), randomNumber);
         loadNewScene(event, LEVEL_FXML);
     }
 
