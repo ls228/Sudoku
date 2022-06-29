@@ -1,12 +1,12 @@
-package Controller;
+package de.sudoku.controller;
 
-import Game.ReaderWriter;
+import de.sudoku.game.ReaderWriter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import Game.Sudokus;
+import de.sudoku.game.Sudokus;
 
 import java.net.URL;
 import java.util.ResourceBundle;

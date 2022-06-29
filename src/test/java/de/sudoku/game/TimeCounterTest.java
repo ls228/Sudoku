@@ -1,4 +1,4 @@
-package Game;
+package de.sudoku.game;
 
 import org.junit.jupiter.api.Test;
 

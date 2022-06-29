@@ -1,6 +1,4 @@
-package Game;
-import Controller.Controller;
-import org.apache.logging.log4j.core.util.Assert;
+package de.sudoku.game;
 import org.junit.jupiter.api.Assumptions;
 import org.junit.jupiter.api.Test;
 

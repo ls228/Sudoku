@@ -1,4 +1,4 @@
-package Controller;
+package de.sudoku.controller;
 
 import javafx.animation.AnimationTimer;
 import javafx.event.ActionEvent;
@@ -19,13 +19,14 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import Game.*;
+import de.sudoku.game.*;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import org.apache.log4j.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class GameController extends Controller implements Initializable {
 
@@ -194,7 +195,7 @@ public class GameController extends Controller implements Initializable {
             display("YOU LOST");
             count = 0;
             lblCounter.setText("Wrong input counter: " + count + "/3");
-            log.info("Game lost");
+            log.info("de.sudoku.Game lost");
         }
         return false;
     }
@@ -229,7 +230,7 @@ public class GameController extends Controller implements Initializable {
 
         Label label1 = new Label();
         label1.setText(status);
-        Button restartButton = new Button("restart Game");
+        Button restartButton = new Button("restart de.sudoku.Game");
         restartButton.setStyle("-fx-text-fill: white; -fx-background-color: #194e70;");
 
         restartButton.setOnMouseEntered(t -> restartButton.setStyle("-fx-text-fill: white; -fx-background-color: #abdbe7;"));
@@ -248,7 +249,7 @@ public class GameController extends Controller implements Initializable {
             TimeCounter = new TimeCounter();
             TimeCounter.setIsRunning(true);
             TimeCounter.start();
-            log.info("restart Game");
+            log.info("restart de.sudoku.Game");
         });
 
         Button homeButton = new Button("Home");
@@ -331,13 +332,13 @@ public class GameController extends Controller implements Initializable {
         if (!(finishedBoard.checkIfFinished())) {
             if (finishedBoard.checkWinning()) {
                 display("YOU WON");
-                log.info("Game won");
+                log.info("de.sudoku.Game won");
                 //Label das anzeigt wie viele Spiele schon gewonnen wurden
                 readWrite.write(1,counterUrl);
 
             } else {
                 display("YOU LOST");
-                log.info("Game lost");
+                log.info("de.sudoku.Game lost");
             }
         }
     }

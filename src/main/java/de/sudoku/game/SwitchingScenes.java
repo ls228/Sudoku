@@ -1,4 +1,4 @@
-package Game;
+package de.sudoku.game;
 
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
@@ -10,9 +10,6 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
-import java.util.Timer;
-import java.util.TimerTask;
 
 
 // diese Klasse ist nur zum Testen, wir können sie am Ende löschen

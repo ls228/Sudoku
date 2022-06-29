@@ -1,14 +1,4 @@
-package Controller;
-
-import Game.Board;
-import Game.Sudokus;
-import org.junit.jupiter.api.Assumptions;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Assumptions;
-
-import javax.swing.text.Position;
-
-import java.io.IOException;
+package de.sudoku.controller;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 /*

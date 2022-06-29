@@ -1,6 +1,4 @@
-package Game;
-import org.apache.logging.log4j.core.util.Assert;
-import org.junit.jupiter.api.Assumptions;
+package de.sudoku.game;
 import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
