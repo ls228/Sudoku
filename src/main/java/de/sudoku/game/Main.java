@@ -17,6 +17,7 @@ public class Main extends Application {
 
     private static final Logger log = LogManager.getLogger(Main.class);
     static Stage mainWindow;
+
     /**
      * Sets up starting screen of the game
      *
@@ -35,10 +36,6 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-
-        //log4j
-        //org.apache.log4j.BasicConfigurator.configure();
-        //Logger.getRootLogger().setLevel(Level.DEBUG);
 
         // JavaFX stuff
         URL fxmlFileUrl = getClass().getClassLoader().getResource(startGame);

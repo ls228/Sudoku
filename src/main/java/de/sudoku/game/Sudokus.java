@@ -11,11 +11,6 @@ public class Sudokus {
     private static Board bSolutionBoard = new Board(); // solved board (solution)
     private static Board bPuzzleBoard = new Board(); // game that has to be solved (quest)
 
-
-
-    //public static int[][] puzzleBoard = new int[Board.SIZE][Board.SIZE];
-    //public int[][] solutionBoard = new int[Board.SIZE][Board.SIZE];
-
     /**
      * This class holds the sudoku puzzles, from which one will be randomly chosen once the game is starting.
      * The Board will be filled with the numbers from that random Sudoku.s

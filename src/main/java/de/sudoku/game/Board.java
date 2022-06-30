@@ -15,14 +15,6 @@ public class Board {
     private static Board board = new Board();
     public int[][] boardScheme = new int[SIZE][SIZE];
 
-    public static int[][] unsolvedBoard = new int[Board.SIZE][Board.SIZE];
-    // TODO: Array Solved Board Array
-    // TODO: Unsolved Board Array
-    // TODO: current Board array
-
-    public Board getInstance() {
-        return board;
-    }
 
     @Override
     public String toString() {
@@ -51,20 +43,7 @@ public class Board {
         }
         return notDone;
     }
-    /*
-    //Vergleicht 2 Boards
-    public boolean equalsBoard(Board b){
 
-        for(int i = 0; i < SIZE; i++){
-            for(int j = 0; j < SIZE; j++){
-                if(this.getNumberAtIdx(i,j) == b.getNumberAtIdx(i,j));
-                else return false;
-            }
-        }
-        return true;
-    }
-
-     */
 
     /**
      * Set value at corresponding coordinates/position in Board
@@ -93,17 +72,6 @@ public class Board {
         return boardScheme;
     }
 
-    /*public Board getSolvedBoard(){
-        return setCompletedBoard();
-    }*/
-
-    // TODO: getter Solved Array
-    // TODO: getterCurrentArray
-    // TODO: getter Unsoverd Array
-
-    // TODO: setter für die 3 Arrays au no reinballern
-
-    // TODO: und dann halt überall die getter Aufrufen, statt die Variablen Variablen sollen private sein
 
     /**
      * @param row index of row

@@ -28,14 +28,15 @@ public class Controller extends FXML_Links {
     ReaderWriter readWrite = new ReaderWriter();
     Button btnLevel = new Button();
     int randomNumber = (int) (10 * Math.random());
+
     // get puzzle & solution Boards
     Sudokus activeSudoku = new Sudokus();
-    Board puzzleBoard = activeSudoku.getPuzzleBoard();
-    Board solutionBoard = activeSudoku.getSolutionBoard();
+    Board puzzleBoard,solutionBoard;
 
-
-
-
+    public Controller() {
+         puzzleBoard = activeSudoku.getPuzzleBoard();
+         solutionBoard = activeSudoku.getSolutionBoard();
+    }
     /**
      * This method generates a new scene on top of the stage by loading the given fxml file
      *

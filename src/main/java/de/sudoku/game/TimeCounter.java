@@ -14,7 +14,6 @@ public class TimeCounter extends Thread {
         count = 0;
         log.debug("Timer not running");
         while (isRunning) {
-
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {

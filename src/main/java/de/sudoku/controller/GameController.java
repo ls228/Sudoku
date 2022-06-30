@@ -47,13 +47,16 @@ public class GameController extends Controller implements Initializable {
     private Label lblTimer;
     private boolean labelAreInitialized = false;
     private boolean restartGame = true;
+
     private TimeCounter TimeCounter;
+
     AnimationTimer animationTimer = new AnimationTimer() {
         @Override
         public void handle(long now) {
             lblTimer.setText("Time passed:  " + TimeCounter.getCount() + " s");
         }
     };
+
     @FXML
     private Label lblLastSelected = null;
     @FXML
