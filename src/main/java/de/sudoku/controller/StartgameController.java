@@ -19,14 +19,14 @@ public class StartgameController extends Controller {
     }
 
     @FXML
-    protected void exitGame(ActionEvent event) {
+    protected void btnExitGame(ActionEvent event) {
         Node source = (Node) event.getSource();
         Stage stage = (Stage) source.getScene().getWindow();
         stage.close();
     }
 
     @FXML
-    protected void btnResetGame() {
+    protected void btnResetScore() {
         readWrite.removeEntries(COUNTER_URL);
     }
 }

@@ -17,6 +17,8 @@ import java.util.Objects;
 public class Main extends Application {
 
     private static final Logger log = LogManager.getLogger(Main.class);
+
+
     static Stage mainWindow;
 
     String startGame = "startgame.fxml";
@@ -53,12 +55,14 @@ public class Main extends Application {
         mainWindow = primaryStage;
         mainWindow.setTitle("Sudoku");
         mainWindow.show();
+        log.debug("Scene loaded");
         log.info(LocalDateTime.now() + ": Scene loaded successfully");
 
         mainWindow.setOnCloseRequest(windowEvent -> {
             Platform.exit();
             System.exit(0);
             log.info("Scene closed successfully");
+            log.debug("Closed scene");
         });
 
     }

@@ -37,12 +37,12 @@
             <Font size="35.0"/>
         </font>
     </Button>
-    <Button layoutX="220.0" layoutY="282.0" mnemonicParsing="false" onAction="#exitGame" prefHeight="25.0"
+    <Button layoutX="220.0" layoutY="282.0" mnemonicParsing="false" onAction="#btnExitGame" prefHeight="25.0"
             prefWidth="71.0" text="Exit game" GridPane.columnIndex="3" GridPane.rowIndex="11">
         <GridPane.margin>
             <Insets left="44.0"/>
         </GridPane.margin>
     </Button>
-    <Button layoutX="302.0" layoutY="282.0" onAction="#btnResetGame" mnemonicParsing="false" text="Reset score"/>
+    <Button layoutX="302.0" layoutY="282.0" onAction="#btnResetScore" mnemonicParsing="false" text="Reset score"/>
 
 </AnchorPane>

@@ -193,7 +193,7 @@ public class GameController extends Controller implements Initializable {
         if (count < 2) {
             count++;
             lblCounter.setText("Wrong input counter: " + count + "/3");
-            readWrite.removeEntries(COUNTER_URL);
+            //readWrite.removeEntries(COUNTER_URL);
         } else {
             lblCounter.setText("Wrong input counter: 3/3");
             display("YOU LOST");
@@ -286,7 +286,7 @@ public class GameController extends Controller implements Initializable {
     }
     
     @FXML
-    protected void lblResetGame() {
+    protected void btnResetGame() {
         if (!labelAreInitialized) {
             this.setLabels();
             labelAreInitialized = true;

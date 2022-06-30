@@ -12,7 +12,6 @@ public class TimeCounter extends Thread {
     @Override
     public void run() {
         count = 0;
-        log.debug("Timer not running");
         while (isRunning) {
             try {
                 Thread.sleep(1000);

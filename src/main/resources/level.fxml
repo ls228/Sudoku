@@ -135,7 +135,7 @@
                                 <Insets/>
                             </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" onMouseClicked="#lblResetGame" prefHeight="25.0"
+                        <Button mnemonicParsing="false" onMouseClicked="#btnResetGame" prefHeight="25.0"
                                 prefWidth="99.0" text="Reset game" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
                     </children>
                 </GridPane>
