@@ -82,7 +82,6 @@ public class Board {
         return boardScheme[row][col];
     }
 
-
     /**
      * Checks whether all inserted numbers still agree with the basic sudoku-rules.
      *

@@ -10,11 +10,8 @@ import javafx.stage.Stage;
  * Class handling the start-screen and user-interaction with the buttons on it.
  */
 public class StartgameController extends Controller {
-    Stage window = new Stage();
-    //public Button button;
 
-    @FXML
-    private Button exit;
+    Stage window = new Stage();
 
     @FXML
     protected void playPressed(ActionEvent event) {

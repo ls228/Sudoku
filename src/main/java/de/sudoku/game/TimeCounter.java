@@ -29,8 +29,8 @@ public class TimeCounter extends Thread {
         return count;
     }
 
-    public void setIsRunning(boolean isrunning) {
-        this.isRunning = isrunning;
+    public void setIsRunning(boolean isRunning) {
+        this.isRunning = isRunning;
     }
 
 }

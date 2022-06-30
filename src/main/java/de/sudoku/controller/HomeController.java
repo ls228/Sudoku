@@ -14,6 +14,7 @@ import java.util.ResourceBundle;
 public class HomeController extends Controller implements Initializable {
 
     ReaderWriter readWrite = new ReaderWriter();
+
     @FXML
     private Label lblSolvedGames = null;
 

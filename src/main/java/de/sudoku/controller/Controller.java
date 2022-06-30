@@ -19,11 +19,9 @@ import java.net.URL;
 /***
  * de.sudoku.Controller Class, parent class for the other controller-classes responsible for handling the GUI setup.
  */
-public class Controller extends FXML_Links {
+public class Controller extends Links {
 
     private static final Logger log = LogManager.getLogger(Controller.class);
-
-
 
     ReaderWriter readWrite = new ReaderWriter();
     Button btnLevel = new Button();
@@ -37,6 +35,7 @@ public class Controller extends FXML_Links {
          puzzleBoard = activeSudoku.getPuzzleBoard();
          solutionBoard = activeSudoku.getSolutionBoard();
     }
+
     /**
      * This method generates a new scene on top of the stage by loading the given fxml file
      *

@@ -5,6 +5,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -41,6 +42,7 @@ public class Main extends Application {
         URL fxmlFileUrl = getClass().getClassLoader().getResource(startGame);
         Parent root = FXMLLoader.load(Objects.requireNonNull(fxmlFileUrl));
         primaryStage.setTitle("Sudoku");
+        primaryStage.getIcons().add(new Image("img_1.png"));
         Scene myScene = new Scene(root, 600, 400);
         primaryStage.setScene(myScene);
         primaryStage.setFullScreen(false);

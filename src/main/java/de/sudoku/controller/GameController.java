@@ -33,20 +33,30 @@ import java.util.ResourceBundle;
 public class GameController extends Controller implements Initializable {
 
     private static final Logger log = LogManager.getLogger(GameController.class);
+
     public final Board finishedBoard = new Board();
     private final Background blue = new Background(new BackgroundFill(Color.CADETBLUE, null, null));
     private final Background lightblue = new Background(new BackgroundFill(Color.BEIGE, null, null));
     private final Background white = new Background(new BackgroundFill(Color.WHITE, null, null));
     private final Background pink = new Background(new BackgroundFill(Color.PINK, null, null));
+
     @FXML
     public GridPane sudokuGridPane;
-    public boolean wrongValue = false;
     @FXML
     private Label lblCounter;
     @FXML
     private Label lblTimer;
+    @FXML
+    private Label lblLastSelected = null;
+    @FXML
+    private Label lblSelected = null;
+    @FXML
+    private Button btnNumberPressed = null;
+
     private boolean labelAreInitialized = false;
     private boolean restartGame = true;
+    public boolean wrongValue = false;
+    private int count = 0;
 
     private TimeCounter TimeCounter;
 
@@ -56,14 +66,6 @@ public class GameController extends Controller implements Initializable {
             lblTimer.setText("Time passed:  " + TimeCounter.getCount() + " s");
         }
     };
-
-    @FXML
-    private Label lblLastSelected = null;
-    @FXML
-    private Label lblSelected = null;
-    @FXML
-    private Button btnNumberPressed = null;
-    private int count = 0;
 
     /**
      * Method initialize to start a new round
@@ -172,8 +174,6 @@ public class GameController extends Controller implements Initializable {
      * @param value
      * @return boolean
      */
-
-
     private boolean checkInput(int value, Position position) {
 
         int valueSolved = solutionBoard.getNumberAtIdx(position.col, position.row);
@@ -331,13 +331,14 @@ public class GameController extends Controller implements Initializable {
         if (!(finishedBoard.checkIfFinished())) {
             if (finishedBoard.checkWinning()) {
                 display("YOU WON");
-                log.info("de.sudoku.Game won");
+                log.info("Game won");
                 //Label das anzeigt wie viele Spiele schon gewonnen wurden
                 readWrite.write(1, COUNTER_URL);
 
             } else {
                 display("YOU LOST");
-                log.info("de.sudoku.Game lost");
+                log.info("Game lost");
+                log.error("Too many wrong inputs");
             }
         }
     }
