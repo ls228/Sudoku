@@ -28,12 +28,14 @@ public class Controller {
     protected static String START_GAME_FXML = "startgame.fxml";
     protected static String HOME_FXML = "home.fxml";
 
+    int randomNumber = (int) (10 * Math.random());
+    Sudokus activeSudoku = new Sudokus();
     ReaderWriter readWrite = new ReaderWriter();
     Button btnLevel = new Button();
-    int randomNumber = (int) (10 * Math.random());
+
     // get puzzle & solution Boards
-    Board puzzleBoard = Sudokus.getPuzzleBoard();
-    Board solutionBoard = Sudokus.getSolutionBoard();
+    //Board puzzleBoard = activeSudoku.getPuzzleBoard();
+    //Board solutionBoard = activeSudoku.getSolutionBoard();
 
 
     /**
