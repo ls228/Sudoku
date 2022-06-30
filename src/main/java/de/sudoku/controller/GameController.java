@@ -48,7 +48,12 @@ public class GameController extends Controller implements Initializable {
     private boolean labelAreInitialized = false;
     private boolean restartGame = true;
     private TimeCounter TimeCounter;
-
+    AnimationTimer animationTimer = new AnimationTimer() {
+        @Override
+        public void handle(long now) {
+            lblTimer.setText("Time passed:  " + TimeCounter.getCount() + " s");
+        }
+    };
     @FXML
     private Label lblLastSelected = null;
     @FXML
@@ -56,15 +61,6 @@ public class GameController extends Controller implements Initializable {
     @FXML
     private Button btnNumberPressed = null;
     private int count = 0;
-
-
-
-    AnimationTimer animationTimer = new AnimationTimer() {
-        @Override
-        public void handle(long now) {
-            lblTimer.setText("Time passed:  " + TimeCounter.getCount() + " s");
-        }
-    };
 
     /**
      * Method initialize to start a new round
@@ -102,7 +98,7 @@ public class GameController extends Controller implements Initializable {
 
                 if (label != null) {
                     Position position = getRowCol(node.getId());
-                    int valuePuzzleBoardAtIndex = activeSudoku.getPuzzleBoard().getNumberAtIdx(position.col, position.row);
+                    int valuePuzzleBoardAtIndex = puzzleBoard.getNumberAtIdx(position.col, position.row);
                     //to create labels that can be changed by user input
                     if (valuePuzzleBoardAtIndex == 0) {
                         label.setText(null);
@@ -116,7 +112,7 @@ public class GameController extends Controller implements Initializable {
                 }
             }
         }
-        finishedBoard.setCompletedBoard(activeSudoku.getPuzzleBoard().getBoardArray());
+        finishedBoard.setCompletedBoard(puzzleBoard.getBoardArray());
         log.info("\nBoard successfully set to: \n" + finishedBoard);
     }
 
@@ -175,8 +171,9 @@ public class GameController extends Controller implements Initializable {
      */
 
 
-    public boolean checkInput(int value, Position position) {
-        int valueSolved = activeSudoku.getSolutionBoard().getNumberAtIdx(position.col, position.row);
+    private boolean checkInput(int value, Position position) {
+
+        int valueSolved = solutionBoard.getNumberAtIdx(position.col, position.row);
         if (value == valueSolved) {
             lblSelected.setBackground(white);
             return true;

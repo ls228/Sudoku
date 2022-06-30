@@ -17,8 +17,6 @@ public class HomeController extends Controller implements Initializable {
     @FXML
     private Label lblSolvedGames = null;
 
-    public int currentLevel;
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         lblSolvedGames.setText(readWrite.read(COUNTER_URL).size() + " games solved");
@@ -28,9 +26,7 @@ public class HomeController extends Controller implements Initializable {
     protected void levelPressed(ActionEvent event) {
         Button activeButton = (Button) event.getSource();
         btnLevel = activeButton;
-        currentLevel = Integer.parseInt(btnLevel.getId());
-        activeSudoku.allSudokus(currentLevel, randomNumber);
-        //eigentlich nur noch eine fxml datei benötigt
+        activeSudoku.allSudokus(Integer.parseInt(btnLevel.getId()), randomNumber);
         loadNewScene(event, LEVEL_FXML);
     }
 
@@ -38,5 +34,4 @@ public class HomeController extends Controller implements Initializable {
     protected void goBackHome(ActionEvent event) {
         loadNewScene(event, START_GAME_FXML);
     }
-
 }

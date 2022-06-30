@@ -15,6 +15,11 @@ public class Board {
     private static Board board = new Board();
     public int[][] boardScheme = new int[SIZE][SIZE];
 
+    public static int[][] unsolvedBoard = new int[Board.SIZE][Board.SIZE];
+    // TODO: Array Solved Board Array
+    // TODO: Unsolved Board Array
+    // TODO: current Board array
+
     public Board getInstance() {
         return board;
     }
@@ -87,6 +92,18 @@ public class Board {
     public int[][] getBoardArray(){
         return boardScheme;
     }
+
+    /*public Board getSolvedBoard(){
+        return setCompletedBoard();
+    }*/
+
+    // TODO: getter Solved Array
+    // TODO: getterCurrentArray
+    // TODO: getter Unsoverd Array
+
+    // TODO: setter für die 3 Arrays au no reinballern
+
+    // TODO: und dann halt überall die getter Aufrufen, statt die Variablen Variablen sollen private sein
 
     /**
      * @param row index of row
