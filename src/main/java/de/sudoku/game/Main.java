@@ -18,7 +18,6 @@ public class Main extends Application {
 
     private static final Logger log = LogManager.getLogger(Main.class);
 
-
     static Stage mainWindow;
 
     String startGame = "startgame.fxml";

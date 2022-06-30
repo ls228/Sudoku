@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 public class TimeCounter extends Thread {
 
     Logger log = LogManager.getLogger(TimeCounter.class);
+
     private int count;
     private boolean isRunning;
 

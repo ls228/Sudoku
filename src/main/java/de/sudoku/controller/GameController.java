@@ -34,7 +34,7 @@ public class GameController extends Controller implements Initializable {
 
     private static final Logger log = LogManager.getLogger(GameController.class);
 
-    public final Board finishedBoard = new Board();
+    public  final Board finishedBoard = new Board();
     private final Background blue = new Background(new BackgroundFill(Color.CADETBLUE, null, null));
     private final Background lightblue = new Background(new BackgroundFill(Color.BEIGE, null, null));
     private final Background white = new Background(new BackgroundFill(Color.WHITE, null, null));
@@ -89,7 +89,6 @@ public class GameController extends Controller implements Initializable {
     /**
      * Method to load new Sudoku values in labels
      */
-
     private void startRound() {
         int size = sudokuGridPane.getChildren().size();
         Label label = null;
@@ -193,13 +192,12 @@ public class GameController extends Controller implements Initializable {
         if (count < 2) {
             count++;
             lblCounter.setText("Wrong input counter: " + count + "/3");
-            //readWrite.removeEntries(COUNTER_URL);
         } else {
             lblCounter.setText("Wrong input counter: 3/3");
             display("YOU LOST");
             count = 0;
             lblCounter.setText("Wrong input counter: " + count + "/3");
-            log.info("de.sudoku.Game lost");
+            log.info("Game lost");
         }
         return false;
     }
@@ -312,7 +310,6 @@ public class GameController extends Controller implements Initializable {
     /**
      * Button for input 1 to 9
      */
-
     @FXML
     protected void btnInput(ActionEvent event) {
 
@@ -348,8 +345,8 @@ public class GameController extends Controller implements Initializable {
 
             } else {
                 display("YOU LOST");
-                log.info("Game lost");
-                log.error("Too many wrong inputs");
+                log.debug("Game lost");
+                log.info("Too many wrong inputs");
             }
         }
     }
@@ -357,7 +354,6 @@ public class GameController extends Controller implements Initializable {
     /**
      * delete last input
      */
-
     @FXML
     protected void btnBackPressed() {
         if (this.lblSelected != null) {

@@ -10,10 +10,10 @@ import java.util.HashSet;
  */
 public class Board {
 
-    public static final int SIZE = 9; // size of square / arrays
+    public  static final int SIZE = 9; // size of square / arrays
     private static final Logger log = LogManager.getLogger(Board.class);
     private static Board board = new Board();
-    public int[][] boardScheme = new int[SIZE][SIZE];
+    public  int[][] boardScheme = new int[SIZE][SIZE];
 
 
     @Override
