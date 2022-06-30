@@ -29,6 +29,10 @@ public class Board {
         return buf.toString();
     }
 
+    /**
+     * Checks if all numbers are set and the game is completed
+     * @return done or not done
+     */
     public boolean checkIfFinished() {
         boolean notDone = true;
         for (int i = 0; i < SIZE; i++) {
@@ -68,6 +72,9 @@ public class Board {
         log.info("New board has been set");
     }
 
+    /**
+     * @return current Board as Array
+     */
     public int[][] getBoardArray(){
         return boardScheme;
     }

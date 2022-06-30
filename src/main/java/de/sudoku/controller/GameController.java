@@ -94,7 +94,7 @@ public class GameController extends Controller implements Initializable {
         int size = sudokuGridPane.getChildren().size();
         Label label = null;
         if (sudokuGridPane != null && size > 1) {
-            //for each Schleife um jedes Label zu testen
+            //for each loops to check every label
             for (Node node : sudokuGridPane.getChildren()) {
 
                 if (!(node.getClass() == Group.class)) {
@@ -137,7 +137,7 @@ public class GameController extends Controller implements Initializable {
                 label.setPrefHeight(44.0);
                 label.setPrefWidth(46.0);
                 label.setStyle("-fx-font: 24 arial;");
-                //Mouse clicked is implicitly implemented to mark the selected label mark
+                //Mouse clicked is implicitly implemented to mark the selected label
                 label.setOnMouseClicked(event -> {
                     Label label1 = (Label) event.getSource();
                     lblSelected = label1;
@@ -155,6 +155,11 @@ public class GameController extends Controller implements Initializable {
         log.info("Labels have been set successfully.");
     }
 
+    /**
+     * Method to return the row and col of a labelId
+     * @param labelId id of the selected label
+     * @return position of row and col
+     */
     public Position getRowCol(String labelId) {
         char rowChar = labelId.charAt(6);
         char colChar = labelId.charAt(8);
@@ -215,7 +220,10 @@ public class GameController extends Controller implements Initializable {
         }
     }
 
-    //to show a new window
+    /**
+     * to show a new window
+     * @param status if you won or lost
+     */
     private void display(String status) {
 
         TimeCounter.setIsRunning(false);
@@ -277,6 +285,9 @@ public class GameController extends Controller implements Initializable {
         window.show();
     }
 
+    /**
+     * Button to reset game score by using remove method in ReaderWriter
+     */
     @FXML
     protected void lblResetGame() {
         if (!labelAreInitialized) {
@@ -284,8 +295,11 @@ public class GameController extends Controller implements Initializable {
             labelAreInitialized = true;
         }
         count = 0;
+
         lblCounter.setText("Wrong input counter: " + count + "/3");
+
         startRound();
+
         TimeCounter.setIsRunning(false);
         TimeCounter = new TimeCounter();
         TimeCounter.setIsRunning(true);
@@ -293,7 +307,7 @@ public class GameController extends Controller implements Initializable {
     }
 
     @FXML
-    protected void lblBackToMenu(ActionEvent event) {
+    protected void btnBackToMenu(ActionEvent event) {
         loadNewScene(event, HOME_FXML);
         TimeCounter.setIsRunning(false);
     }
@@ -303,7 +317,7 @@ public class GameController extends Controller implements Initializable {
      */
 
     @FXML
-    protected void inputButton(ActionEvent event) {
+    protected void btnInput(ActionEvent event) {
 
         Button activeButton = (Button) event.getSource();
         btnNumberPressed = activeButton;
@@ -332,7 +346,7 @@ public class GameController extends Controller implements Initializable {
             if (finishedBoard.checkWinning()) {
                 display("YOU WON");
                 log.info("Game won");
-                //Label das anzeigt wie viele Spiele schon gewonnen wurden
+                //Label shows how many games have been solved by using writer
                 readWrite.write(1, COUNTER_URL);
 
             } else {
@@ -343,7 +357,10 @@ public class GameController extends Controller implements Initializable {
         }
     }
 
-    //delete last input
+    /**
+     * delete last input
+     */
+
     @FXML
     protected void backPressed() {
         if (this.lblSelected != null) {
@@ -358,7 +375,9 @@ public class GameController extends Controller implements Initializable {
         }
     }
 
-    //wrong input, red Background
+    /**
+     * wrong input, red Background
+     */
     @FXML
     private void wrongInput() {
         lblSelected.setBackground(pink);

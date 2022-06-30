@@ -19,13 +19,8 @@ public class Main extends Application {
     private static final Logger log = LogManager.getLogger(Main.class);
     static Stage mainWindow;
 
-    /**
-     * Sets up starting screen of the game
-     *
-     * @param primaryStage
-     * @throws Exception
-     */
     String startGame = "startgame.fxml";
+    String imgUrl="img_1.png";
 
     public static Stage getMainWindow() {
         return mainWindow;
@@ -35,6 +30,12 @@ public class Main extends Application {
         launch(args); // calls start-method
     }
 
+    /**
+     * Sets up starting screen of the game
+     *
+     * @param primaryStage
+     * @throws Exception
+     */
     @Override
     public void start(Stage primaryStage) throws Exception {
 
@@ -42,7 +43,7 @@ public class Main extends Application {
         URL fxmlFileUrl = getClass().getClassLoader().getResource(startGame);
         Parent root = FXMLLoader.load(Objects.requireNonNull(fxmlFileUrl));
         primaryStage.setTitle("Sudoku");
-        primaryStage.getIcons().add(new Image("img_1.png"));
+        primaryStage.getIcons().add(new Image(imgUrl));
         Scene myScene = new Scene(root, 600, 400);
         primaryStage.setScene(myScene);
         primaryStage.setFullScreen(false);
