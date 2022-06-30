@@ -170,7 +170,7 @@
                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                             </rowConstraints>
                             <children>
-                                <Button id="Back" mnemonicParsing="false" onAction="#backPressed" prefHeight="25.0"
+                                <Button id="Back" mnemonicParsing="false" onAction="#btnBackPressed" prefHeight="25.0"
                                         prefWidth="45.0" text="Back" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
                             </children>
                         </GridPane>

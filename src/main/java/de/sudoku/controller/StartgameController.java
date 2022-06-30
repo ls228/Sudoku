@@ -14,7 +14,7 @@ public class StartgameController extends Controller {
     Stage window = new Stage();
 
     @FXML
-    protected void playPressed(ActionEvent event) {
+    protected void btnPlayPressed(ActionEvent event) {
         loadNewScene(event, HOME_FXML);
     }
 
@@ -26,7 +26,7 @@ public class StartgameController extends Controller {
     }
 
     @FXML
-    protected void resetGame() {
+    protected void btnResetGame() {
         readWrite.removeEntries(COUNTER_URL);
     }
 }

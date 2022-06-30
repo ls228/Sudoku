@@ -284,10 +284,7 @@ public class GameController extends Controller implements Initializable {
         window.setScene(scene);
         window.show();
     }
-
-    /**
-     * Button to reset game score by using remove method in ReaderWriter
-     */
+    
     @FXML
     protected void lblResetGame() {
         if (!labelAreInitialized) {
@@ -362,7 +359,7 @@ public class GameController extends Controller implements Initializable {
      */
 
     @FXML
-    protected void backPressed() {
+    protected void btnBackPressed() {
         if (this.lblSelected != null) {
             Position position = getRowCol(lblSelected.getId());
             lblSelected.setBackground(white);

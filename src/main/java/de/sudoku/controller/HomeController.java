@@ -24,7 +24,7 @@ public class HomeController extends Controller implements Initializable {
     }
 
     @FXML
-    protected void levelPressed(ActionEvent event) {
+    protected void btnLevelPressed(ActionEvent event) {
         Button activeButton = (Button) event.getSource();
         btnLevel = activeButton;
         activeSudoku.allSudokus(Integer.parseInt(btnLevel.getId()), randomNumber);
@@ -32,7 +32,7 @@ public class HomeController extends Controller implements Initializable {
     }
 
     @FXML
-    protected void goBackHome(ActionEvent event) {
+    protected void btnGoBackHome(ActionEvent event) {
         loadNewScene(event, START_GAME_FXML);
     }
 }
