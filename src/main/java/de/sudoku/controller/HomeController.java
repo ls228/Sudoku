@@ -14,6 +14,7 @@ import java.util.ResourceBundle;
 public class HomeController extends Controller implements Initializable {
 
     ReaderWriter readWrite = new ReaderWriter();
+
     @FXML
     private Label lblSolvedGames = null;
 
@@ -23,16 +24,15 @@ public class HomeController extends Controller implements Initializable {
     }
 
     @FXML
-    protected void levelPressed(ActionEvent event) {
+    protected void btnLevelPressed(ActionEvent event) {
         Button activeButton = (Button) event.getSource();
         btnLevel = activeButton;
-        Sudokus games = new Sudokus(Integer.parseInt(btnLevel.getId()), randomNumber);
-        //eigentlich nur noch eine fxml datei benötigt
+        activeSudoku.allSudokus(Integer.parseInt(btnLevel.getId()), randomNumber);
         loadNewScene(event, LEVEL_FXML);
     }
 
     @FXML
-    protected void goBackHome(ActionEvent event) {
+    protected void btnGoBackHome(ActionEvent event) {
         loadNewScene(event, START_GAME_FXML);
     }
 }

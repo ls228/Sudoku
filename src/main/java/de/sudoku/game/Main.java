@@ -5,6 +5,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -16,14 +17,11 @@ import java.util.Objects;
 public class Main extends Application {
 
     private static final Logger log = LogManager.getLogger(Main.class);
+
     static Stage mainWindow;
-    /**
-     * Sets up starting screen of the game
-     *
-     * @param primaryStage
-     * @throws Exception
-     */
+
     String startGame = "startgame.fxml";
+    String imgUrl="img_1.png";
 
     public static Stage getMainWindow() {
         return mainWindow;
@@ -33,17 +31,20 @@ public class Main extends Application {
         launch(args); // calls start-method
     }
 
+    /**
+     * Sets up starting screen of the game
+     *
+     * @param primaryStage
+     * @throws Exception
+     */
     @Override
     public void start(Stage primaryStage) throws Exception {
-
-        //log4j
-        //org.apache.log4j.BasicConfigurator.configure();
-        //Logger.getRootLogger().setLevel(Level.DEBUG);
 
         // JavaFX stuff
         URL fxmlFileUrl = getClass().getClassLoader().getResource(startGame);
         Parent root = FXMLLoader.load(Objects.requireNonNull(fxmlFileUrl));
         primaryStage.setTitle("Sudoku");
+        primaryStage.getIcons().add(new Image(imgUrl));
         Scene myScene = new Scene(root, 600, 400);
         primaryStage.setScene(myScene);
         primaryStage.setFullScreen(false);
@@ -53,12 +54,14 @@ public class Main extends Application {
         mainWindow = primaryStage;
         mainWindow.setTitle("Sudoku");
         mainWindow.show();
+        log.debug("Scene loaded");
         log.info(LocalDateTime.now() + ": Scene loaded successfully");
 
         mainWindow.setOnCloseRequest(windowEvent -> {
             Platform.exit();
             System.exit(0);
             log.info("Scene closed successfully");
+            log.debug("Closed scene");
         });
 
     }

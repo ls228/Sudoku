@@ -7,25 +7,26 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BoardTest {
     Board testBoard = new Board();
-    Sudokus getSudoku = new Sudokus(1, 5);
+    Sudokus getSudoku = new Sudokus();
 
 
     @Test
     public void getNumberAtIdx() {
+        getSudoku.allSudokus(1, 5);
         try {
-            assertEquals(0, testBoard.getNumberAtIdx(1, 1), "is equal");
+            testBoard.setCompletedBoard(getSudoku.getSolutionBoard().getBoardArray());
         } catch (Exception e) {
             throw new RuntimeException();
-
         }
+        assertEquals(2, testBoard.getNumberAtIdx(1, 1), "is equal");
+        assertEquals(9, testBoard.getNumberAtIdx(0, 0), "is equal");
+        assertEquals(6, testBoard.getNumberAtIdx(2, 2), "is equal");
     }
 
     @Test
     void checkWinning() {
         try {
-            testBoard.setCompletedBoard(getSudoku.puzzleBoard);
-            testBoard.checkWinning();
-            System.out.println(testBoard.checkWinning());
+            testBoard.setCompletedBoard(testBoard.boardScheme);
         } catch (Exception e) {
             throw new RuntimeException();
         }
@@ -35,8 +36,7 @@ public class BoardTest {
     @Test
     void checkIfFinished() {
         try {
-            testBoard.setCompletedBoard(Sudokus.puzzleBoard);
-            testBoard.checkIfFinished();
+            testBoard.setCompletedBoard(getSudoku.getPuzzleBoard().getBoardArray());
         } catch (Exception e) {
             throw new RuntimeException();
         }
@@ -44,9 +44,9 @@ public class BoardTest {
     }
 
     @Test
-    void setValueInBrett() {
+    void setValueInBoard() {
         try {
-            testBoard.setCompletedBoard(Sudokus.puzzleBoard);
+            testBoard.setCompletedBoard(getSudoku.getSolutionBoard().getBoardArray());
             testBoard.setValueInBoard(1, 1, 1);
         } catch (Exception e) {
             throw new RuntimeException();

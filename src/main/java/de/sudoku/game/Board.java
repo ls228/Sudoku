@@ -10,14 +10,11 @@ import java.util.HashSet;
  */
 public class Board {
 
-    public static final int SIZE = 9; // size of square / arrays
+    public  static final int SIZE = 9; // size of square / arrays
     private static final Logger log = LogManager.getLogger(Board.class);
     private static Board board = new Board();
-    public int[][] boardScheme = new int[SIZE][SIZE];
+    public  int[][] boardScheme = new int[SIZE][SIZE];
 
-    public Board getInstance() {
-        return board;
-    }
 
     @Override
     public String toString() {
@@ -32,6 +29,10 @@ public class Board {
         return buf.toString();
     }
 
+    /**
+     * Checks if all numbers are set and the game is completed
+     * @return done or not done
+     */
     public boolean checkIfFinished() {
         boolean notDone = true;
         for (int i = 0; i < SIZE; i++) {
@@ -46,20 +47,7 @@ public class Board {
         }
         return notDone;
     }
-    /*
-    //Vergleicht 2 Boards
-    public boolean equalsBoard(Board b){
 
-        for(int i = 0; i < SIZE; i++){
-            for(int j = 0; j < SIZE; j++){
-                if(this.getNumberAtIdx(i,j) == b.getNumberAtIdx(i,j));
-                else return false;
-            }
-        }
-        return true;
-    }
-
-     */
 
     /**
      * Set value at corresponding coordinates/position in Board
@@ -84,9 +72,13 @@ public class Board {
         log.info("New board has been set");
     }
 
+    /**
+     * @return current Board as Array
+     */
     public int[][] getBoardArray(){
         return boardScheme;
     }
+
 
     /**
      * @param row index of row
@@ -96,7 +88,6 @@ public class Board {
     public int getNumberAtIdx(int row, int col) {
         return boardScheme[row][col];
     }
-
 
     /**
      * Checks whether all inserted numbers still agree with the basic sudoku-rules.

@@ -25,6 +25,7 @@ public class ReaderWriter {
             // count is saved in text file
             myWriter.write(gameSolved + "\n");
             myWriter.close();
+            log.debug("Score is added to file");
         } catch (IOException e) {
             log.error(e.getStackTrace() + "Error. Data not found.");
         }

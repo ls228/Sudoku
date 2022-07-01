@@ -19,22 +19,22 @@ import java.net.URL;
 /***
  * de.sudoku.Controller Class, parent class for the other controller-classes responsible for handling the GUI setup.
  */
-public class Controller {
+public class Controller extends Links {
 
     private static final Logger log = LogManager.getLogger(Controller.class);
-
-    protected static String COUNTER_URL = "src/main/resources/counter.txt";
-    protected static String LEVEL_FXML = "level.fxml";
-    protected static String START_GAME_FXML = "startgame.fxml";
-    protected static String HOME_FXML = "home.fxml";
 
     ReaderWriter readWrite = new ReaderWriter();
     Button btnLevel = new Button();
     int randomNumber = (int) (10 * Math.random());
-    // get puzzle & solution Boards
-    Board puzzleBoard = Sudokus.getPuzzleBoard();
-    Board solutionBoard = Sudokus.getSolutionBoard();
 
+    // get puzzle & solution Boards
+    Sudokus activeSudoku = new Sudokus();
+    Board puzzleBoard,solutionBoard;
+
+    public Controller() {
+         puzzleBoard = activeSudoku.getPuzzleBoard();
+         solutionBoard = activeSudoku.getSolutionBoard();
+    }
 
     /**
      * This method generates a new scene on top of the stage by loading the given fxml file

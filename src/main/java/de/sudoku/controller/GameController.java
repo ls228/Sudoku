@@ -33,34 +33,39 @@ import java.util.ResourceBundle;
 public class GameController extends Controller implements Initializable {
 
     private static final Logger log = LogManager.getLogger(GameController.class);
-    public final Board finishedBoard = new Board();
+
+    public  final Board finishedBoard = new Board();
     private final Background blue = new Background(new BackgroundFill(Color.CADETBLUE, null, null));
     private final Background lightblue = new Background(new BackgroundFill(Color.BEIGE, null, null));
     private final Background white = new Background(new BackgroundFill(Color.WHITE, null, null));
     private final Background pink = new Background(new BackgroundFill(Color.PINK, null, null));
+
     @FXML
     public GridPane sudokuGridPane;
-    public boolean wrongValue = false;
     @FXML
     private Label lblCounter;
     @FXML
     private Label lblTimer;
-    private boolean labelAreInitialized = false;
-    private boolean restartGame = true;
-    private TimeCounter TimeCounter;
-    AnimationTimer animationTimer = new AnimationTimer() {
-        @Override
-        public void handle(long now) {
-            lblTimer.setText("Time passed:  " + TimeCounter.getCount() + " s");
-        }
-    };
     @FXML
     private Label lblLastSelected = null;
     @FXML
     private Label lblSelected = null;
     @FXML
     private Button btnNumberPressed = null;
+
+    private boolean labelAreInitialized = false;
+    private boolean restartGame = true;
+    public boolean wrongValue = false;
     private int count = 0;
+
+    private TimeCounter TimeCounter;
+
+    AnimationTimer animationTimer = new AnimationTimer() {
+        @Override
+        public void handle(long now) {
+            lblTimer.setText("Time passed:  " + TimeCounter.getCount() + " s");
+        }
+    };
 
     /**
      * Method initialize to start a new round
@@ -84,12 +89,11 @@ public class GameController extends Controller implements Initializable {
     /**
      * Method to load new Sudoku values in labels
      */
-
     private void startRound() {
         int size = sudokuGridPane.getChildren().size();
         Label label = null;
         if (sudokuGridPane != null && size > 1) {
-            //for each Schleife um jedes Label zu testen
+            //for each loops to check every label
             for (Node node : sudokuGridPane.getChildren()) {
 
                 if (!(node.getClass() == Group.class)) {
@@ -112,7 +116,7 @@ public class GameController extends Controller implements Initializable {
                 }
             }
         }
-        finishedBoard.setCompletedBoard(Sudokus.puzzleBoard);
+        finishedBoard.setCompletedBoard(puzzleBoard.getBoardArray());
         log.info("\nBoard successfully set to: \n" + finishedBoard);
     }
 
@@ -132,7 +136,7 @@ public class GameController extends Controller implements Initializable {
                 label.setPrefHeight(44.0);
                 label.setPrefWidth(46.0);
                 label.setStyle("-fx-font: 24 arial;");
-                //Mouse clicked is implicitly implemented to mark the selected label mark
+                //Mouse clicked is implicitly implemented to mark the selected label
                 label.setOnMouseClicked(event -> {
                     Label label1 = (Label) event.getSource();
                     lblSelected = label1;
@@ -150,6 +154,11 @@ public class GameController extends Controller implements Initializable {
         log.info("Labels have been set successfully.");
     }
 
+    /**
+     * Method to return the row and col of a labelId
+     * @param labelId id of the selected label
+     * @return position of row and col
+     */
     public Position getRowCol(String labelId) {
         char rowChar = labelId.charAt(6);
         char colChar = labelId.charAt(8);
@@ -169,9 +178,8 @@ public class GameController extends Controller implements Initializable {
      * @param value
      * @return boolean
      */
+    private boolean checkInput(int value, Position position) {
 
-
-    public boolean checkInput(int value, Position position) {
         int valueSolved = solutionBoard.getNumberAtIdx(position.col, position.row);
         if (value == valueSolved) {
             lblSelected.setBackground(white);
@@ -184,13 +192,12 @@ public class GameController extends Controller implements Initializable {
         if (count < 2) {
             count++;
             lblCounter.setText("Wrong input counter: " + count + "/3");
-            readWrite.removeEntries(COUNTER_URL);
         } else {
             lblCounter.setText("Wrong input counter: 3/3");
             display("YOU LOST");
             count = 0;
             lblCounter.setText("Wrong input counter: " + count + "/3");
-            log.info("de.sudoku.Game lost");
+            log.info("Game lost");
         }
         return false;
     }
@@ -211,7 +218,10 @@ public class GameController extends Controller implements Initializable {
         }
     }
 
-    //to show a new window
+    /**
+     * to show a new window
+     * @param status if you won or lost
+     */
     private void display(String status) {
 
         TimeCounter.setIsRunning(false);
@@ -272,16 +282,19 @@ public class GameController extends Controller implements Initializable {
         window.setScene(scene);
         window.show();
     }
-
+    
     @FXML
-    protected void lblResetGame() {
+    protected void btnResetGame() {
         if (!labelAreInitialized) {
             this.setLabels();
             labelAreInitialized = true;
         }
         count = 0;
+
         lblCounter.setText("Wrong input counter: " + count + "/3");
+
         startRound();
+
         TimeCounter.setIsRunning(false);
         TimeCounter = new TimeCounter();
         TimeCounter.setIsRunning(true);
@@ -289,7 +302,7 @@ public class GameController extends Controller implements Initializable {
     }
 
     @FXML
-    protected void lblBackToMenu(ActionEvent event) {
+    protected void btnBackToMenu(ActionEvent event) {
         loadNewScene(event, HOME_FXML);
         TimeCounter.setIsRunning(false);
     }
@@ -297,9 +310,8 @@ public class GameController extends Controller implements Initializable {
     /**
      * Button for input 1 to 9
      */
-
     @FXML
-    protected void inputButton(ActionEvent event) {
+    protected void btnInput(ActionEvent event) {
 
         Button activeButton = (Button) event.getSource();
         btnNumberPressed = activeButton;
@@ -327,20 +339,23 @@ public class GameController extends Controller implements Initializable {
         if (!(finishedBoard.checkIfFinished())) {
             if (finishedBoard.checkWinning()) {
                 display("YOU WON");
-                log.info("de.sudoku.Game won");
-                //Label das anzeigt wie viele Spiele schon gewonnen wurden
+                log.info("Game won");
+                //Label shows how many games have been solved by using writer
                 readWrite.write(1, COUNTER_URL);
 
             } else {
                 display("YOU LOST");
-                log.info("de.sudoku.Game lost");
+                log.debug("Game lost");
+                log.info("Too many wrong inputs");
             }
         }
     }
 
-    //delete last input
+    /**
+     * delete last input
+     */
     @FXML
-    protected void backPressed() {
+    protected void btnBackPressed() {
         if (this.lblSelected != null) {
             Position position = getRowCol(lblSelected.getId());
             lblSelected.setBackground(white);
@@ -353,7 +368,9 @@ public class GameController extends Controller implements Initializable {
         }
     }
 
-    //wrong input, red Background
+    /**
+     * wrong input, red Background
+     */
     @FXML
     private void wrongInput() {
         lblSelected.setBackground(pink);

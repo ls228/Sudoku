@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 public class TimeCounter extends Thread {
 
     Logger log = LogManager.getLogger(TimeCounter.class);
+
     private int count;
     private boolean isRunning;
 
@@ -17,18 +18,19 @@ public class TimeCounter extends Thread {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
+                log.error(e.getStackTrace()+"Thread is not running");
             }
             count++;
-            //log.info("Time: " + count);
         }
+        log.debug("Timer running");
     }
 
     public int getCount() {
         return count;
     }
 
-    public void setIsRunning(boolean isrunning) {
-        this.isRunning = isrunning;
+    public void setIsRunning(boolean isRunning) {
+        this.isRunning = isRunning;
     }
 
 }
